@@ -85,6 +85,29 @@ Pull the newest image and recreate the container — your `./iframe-data` volume
 docker compose pull && docker compose up -d
 ```
 
+## Uninstall
+
+From the directory that holds your `docker-compose.yml`:
+
+```bash
+# Stop and remove the container (keeps your data)
+docker compose down
+
+# Remove your data too — database, uploads (this is irreversible)
+rm -rf ./iframe-data
+
+# Optional: remove the downloaded image
+docker image rm ghcr.io/3nc0d3d-aws/iframe-dashboard:latest
+```
+
+If you also ran the optional [login-proxy sidecar](login-proxy/), remove it with:
+
+```bash
+docker rm -f iframe-login-proxy
+```
+
+That's everything — iFrame keeps all its state in the `./iframe-data` volume and leaves nothing elsewhere on the host.
+
 ## Credits
 
 iFrame is a derivative work of **[Homarr](https://github.com/homarr-labs/homarr)** by the Homarr Labs team and contributors, used under the Apache License 2.0. Enormous thanks to them for the foundation this is built on. iFrame is an independent project and is **not affiliated with or endorsed by Homarr Labs**.
