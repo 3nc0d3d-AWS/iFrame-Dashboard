@@ -1,0 +1,27 @@
+# iFrame — self-hosted dashboard. One-command install.
+#
+#   1. cp .env.example .env   &&  edit .env to set SECRET_ENCRYPTION_KEY
+#   2. docker compose up -d
+#   3. open http://localhost:7575  and create your admin account
+#
+# Everything (web app, Redis, database migrations) runs inside the one
+# container. Your data is stored in the ./iframe-data volume.
+
+services:
+  iframe:
+    image: ghcr.io/3nc0d3d-aws/iframe-dashboard:latest
+    container_name: iframe
+    restart: unless-stopped
+    ports:
+      - "7575:7575"
+    volumes:
+      - ./iframe-data:/appdata
+    environment:
+      # REQUIRED — 64-char hex key used to encrypt stored secrets.
+      # Generate once with:  openssl rand -hex 32
+      SECRET_ENCRYPTION_KEY: ${SECRET_ENCRYPTION_KEY:?Set SECRET_ENCRYPTION_KEY in your .env (run: openssl rand -hex 32)}
+
+      # OPTIONAL — login support for embedded pages via a dedicated, isolated
+      # origin. Only set this if you serve iFrame behind a reverse proxy and
+      # have pointed a second hostname at /api/embed. See the README.
+      # EMBED_PROXY_ORIGIN: https://embed.example.com

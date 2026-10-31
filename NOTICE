@@ -1,0 +1,32 @@
+iFrame
+======
+
+This product is a derivative work based on Homarr
+(https://github.com/homarr-labs/homarr), Copyright (c) Homarr Labs and
+contributors, licensed under the Apache License, Version 2.0.
+
+Portions of this software remain Copyright (c) Homarr Labs and contributors.
+This fork is an independent project and is not affiliated with, sponsored by,
+or endorsed by Homarr Labs.
+
+You may obtain a copy of the Apache License 2.0 in the LICENSE file in this
+repository or at http://www.apache.org/licenses/LICENSE-2.0.
+
+Summary of changes made in this fork
+------------------------------------
+- Rebranded the application from "Homarr" to "iFrame" (name, logo, icons,
+  colours, metadata) while retaining the upstream credit above.
+- Added "iFrame pages": embedding a web page as a titled, collapsible board
+  section.
+- Added a login-capable reverse proxy for embedded pages (serving a site under
+  the panel's own origin so its session cookie is first-party), with an
+  optional dedicated-origin mode gated by a signed token (EMBED_PROXY_ORIGIN).
+- Added self-contained widgets (including a sports ticker and a Discord widget)
+  and quick-add presets for popular chat apps.
+- Scoped the widget picker to self-contained "web" widgets and removed the
+  external-integrations surface from the UI.
+- Removed the upstream update-checker UI and release-notice checks.
+- Removed Homarr-specific project tooling (CI workflows, issue templates, etc.).
+
+This NOTICE file is provided for attribution under section 4 of the Apache
+License 2.0.
