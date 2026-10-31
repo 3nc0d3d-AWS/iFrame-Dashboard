@@ -5,7 +5,7 @@
 </div>
 
 <p align="center">
-  <img src="screenshots/board.png" alt="The iFrame board with app tiles and widgets" width="900" />
+  <img src="screenshots/onboarding.png" alt="The iFrame board with app tiles and widgets" width="900" />
 </p>
 
 ---
@@ -26,7 +26,7 @@ It is a rebuild of the excellent [Homarr](https://github.com/homarr-labs/homarr)
 
 | Guided onboarding | Light & dark themes | Ready to go |
 | :---: | :---: | :---: |
-| <img src="screenshots/onboarding.png" alt="Onboarding welcome" /> | <img src="screenshots/onboarding-light.png" alt="Light theme" /> | <img src="screenshots/finish.png" alt="First board ready" /> |
+| <img src="screenshots/board.png" alt="Onboarding welcome" /> | <img src="screenshots/onboarding-light.png" alt="Light theme" /> | <img src="screenshots/finish.png" alt="First board ready" /> |
 
 ## Quick start (Docker)
 
