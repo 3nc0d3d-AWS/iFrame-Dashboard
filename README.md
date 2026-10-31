@@ -4,6 +4,10 @@
   <p>A clean, self-hosted dashboard for embedding the web pages and tools you use — on one drag-and-drop board.</p>
 </div>
 
+<p align="center">
+  <img src="screenshots/board.png" alt="The iFrame board with app tiles and widgets" width="900" />
+</p>
+
 ---
 
 iFrame is a self-hosted dashboard built around **embeddable “iFrame pages”** and a set of self-contained widgets. Add any site or tool as a tile, drop web pages straight onto the board, and arrange everything into collapsible sections — no accounts, no cloud, your data stays on your server.
@@ -17,6 +21,12 @@ It is a rebuild of the excellent [Homarr](https://github.com/homarr-labs/homarr)
 - **Self-contained widgets** — clock, weather, RSS, a live **sports** ticker, bookmarks, notes, a Discord widget, and more — no external integrations required.
 - **Quick-add popular apps** — Telegram, WhatsApp, Slack, Discord and friends are one click to add (they open in a new tab).
 - **Multi-user, permissions, light/dark, 30+ languages.**
+
+## Screenshots
+
+| Guided onboarding | Light & dark themes | Ready to go |
+| :---: | :---: | :---: |
+| <img src="screenshots/onboarding.png" alt="Onboarding welcome" /> | <img src="screenshots/onboarding-light.png" alt="Light theme" /> | <img src="screenshots/finish.png" alt="First board ready" /> |
 
 ## Quick start (Docker)
 
