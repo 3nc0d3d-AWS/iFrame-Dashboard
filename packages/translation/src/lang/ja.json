@@ -3372,27 +3372,6 @@
 				"noForecast": "利用可能な予測データがありません"
 			}
 		},
-		"indexerManager": {
-			"name": "インデックス・マネージャーのステータス",
-			"description": "インデクサーの状態",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "新しいタブでインデクサーサイトを開く"
-				}
-			},
-			"title": "インデクサーマネージャー",
-			"testAll": "すべてのテスト",
-			"status": {
-				"healthy": "正常",
-				"unhealthy": "異常",
-				"disabled": "無効",
-				"unknown": "ヘルスが利用できません"
-			},
-			"error": {
-				"internalServerError": "インデクサーのステータスの取得に失敗しました",
-				"testAll": "インデクサのテストに失敗しました。もう一度やり直してください。"
-			}
-		},
 		"healthMonitoring": {
 			"name": "システムヘルスモニタリング",
 			"description": "システムの健全性とステータスを示す情報を表示します。",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": ""
-			}
-		},
-		"tracearr": {
-			"description": "詳細なストリームとトランスコーディングデータによるメディアサーバーのモニタリングの強化",
-			"option": {
-				"showStreams": {
-					"label": "アクティブなストリームを表示"
-				},
-				"showStats": {
-					"label": "統計情報の概要を表示"
-				},
-				"showRecentActivity": {
-					"label": "最近のアクティビティを表示"
-				},
-				"showViolations": {
-					"label": "違反を表示"
-				}
-			},
-			"stats": {
-				"activeStreams": "アクティブなストリーム",
-				"totalUsers": "総ユーザー数",
-				"transcodes": "トランスコード",
-				"bandwidth": "帯域幅"
-			},
-			"streams": {
-				"empty": "アクティブなストリームがありません",
-				"user": "ユーザー",
-				"media": "メディア",
-				"state": "状態",
-				"quality": "品質",
-				"device": "デバイス",
-				"progress": "進捗状況",
-				"videoDecision": {
-					"directPlay": "ダイレクトプレイ",
-					"transcode": "トランスコード",
-					"directStream": "ダイレクトストリーム"
-				}
-			},
-			"recentActivity": {
-				"title": "最近のアクティビティ",
-				"empty": "最近のアクティビティなし",
-				"watched": "視聴済",
-				"partial": "一部"
-			},
-			"violations": {
-				"title": "違反",
-				"empty": "最近の違反はありません",
-				"rule": "ルール",
-				"user": "ユーザー"
-			},
-			"noSectionsEnabled": "有効なセクションがありません",
-			"error": {
-				"noIntegration": "Tracearrとの連携が設定されていません",
-				"internalServerError": "Tracearrデータの取得に失敗しました"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": ""
 			}
 		},
-		"bazarr": {
-			"description": "",
-			"episodes": "",
-			"movies": "",
-			"providers": "",
-			"status": "",
-			"announcements": "お知らせ",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "",
-					"description": ""
-				},
-				"showMissingMovies": {
-					"label": "",
-					"description": ""
-				},
-				"showProviderIssues": {
-					"label": "",
-					"description": ""
-				},
-				"showHealthIssues": {
-					"label": "",
-					"description": ""
-				}
-			},
-			"error": {
-				"internalServerError": ""
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich サーバーの統計",
 			"description": "Immich インスタンスに関する情報",
@@ -4390,170 +4286,6 @@
 				"photo": "写真 {number}"
 			}
 		},
-		"downloads": {
-			"name": "クライアントをダウンロード",
-			"description": "Torrent クライアントと Usenet クライアントの両方から、ダウンロードを表示および管理できます。",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "完了とマークされた使用済みの項目を表示"
-				},
-				"showCompletedTorrent": {
-					"label": "完了とマークされた torrent の項目を表示"
-				},
-				"showCompletedHttp": {
-					"label": "完了とマークされたその他の項目を表示"
-				},
-				"includeArchivedHistory": {
-					"label": "アーカイブされた SABnzbd 履歴を含める",
-					"description": "ジョブをアーカイブに移動しました。"
-				},
-				"historyWindowDays": {
-					"label": "アーカイブされた履歴ウィンドウ (日)",
-					"description": "SABnzbd の履歴をこの多くの日に制限します。より多くの結果を表示するには、アイテムの上限を増やします。"
-				},
-				"activeTorrentThreshold": {
-					"label": "このしきい値より低速で完了したトレントを非表示にします"
-				},
-				"categoryFilter": {
-					"label": "フィルターするカテゴリ/ラベル"
-				},
-				"filterIsWhitelist": {
-					"label": "ホワイトリストとしてフィルター"
-				},
-				"applyFilterToRatio": {
-					"label": "フィルターを使用して比率を計算する"
-				},
-				"limitPerIntegration": {
-					"label": "連携機能ごとに項目を制限",
-					"description": "これは、連携機能ごとに表示されるアイテム数を制限します。グローバルではありません"
-				}
-			},
-			"errors": {
-				"noColumns": "項目内の列を選択",
-				"noCommunications": "連携機能からデータを読み込めません",
-				"noItems": "",
-				"actionFailed": "",
-				"actionFailedMessage": ""
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "操作"
-				},
-				"added": {
-					"columnTitle": "追加日",
-					"detailsTitle": "追加された日"
-				},
-				"category": {
-					"columnTitle": "補足",
-					"detailsTitle": "カテゴリー (または追加情報)"
-				},
-				"downSpeed": {
-					"columnTitle": "DL速度",
-					"detailsTitle": "ダウンロード速度"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "クライアント内の現在のインデックス"
-				},
-				"id": {
-					"columnTitle": "Id",
-					"detailsTitle": "Id"
-				},
-				"integration": {
-					"columnTitle": "連携機能"
-				},
-				"name": {
-					"columnTitle": "ジョブ名"
-				},
-				"progress": {
-					"columnTitle": "進捗状況",
-					"detailsTitle": "ダウンロードの進捗状況"
-				},
-				"ratio": {
-					"columnTitle": "比率",
-					"detailsTitle": "Torrent ratio (受信/送信)"
-				},
-				"received": {
-					"columnTitle": "合計ダウン",
-					"detailsTitle": "総ダウンロード数"
-				},
-				"sent": {
-					"columnTitle": "合計アップ",
-					"detailsTitle": "総アップロード数"
-				},
-				"size": {
-					"columnTitle": "ファイルサイズ",
-					"detailsTitle": "選択ファイルの合計サイズ"
-				},
-				"state": {
-					"columnTitle": "状態",
-					"detailsTitle": "作業状態"
-				},
-				"time": {
-					"columnTitle": "終了時刻",
-					"detailsTitle": "完了までの時間",
-					"eta": ""
-				},
-				"type": {
-					"columnTitle": "種類",
-					"detailsTitle": "ダウンロードクライアントの種類"
-				},
-				"upSpeed": {
-					"columnTitle": "Up",
-					"detailsTitle": "アップロード速度"
-				}
-			},
-			"states": {
-				"downloading": "ダウンロード中",
-				"queued": "処理待ち",
-				"paused": "一時停止",
-				"completed": "完了",
-				"failed": "処理失敗",
-				"processing": "処理中",
-				"leeching": "リーチ中",
-				"stalled": "停止中",
-				"unknown": "不明",
-				"seeding": "シード中"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "ダウンロードクライアントの種類",
-					"pause": "すべてのクライアント／アイテムを一時停止する",
-					"resume": "すべてのクライアント／アイテムを再開する"
-				},
-				"client": {
-					"pause": "クライアントを一時停止する",
-					"resume": "クライアントを再開する"
-				},
-				"item": {
-					"pause": "アイテムを一時停止する",
-					"resume": "アイテムを再開する",
-					"delete": {
-						"title": "アイテムを削除する",
-						"modalTitle": "本当にこのジョブを削除しますか？",
-						"entry": "エントリーを削除する",
-						"entryAndFiles": "エントリとファイルを削除する"
-					}
-				}
-			},
-			"globalRatio": "グローバル比",
-			"contextMenu": {
-				"copyName": "",
-				"copyId": "",
-				"clearFilters": ""
-			},
-			"footer": {
-				"filter": ""
-			},
-			"stats": {
-				"show": "",
-				"hide": "",
-				"overallProgress": "",
-				"totalSize": "",
-				"clients": ""
-			},
-			"disconnected": ""
-		},
 		"mediaReleases": {
 			"name": "メディアリリース",
 			"description": "異なる連係機能から、新しく追加されたメディアまたは今後のリリースを表示する",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} 分"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "メディアリクエストリスト",
-			"description": "Overseerr または Jellyseerr からの全てのメディアリクエストのリストを見る",
-			"empty": {
-				"title": "メディアリクエストはまだありません",
-				"description": "リクエストを開始するには、ムービーまたはショーを検索します。"
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "リンクを新しいタブで開く"
-				},
-				"statusFilter": {
-					"label": ""
-				},
-				"recentDays": {
-					"label": ""
-				}
-			},
-			"pending": {
-				"approve": "リクエストを承認",
-				"approving": "リクエスト承認中…",
-				"decline": "リクエストを拒否"
-			},
-			"availability": {
-				"unknown": "不明",
-				"pending": "保留中",
-				"processing": "処理中",
-				"requested": "要求済み",
-				"partiallyAvailable": "一部",
-				"available": "利用可能",
-				"blacklisted": "ブラックリスト",
-				"deleted": "削除済"
-			},
-			"status": {
-				"pending": "保留中",
-				"approved": "承認済",
-				"declined": "拒否済",
-				"failed": "失敗",
-				"completed": "完了"
-			},
-			"unknown": "不明",
-			"toBeDetermined": "未確定"
-		},
-		"mediaRequests-requestStats": {
-			"name": "メディアリクエストの統計",
-			"description": "メディアリクエストに関する統計",
-			"empty": {
-				"title": "まだリクエストアクティビティがありません",
-				"description": "統計は最初のメディアリクエストの後に表示されます。"
-			},
-			"titles": {
-				"stats": {
-					"main": "メディア統計",
-					"approved": "すでに承認済み",
-					"pending": "承認待ち",
-					"processing": "処理中",
-					"declined": "拒否済みです",
-					"available": "利用可能",
-					"tv": "テレビのリクエスト",
-					"movie": "映画のリクエスト"
-				},
-				"users": {
-					"main": "トップユーザー",
-					"requests": "リクエスト"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "ヘルスチェック"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "",
-			"description": "{radarr}、 {sonarr} 、 {bindery} の欠落とキューに入れられた映画、エピソード、本を表示します",
-			"option": {
-				"showMissing": {
-					"label": ""
-				},
-				"showQueued": {
-					"label": ""
-				},
-				"pageSize": {
-					"label": ""
-				}
-			},
-			"tab": {
-				"missing": "",
-				"queued": ""
-			},
-			"type": {
-				"movie": "",
-				"episode": "",
-				"book": "本"
-			},
-			"empty": {
-				"missing": "",
-				"queued": "",
-				"noTabsEnabled": ""
-			},
-			"timeLeft": ""
 		},
 		"rssFeed": {
 			"name": "RSS フィード",
@@ -8093,11 +7728,6 @@
 				"label": "ウェブ",
 				"placeholder": "外部検索エンジンで検索"
 			},
-			"media": {
-				"label": "メディア",
-				"placeholder": "ムービーまたはショーを検索",
-				"fallback": "\"{query}\" のメディアを検索"
-			},
 			"userGroup": {
 				"label": "人",
 				"placeholder": "ユーザーとグループを検索"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "",
-				"requestMovie": "ムービーをリクエスト",
-				"requestSeries": "シリーズをリクエスト",
-				"openIn": "{kind} で 開く",
-				"group": {
-					"title": ""
-				},
-				"action": {
-					"search": {
-						"label": "",
-						"description": "",
-						"disabled": {
-							"noIntegration": "",
-							"signInRequired": "メディアリクエストの統合を検索するにはサインインしてください。",
-							"scoped": ""
-						}
-					}
-				},
-				"availability": {
-					"available": "",
-					"partiallyAvailable": "",
-					"processing": "",
-					"requested": "",
-					"pending": ""
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "検索エンジンは削除されていません",
 							"message": "検索エンジンを削除できませんでした"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "リクエスト \"{name}\"",
-						"table": {
-							"header": {
-								"season": "シーズン",
-								"episodes": "エピソード",
-								"status": ""
-							},
-							"status": {
-								"requested": ""
-							}
-						},
-						"button": {
-							"send": "リクエストを送信"
 						}
 					}
 				}

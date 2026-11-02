@@ -529,8 +529,8 @@ describe("getManageOverview", () => {
     });
     await db.insert(apps).values({
       id: appId,
-      name: "Sonarr",
-      iconUrl: "https://example.com/sonarr.svg",
+      name: "Jellyfin",
+      iconUrl: "https://example.com/jellyfin.svg",
     });
     await db.insert(items).values({
       id: appItemId,
@@ -554,7 +554,7 @@ describe("getManageOverview", () => {
       expect.objectContaining({
         id: appItemId,
         kind: "app",
-        iconUrl: "https://example.com/sonarr.svg",
+        iconUrl: "https://example.com/jellyfin.svg",
       }),
     ]);
   });

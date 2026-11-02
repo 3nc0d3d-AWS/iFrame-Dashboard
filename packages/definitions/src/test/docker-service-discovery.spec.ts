@@ -4,13 +4,13 @@ import { buildDockerServiceUrlCandidates, matchDockerService } from "../docker-s
 
 describe("matchDockerService", () => {
   test("reports image matches with high confidence and name fallbacks with medium confidence", () => {
-    expect(matchDockerService({ image: "linuxserver/sonarr:latest", name: "media" })).toEqual({
-      kind: "sonarr",
+    expect(matchDockerService({ image: "linuxserver/jellyfin:latest", name: "media" })).toEqual({
+      kind: "jellyfin",
       confidence: "high",
       source: "image",
     });
-    expect(matchDockerService({ image: "custom/media:latest", name: "sonarr" })).toEqual({
-      kind: "sonarr",
+    expect(matchDockerService({ image: "custom/media:latest", name: "jellyfin" })).toEqual({
+      kind: "jellyfin",
       confidence: "medium",
       source: "name",
     });
@@ -20,7 +20,7 @@ describe("matchDockerService", () => {
 describe("buildDockerServiceUrlCandidates", () => {
   test("never emits wildcard or socket-path browser URLs", () => {
     const candidates = buildDockerServiceUrlCandidates({
-      containerName: "sonarr",
+      containerName: "jellyfin",
       endpointHost: "/var/run/docker.sock",
       preferredPort: 8989,
       ports: [{ IP: "0.0.0.0", PrivatePort: 8989, PublicPort: 8989, Type: "tcp" }],
@@ -29,7 +29,7 @@ describe("buildDockerServiceUrlCandidates", () => {
     expect(candidates.map(({ url }) => url)).not.toContain("http://0.0.0.0:8989");
     expect(candidates.map(({ url }) => url)).not.toContain("http:///var/run/docker.sock:8989");
     expect(candidates[0]).toMatchObject({
-      url: "http://sonarr:8989",
+      url: "http://jellyfin:8989",
       scopes: ["server"],
       reason: "sharedContainerNetwork",
     });
@@ -38,7 +38,7 @@ describe("buildDockerServiceUrlCandidates", () => {
 
   test("uses a remote Docker endpoint hostname for wildcard published ports", () => {
     const candidates = buildDockerServiceUrlCandidates({
-      containerName: "sonarr",
+      containerName: "jellyfin",
       endpointHost: "docker.example.test:2375",
       preferredPort: 8989,
       ports: [{ IP: "0.0.0.0", PrivatePort: 8989, PublicPort: 8989, Type: "tcp" }],
@@ -55,7 +55,7 @@ describe("buildDockerServiceUrlCandidates", () => {
     "does not advertise loopback address %s to browsers",
     (address) => {
       const candidates = buildDockerServiceUrlCandidates({
-        containerName: "sonarr",
+        containerName: "jellyfin",
         endpointHost: "socket",
         preferredPort: 8989,
         ports: [{ IP: address, PrivatePort: 8989, PublicPort: 8989, Type: "tcp" }],
@@ -68,7 +68,7 @@ describe("buildDockerServiceUrlCandidates", () => {
 
   test("does not use a loopback Docker endpoint as a browser URL", () => {
     const candidates = buildDockerServiceUrlCandidates({
-      containerName: "sonarr",
+      containerName: "jellyfin",
       endpointHost: "[::1]:2375",
       preferredPort: 8989,
       ports: [{ IP: "0.0.0.0", PrivatePort: 8989, PublicPort: 8989, Type: "tcp" }],
@@ -81,7 +81,7 @@ describe("buildDockerServiceUrlCandidates", () => {
     "rejects a scheme-bearing endpoint host %s as a browser URL",
     (endpointHost) => {
       const candidates = buildDockerServiceUrlCandidates({
-        containerName: "sonarr",
+        containerName: "jellyfin",
         endpointHost,
         preferredPort: 8989,
         ports: [{ IP: "0.0.0.0", PrivatePort: 8989, PublicPort: 8989, Type: "tcp" }],

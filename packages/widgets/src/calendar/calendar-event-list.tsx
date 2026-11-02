@@ -168,7 +168,7 @@ const CalendarEventRows = ({
                   </Badge>
                 )}
               </Stack>
-              {event.metadata?.type === "radarr" && (
+              {event.metadata?.type === "mediaRelease" && (
                 <Group wrap="nowrap">
                   <Text c="dimmed" size="sm">
                     {t(`option.releaseType.options.${event.metadata.releaseType}`)}

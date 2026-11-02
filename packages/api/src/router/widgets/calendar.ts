@@ -1,6 +1,6 @@
 import { z } from "zod/v4";
 
-import { radarrReleaseTypes } from "@homarr/integrations/types";
+import { mediaReleaseTypes } from "@homarr/integrations/types";
 import { calendarMonthRequestHandler } from "@homarr/request-handler/calendar";
 
 import { createManyWidgetIntegrationMiddleware } from "../../middlewares/integration";
@@ -20,7 +20,7 @@ export const calendarRouter = createTRPCRouter({
       z.object({
         year: z.number().int().min(1970).max(9999),
         month: z.number().int().min(1).max(12),
-        releaseType: z.array(z.enum(radarrReleaseTypes)),
+        releaseType: z.array(z.enum(mediaReleaseTypes)),
         showUnmonitored: z.boolean(),
       }),
     )
@@ -33,7 +33,7 @@ export const calendarRouter = createTRPCRouter({
           const innerHandler = calendarMonthRequestHandler.handler(integration, handlerInput);
           const { data } = await innerHandler.getDataAsync();
           const events = data.filter(
-            (event) => event.metadata?.type !== "radarr" || input.releaseType.includes(event.metadata.releaseType),
+            (event) => event.metadata?.type !== "mediaRelease" || input.releaseType.includes(event.metadata.releaseType),
           );
 
           return {

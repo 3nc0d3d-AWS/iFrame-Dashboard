@@ -2,7 +2,6 @@ interface AssistantBrowserToolDependencies {
   getOrigin: () => string;
   navigate: (path: string) => void;
   openCommandMenu: () => void;
-  openMediaRequestSearch: () => void;
   refreshCurrentView: () => Promise<void>;
 }
 
@@ -19,7 +18,6 @@ export const createAssistantBrowserToolExecutors = ({
   getOrigin,
   navigate,
   openCommandMenu,
-  openMediaRequestSearch,
   refreshCurrentView,
 }: AssistantBrowserToolDependencies) => ({
   navigate_to_route: async ({ path }: { path: string }) => {
@@ -33,10 +31,6 @@ export const createAssistantBrowserToolExecutors = ({
   },
   open_command_menu: async () => {
     openCommandMenu();
-    return { success: true as const };
-  },
-  open_media_request_search: async () => {
-    openMediaRequestSearch();
     return { success: true as const };
   },
   refresh_current_view: async () => {

@@ -891,7 +891,7 @@ const Essentials = (props: StudioSectionProps) => {
           required
         />
         {props.serverOrigin ? (
-          <Code block>{buildIntegrationUrl("sonarr", props.serverOrigin, props.urlMode)}</Code>
+          <Code block>{buildIntegrationUrl("jellyfin", props.serverOrigin, props.urlMode)}</Code>
         ) : null}
       </Stack>
 

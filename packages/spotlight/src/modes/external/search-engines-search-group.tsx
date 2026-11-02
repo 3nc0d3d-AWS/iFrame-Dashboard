@@ -1,12 +1,8 @@
 import { Group, Image, Kbd, Stack, Text } from "@mantine/core";
-import { IconDownload, IconSearch } from "@tabler/icons-react";
+import { IconSearch } from "@tabler/icons-react";
 
 import type { RouterOutputs } from "@homarr/api";
 import { clientApi } from "@homarr/api/client";
-import type { IntegrationKind } from "@homarr/definitions";
-import { getIntegrationKindsByCategory, getIntegrationName } from "@homarr/definitions";
-import { useModalAction } from "@homarr/modals";
-import { RequestMediaModal } from "@homarr/modals-collection";
 import { useSettings } from "@homarr/settings";
 import { useI18n } from "@homarr/translation/client";
 
@@ -19,8 +15,6 @@ import { useRemoteQuery } from "../../lib/remote-query";
 
 type SearchEngine = RouterOutputs["searchEngine"]["catalog"][number];
 type FromIntegrationSearchResult = RouterOutputs["integration"]["searchInIntegration"][number];
-// Only the media request integrations (Overseerr, Jellyseerr, Seerr) send a media type with their results.
-type MediaSearchResult = Extract<FromIntegrationSearchResult, { type: unknown }>;
 type DuckDuckGoBang = RouterOutputs["bangs"]["search"][number];
 
 type ExternalOption =
@@ -51,58 +45,10 @@ type ExternalOption =
       bang: DuckDuckGoBang;
     };
 
-// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
-type MediaRequestChildrenProps = {
-  result: {
-    id: number;
-    image?: string;
-    name: string;
-    link: string;
-    text?: string;
-    type: "tv" | "movie";
-    inLibrary: boolean;
-  };
-  integration: {
-    kind: IntegrationKind;
-    url: string;
-    id: string;
-    permissions?: {
-      hasInteractAccess: boolean;
-    };
-  };
-};
-
-export const useMediaRequestSearchInteraction = (
-  integration: MediaRequestChildrenProps["integration"],
-  searchResult: MediaSearchResult,
-): inferSearchInteractionDefinition<"link" | "children"> => {
-  const { openSearchInNewTab } = useSettings();
-
-  const type = searchResult.type;
-  if (type === "person") {
-    return {
-      type: "link",
-      href: searchResult.link,
-      newTab: openSearchInNewTab,
-    };
-  }
-
-  return {
-    type: "children",
-    ...mediaRequestsChildrenOptions({
-      result: {
-        ...searchResult,
-        type,
-      },
-      integration,
-    }),
-  };
-};
-
 export const useFromIntegrationSearchInteraction = (
   searchEngine: SearchEngine,
   searchResult: FromIntegrationSearchResult,
-): inferSearchInteractionDefinition<"link" | "javaScript" | "children"> => {
+): inferSearchInteractionDefinition<"link"> => {
   if (searchEngine.type !== "fromIntegration") {
     throw new Error("Invalid search engine type");
   }
@@ -111,100 +57,12 @@ export const useFromIntegrationSearchInteraction = (
     throw new Error("Invalid search engine integration");
   }
 
-  if (
-    getIntegrationKindsByCategory("mediaRequest").some(
-      (categoryKind) => categoryKind === searchEngine.integration?.kind,
-    ) &&
-    "type" in searchResult
-  ) {
-    return useMediaRequestSearchInteraction(searchEngine.integration, searchResult);
-  }
-
   return {
     type: "link",
     href: searchResult.link,
     newTab: true,
   };
 };
-
-export const mediaRequestsChildrenOptions = createChildrenOptions<MediaRequestChildrenProps>({
-  useActions() {
-    const { openModal } = useModalAction(RequestMediaModal);
-    return [
-      {
-        key: "request",
-        hide: (option) =>
-          (option.result.type === "movie" && option.result.inLibrary) ||
-          option.integration.permissions?.hasInteractAccess === false,
-        Component(option) {
-          const t = useI18n("search.mode.media");
-          return (
-            <Group mx="md" my="sm" wrap="nowrap">
-              <IconDownload stroke={1.5} />
-              {option.result.type === "tv" && <Text>{t("requestSeries")}</Text>}
-              {option.result.type === "movie" && <Text>{t("requestMovie")}</Text>}
-            </Group>
-          );
-        },
-        useInteraction: interaction.javaScript((option) => ({
-          onSelect() {
-            openModal(
-              {
-                integrationId: option.integration.id,
-                mediaId: option.result.id,
-                mediaType: option.result.type,
-              },
-              {
-                title(t) {
-                  return t("search.engine.media.request.modal.title", { name: option.result.name });
-                },
-              },
-            );
-          },
-        })),
-      },
-      {
-        key: "open",
-        Component({ integration }) {
-          const tChildren = useI18n("search.mode.media");
-          return (
-            <Group mx="md" my="sm" wrap="nowrap">
-              <IconSearch stroke={1.5} />
-              <Text>{tChildren("openIn", { kind: getIntegrationName(integration.kind) })}</Text>
-            </Group>
-          );
-        },
-        useInteraction({ result }) {
-          const { openSearchInNewTab } = useSettings();
-          return {
-            type: "link",
-            href: result.link,
-            newTab: openSearchInNewTab,
-          };
-        },
-      },
-    ];
-  },
-  DetailComponent({ options }) {
-    return (
-      <Group mx="md" my="sm" wrap="nowrap">
-        {options.result.image ? (
-          <Image src={options.result.image} alt="" w={35} h={50} fit="cover" radius={"md"} />
-        ) : (
-          <IconSearch stroke={1.5} size={35} />
-        )}
-        <Stack gap={2}>
-          <Text>{options.result.name}</Text>
-          {options.result.text && (
-            <Text c="dimmed" size="sm" lineClamp={2}>
-              {options.result.text}
-            </Text>
-          )}
-        </Stack>
-      </Group>
-    );
-  },
-});
 
 export const searchEnginesChildrenOptions = createChildrenOptions<SearchEngine>({
   useActions: (searchEngine, query) => {

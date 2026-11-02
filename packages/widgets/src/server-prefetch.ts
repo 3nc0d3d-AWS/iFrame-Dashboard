@@ -5,14 +5,13 @@ import type { FetchQueryOptions, QueryClient, QueryKey } from "@tanstack/react-q
 import type { RouterInputs, RouterOutputs } from "@homarr/api";
 import { api, trpc } from "@homarr/api/server";
 import { beszelTimePeriodSchema, defaultBeszelTimePeriod } from "@homarr/definitions/beszel";
-import { radarrReleaseTypes } from "@homarr/integrations/types";
+import { mediaReleaseTypes } from "@homarr/integrations/types";
 
 import {
   createBeszelSystemChoices,
   resolveBeszelSystemChoice,
   resolveStoredBeszelQuerySelection,
 } from "./beszel-system-stats/selection";
-import { resolveDownloadsQueryInput } from "./downloads/query-input";
 import { ALL_PHOTOS_ALBUM_ID } from "./immich/album-carousel/constants";
 
 const prefetchQuery = <TQueryFnData, TError, TData, TQueryKey extends QueryKey>(
@@ -40,7 +39,6 @@ const prefetchQuery = <TQueryFnData, TError, TData, TQueryKey extends QueryKey>(
 type Board = RouterOutputs["board"]["getHomeBoard"];
 type Item = Board["items"][number];
 type BeszelStatsInput = RouterInputs["widget"]["beszel"]["getSystemStats"];
-const mediaRequestStatuses = ["pending", "approved", "declined", "failed", "completed"] as const;
 
 const isInitiallyVisible = (board: Board, item: Item, layoutId: string) => {
   const layout = item.layouts.find((candidate) => candidate.layoutId === layoutId);
@@ -154,17 +152,6 @@ export const prefetchInitialWidgetData = (
           if (discovery) dependentQueries.push(discovery);
         }
         break;
-      case "downloads":
-        if (integrationIds.length)
-          prefetchQuery(
-            queryClient,
-            trpc.widget.downloads.getJobsAndStatuses.queryOptions(resolveDownloadsQueryInput(integrationIds, options)),
-          );
-        break;
-      case "indexerManager":
-        if (integrationIds.length)
-          prefetchQuery(queryClient, trpc.widget.indexerManager.getIndexersStatus.queryOptions({ integrationIds }));
-        break;
       case "mediaReleases":
         if (integrationIds.length)
           prefetchQuery(queryClient, trpc.widget.mediaRelease.getMediaReleases.queryOptions({ integrationIds }));
@@ -179,27 +166,6 @@ export const prefetchInitialWidgetData = (
             }),
           );
         break;
-      case "mediaRequests-requestList": {
-        if (!integrationIds.length) break;
-        let statuses: RouterInputs["widget"]["mediaRequests"]["getLatestRequests"]["statuses"] = [
-          ...mediaRequestStatuses,
-        ];
-        if (Array.isArray(options.statusFilter) && options.statusFilter.length > 0) {
-          statuses = options.statusFilter.filter((value): value is (typeof mediaRequestStatuses)[number] =>
-            mediaRequestStatuses.some((status) => status === value),
-          );
-          if (statuses.length !== options.statusFilter.length) break;
-        }
-        prefetchQuery(
-          queryClient,
-          trpc.widget.mediaRequests.getLatestRequests.queryOptions({
-            integrationIds,
-            statuses,
-            recentDays: Number(options.recentDays ?? 0),
-          }),
-        );
-        break;
-      }
       case "immich-serverStats":
         if (integrationIds[0])
           prefetchQuery(
@@ -273,8 +239,8 @@ export const prefetchInitialWidgetData = (
           "digitalRelease",
         ];
         if (Array.isArray(options.releaseType)) {
-          releaseType = options.releaseType.filter((value): value is (typeof radarrReleaseTypes)[number] =>
-            radarrReleaseTypes.some((type) => type === value),
+          releaseType = options.releaseType.filter((value): value is (typeof mediaReleaseTypes)[number] =>
+            mediaReleaseTypes.some((type) => type === value),
           );
           if (releaseType.length !== options.releaseType.length) break;
         }

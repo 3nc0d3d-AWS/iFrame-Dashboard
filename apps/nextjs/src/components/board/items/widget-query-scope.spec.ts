@@ -43,25 +43,6 @@ describe("matchesWidgetItemQuery", () => {
     );
   });
 
-  test("owns only the active compact or advanced Media Missing page size", () => {
-    const path = ["widget", "mediaOrganizer", "getData"];
-    const compactInput = { integrationIds: ["radarr-1"], pageSize: 20 };
-    const advancedInput = { integrationIds: ["radarr-1"], pageSize: 50 };
-    const compactScope = createScope({
-      integrationIds: ["radarr-1"],
-      runtimeQueries: [{ path, input: compactInput }],
-    });
-    const advancedScope = createScope({
-      integrationIds: ["radarr-1"],
-      runtimeQueries: [{ path, input: advancedInput }],
-    });
-
-    expect(matches("mediaMissing", path, compactInput, compactScope)).toBe(true);
-    expect(matches("mediaMissing", path, advancedInput, compactScope)).toBe(false);
-    expect(matches("mediaMissing", path, advancedInput, advancedScope)).toBe(true);
-    expect(matches("mediaMissing", path, compactInput, advancedScope)).toBe(false);
-  });
-
   test("owns every Releases batch by item id", () => {
     const scope = createScope({ itemId: "release-item" });
     const path = ["widget", "releases", "getLatest"];
@@ -253,47 +234,6 @@ describe("matchesWidgetItemQuery", () => {
     expect(matches("umami", topPagesQuery.path, topPagesQuery.input, advancedScope)).toBe(true);
   });
 
-  test("maps Media Request status filters and separates list from stats", () => {
-    const listScope = createScope({
-      integrationIds: ["request-1"],
-      options: { statusFilter: [], recentDays: 30, linksTargetNewTab: true },
-    });
-    const allStatuses = ["pending", "approved", "declined", "failed", "completed"];
-
-    expect(
-      matches(
-        "mediaRequests-requestList",
-        ["widget", "mediaRequests", "getLatestRequests"],
-        { integrationIds: ["request-1"], statuses: allStatuses, recentDays: 30 },
-        listScope,
-      ),
-    ).toBe(true);
-    expect(
-      matches(
-        "mediaRequests-requestList",
-        ["widget", "mediaRequests", "getLatestRequests"],
-        { integrationIds: ["request-1"], statuses: ["pending"], recentDays: 30 },
-        listScope,
-      ),
-    ).toBe(false);
-    expect(
-      matches(
-        "mediaRequests-requestList",
-        ["widget", "mediaRequests", "getStats"],
-        { integrationIds: ["request-1"] },
-        listScope,
-      ),
-    ).toBe(false);
-    expect(
-      matches(
-        "mediaRequests-requestStats",
-        ["widget", "mediaRequests", "getStats"],
-        { integrationIds: ["request-1"] },
-        listScope,
-      ),
-    ).toBe(true);
-  });
-
   test("separates Audio Stats stream details from Media Server filters", () => {
     const statsQuery: NormalizedWidgetQuery = {
       path: ["widget", "audioStats", "getStats"],
@@ -355,25 +295,6 @@ describe("matchesWidgetItemQuery", () => {
     expect(matches("mediaTranscoding", path, firstPage, firstScope)).toBe(true);
     expect(matches("mediaTranscoding", path, secondPage, firstScope)).toBe(false);
     expect(matches("mediaTranscoding", path, secondPage, secondScope)).toBe(true);
-  });
-
-  test("matches only the Downloads query with the current integrations and limit", () => {
-    const scope = createScope({
-      integrationIds: ["sabnzbd-1", "qbittorrent-1"],
-      options: { limitPerIntegration: 25 },
-    });
-    const path = ["widget", "downloads", "getJobsAndStatuses"];
-
-    expect(
-      matches("downloads", path, { integrationIds: ["sabnzbd-1", "qbittorrent-1"], limitPerIntegration: 25 }, scope),
-    ).toBe(true);
-    expect(matches("downloads", path, { integrationIds: ["sabnzbd-1"], limitPerIntegration: 25 }, scope)).toBe(false);
-    expect(
-      matches("downloads", path, { integrationIds: ["sabnzbd-1", "qbittorrent-1"], limitPerIntegration: 50 }, scope),
-    ).toBe(false);
-    expect(
-      matches("downloads", ["widget", "downloads", "pause"], { integrationIds: ["sabnzbd-1", "qbittorrent-1"] }, scope),
-    ).toBe(false);
   });
 
   test("matches only the active Stock Price symbol and time frame", () => {

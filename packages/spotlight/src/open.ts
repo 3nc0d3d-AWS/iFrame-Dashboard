@@ -1,7 +1,6 @@
 "use client";
 
 export const spotlightOpenEvent = "homarr:spotlight:open";
-export const mediaRequestSearchEvent = "homarr:spotlight:media-request-search";
 
 export type SpotlightMode =
   | "search"
@@ -10,7 +9,6 @@ export type SpotlightMode =
   | "preferences"
   | "assistant"
   | "external"
-  | "media"
   | "userGroup";
 
 export interface OpenSpotlightOptions {
@@ -23,12 +21,6 @@ export interface SpotlightOpenIntent {
   query?: string;
 }
 
-export interface OpenMediaRequestSearchOptions {
-  integrationIds?: string[];
-  query?: string;
-}
-
-let pendingMediaRequestSearch: OpenMediaRequestSearchOptions | null = null;
 let pendingSpotlightOpen: SpotlightOpenIntent | null = null;
 
 const requestSpotlightMount = (intent: SpotlightOpenIntent) => {
@@ -43,7 +35,6 @@ export const openSpotlight = (options: OpenSpotlightOptions = {}) => {
   };
   if (options.query !== undefined) intent.query = options.query;
 
-  if (intent.mode !== "media") pendingMediaRequestSearch = null;
   pendingSpotlightOpen = intent;
   requestSpotlightMount(intent);
 };
@@ -55,18 +46,3 @@ export const consumePendingSpotlightOpen = () => {
 };
 
 export const hasPendingSpotlightOpen = () => pendingSpotlightOpen !== null;
-
-export const consumePendingMediaRequestSearch = () => {
-  const pending = pendingMediaRequestSearch;
-  pendingMediaRequestSearch = null;
-  return pending;
-};
-
-export const openMediaRequestSearch = (options: OpenMediaRequestSearchOptions = {}) => {
-  pendingMediaRequestSearch = options;
-  openSpotlight({ mode: "media", query: options.query });
-
-  if (typeof window !== "undefined") {
-    window.dispatchEvent(new CustomEvent<OpenMediaRequestSearchOptions>(mediaRequestSearchEvent, { detail: options }));
-  }
-};

@@ -46,40 +46,6 @@ export interface IntegrationGridItem {
   widgets: WidgetKind[];
 }
 
-// Integrations hidden from every picker to keep the product clean and whitelabel:
-// the *arr automation suite, torrent/usenet/P2P download clients, indexers and
-// media-request tools (piracy-adjacent), plus NSFW / IPTV-proxy / ROM / media-ripping
-// apps. Legitimate self-hosting stays (NAS, smart home, DNS, monitoring, media servers,
-// photos, documents, networking, etc.).
-export const blockedIntegrationKinds = new Set<IntegrationKind>([
-  "autobrr",
-  "sabNzbd",
-  "nzbGet",
-  "deluge",
-  "transmission",
-  "qBittorrent",
-  "aria2",
-  "slskd",
-  "jackett",
-  "prowlarr",
-  "sonarr",
-  "sportarr",
-  "radarr",
-  "lidarr",
-  "readarr",
-  "bindery",
-  "bazarr",
-  "jellyseerr",
-  "seerr",
-  "overseerr",
-  "tracearr",
-  "maintainerr",
-  "stash",
-  "xteve",
-  "romm",
-  "tubearchivist",
-]);
-
 export const buildSortedIntegrations = (
   options: {
     enableMockIntegration?: boolean;
@@ -89,7 +55,6 @@ export const buildSortedIntegrations = (
 ): IntegrationGridItem[] =>
   integrationKinds
     .filter((kind) => {
-      if (blockedIntegrationKinds.has(kind)) return false;
       if (options.allowedKinds && !options.allowedKinds.includes(kind)) return false;
       if (options.onboarding && getIntegrationOnboardingMetadata(kind).hidden) return false;
       if (!options.enableMockIntegration && kind === "mock") return false;

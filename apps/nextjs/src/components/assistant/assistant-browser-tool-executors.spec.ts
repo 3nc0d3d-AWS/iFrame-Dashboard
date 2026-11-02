@@ -15,13 +15,11 @@ describe("assistant browser tool executors", () => {
   test("executes every supported frontend action through its injected Homarr dependency", async () => {
     const navigate = vi.fn();
     const openCommandMenu = vi.fn();
-    const openMediaRequestSearch = vi.fn();
     const refreshCurrentView = vi.fn().mockResolvedValue(undefined);
     const executors = createAssistantBrowserToolExecutors({
       getOrigin: () => "https://homarr.example",
       navigate,
       openCommandMenu,
-      openMediaRequestSearch,
       refreshCurrentView,
     });
 
@@ -30,13 +28,11 @@ describe("assistant browser tool executors", () => {
       path: "/manage/apps",
     });
     await expect(executors.open_command_menu()).resolves.toEqual({ success: true });
-    await expect(executors.open_media_request_search()).resolves.toEqual({ success: true });
     await expect(executors.refresh_current_view()).resolves.toEqual({ success: true });
 
     expect(navigate).toHaveBeenCalledTimes(1);
     expect(navigate).toHaveBeenCalledWith("/manage/apps");
     expect(openCommandMenu).toHaveBeenCalledOnce();
-    expect(openMediaRequestSearch).toHaveBeenCalledOnce();
     expect(refreshCurrentView).toHaveBeenCalledOnce();
   });
 
@@ -46,7 +42,6 @@ describe("assistant browser tool executors", () => {
       getOrigin: () => "https://homarr.example",
       navigate,
       openCommandMenu: vi.fn(),
-      openMediaRequestSearch: vi.fn(),
       refreshCurrentView: vi.fn().mockResolvedValue(undefined),
     });
 
@@ -62,7 +57,6 @@ describe("assistant browser tool executors", () => {
       getOrigin: () => "https://homarr.example",
       navigate: vi.fn(),
       openCommandMenu: vi.fn(),
-      openMediaRequestSearch: vi.fn(),
       refreshCurrentView: vi.fn().mockRejectedValue(new Error("offline")),
     });
 

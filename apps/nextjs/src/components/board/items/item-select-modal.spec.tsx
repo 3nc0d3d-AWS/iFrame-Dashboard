@@ -102,7 +102,7 @@ describe("Advanced Add App - Modal Subcomponents", () => {
 
   describe("SupportedIntegrations", () => {
     it("renders up to 5 avatars for supported integrations", async () => {
-      const integrations: IntegrationKind[] = ["sonarr", "radarr", "plex"];
+      const integrations: IntegrationKind[] = ["audiobookshelf", "navidrome", "plex"];
 
       await act(async () =>
         root.render(
@@ -118,7 +118,7 @@ describe("Advanced Add App - Modal Subcomponents", () => {
     });
 
     it("renders overflow indicator when 6 or more integrations are supported", async () => {
-      const integrations: IntegrationKind[] = ["sonarr", "radarr", "plex", "jellyfin", "emby", "deluge"];
+      const integrations: IntegrationKind[] = ["audiobookshelf", "navidrome", "plex", "jellyfin", "emby", "traefik"];
 
       await act(async () =>
         root.render(

@@ -3372,27 +3372,6 @@
 				"noForecast": "Không có dữ liệu dự báo"
 			}
 		},
-		"indexerManager": {
-			"name": "Trạng thái quản lý indexer",
-			"description": "Trạng thái của các indexer của bạn",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Mở trang indexer trong tab mới"
-				}
-			},
-			"title": "Quản lý indexer",
-			"testAll": "Kiểm tra tất cả",
-			"status": {
-				"healthy": "Lành mạnh",
-				"unhealthy": "Không lành mạnh",
-				"disabled": "Tắt",
-				"unknown": "Tình trạng không khả dụng"
-			},
-			"error": {
-				"internalServerError": "Không thể lấy trạng thái indexer",
-				"testAll": "Kiểm tra trình lập chỉ mục thất bại. Hãy thử lại."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Giám sát tình trạng hệ thống",
 			"description": "Hiển thị thông tin về tình trạng và trạng thái hệ thống của bạn.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Không thể lấy dữ liệu UPS"
-			}
-		},
-		"tracearr": {
-			"description": "Giám sát máy chủ phương tiện nâng cao với dữ liệu chi tiết về luồng và chuyển mã",
-			"option": {
-				"showStreams": {
-					"label": "Hiển thị luồng đang hoạt động"
-				},
-				"showStats": {
-					"label": "Hiển thị tóm tắt thống kê"
-				},
-				"showRecentActivity": {
-					"label": "Hiển thị hoạt động gần đây"
-				},
-				"showViolations": {
-					"label": "Hiển thị vi phạm"
-				}
-			},
-			"stats": {
-				"activeStreams": "Luồng đang hoạt động",
-				"totalUsers": "Tổng số người dùng",
-				"transcodes": "Lượt chuyển mã",
-				"bandwidth": "Băng thông"
-			},
-			"streams": {
-				"empty": "Không có luồng đang hoạt động",
-				"user": "Người dùng",
-				"media": "Phương tiện",
-				"state": "Trạng thái",
-				"quality": "Chất lượng",
-				"device": "Thiết bị",
-				"progress": "Tiến độ",
-				"videoDecision": {
-					"directPlay": "Phát trực tiếp",
-					"transcode": "Chuyển mã",
-					"directStream": "Truyền trực tiếp"
-				}
-			},
-			"recentActivity": {
-				"title": "Hoạt động gần đây",
-				"empty": "Không có hoạt động gần đây",
-				"watched": "Đã xem",
-				"partial": "Một phần"
-			},
-			"violations": {
-				"title": "Vi phạm",
-				"empty": "Không có vi phạm gần đây",
-				"rule": "Quy tắc",
-				"user": "Người dùng"
-			},
-			"noSectionsEnabled": "Chưa bật phần nào",
-			"error": {
-				"noIntegration": "Chưa cấu hình tích hợp Tracearr",
-				"internalServerError": "Không thể lấy dữ liệu Tracearr"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Không thể tải dữ liệu PatchMon"
 			}
 		},
-		"bazarr": {
-			"description": "Tổng quan về phụ đề còn thiếu và tình trạng hệ thống từ phiên bản Bazarr của bạn",
-			"episodes": "Tập còn thiếu",
-			"movies": "Phim còn thiếu",
-			"providers": "Sự cố nhà cung cấp",
-			"status": "Sự cố tình trạng hệ thống",
-			"announcements": "Thông báo",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Hiển thị tập còn thiếu",
-					"description": "Hiển thị số tập còn thiếu phụ đề"
-				},
-				"showMissingMovies": {
-					"label": "Hiển thị phim còn thiếu",
-					"description": "Hiển thị số phim còn thiếu phụ đề"
-				},
-				"showProviderIssues": {
-					"label": "Hiển thị sự cố nhà cung cấp",
-					"description": "Hiển thị số nhà cung cấp phụ đề gặp sự cố"
-				},
-				"showHealthIssues": {
-					"label": "Hiển thị sự cố tình trạng hệ thống",
-					"description": "Hiển thị số sự cố tình trạng hệ thống của Bazarr"
-				}
-			},
-			"error": {
-				"internalServerError": "Không thể tải dữ liệu Bazarr"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Thống kê máy chủ Immich",
 			"description": "Thông tin về phiên bản Immich của bạn",
@@ -4390,170 +4286,6 @@
 				"photo": "Ảnh {number}"
 			}
 		},
-		"downloads": {
-			"name": "Trình tải xuống",
-			"description": "Cho phép bạn xem và quản lý các tải xuống từ cả Torrent và Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Hiển thị các mục usenet đã hoàn thành"
-				},
-				"showCompletedTorrent": {
-					"label": "Hiển thị các mục torrent đã hoàn thành"
-				},
-				"showCompletedHttp": {
-					"label": "Hiển thị các mục linh tinh được đánh dấu là đã hoàn tất"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Ẩn torrent đã hoàn thành dưới ngưỡng này"
-				},
-				"categoryFilter": {
-					"label": "Danh mục/nhãn để lọc"
-				},
-				"filterIsWhitelist": {
-					"label": "Lọc như danh sách trắng"
-				},
-				"applyFilterToRatio": {
-					"label": "Sử dụng bộ lọc để tính Tỷ lệ"
-				},
-				"limitPerIntegration": {
-					"label": "Giới hạn mục trên mỗi tích hợp",
-					"description": "Tùy chọn này sẽ giới hạn số mục hiển thị trên mỗi tích hợp, không phải trên toàn hệ thống"
-				}
-			},
-			"errors": {
-				"noColumns": "Chọn Cột trong Mục",
-				"noCommunications": "Không thể tải dữ liệu từ tích hợp",
-				"noItems": "Không tìm thấy nội dung tải xuống",
-				"actionFailed": "Thao tác thất bại",
-				"actionFailedMessage": "Không thể hoàn tất thao tác. Vui lòng thử lại."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Điều khiển"
-				},
-				"added": {
-					"columnTitle": "Đã thêm",
-					"detailsTitle": "Ngày thêm"
-				},
-				"category": {
-					"columnTitle": "Bổ sung",
-					"detailsTitle": "Danh mục (Hoặc thông tin bổ sung)"
-				},
-				"downSpeed": {
-					"columnTitle": "Tải xuống",
-					"detailsTitle": "Tốc độ tải"
-				},
-				"index": {
-					"columnTitle": "STT",
-					"detailsTitle": "Chỉ mục hiện tại trong client"
-				},
-				"id": {
-					"columnTitle": "ID mục",
-					"detailsTitle": "ID mục"
-				},
-				"integration": {
-					"columnTitle": "Tích hợp"
-				},
-				"name": {
-					"columnTitle": "Tên công việc"
-				},
-				"progress": {
-					"columnTitle": "Tiến độ",
-					"detailsTitle": "Tiến độ tải xuống"
-				},
-				"ratio": {
-					"columnTitle": "Tỉ lệ",
-					"detailsTitle": "Tỷ lệ torrent (nhận/gửi)"
-				},
-				"received": {
-					"columnTitle": "Tổng tải xuống",
-					"detailsTitle": "Tổng dung lượng đã tải xuống"
-				},
-				"sent": {
-					"columnTitle": "Tổng tải lên",
-					"detailsTitle": "Tổng dung lượng đã tải lên"
-				},
-				"size": {
-					"columnTitle": "Kích thước tệp",
-					"detailsTitle": "Tổng kích thước lựa chọn/tệp"
-				},
-				"state": {
-					"columnTitle": "Trạng thái",
-					"detailsTitle": "Trạng thái công việc"
-				},
-				"time": {
-					"columnTitle": "Thời gian hoàn thành",
-					"detailsTitle": "Thời gian từ/đến khi hoàn thành",
-					"eta": "Thời gian dự kiến"
-				},
-				"type": {
-					"columnTitle": "Loại",
-					"detailsTitle": "Loại Trình tải xuống"
-				},
-				"upSpeed": {
-					"columnTitle": "Tải lên",
-					"detailsTitle": "Tốc độ tải lên"
-				}
-			},
-			"states": {
-				"downloading": "Đang tải",
-				"queued": "Đã xếp hàng",
-				"paused": "Tạm dừng",
-				"completed": "Đã hoàn thành",
-				"failed": "Thất bại",
-				"processing": "Đang xử lý",
-				"leeching": "Đang tải",
-				"stalled": "Đình trệ",
-				"unknown": "Không rõ",
-				"seeding": "Đang chia sẻ"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Danh sách trình tải xuống",
-					"pause": "Tạm dừng tất cả client/mục",
-					"resume": "Tiếp tục tất cả client/mục"
-				},
-				"client": {
-					"pause": "Tạm dừng client",
-					"resume": "Tiếp tục client"
-				},
-				"item": {
-					"pause": "Tạm dừng mục",
-					"resume": "Tiếp tục mục",
-					"delete": {
-						"title": "Xóa mục",
-						"modalTitle": "Bạn có chắc chắn muốn xóa công việc này không?",
-						"entry": "Xóa mục nhập",
-						"entryAndFiles": "Xóa mục nhập và (các) tệp"
-					}
-				}
-			},
-			"globalRatio": "Tỷ lệ toàn cục",
-			"contextMenu": {
-				"copyName": "Sao chép tên",
-				"copyId": "Sao chép ID",
-				"clearFilters": "Xóa bộ lọc"
-			},
-			"footer": {
-				"filter": "Lọc nội dung tải xuống"
-			},
-			"stats": {
-				"show": "Hiển thị thống kê tổng thể",
-				"hide": "Ẩn thống kê tổng thể",
-				"overallProgress": "Tiến độ hàng đợi tổng thể",
-				"totalSize": "Kích thước hàng đợi tổng cộng",
-				"clients": "{count, plural, other {# máy khách}}"
-			},
-			"disconnected": "(đã ngắt kết nối)"
-		},
 		"mediaReleases": {
 			"name": "Phát hành media",
 			"description": "Hiển thị phương tiện mới được thêm hoặc bản phát hành sắp tới từ các tích hợp khác nhau",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} phút"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Danh sách Yêu cầu Media",
-			"description": "Xem danh sách các yêu cầu đa phương tiện từ Overseerr hoặc Jellyseerr của bạn",
-			"empty": {
-				"title": "Chưa có yêu cầu phương tiện",
-				"description": "Tìm kiếm phim hoặc chương trình để bắt đầu yêu cầu."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Mở liên kết trong tab mới"
-				},
-				"statusFilter": {
-					"label": "Trạng thái cần hiển thị"
-				},
-				"recentDays": {
-					"label": "Chỉ hiển thị yêu cầu gần đây"
-				}
-			},
-			"pending": {
-				"approve": "Phê duyệt yêu cầu",
-				"approving": "Đang phê duyệt yêu cầu...",
-				"decline": "Từ chối yêu cầu"
-			},
-			"availability": {
-				"unknown": "Không rõ",
-				"pending": "Đang chờ",
-				"processing": "Đang xử lý",
-				"requested": "Đã yêu cầu",
-				"partiallyAvailable": "Một phần",
-				"available": "Khả dụng",
-				"blacklisted": "Danh sách đen",
-				"deleted": "Đã xóa"
-			},
-			"status": {
-				"pending": "Đang chờ",
-				"approved": "Đã phê duyệt",
-				"declined": "Đã từ chối",
-				"failed": "Thất bại",
-				"completed": "Đã hoàn thành"
-			},
-			"unknown": "Không rõ",
-			"toBeDetermined": "Chưa xác định"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Thống kê Yêu cầu Media",
-			"description": "Thống kê về các yêu cầu đa phương tiện của bạn",
-			"empty": {
-				"title": "Chưa có hoạt động yêu cầu",
-				"description": "Thống kê sẽ xuất hiện sau yêu cầu phương tiện đầu tiên."
-			},
-			"titles": {
-				"stats": {
-					"main": "Thống kê truyền thông",
-					"approved": "Đã được phê duyệt",
-					"pending": "Chờ duyệt",
-					"processing": "Đang xử lý",
-					"declined": "Đã bị từ chối",
-					"available": "Đã có sẵn",
-					"tv": "Yêu cầu TV",
-					"movie": "Yêu cầu phim"
-				},
-				"users": {
-					"main": "Người dùng hàng đầu",
-					"requests": "Yêu cầu"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Các lần kiểm tra tình trạng"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Phương tiện còn thiếu & đang xếp hàng",
-			"description": "Hiển thị phim và tập còn thiếu hoặc đang xếp hàng từ Radarr và Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Hiển thị mục còn thiếu"
-				},
-				"showQueued": {
-					"label": "Hiển thị mục đang xếp hàng"
-				},
-				"pageSize": {
-					"label": "Số mục mỗi trang"
-				}
-			},
-			"tab": {
-				"missing": "Còn thiếu",
-				"queued": "Đang xếp hàng"
-			},
-			"type": {
-				"movie": "Phim",
-				"episode": "Tập",
-				"book": "Sách"
-			},
-			"empty": {
-				"missing": "Không có mục còn thiếu",
-				"queued": "Không có mục đang xếp hàng",
-				"noTabsEnabled": "Bật ít nhất một tab trong cài đặt tiện ích"
-			},
-			"timeLeft": "Thời gian còn lại"
 		},
 		"rssFeed": {
 			"name": "Nguồn cấp RSS",
@@ -8093,11 +7728,6 @@
 				"label": "Trang web",
 				"placeholder": "Tìm kiếm bằng công cụ tìm kiếm bên ngoài"
 			},
-			"media": {
-				"label": "Phương tiện",
-				"placeholder": "Tìm kiếm phim hoặc chương trình",
-				"fallback": "Tìm kiếm phương tiện cho \"{query}\""
-			},
 			"userGroup": {
 				"label": "Mọi người",
 				"placeholder": "Tìm kiếm người dùng và nhóm"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Tìm kiếm phim hoặc chương trình để yêu cầu",
-				"requestMovie": "Yêu cầu phim",
-				"requestSeries": "Yêu cầu series",
-				"openIn": "Mở bằng {kind}",
-				"group": {
-					"title": "Phim và chương trình"
-				},
-				"action": {
-					"search": {
-						"label": "Tìm kiếm phim hoặc chương trình",
-						"description": "Bắt đầu nhập để tìm kiếm tích hợp yêu cầu phương tiện của bạn",
-						"disabled": {
-							"noIntegration": "Thêm tích hợp Overseerr, Jellyseerr, hoặc Seerr để bật tìm kiếm phương tiện.",
-							"signInRequired": "Đăng nhập để tìm kiếm các tích hợp yêu cầu phương tiện.",
-							"scoped": "Widget này không có tích hợp yêu cầu phương tiện có thể truy cập."
-						}
-					}
-				},
-				"availability": {
-					"available": "Khả dụng",
-					"partiallyAvailable": "Một phần",
-					"processing": "Đang xử lý",
-					"requested": "Đã yêu cầu",
-					"pending": "Đã yêu cầu"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Không xóa được công cụ tìm kiếm",
 							"message": "Không thể xóa công cụ tìm kiếm"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Yêu cầu “{name}”",
-						"table": {
-							"header": {
-								"season": "Mùa",
-								"episodes": "Tập",
-								"status": "Trạng thái"
-							},
-							"status": {
-								"requested": "Đã yêu cầu"
-							}
-						},
-						"button": {
-							"send": "Gửi yêu cầu"
 						}
 					}
 				}

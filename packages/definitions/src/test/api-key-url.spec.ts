@@ -13,9 +13,9 @@ describe("getIntegrationApiKeyUrl", () => {
     ).toEqual([]);
   });
 
-  it("builds URL for sonarr", () => {
-    expect(getIntegrationApiKeyUrl("http://192.168.1.10:8989", "sonarr")).toBe(
-      "http://192.168.1.10:8989/settings/general",
+  it("builds URL for patchmon", () => {
+    expect(getIntegrationApiKeyUrl("http://192.168.1.10:3413", "patchmon")).toBe(
+      "http://192.168.1.10:3413/settings/integrations",
     );
   });
 
@@ -39,7 +39,6 @@ describe("getIntegrationApiKeyUrl", () => {
     ["unraid", "http://tower.local", "http://tower.local/Settings/ManagementAccess"],
     ["coolify", "https://coolify.local", "https://coolify.local/security/api-tokens"],
     ["immich", "http://immich.local:2283", "http://immich.local:2283/user-settings"],
-    ["tracearr", "http://tracearr.local:7040", "http://tracearr.local:7040/settings"],
     ["speedtestTracker", "http://speedtest.local", "http://speedtest.local/admin/api-tokens"],
     ["uptimeKuma", "http://uptime.local:3001", "http://uptime.local:3001/settings/api-keys"],
   ] as const)("builds a verified credential URL for %s", (kind, baseUrl, expected) => {
@@ -56,20 +55,20 @@ describe("getIntegrationApiKeyUrl", () => {
   it.each(["", "javascript:alert(1)", "data:text/html,test", "file:///etc/passwd"])(
     "returns null for an empty or unsafe URL: %s",
     (url) => {
-      expect(getIntegrationApiKeyUrl(url, "sonarr")).toBeNull();
+      expect(getIntegrationApiKeyUrl(url, "patchmon")).toBeNull();
     },
   );
 
   it.each([
-    ["sonarr.local:8989", "http://sonarr.local:8989/settings/general"],
-    ["0.0.0.0:8989", "http://0.0.0.0:8989/settings/general"],
+    ["patchmon.local:3413", "http://patchmon.local:3413/settings/integrations"],
+    ["0.0.0.0:3413", "http://0.0.0.0:3413/settings/integrations"],
   ])("normalizes a self-hosted address without a scheme: %s", (url, expected) => {
-    expect(getIntegrationApiKeyUrl(url, "sonarr")).toBe(expected);
+    expect(getIntegrationApiKeyUrl(url, "patchmon")).toBe(expected);
   });
 
   it("joins onto a reverse-proxy pathname without retaining stale query or fragment state", () => {
-    expect(getIntegrationApiKeyUrl("https://home.example.com/services/sonarr/?from=old#section", "sonarr")).toBe(
-      "https://home.example.com/services/sonarr/settings/general",
+    expect(getIntegrationApiKeyUrl("https://home.example.com/services/patchmon/?from=old#section", "patchmon")).toBe(
+      "https://home.example.com/services/patchmon/settings/integrations",
     );
   });
 
@@ -80,6 +79,6 @@ describe("getIntegrationApiKeyUrl", () => {
   });
 
   it("strips trailing slash from base URL", () => {
-    expect(getIntegrationApiKeyUrl("http://sonarr.local/", "sonarr")).toBe("http://sonarr.local/settings/general");
+    expect(getIntegrationApiKeyUrl("http://patchmon.local/", "patchmon")).toBe("http://patchmon.local/settings/integrations");
   });
 });

@@ -16,16 +16,12 @@ import { inviteRouter } from "./router/invite";
 import { kubernetesMcpRouter } from "./router/kubernetes/mcp-router";
 import { searchEngineRouter } from "./router/search-engine/search-engine-router";
 import { airQualityRouter } from "./router/widgets/air-quality";
-import { bazarrRouter } from "./router/widgets/bazarr";
 import { serverSettingsRouter } from "./router/serverSettings";
 import { beszelRouter } from "./router/widgets/beszel";
 import { calendarRouter } from "./router/widgets/calendar";
 import { dnsHoleRouter } from "./router/widgets/dns-hole";
-import { downloadsRouter } from "./router/widgets/downloads";
 import { healthMonitoringRouter } from "./router/widgets/health-monitoring";
-import { mediaRequestsRouter } from "./router/widgets/media-requests";
 import { mediaServerRouter } from "./router/widgets/media-server";
-import { mediaOrganizerRouter } from "./router/widgets/media-organizer";
 import { patchmonRouter } from "./router/widgets/patchmon";
 import { smartHomeRouter } from "./router/widgets/smart-home";
 import { traefikRouter } from "./router/widgets/traefik";
@@ -48,16 +44,12 @@ export const mcpRouter = createTRPCRouter({
   searchEngine: searchEngineRouter,
   user: userRouter,
   airQuality: airQualityRouter,
-  bazarr: bazarrRouter,
   serverSettings: serverSettingsRouter,
   beszel: beszelRouter,
   calendar: calendarRouter,
   dnsHole: dnsHoleRouter,
-  downloads: downloadsRouter,
   healthMonitoring: healthMonitoringRouter,
-  mediaRequests: mediaRequestsRouter,
   mediaServer: mediaServerRouter,
-  mediaOrganizer: mediaOrganizerRouter,
   patchmon: patchmonRouter,
   smartHome: smartHomeRouter,
   traefik: traefikRouter,

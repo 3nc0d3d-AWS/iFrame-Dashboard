@@ -11,10 +11,10 @@ import {
 describe("takeNewSourceIds", () => {
   it("keeps same-kind service instances independent and does not reselect them after refresh", () => {
     const seen = new Set<string>();
-    const sonarrInstances = ["docker:host:sonarr-hd", "docker:host:sonarr-4k"];
+    const jellyfinInstances = ["docker:host:jellyfin-hd", "docker:host:jellyfin-4k"];
 
-    expect(takeNewSourceIds(sonarrInstances, seen)).toEqual(sonarrInstances);
-    expect(takeNewSourceIds(sonarrInstances, seen)).toEqual([]);
+    expect(takeNewSourceIds(jellyfinInstances, seen)).toEqual(jellyfinInstances);
+    expect(takeNewSourceIds(jellyfinInstances, seen)).toEqual([]);
   });
 
   it("keeps an explicit app URL and falls back through discovery and server-derived addresses", () => {
@@ -31,27 +31,27 @@ describe("takeNewSourceIds", () => {
   it("regenerates integration URLs from the usual server address without replacing manual edits", () => {
     expect(
       resolveIntegrationDraftUrl({
-        currentUrl: "http://docker-host:8989",
+        currentUrl: "http://docker-host:8096",
         overridden: false,
-        serverUrl: "http://home.lan:8989",
-        fallbackUrl: "http://docker-host:8989",
+        serverUrl: "http://home.lan:8096",
+        fallbackUrl: "http://docker-host:8096",
       }),
-    ).toBe("http://home.lan:8989");
+    ).toBe("http://home.lan:8096");
     expect(
       resolveIntegrationDraftUrl({
-        currentUrl: "https://sonarr.custom.example",
+        currentUrl: "https://jellyfin.custom.example",
         overridden: true,
-        serverUrl: "http://home.lan:8989",
-        fallbackUrl: "http://docker-host:8989",
+        serverUrl: "http://home.lan:8096",
+        fallbackUrl: "http://docker-host:8096",
       }),
-    ).toBe("https://sonarr.custom.example");
+    ).toBe("https://jellyfin.custom.example");
   });
 
   it("normalizes HTTP, HTTPS, and bare self-hosted service addresses", () => {
-    expect(isHttpUrl("http://home.lan:8989")).toBe(true);
-    expect(isHttpUrl("https://home.example/sonarr")).toBe(true);
-    expect(normalizeServiceUrl("home.lan:8989")).toBe("http://home.lan:8989");
-    expect(normalizeServiceUrl("0.0.0.0:8989")).toBe("http://0.0.0.0:8989");
+    expect(isHttpUrl("http://home.lan:8096")).toBe(true);
+    expect(isHttpUrl("https://home.example/jellyfin")).toBe(true);
+    expect(normalizeServiceUrl("home.lan:8096")).toBe("http://home.lan:8096");
+    expect(normalizeServiceUrl("0.0.0.0:8096")).toBe("http://0.0.0.0:8096");
     expect(isHttpUrl("javascript:alert(1)")).toBe(false);
     expect(isHttpUrl("file:///etc/passwd")).toBe(false);
   });

@@ -107,16 +107,16 @@ test("SQLite migrations seed the intentional demo showcase", async () => {
     expectItemLayout("clock", 4, 0, 1, 2);
     expectItemLayout("timer", 5, 0, 2, 1);
     expectItemLayout("airQuality", 5, 1, 2, 1);
-    expectItemLayout("downloads", 7, 0, 5, 2);
+    expectItemLayout("sports", 7, 0, 5, 2);
+    expectItemLayout("discord", 0, 5, 3, 2);
+    expectItemLayout("thingport-libraryStats", 9, 5, 3, 2);
+    expectItemLayout("thingport-models", 9, 7, 3, 2);
+    expectItemLayout("thingport-featuredModel", 9, 9, 3, 2);
     expectItemLayout("notebook", 0, 2, 5, 3);
     expectItemLayout("beszelSystemGrid", 5, 2, 4, 3);
     expectItemLayout("assistant", 9, 2, 3, 3);
-    expectItemLayout("mediaRequests-requestList", 0, 5, 3, 2);
-    expectItemLayout("mediaMissing", 9, 5, 3, 2);
     expectItemLayout("mediaServer", 0, 7, 3, 2);
-    expectItemLayout("mediaRequests-requestStats", 9, 7, 3, 2);
     expectItemLayout("rssFeed", 0, 9, 3, 2);
-    expectItemLayout("indexerManager", 9, 9, 3, 2);
     expectItemLayout("dockerContainers", 0, 11, 4, 3);
     expectItemLayout("mediaReleases", 4, 11, 4, 3);
     expectItemLayout("customApi", 8, 11, 4, 3);
@@ -162,14 +162,14 @@ test("SQLite migrations seed the intentional demo showcase", async () => {
       entries: { integrationId: string; metric: string }[];
     }>(statsItem.options);
     expect(statsOptions.table).toBe(false);
-    expect(statsOptions.entries).toHaveLength(32);
+    expect(statsOptions.entries).toHaveLength(22);
     const statsIntegrationIds = new Set(statsItem.integrations.map(({ integrationId }) => integrationId));
     expect(statsIntegrationIds).toEqual(new Set(statsOptions.entries.map(({ integrationId }) => integrationId)));
     const statsIntegrations = (await database.query.integrations.findMany()).filter(({ id }) =>
       statsIntegrationIds.has(id),
     );
     expect(new Set(statsIntegrations.map(({ kind }) => kind))).toEqual(
-      new Set(["sonarr", "radarr", "qBittorrent", "proxmox", "piHole", "immich", "karakeep", "mealie", "spoolman"]),
+      new Set(["proxmox", "piHole", "immich", "karakeep", "mealie", "spoolman"]),
     );
 
     for (const kind of ["weather", "airQuality"]) {

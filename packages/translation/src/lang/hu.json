@@ -3372,27 +3372,6 @@
 				"noForecast": "Nincs elérhető előrejelzési adat"
 			}
 		},
-		"indexerManager": {
-			"name": "Indexelő menedzser állapota",
-			"description": "Az indexelők állapota",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Indexelő webhely megnyitása új lapon"
-				}
-			},
-			"title": "Indexelő menedzser",
-			"testAll": "Teszteld az összeset",
-			"status": {
-				"healthy": "Rendben",
-				"unhealthy": "Hibás",
-				"disabled": "Letiltva",
-				"unknown": "Az állapot nem érhető el"
-			},
-			"error": {
-				"internalServerError": "Nem sikerült lekérni az indexelők állapotát",
-				"testAll": "Az indexelő tesztje sikertelen. Próbáld újra."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Rendszerállapot-felügyelet",
 			"description": "Megjeleníti a rendszer(ek) állapotát és állapotát mutató információkat.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Nem sikerült lekérni az UPS adatokat"
-			}
-		},
-		"tracearr": {
-			"description": "Továbbfejlesztett médiaszerver-felügyelet részletes adatfolyam- és átkódolási adatokkal",
-			"option": {
-				"showStreams": {
-					"label": "Aktív streamek megjelenítése"
-				},
-				"showStats": {
-					"label": "Statisztikai összefoglaló megjelenítése"
-				},
-				"showRecentActivity": {
-					"label": "Legutóbbi tevékenység mutatása"
-				},
-				"showViolations": {
-					"label": "Szabálysértések megjelenítése"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktív Stream-ek",
-				"totalUsers": "Összes Felhasználó",
-				"transcodes": "Átkódolás",
-				"bandwidth": "Sávszélesség"
-			},
-			"streams": {
-				"empty": "Nincsenek aktív streamek",
-				"user": "Felhasználó",
-				"media": "Média",
-				"state": "Állapot",
-				"quality": "Minőség",
-				"device": "Eszköz",
-				"progress": "Folyamat",
-				"videoDecision": {
-					"directPlay": "Közvetlen lejátszás",
-					"transcode": "Átkódolás",
-					"directStream": "Közvetlen közvetítés"
-				}
-			},
-			"recentActivity": {
-				"title": "Legutóbbi tevékenységek",
-				"empty": "Nincs újabb tevékenység",
-				"watched": "Megnézve",
-				"partial": "Részleges"
-			},
-			"violations": {
-				"title": "Szabálysértések",
-				"empty": "Nincsenek szabálysértések",
-				"rule": "Szabály",
-				"user": "Felhasználó"
-			},
-			"noSectionsEnabled": "Nincs engedélyezett szakasz",
-			"error": {
-				"noIntegration": "Nincs beállítva a Tracearr-integráció",
-				"internalServerError": "Nem sikerült letölteni a Tracearr-adatokat"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "A PatchMon-adatok lekérése nem sikerült"
 			}
 		},
-		"bazarr": {
-			"description": "A hiányzó feliratok és az állapot áttekintése a Bazarr-példányodból",
-			"episodes": "Hiányzó epizódok",
-			"movies": "Hiányzó filmek",
-			"providers": "Szolgáltatói problémák",
-			"status": "Állapotproblémák",
-			"announcements": "Közlemények",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Hiányzó epizódok megjelenítése",
-					"description": "A hiányzó felirattal rendelkező epizódok számának megjelenítése"
-				},
-				"showMissingMovies": {
-					"label": "Hiányzó filmek megjelenítése",
-					"description": "A hiányzó felirattal rendelkező filmek számának megjelenítése"
-				},
-				"showProviderIssues": {
-					"label": "Szolgáltatói problémák megjelenítése",
-					"description": "A problémás feliratszolgáltatók számának megjelenítése"
-				},
-				"showHealthIssues": {
-					"label": "Állapotproblémák megjelenítése",
-					"description": "A Bazarr állapotproblémáinak számának megjelenítése"
-				}
-			},
-			"error": {
-				"internalServerError": "A Bazarr-adatok lekérése nem sikerült"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich szerver statisztikák",
 			"description": "Információk az Immich-példányodról",
@@ -4390,170 +4286,6 @@
 				"photo": "{number}. fénykép"
 			}
 		},
-		"downloads": {
-			"name": "Kliens letöltése",
-			"description": "Lehetővé teszi a Torrent- és Usenet-kliensből származó letöltések megtekintését és kezelését.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Mutassa a befejezettként megjelölt Usenet bejegyzéseket"
-				},
-				"showCompletedTorrent": {
-					"label": "Mutassa a befejezettként megjelölt torrent bejegyzéseket"
-				},
-				"showCompletedHttp": {
-					"label": "Mutassa a befejezettként megjelölt Vegyes bejegyzéseket"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "A küszöbérték alatt lévő befejezett torrenteket elrejtés"
-				},
-				"categoryFilter": {
-					"label": "Szűrhető kategóriák/címkék"
-				},
-				"filterIsWhitelist": {
-					"label": "Szűrés fehérlistával"
-				},
-				"applyFilterToRatio": {
-					"label": "Szűrő használata az arány kiszámításához"
-				},
-				"limitPerIntegration": {
-					"label": "Elemek száma integrációnként",
-					"description": "Ez az egyes integrációkhoz tartozó elemek számát korlátozza, nem pedig általánosan"
-				}
-			},
-			"errors": {
-				"noColumns": "Oszlopok kiválasztása az elemek között",
-				"noCommunications": "Nem sikerül betölteni az adatokat az integrációból",
-				"noItems": "Nem található letöltés",
-				"actionFailed": "A művelet nem sikerült",
-				"actionFailedMessage": "A műveletet nem sikerült befejezni. Próbáld újra."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Vezérlők"
-				},
-				"added": {
-					"columnTitle": "Hozzáadva",
-					"detailsTitle": "Hozzáadás dátuma"
-				},
-				"category": {
-					"columnTitle": "Extrák",
-					"detailsTitle": "Kategóriák (vagy további információk)"
-				},
-				"downSpeed": {
-					"columnTitle": "Le",
-					"detailsTitle": "Letöltési sebesség"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Aktuális index az ügyfélnél"
-				},
-				"id": {
-					"columnTitle": "Azonosító",
-					"detailsTitle": "Elem azonosítója"
-				},
-				"integration": {
-					"columnTitle": "Integráció"
-				},
-				"name": {
-					"columnTitle": "Folyamat neve"
-				},
-				"progress": {
-					"columnTitle": "Folyamat",
-					"detailsTitle": "Letöltési folyamat"
-				},
-				"ratio": {
-					"columnTitle": "Arány",
-					"detailsTitle": "Torrent-arány (letöltött/feltöltött)"
-				},
-				"received": {
-					"columnTitle": "Összes le",
-					"detailsTitle": "Összes letöltés"
-				},
-				"sent": {
-					"columnTitle": "Teljesen fönn",
-					"detailsTitle": "Teljesen föltöltött"
-				},
-				"size": {
-					"columnTitle": "Fájl mérete",
-					"detailsTitle": "A kijelölt elemek/fájlok teljes mérete"
-				},
-				"state": {
-					"columnTitle": "Állapot",
-					"detailsTitle": "A feladat állapota"
-				},
-				"time": {
-					"columnTitle": "Befejezési idő",
-					"detailsTitle": "A befejezésig hátralévő idő",
-					"eta": "Becsült hátralévő idő"
-				},
-				"type": {
-					"columnTitle": "Típus",
-					"detailsTitle": "Letöltőkliens típusa"
-				},
-				"upSpeed": {
-					"columnTitle": "Fel",
-					"detailsTitle": "Feltöltési sebesség"
-				}
-			},
-			"states": {
-				"downloading": "Letöltés",
-				"queued": "Sorban áll",
-				"paused": "Szünet",
-				"completed": "Kész",
-				"failed": "Sikertelen",
-				"processing": "Feldolgozás",
-				"leeching": "Leechelés",
-				"stalled": "Elakadt",
-				"unknown": "Ismeretlen",
-				"seeding": "Seedelés"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Letöltkliensek listája",
-					"pause": "Minden kliens/elem felfüggesztése",
-					"resume": "Minden kliens/elem folytatása"
-				},
-				"client": {
-					"pause": "Kliens felfüggesztése",
-					"resume": "Kliens folytatása"
-				},
-				"item": {
-					"pause": "Elem felfüggesztése",
-					"resume": "Elem folytatása",
-					"delete": {
-						"title": "Elem törlése",
-						"modalTitle": "Biztosan törölni szeretnéd ezt a feladatot?",
-						"entry": "Bejegyzés törlése",
-						"entryAndFiles": "Bejegyzés és fájl(ok) törlése"
-					}
-				}
-			},
-			"globalRatio": "Összes arány",
-			"contextMenu": {
-				"copyName": "Név másolása",
-				"copyId": "Azonosító másolása",
-				"clearFilters": "Szűrők törlése"
-			},
-			"footer": {
-				"filter": "Letöltések szűrése"
-			},
-			"stats": {
-				"show": "Globális statisztikák megjelenítése",
-				"hide": "Globális statisztikák elrejtése",
-				"overallProgress": "Várólista teljes előrehaladása",
-				"totalSize": "Várólista teljes mérete",
-				"clients": "{count, plural, one {# kliens} other {# kliens}}"
-			},
-			"disconnected": "(nincs kapcsolat)"
-		},
 		"mediaReleases": {
 			"name": "Sajtóközlemények",
 			"description": "Az egyes integrációkból származó újonnan hozzáadott médiafájlok vagy hamarosan megjelenő kiadványok megjelenítése",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length}perc"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Médiakérések listája",
-			"description": "Az Overseerr vagy Jellyseerr példány összes médiakérelmének listájának megtekintése",
-			"empty": {
-				"title": "Még nincsenek médiakérések",
-				"description": "A kérés megkezdéséhez keress egy filmet vagy műsort."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Linkek megnyitása új fülön"
-				},
-				"statusFilter": {
-					"label": "Megjelenítendő állapotok"
-				},
-				"recentDays": {
-					"label": "Csak a legutóbbi kérések megjelenítése"
-				}
-			},
-			"pending": {
-				"approve": "Kérelem elfogadása",
-				"approving": "Kérelem elfogadása...",
-				"decline": "Kérés elutasítása"
-			},
-			"availability": {
-				"unknown": "Ismeretlen",
-				"pending": "Függőben",
-				"processing": "Feldolgozás",
-				"requested": "Kérve",
-				"partiallyAvailable": "Részleges",
-				"available": "Elérhető",
-				"blacklisted": "Tiltólistára került",
-				"deleted": "Törölve"
-			},
-			"status": {
-				"pending": "Függőben",
-				"approved": "Jóváhagyva",
-				"declined": "Elutasítva",
-				"failed": "Sikertelen",
-				"completed": "Befejezett"
-			},
-			"unknown": "Ismeretlen",
-			"toBeDetermined": "Később"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Médiakérések állapota",
-			"description": "A médiakéréseid statisztikái",
-			"empty": {
-				"title": "Még nincs kérési tevékenység",
-				"description": "A statisztikák az első médiakérés után jelennek meg."
-			},
-			"titles": {
-				"stats": {
-					"main": "Média statisztikák",
-					"approved": "Már jóváhagyva",
-					"pending": "Várakozás jóváhagyásra",
-					"processing": "Feldolgozás alatt",
-					"declined": "Már elutasították",
-					"available": "Már elérhető",
-					"tv": "TV kérések",
-					"movie": "Filmkérések"
-				},
-				"users": {
-					"main": "Legnépszerűbb felhasználók",
-					"requests": "Kérelmek"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Állapotfelmérések"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Hiányzó és várólistán lévő média",
-			"description": "A Radarr és a Sonarr hiányzó és várólistán lévő filmjeinek és epizódjainak megjelenítése",
-			"option": {
-				"showMissing": {
-					"label": "Hiányzó elemek megjelenítése"
-				},
-				"showQueued": {
-					"label": "Várólistán lévő elemek megjelenítése"
-				},
-				"pageSize": {
-					"label": "Oldalankénti elemek száma"
-				}
-			},
-			"tab": {
-				"missing": "Hiányzó",
-				"queued": "Várólistán"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Epizód",
-				"book": "Könyv"
-			},
-			"empty": {
-				"missing": "Nincs hiányzó elem",
-				"queued": "Nincs várólistán lévő elem",
-				"noTabsEnabled": "Engedélyezz legalább egy lapot a widget beállításaiban"
-			},
-			"timeLeft": "Hátralévő idő"
 		},
 		"rssFeed": {
 			"name": "RSS feedek",
@@ -8093,11 +7728,6 @@
 				"label": "Web",
 				"placeholder": "Keresés külső keresőmotorral"
 			},
-			"media": {
-				"label": "Média",
-				"placeholder": "Film vagy műsor keresése",
-				"fallback": "Média keresése erre: \"{query}\""
-			},
 			"userGroup": {
 				"label": "Személyek",
 				"placeholder": "Felhasználók és csoportok keresése"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Keress filmeket vagy sorozatokat a kéréshez",
-				"requestMovie": "Film kérése",
-				"requestSeries": "Sorozat kérése",
-				"openIn": "Megnyitás itt: {kind}",
-				"group": {
-					"title": "Filmek és sorozatok"
-				},
-				"action": {
-					"search": {
-						"label": "Keress filmeket vagy sorozatokat",
-						"description": "Kezdj el gépelni a médiakérési integrációid kereséséhez",
-						"disabled": {
-							"noIntegration": "Adj hozzá egy Overseerr, Jellyseerr vagy Seerr integrációt a médiakeresés engedélyezéséhez.",
-							"signInRequired": "Jelentkezzen be a médiakeresési kérések integrációinak használatához.",
-							"scoped": "Ennek a widgetnek nincs elérhető médiakérési integrációja."
-						}
-					}
-				},
-				"availability": {
-					"available": "Elérhető",
-					"partiallyAvailable": "Részleges",
-					"processing": "Feldolgozás alatt",
-					"requested": "Kérve",
-					"pending": "Kérve"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Keresőmotor nem lett törölve",
 							"message": "A keresőmotort nem sikerült törölni"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "\"{name}\" kérése",
-						"table": {
-							"header": {
-								"season": "Évszak",
-								"episodes": "Epizódok",
-								"status": "Állapot"
-							},
-							"status": {
-								"requested": "Kérve"
-							}
-						},
-						"button": {
-							"send": "Kérelem küldése"
 						}
 					}
 				}

@@ -20,7 +20,7 @@ const found = (version: string): ReleaseResponse => ({
 
 const failed = (code: ReleaseErrorCode): ReleaseResponse => ({ success: false, error: { code, message: code } });
 
-const lookupAsync = async (id = "radarr") => {
+const lookupAsync = async (id = "emby") => {
   const { data } = await releasesRequestHandler
     .handler({ id, provider: "github", identifier: "owner/repo" })
     .getDataAsync();

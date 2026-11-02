@@ -25,7 +25,6 @@ describe("reusable HTTP integration authentication", () => {
   test.each(declaredKinds)("%s resolves each supported saved credential mode", async (kind) => {
     const definition = integrationDefs[kind];
     for (const secretKinds of definition.secretKinds) {
-      if (kind === "qBittorrent" && secretKinds.join(",") === "username,password") continue;
       const authentication = await getIntegrationHttpAuthenticationAsync({
         id: `test-${kind}`,
         kind,
@@ -41,30 +40,5 @@ describe("reusable HTTP integration authentication", () => {
         expect(value).not.toHaveLength(0);
       }
     }
-  });
-
-  test("qBittorrent keeps generic requests limited to API-key bearer auth", async () => {
-    const input = {
-      id: "qbittorrent",
-      kind: "qBittorrent" as const,
-      name: "qBittorrent",
-      url: "http://integration.test",
-      externalUrl: null,
-    };
-    await expect(
-      getIntegrationHttpAuthenticationAsync({
-        ...input,
-        decryptedSecrets: [{ kind: "apiKey" as const, value: "test-key" }],
-      }),
-    ).resolves.toMatchObject({ headers: { Authorization: "Bearer test-key" } });
-    await expect(
-      getIntegrationHttpAuthenticationAsync({
-        ...input,
-        decryptedSecrets: [
-          { kind: "username" as const, value: "test-user" },
-          { kind: "password" as const, value: "test-password" },
-        ],
-      }),
-    ).rejects.toThrow();
   });
 });

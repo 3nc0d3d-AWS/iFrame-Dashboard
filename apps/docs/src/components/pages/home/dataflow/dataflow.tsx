@@ -4,14 +4,14 @@ import styles from "./dataflow.module.css";
 
 const services = {
   left: [
-    ["Radarr", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/radarr.svg"],
-    ["Sonarr", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sonarr.svg"],
-    ["Lidarr", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/lidarr.svg"],
+    ["Jellyfin", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/jellyfin.svg"],
+    ["Navidrome", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/navidrome.svg"],
+    ["Immich", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/immich.svg"],
   ],
   right: [
-    ["SABnzbd", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/sabnzbd.svg"],
-    ["Jellyfin", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/jellyfin.svg"],
+    ["Paperless-ngx", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/paperless-ngx.svg"],
     ["Plex", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/plex.svg"],
+    ["Proxmox", "https://cdn.jsdelivr.net/gh/walkxcode/dashboard-icons/svg/proxmox.svg"],
   ],
 } as const;
 

@@ -7,7 +7,7 @@ import {
 } from "./onboarding";
 
 describe("onboarding address validation", () => {
-  test.each(["server.local:8989", "0.0.0.0:3000", "sonarr", "/services/sonarr"])(
+  test.each(["server.local:8096", "0.0.0.0:3000", "jellyfin", "/services/jellyfin"])(
     "accepts the self-hosted address %s",
     (url) => {
       expect(onboardingCreateIntegrationSchema.safeParse({ name: "Service", url }).success).toBe(true);
@@ -17,11 +17,11 @@ describe("onboarding address validation", () => {
   test("accepts HTTP services and icon identifiers", () => {
     expect(
       onboardingDiscoveredAppSchema.safeParse({
-        name: "Sonarr",
-        sourceId: "docker:sonarr",
-        href: "http://sonarr:8989",
-        pingUrl: "https://sonarr.example.com/ping",
-        iconUrl: "sonarr",
+        name: "Jellyfin",
+        sourceId: "docker:jellyfin",
+        href: "http://jellyfin:8096",
+        pingUrl: "https://jellyfin.example.com/ping",
+        iconUrl: "jellyfin",
         description: "TV automation",
       }).success,
     ).toBe(true);
@@ -30,24 +30,24 @@ describe("onboarding address validation", () => {
   test("accepts bounded integration metadata and rejects empty or oversized metadata", () => {
     expect(
       onboardingCreateIntegrationSchema.safeParse({
-        name: "Sonarr",
-        url: "http://sonarr:8989",
-        pingUrl: "https://sonarr.example.com/ping",
-        iconUrl: "https://icons.example/sonarr.svg",
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
+        pingUrl: "https://jellyfin.example.com/ping",
+        iconUrl: "https://icons.example/jellyfin.svg",
         description: "TV automation",
       }).success,
     ).toBe(true);
     expect(
       onboardingCreateIntegrationSchema.safeParse({
-        name: "Sonarr",
-        url: "http://sonarr:8989",
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
         pingUrl: "",
       }).success,
     ).toBe(false);
     expect(
       onboardingCreateIntegrationSchema.safeParse({
-        name: "Sonarr",
-        url: "http://sonarr:8989",
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
         description: "x".repeat(513),
       }).success,
     ).toBe(false);

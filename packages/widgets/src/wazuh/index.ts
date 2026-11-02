@@ -151,7 +151,7 @@ export const { definition, componentLoader } = createWidgetDefinition("wazuh", {
         authLimit: factory.number({ defaultValue: 6, step: 1, validate: z.number().int().min(1).max(25) }),
         showSourceIps: factory.switch({ defaultValue: true }),
 
-        // Saved from the widget itself, like the qBittorrent table layout
+        // Saved from the widget itself, like the agents table layout
         view: factory.internal<WazuhView>({ defaultValue: "overview" }),
         // Agents table layout
         columnOrder: factory.text({ defaultValue: "" }),

@@ -9,7 +9,7 @@ import { HttpErrorHandler } from "./http-error-handler";
  * Ofetch is a wrapper around the native fetch API
  * which will always throw the FetchError (also for non successful responses).
  *
- * It is for example used within the ctrl packages like qbittorrent, deluge, transmission, etc.
+ * It is for example used within integration client packages that rely on ofetch.
  */
 export class OFetchHttpErrorHandler extends HttpErrorHandler {
   constructor() {

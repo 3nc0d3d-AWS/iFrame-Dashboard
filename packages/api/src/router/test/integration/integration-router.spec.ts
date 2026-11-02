@@ -225,127 +225,6 @@ describe("search should return accessible integrations", () => {
   });
 });
 
-describe("mediaRequestSearchTargets should return accessible media search integrations", () => {
-  test("with integration use access should only return media request search integrations", async () => {
-    const db = createDb();
-    const caller = integrationRouter.createCaller({
-      db,
-      deviceType: undefined,
-      session: defaultSessionWithPermissions(["integration-use-all"]),
-    });
-
-    await db.insert(integrations).values([
-      {
-        id: "1",
-        name: "Jellyseerr",
-        kind: "jellyseerr",
-        url: "http://jellyseerr.local",
-      },
-      {
-        id: "2",
-        name: "Jellyfin",
-        kind: "jellyfin",
-        url: "http://jellyfin.local",
-      },
-    ]);
-
-    const result = await caller.mediaRequestSearchTargets();
-
-    expect(result).toHaveLength(1);
-    expect(result[0]!.id).toBe("1");
-    expect(result[0]!.kind).toBe("jellyseerr");
-  });
-
-  test("without access should not return media request search integrations", async () => {
-    const db = createDb();
-    const caller = integrationRouter.createCaller({
-      db,
-      deviceType: undefined,
-      session: defaultSessionWithPermissions(),
-    });
-
-    await db.insert(integrations).values({
-      id: "1",
-      name: "Jellyseerr",
-      kind: "jellyseerr",
-      url: "http://jellyseerr.local",
-    });
-
-    const result = await caller.mediaRequestSearchTargets();
-
-    expect(result).toHaveLength(0);
-  });
-
-  test("with direct integration use access should return media request search integrations", async () => {
-    const db = createDb();
-    const caller = integrationRouter.createCaller({
-      db,
-      deviceType: undefined,
-      session: defaultSessionWithPermissions(),
-    });
-
-    await db.insert(integrations).values({
-      id: "1",
-      name: "Jellyseerr",
-      kind: "jellyseerr",
-      url: "http://jellyseerr.local",
-    });
-    await db.insert(users).values({ id: defaultUserId });
-    await db.insert(integrationUserPermissions).values({
-      integrationId: "1",
-      userId: defaultUserId,
-      permission: "use",
-    });
-
-    const result = await caller.mediaRequestSearchTargets();
-
-    expect(result).toHaveLength(1);
-    expect(result[0]!.id).toBe("1");
-  });
-});
-
-describe("searchMediaRequests should validate scoped integrations", () => {
-  test("with a non media search integration should throw not found", async () => {
-    const db = createDb();
-    const caller = integrationRouter.createCaller({
-      db,
-      deviceType: undefined,
-      session: defaultSessionWithPermissions(["integration-use-all"]),
-    });
-
-    await db.insert(integrations).values({
-      id: "1",
-      name: "Jellyfin",
-      kind: "jellyfin",
-      url: "http://jellyfin.local",
-    });
-
-    await expect(caller.searchMediaRequests({ query: "matrix", integrationIds: ["1"] })).rejects.toThrow(
-      "One or more media request search integrations were not found",
-    );
-  });
-
-  test("without query access to a scoped media search integration should throw forbidden", async () => {
-    const db = createDb();
-    const caller = integrationRouter.createCaller({
-      db,
-      deviceType: undefined,
-      session: defaultSessionWithPermissions(),
-    });
-
-    await db.insert(integrations).values({
-      id: "1",
-      name: "Jellyseerr",
-      kind: "jellyseerr",
-      url: "http://jellyseerr.local",
-    });
-
-    await expect(caller.searchMediaRequests({ query: "matrix", integrationIds: ["1"] })).rejects.toThrow(
-      "User does not have permission to query one or more media request search integrations",
-    );
-  });
-});
-
 describe("byId should return an integration by id", () => {
   test("with full access should return an integration by id", async () => {
     const db = createDb();
@@ -512,9 +391,9 @@ describe("create should create a new integration", () => {
       session: defaultSessionWithPermissions(["integration-create"]),
     });
     const input = {
-      name: "Jellyseerr",
-      kind: "jellyseerr" as const,
-      url: "http://jellyseerr.local",
+      name: "Jellyfin",
+      kind: "jellyfin" as const,
+      url: "http://jellyfin.local",
       secrets: [{ kind: "apiKey" as const, value: "1234567890" }],
       attemptSearchEngineCreation: true,
     };

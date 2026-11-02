@@ -538,9 +538,6 @@ interface DemoWidget {
 }
 
 const demoStatsSources = [
-  { kind: "sonarr", metrics: ["shows", "episodes", "monitored", "missing"] },
-  { kind: "radarr", metrics: ["movies", "monitored", "queued"] },
-  { kind: "qBittorrent", metrics: ["download", "upload", "paused"] },
   { kind: "proxmox", metrics: ["nodes", "vms", "lxcs"] },
   {
     kind: "piHole",
@@ -555,16 +552,6 @@ const demoStatsSources = [
 type DemoStatsIntegrationKind = (typeof demoStatsSources)[number]["kind"];
 
 const demoApps = [
-  {
-    name: "Sonarr",
-    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/sonarr.svg",
-    href: "https://sonarr.tv",
-  },
-  {
-    name: "Radarr",
-    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/radarr.svg",
-    href: "https://radarr.video",
-  },
   {
     name: "Plex",
     iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/plex.svg",
@@ -606,14 +593,24 @@ const demoApps = [
     href: "https://nextcloud.com",
   },
   {
-    name: "qBittorrent",
-    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/qbittorrent.svg",
-    href: "https://qbittorrent.org",
+    name: "Navidrome",
+    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/navidrome.svg",
+    href: "https://navidrome.org",
   },
   {
-    name: "Overseerr",
-    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/overseerr.svg",
-    href: "https://overseerr.dev",
+    name: "Immich",
+    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/immich.svg",
+    href: "https://immich.app",
+  },
+  {
+    name: "Paperless-ngx",
+    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/paperless-ngx.svg",
+    href: "https://docs.paperless-ngx.com",
+  },
+  {
+    name: "Audiobookshelf",
+    iconUrl: "https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/audiobookshelf.svg",
+    href: "https://audiobookshelf.org",
   },
 ] as const;
 
@@ -681,7 +678,13 @@ const buildDemoWidgets = (
       showPollen: false,
     },
   },
-  { kind: "downloads", xOffset: 7, yOffset: 0, width: 5, height: 2, needsIntegration: true },
+  { kind: "sports", xOffset: 7, yOffset: 0, width: 5, height: 2, needsIntegration: false },
+  { kind: "discord", xOffset: 0, yOffset: 5, width: 3, height: 2, needsIntegration: false },
+  { kind: "thingport-libraryStats", xOffset: 9, yOffset: 5, width: 3, height: 2, needsIntegration: true },
+  { kind: "thingport-models", xOffset: 9, yOffset: 7, width: 3, height: 2, needsIntegration: true },
+  { kind: "thingport-featuredModel", xOffset: 9, yOffset: 9, width: 3, height: 2, needsIntegration: true },
+  { kind: "thingport-activityHeatmap", xOffset: 3, yOffset: 27, width: 3, height: 2, needsIntegration: true },
+  { kind: "wazuh", xOffset: 2, yOffset: 29, width: 4, height: 2, needsIntegration: true },
 
   // Homarr workspace
   {
@@ -707,10 +710,7 @@ const buildDemoWidgets = (
   { kind: "assistant", xOffset: 9, yOffset: 2, width: 3, height: 3, needsIntegration: false },
 
   // Operations center
-  { kind: "mediaRequests-requestList", xOffset: 0, yOffset: 5, width: 3, height: 2, needsIntegration: true },
-  { kind: "mediaMissing", xOffset: 9, yOffset: 5, width: 3, height: 2, needsIntegration: true },
   { kind: "mediaServer", xOffset: 0, yOffset: 7, width: 3, height: 2, needsIntegration: true },
-  { kind: "mediaRequests-requestStats", xOffset: 9, yOffset: 7, width: 3, height: 2, needsIntegration: true },
   {
     kind: "rssFeed",
     xOffset: 0,
@@ -725,7 +725,6 @@ const buildDemoWidgets = (
       hideDescription: true,
     },
   },
-  { kind: "indexerManager", xOffset: 9, yOffset: 9, width: 3, height: 2, needsIntegration: true },
 
   // Infrastructure and activity
   { kind: "dockerContainers", xOffset: 0, yOffset: 11, width: 4, height: 3, needsIntegration: false },
@@ -858,7 +857,6 @@ const buildDemoWidgets = (
   { kind: "audioStats", xOffset: 10, yOffset: 24, width: 2, height: 3, needsIntegration: true },
 
   { kind: "vpn", xOffset: 0, yOffset: 27, width: 3, height: 2, needsIntegration: true },
-  { kind: "bazarr", xOffset: 3, yOffset: 27, width: 3, height: 2, needsIntegration: true },
   { kind: "archiveTeamWarrior", xOffset: 6, yOffset: 27, width: 3, height: 2, needsIntegration: true },
   { kind: "wud", xOffset: 9, yOffset: 27, width: 3, height: 2, needsIntegration: true },
 
@@ -871,7 +869,6 @@ const buildDemoWidgets = (
     needsIntegration: true,
     options: { noteId: "homarr-demo-note", showTitle: true, showUpdatedAt: true },
   },
-  { kind: "tracearr", xOffset: 2, yOffset: 29, width: 4, height: 2, needsIntegration: true },
   { kind: "traefik", xOffset: 6, yOffset: 29, width: 6, height: 2, needsIntegration: true },
 
   {

@@ -5,7 +5,6 @@ import { IconBrandDocker, IconCpu, IconDeviceDesktopAnalytics } from "@tabler/ic
 import styles from "../../../../pages/index.module.css";
 import { AppWidget } from "./widgets/app-widget";
 import { ClockWidget } from "./widgets/clock-widget";
-import { DownloadsWidget } from "./widgets/downloads-widget";
 import { EntityStateWidget } from "./widgets/entity-state-widget";
 import { StockWidget } from "./widgets/stock-widget";
 import { WeatherWidget } from "./widgets/weather-widget";
@@ -23,11 +22,10 @@ export const HeroCards = () => {
       <WeatherWidget />
       <EntityStateWidget />
       <AppWidget name="PiHole" label="Pi-hole" />
-      <AppWidget name="qBittorrent" />
-      <DownloadsWidget />
+      <AppWidget name="Tdarr" />
       <DockerWidget />
-      <AppWidget name="Sonarr" />
-      <AppWidget name="Radarr" />
+      <AppWidget name="FreshRSS" />
+      <AppWidget name="Technitium" />
     </div>
   );
 };

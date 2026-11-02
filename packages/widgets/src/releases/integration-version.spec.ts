@@ -62,15 +62,15 @@ describe("truncateVersion", () => {
 
 describe("getFailedServiceVersionIntegrations", () => {
   const healthy = {
-    integrationId: "sonarr",
-    integrationName: "Sonarr",
-    integrationKind: "sonarr" as const,
+    integrationId: "jellyfin",
+    integrationName: "Jellyfin",
+    integrationKind: "jellyfin" as const,
     version: "4.0.20.3014",
   };
   const failed = {
-    integrationId: "radarr",
-    integrationName: "Radarr",
-    integrationKind: "radarr" as const,
+    integrationId: "emby",
+    integrationName: "Emby",
+    integrationKind: "emby" as const,
     version: null,
     error: "INTEGRATION_REQUEST_FAILED",
   };
@@ -82,7 +82,7 @@ describe("getFailedServiceVersionIntegrations", () => {
 
   test("lists the integrations whose request failed", () => {
     expect(getFailedServiceVersionIntegrations({ data: [healthy, failed], error: null }, "Running Versions")).toEqual([
-      { integrationId: "radarr", integrationName: "Radarr", error: "INTEGRATION_REQUEST_FAILED" },
+      { integrationId: "emby", integrationName: "Emby", error: "INTEGRATION_REQUEST_FAILED" },
     ]);
   });
 
@@ -110,21 +110,21 @@ describe("getFailedServiceVersionIntegrations", () => {
 
 describe("getRowIntegrationVersions", () => {
   const results = [
-    { integrationId: "sonarr", integrationName: "Sonarr", integrationKind: "sonarr" as const, version: "4.0.14.2939" },
-    { integrationId: "radarr", integrationName: "Radarr", integrationKind: "radarr" as const, version: "6.4.4.10685" },
-    { integrationId: "offline", integrationName: "Offline", integrationKind: "lidarr" as const, version: null },
+    { integrationId: "jellyfin", integrationName: "Jellyfin", integrationKind: "jellyfin" as const, version: "4.0.14.2939" },
+    { integrationId: "emby", integrationName: "Emby", integrationKind: "emby" as const, version: "6.4.4.10685" },
+    { integrationId: "offline", integrationName: "Offline", integrationKind: "plex" as const, version: null },
   ];
 
   test("returns the row's attached integrations in row order with their status", () => {
-    expect(getRowIntegrationVersions(["radarr", "sonarr"], ["sonarr", "radarr"], results, "v6.4.4.10685")).toEqual([
-      { id: "radarr", kind: "radarr", name: "Radarr", version: "6.4.4.10685", isUpToDate: true },
-      { id: "sonarr", kind: "sonarr", name: "Sonarr", version: "4.0.14.2939", isUpToDate: false },
+    expect(getRowIntegrationVersions(["emby", "jellyfin"], ["jellyfin", "emby"], results, "v6.4.4.10685")).toEqual([
+      { id: "emby", kind: "emby", name: "Emby", version: "6.4.4.10685", isUpToDate: true },
+      { id: "jellyfin", kind: "jellyfin", name: "Jellyfin", version: "4.0.14.2939", isUpToDate: false },
     ]);
   });
 
   test("ignores links to integrations no longer attached to the widget", () => {
-    expect(getRowIntegrationVersions(["sonarr", "radarr"], ["radarr"], results, "v6.4.4.10685")).toEqual([
-      { id: "radarr", kind: "radarr", name: "Radarr", version: "6.4.4.10685", isUpToDate: true },
+    expect(getRowIntegrationVersions(["jellyfin", "emby"], ["emby"], results, "v6.4.4.10685")).toEqual([
+      { id: "emby", kind: "emby", name: "Emby", version: "6.4.4.10685", isUpToDate: true },
     ]);
   });
 
@@ -133,6 +133,6 @@ describe("getRowIntegrationVersions", () => {
   });
 
   test("returns nothing for rows without links", () => {
-    expect(getRowIntegrationVersions([], ["sonarr"], results, "v4.0.20.3014")).toEqual([]);
+    expect(getRowIntegrationVersions([], ["jellyfin"], results, "v4.0.20.3014")).toEqual([]);
   });
 });

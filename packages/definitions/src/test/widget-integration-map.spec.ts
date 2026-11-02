@@ -46,7 +46,6 @@ describe("widget integration config", () => {
       "thingport-featuredModel": 1,
       "thingport-activityHeatmap": 1,
       patchmon: 1,
-      bazarr: 1,
       audioStats: 1,
       umami: 1,
       archiveTeamWarrior: 1,

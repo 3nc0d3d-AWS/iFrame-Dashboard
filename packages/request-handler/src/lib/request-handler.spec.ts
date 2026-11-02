@@ -20,10 +20,10 @@ const deferred = <T>() => {
 const createIntegration = (secret: string) =>
   ({
     id: "integration-id",
-    kind: "sonarr",
+    kind: "jellyfin",
     decryptedSecrets: [{ kind: "apiKey", value: secret }],
   }) as Omit<Integration, "kind"> & {
-    kind: "sonarr";
+    kind: "jellyfin";
     decryptedSecrets: Pick<IntegrationSecret, "kind" | "value">[];
     externalUrl: string | null;
   };
@@ -322,14 +322,14 @@ describe("createRequestHandler", () => {
 });
 
 describe("createIntegrationRequestHandler", () => {
-  it("keeps SABnzbd history windows and archive modes in separate cache entries", async () => {
+  it("keeps Audiobookshelf history windows and archive modes in separate cache entries", async () => {
     let calls = 0;
     const handler = createIntegrationRequestHandler<
       number,
-      "sabNzbd",
+      "jellyfin",
       { limit: number; includeArchivedHistory: boolean; historyWindowDays: number }
     >({ requestAsync: async () => ++calls });
-    const integration = { ...createIntegration("test-secret"), kind: "sabNzbd" as const };
+    const integration = { ...createIntegration("test-secret"), kind: "jellyfin" as const };
     const input = { limit: 50, includeArchivedHistory: true, historyWindowDays: 7 };
 
     await expect(handler.handler(integration, input).getDataAsync()).resolves.toMatchObject({ data: 1 });
@@ -349,7 +349,7 @@ describe("createIntegrationRequestHandler", () => {
   it("does not deduplicate requests across rotated integration secrets", async () => {
     let calls = 0;
     const request = deferred<string>();
-    const handler = createIntegrationRequestHandler<string, "sonarr", { page: number }>({
+    const handler = createIntegrationRequestHandler<string, "jellyfin", { page: number }>({
       requestAsync: async () => {
         calls += 1;
         return await request.promise;

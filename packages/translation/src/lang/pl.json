@@ -3372,27 +3372,6 @@
 				"noForecast": "Brak dostępnych danych prognoz"
 			}
 		},
-		"indexerManager": {
-			"name": "Status menedżera indeksu",
-			"description": "Status Twoich indeksów",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Otwórz stronę indeksującą w nowej karcie"
-				}
-			},
-			"title": "Menedżer indeksów",
-			"testAll": "Przetestuj wszystkie",
-			"status": {
-				"healthy": "Dobry",
-				"unhealthy": "Zły",
-				"disabled": "Nieaktywny",
-				"unknown": "Zdrowie niedostępne"
-			},
-			"error": {
-				"internalServerError": "Nie udało się pobrać statusu indeksów",
-				"testAll": "Test indeksatora nie powiódł się. Spróbuj ponownie."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Monitorowanie zdrowia systemu",
 			"description": "Wyświetla informacje o stanie Twojego systemu(ów).",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Nie udało się pobrać danych z UPS"
-			}
-		},
-		"tracearr": {
-			"description": "Rozszerzone monitorowanie serwera multimediów z szczegółowymi danymi o strumieniach i transkodowaniu",
-			"option": {
-				"showStreams": {
-					"label": "Pokaż aktywne strumienie"
-				},
-				"showStats": {
-					"label": "Pokaż podsumowanie statystyk"
-				},
-				"showRecentActivity": {
-					"label": "Pokaż ostatnią aktywność"
-				},
-				"showViolations": {
-					"label": "Pokaż naruszenia"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktywne strumienie",
-				"totalUsers": "Łączna liczba użytkowników",
-				"transcodes": "Transkodowanie",
-				"bandwidth": "Przepustowość"
-			},
-			"streams": {
-				"empty": "Brak aktywnych strumieni",
-				"user": "Użytkownik",
-				"media": "Media",
-				"state": "Status",
-				"quality": "Jakość",
-				"device": "Urządzenie",
-				"progress": "Postęp",
-				"videoDecision": {
-					"directPlay": "Direct Play",
-					"transcode": "Transkodowanie",
-					"directStream": "Direct Stream"
-				}
-			},
-			"recentActivity": {
-				"title": "Ostatnia aktywność",
-				"empty": "Brak ostatniej aktywności",
-				"watched": "Obejrzane",
-				"partial": "Częściowo"
-			},
-			"violations": {
-				"title": "Naruszenia",
-				"empty": "Brak ostatnich naruszeń",
-				"rule": "Reguła",
-				"user": "Użytkownik"
-			},
-			"noSectionsEnabled": "Brak włączonych sekcji",
-			"error": {
-				"noIntegration": "Brak skonfigurowanej integracji Tracearr",
-				"internalServerError": "Nie udało się pobrać danych z Tracearr"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Nie udało się pobrać danych PatchMon"
 			}
 		},
-		"bazarr": {
-			"description": "Przegląd brakujących napisów i stanu zdrowia z instancji Bazarr",
-			"episodes": "Brakujące odcinki",
-			"movies": "Brakujące filmy",
-			"providers": "Problemy dostawców",
-			"status": "Problemy ze stanem",
-			"announcements": "Ogłoszenia",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Pokaż brakujące odcinki",
-					"description": "Wyświetla liczbę odcinków z brakującymi napisami"
-				},
-				"showMissingMovies": {
-					"label": "Pokaż brakujące filmy",
-					"description": "Wyświetla liczbę filmów z brakującymi napisami"
-				},
-				"showProviderIssues": {
-					"label": "Pokaż problemy dostawców",
-					"description": "Wyświetla liczbę dostawców napisów z problemami"
-				},
-				"showHealthIssues": {
-					"label": "Pokaż problemy ze stanem",
-					"description": "Wyświetla liczbę problemów ze stanem Bazarr"
-				}
-			},
-			"error": {
-				"internalServerError": "Nie udało się pobrać danych z Bazarr"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Statystyki serwera Immich",
 			"description": "Informacje o Twojej instancji Immich",
@@ -4390,170 +4286,6 @@
 				"photo": "Zdjęcie {number}"
 			}
 		},
-		"downloads": {
-			"name": "Klient pobierania",
-			"description": "Pozwala na oglądanie i zarządzanie pobieraniem zarówno przez klientów Torrent, jak i Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Pokaż wpisy usenet oznaczone jako zakończone"
-				},
-				"showCompletedTorrent": {
-					"label": "Pokaż wpisy torrent oznaczone jako ukończone"
-				},
-				"showCompletedHttp": {
-					"label": "Pokaż różne wpisy oznaczone jako ukończone"
-				},
-				"includeArchivedHistory": {
-					"label": "Dołącz zarchiwizowaną historię SABnzbd",
-					"description": "Pokaż zadania przeniesione do archiwum."
-				},
-				"historyWindowDays": {
-					"label": "Zarchiwizowane okno historii (dni)",
-					"description": "Limit zakończonych historii SABnzbd do tej liczby dni. Zwiększ limit przedmiotów, aby pokazać więcej wyników."
-				},
-				"activeTorrentThreshold": {
-					"label": "Ukryj ukończony torrent poniżej tego progu"
-				},
-				"categoryFilter": {
-					"label": "Kategorie/etykiety do filtrowania"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtruj jako białą listę"
-				},
-				"applyFilterToRatio": {
-					"label": "Użyj filtra do obliczenia współczynnika"
-				},
-				"limitPerIntegration": {
-					"label": "Limit elementów na integrację",
-					"description": "To ograniczy liczbę wyświetlanych elementów dla każdej integracji, a nie globalnie"
-				}
-			},
-			"errors": {
-				"noColumns": "Wybierz kolumny w elementach",
-				"noCommunications": "Nie można załadować danych z integracji",
-				"noItems": "Nie znaleziono pobrań",
-				"actionFailed": "Akcja nie powiodła się",
-				"actionFailedMessage": "Nie można ukończyć działania. Spróbuj ponownie."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Sterowanie"
-				},
-				"added": {
-					"columnTitle": "Dodano",
-					"detailsTitle": "Data dodania"
-				},
-				"category": {
-					"columnTitle": "Dodatki",
-					"detailsTitle": "Kategorie (lub dodatkowe informacje)"
-				},
-				"downSpeed": {
-					"columnTitle": "Pobieranie",
-					"detailsTitle": "Prędkość pobierania"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Bieżący indeks w ramach klienta"
-				},
-				"id": {
-					"columnTitle": "Identyfikator elementu",
-					"detailsTitle": "Identyfikator elementu"
-				},
-				"integration": {
-					"columnTitle": "Integracja"
-				},
-				"name": {
-					"columnTitle": "Nazwa zlecenia"
-				},
-				"progress": {
-					"columnTitle": "Postęp",
-					"detailsTitle": "Postęp pobierania"
-				},
-				"ratio": {
-					"columnTitle": "Proporcja",
-					"detailsTitle": "Współczynnik torrenta (otrzymany/wysłany)"
-				},
-				"received": {
-					"columnTitle": "Łączne pobieranie",
-					"detailsTitle": "Łącznie pobrano"
-				},
-				"sent": {
-					"columnTitle": "Łączne wysyłanie",
-					"detailsTitle": "Łącznie wysłano"
-				},
-				"size": {
-					"columnTitle": "Rozmiar pliku",
-					"detailsTitle": "Całkowity rozmiar zaznaczenia/plików"
-				},
-				"state": {
-					"columnTitle": "Status",
-					"detailsTitle": "Stan pracy"
-				},
-				"time": {
-					"columnTitle": "Czas zakończenia",
-					"detailsTitle": "Czas od/do zakończenia",
-					"eta": "Przewidywany czas"
-				},
-				"type": {
-					"columnTitle": "Typ",
-					"detailsTitle": "Pobierz typ klienta"
-				},
-				"upSpeed": {
-					"columnTitle": "Udostępnianie",
-					"detailsTitle": "Prędkość wysyłania"
-				}
-			},
-			"states": {
-				"downloading": "Pobieranie",
-				"queued": "W kolejce",
-				"paused": "Zatrzymane",
-				"completed": "Zakończono",
-				"failed": "Nieudane",
-				"processing": "Przetwarzanie",
-				"leeching": "Leeching",
-				"stalled": "Zatrzymano",
-				"unknown": "Nieznany",
-				"seeding": "Wysyłanie"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Pobierz listę klientów",
-					"pause": "Zatrzymaj wszystkich klientów/elementy",
-					"resume": "Wznów wszystkich klientów/elementy"
-				},
-				"client": {
-					"pause": "Wstrzymaj klienta",
-					"resume": "Wznów klient"
-				},
-				"item": {
-					"pause": "Wstrzymaj element",
-					"resume": "Wznów element",
-					"delete": {
-						"title": "Usuń przedmiot",
-						"modalTitle": "Czy jesteś pewien, że chcesz skasować to zadanie?",
-						"entry": "Usuń wpis",
-						"entryAndFiles": "Usuń wpis i plik(i)"
-					}
-				}
-			},
-			"globalRatio": "Wskaźnik globalny",
-			"contextMenu": {
-				"copyName": "Kopiuj nazwę",
-				"copyId": "Kopiuj ID",
-				"clearFilters": "Wyczyść filtry"
-			},
-			"footer": {
-				"filter": "Filtruj pobierania"
-			},
-			"stats": {
-				"show": "Pokaż globalne statystyki",
-				"hide": "Ukryj globalne statystyki",
-				"overallProgress": "Ogólny postęp kolejki",
-				"totalSize": "Całkowity rozmiar kolejki",
-				"clients": "{count, plural, one {# klient} few {# klientów} many {# klientów} other {# klientów}}"
-			},
-			"disconnected": "(rozłączono)"
-		},
 		"mediaReleases": {
 			"name": "Wydania mediów",
 			"description": "Wyświetlaj nowo dodane media lub nadchodzące wydania z różnych integracji",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length}min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Lista żądań multimediów",
-			"description": "Zobacz listę wszystkich zapytań o media z Twoich instancji Overseerr lub Jellyseerr",
-			"empty": {
-				"title": "Brak żądań mediów",
-				"description": "Wyszukaj film lub pokaż aby rozpocząć żądanie."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Otwieraj linki w nowej karcie"
-				},
-				"statusFilter": {
-					"label": "Statusy do wyświetlenia"
-				},
-				"recentDays": {
-					"label": "Pokaż tylko ostatnie żądania"
-				}
-			},
-			"pending": {
-				"approve": "Zatwierdź prośbę",
-				"approving": "Zatwierdzanie zapytania...",
-				"decline": "Odrzuć prośbę"
-			},
-			"availability": {
-				"unknown": "Nieznany",
-				"pending": "Oczekujący",
-				"processing": "Przetwarzanie",
-				"requested": "Żądanie",
-				"partiallyAvailable": "Częściowy",
-				"available": "Dostępne",
-				"blacklisted": "Zablokowany",
-				"deleted": "Usunięty"
-			},
-			"status": {
-				"pending": "Oczekujące",
-				"approved": "Zatwierdzone",
-				"declined": "Odrzucone",
-				"failed": "Niepowodzenie",
-				"completed": "Ukończone"
-			},
-			"unknown": "Nieznany",
-			"toBeDetermined": "Nieokreślone"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Statystyki zapytań o media",
-			"description": "Statystyki Twoich zapytań o media",
-			"empty": {
-				"title": "Brak aktywności na żądanie",
-				"description": "Statystyki pojawią się po pierwszym żądaniu mediów."
-			},
-			"titles": {
-				"stats": {
-					"main": "Statystyki mediów",
-					"approved": "Zatwierdzone",
-					"pending": "Oczekujące na zatwierdzenie",
-					"processing": "Trwa przetwarzanie",
-					"declined": "Już odrzucone",
-					"available": "Już dostępne",
-					"tv": "Zapytania o seriale",
-					"movie": "Zapytania o filmy"
-				},
-				"users": {
-					"main": "Najaktywniejsi użytkownicy",
-					"requests": "Żądania"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Kontrola stanu"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Brakujące i oczekujące media",
-			"description": "Pokazuje brakujące i oczekujące filmy i odcinki z Radarr i Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Pokaż brakujące elementy"
-				},
-				"showQueued": {
-					"label": "Pokaż oczekujące elementy"
-				},
-				"pageSize": {
-					"label": "Elementów na stronę"
-				}
-			},
-			"tab": {
-				"missing": "Brakujące",
-				"queued": "Oczekujące"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Odcinek",
-				"book": "Książka"
-			},
-			"empty": {
-				"missing": "Brak brakujących elementów",
-				"queued": "Brak oczekujących elementów",
-				"noTabsEnabled": "Włącz co najmniej jedną kartę w ustawieniach widżetu"
-			},
-			"timeLeft": "Pozostały czas"
 		},
 		"rssFeed": {
 			"name": "Kanały RSS",
@@ -8093,11 +7728,6 @@
 				"label": "",
 				"placeholder": "Szukaj z zewnętrzną wyszukiwarką"
 			},
-			"media": {
-				"label": "Multimedia",
-				"placeholder": "Szukaj filmu lub pokaż",
-				"fallback": "Szukaj mediów \"{query}\""
-			},
 			"userGroup": {
 				"label": "Ludzie",
 				"placeholder": "Szukaj użytkowników i grup"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Szukaj filmów lub seriali do żądania",
-				"requestMovie": "Poproś o film",
-				"requestSeries": "Poproś o serial",
-				"openIn": "Otwórz w {kind}",
-				"group": {
-					"title": "Filmy i seriale"
-				},
-				"action": {
-					"search": {
-						"label": "Szukaj filmów lub seriali",
-						"description": "Zacznij wpisywać, aby wyszukać integracje z twoimi żądaniami mediów",
-						"disabled": {
-							"noIntegration": "Dodaj integrację Overseerr, Jellyseerr lub Seerr, aby włączyć wyszukiwanie multimediów.",
-							"signInRequired": "Zaloguj się, aby wyszukać integrację z żądaniem mediów.",
-							"scoped": "Ten widget nie ma dostępnej integracji z żądaniem mediów."
-						}
-					}
-				},
-				"availability": {
-					"available": "Dostępne",
-					"partiallyAvailable": "Częściowo",
-					"processing": "Przetwarzane",
-					"requested": "Zapytane",
-					"pending": "Zapytane"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Wyszukiwarka nie została usunięta",
 							"message": "Nie udało się usunąć wyszukiwarki"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Żądanie \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Sezon",
-								"episodes": "Odcinki",
-								"status": "Status"
-							},
-							"status": {
-								"requested": "Zapytane"
-							}
-						},
-						"button": {
-							"send": "Wyślij żądanie"
 						}
 					}
 				}

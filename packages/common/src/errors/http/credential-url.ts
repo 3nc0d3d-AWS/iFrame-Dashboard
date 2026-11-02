@@ -1,4 +1,4 @@
-// SABnzbd/Jackett: apikey; Custom Widgets: api_key; Pi-hole v5: auth;
+// Various services: apikey; Custom Widgets: api_key; Pi-hole v5: auth;
 // Technitium: token/user/pass; Navidrome: u/p. Keep protocol selectors and actions.
 const credentialQueryParameters = new Set(["apikey", "api_key", "auth", "token", "user", "pass", "u", "p"]);
 

@@ -11,14 +11,13 @@ request to a different origin.
 
 Available types come from Homarr's integration registry. Saved credentials are applied by the integration's authentication
 contract, including services that require a login session. **iCalendar feeds (iCal)** are calendar URLs rather than arbitrary
-service APIs, and **TrueNAS uses a WebSocket API**; neither appears as a generic HTTP source. qBittorrent requires a saved
-API key and qBittorrent 5.2.0 or newer; saved username/password credentials cannot authenticate generic requests. UniFi
+service APIs, and **TrueNAS uses a WebSocket API**; neither appears as a generic HTTP source. UniFi
 generic requests require an HTTPS saved URL with the controller's actual port.
 
 ```json
 {
-  "sources": { "default": { "type": "integration", "integrationKind": "sonarr" } },
-  "requests": { "queue": { "path": "/api/v3/queue" } }
+  "sources": { "default": { "type": "integration", "integrationKind": "jellyfin" } },
+  "requests": { "sessions": { "path": "/Sessions" } }
 }
 ```
 

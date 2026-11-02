@@ -3372,27 +3372,6 @@
 				"noForecast": "Keine Prognosedaten verfügbar"
 			}
 		},
-		"indexerManager": {
-			"name": "Status des Index Managers",
-			"description": "Status des Indexer",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Indexer Seite in neuem Tab öffnen"
-				}
-			},
-			"title": "Index Manager",
-			"testAll": "Alle testen",
-			"status": {
-				"healthy": "Gesund",
-				"unhealthy": "Fehlerhaft",
-				"disabled": "Deaktiviert",
-				"unknown": "Gesundheit nicht verfügbar"
-			},
-			"error": {
-				"internalServerError": "Fehler beim Abrufen des Indexer Status",
-				"testAll": "Der Indexer Test ist fehlgeschlagen. Versuchen Sie es erneut."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Überwachung des Systemzustands",
 			"description": "Zeigt Informationen zum Zustand und Status Ihres/Ihrer Systeme(s) an.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Fehler beim Abrufen der UPS Daten"
-			}
-		},
-		"tracearr": {
-			"description": "Verbesserte Überwachung von Medienservern mit detaillierten Stream- und Transcodierungsdaten",
-			"option": {
-				"showStreams": {
-					"label": "Aktive Streams anzeigen"
-				},
-				"showStats": {
-					"label": "Statistikübersicht anzeigen"
-				},
-				"showRecentActivity": {
-					"label": "Letzte Aktivitäten anzeigen"
-				},
-				"showViolations": {
-					"label": "Verstöße anzeigen"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktive Streams",
-				"totalUsers": "Anzahl der Benutzer",
-				"transcodes": "Transkodierungen",
-				"bandwidth": "Bandbreite"
-			},
-			"streams": {
-				"empty": "Keine aktiven Streams",
-				"user": "Benutzer",
-				"media": "Medien",
-				"state": "Status",
-				"quality": "Qualität",
-				"device": "Gerät",
-				"progress": "Fortschritt",
-				"videoDecision": {
-					"directPlay": "Direkte Wiedergabe",
-					"transcode": "Transkodieren",
-					"directStream": "Direkter Stream"
-				}
-			},
-			"recentActivity": {
-				"title": "Kürzliche Aktivitäten",
-				"empty": "Keine kürzliche Aktivitäten",
-				"watched": "Gesehen",
-				"partial": "Teilweise"
-			},
-			"violations": {
-				"title": "Verstöße",
-				"empty": "Keine kürzlichen Verstöße",
-				"rule": "Regel",
-				"user": "Benutzer"
-			},
-			"noSectionsEnabled": "Keine Abschnitte aktiviert",
-			"error": {
-				"noIntegration": "Keine Tracearr Integration konfiguriert",
-				"internalServerError": "Fehler beim Abrufen der Tracearr Daten"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": ""
 			}
 		},
-		"bazarr": {
-			"description": "",
-			"episodes": "",
-			"movies": "",
-			"providers": "",
-			"status": "",
-			"announcements": "Ankündigungen",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "",
-					"description": ""
-				},
-				"showMissingMovies": {
-					"label": "",
-					"description": ""
-				},
-				"showProviderIssues": {
-					"label": "",
-					"description": ""
-				},
-				"showHealthIssues": {
-					"label": "",
-					"description": ""
-				}
-			},
-			"error": {
-				"internalServerError": ""
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich Serverstatistik einblenden",
 			"description": "Informationen über Ihre Immich Instanz",
@@ -4390,170 +4286,6 @@
 				"photo": "Foto- {number}"
 			}
 		},
-		"downloads": {
-			"name": "Download Client",
-			"description": "Ermöglicht es Ihnen, Ihre Downloads sowohl von Torrent- als auch von Usenet-Clients anzusehen und zu verwalten.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Usenet Einträge anzeigen die abgeschlossen wurden"
-				},
-				"showCompletedTorrent": {
-					"label": "Torrent Einträge anzeigen die abgeschlossen wurden"
-				},
-				"showCompletedHttp": {
-					"label": "Andere Einträge als abgeschlossen anzeigen"
-				},
-				"includeArchivedHistory": {
-					"label": "Archivierte SABnzbd-Chronik einbeziehen",
-					"description": "Jobs in Archiv verschoben."
-				},
-				"historyWindowDays": {
-					"label": "Archivierte Verlaufsfenster (Tage)",
-					"description": "Beende SABnzbd-Historie auf diese Tage beschränken. Erhöhe das Artikellimit um mehr Ergebnisse anzuzeigen."
-				},
-				"activeTorrentThreshold": {
-					"label": "Abgeschlossene Torrents unter diesem Schwellenwert ausblenden"
-				},
-				"categoryFilter": {
-					"label": "Kategorien/Labels zum Filtern"
-				},
-				"filterIsWhitelist": {
-					"label": "Als Whitelist filtern"
-				},
-				"applyFilterToRatio": {
-					"label": "Filter zur Berechnung des Verhältnisses verwenden"
-				},
-				"limitPerIntegration": {
-					"label": "Elemente pro Integration begrenzen",
-					"description": "Dies begrenzt die Anzahl der Elemente pro Integration, jedoch nicht global"
-				}
-			},
-			"errors": {
-				"noColumns": "Spalten in Elementen auswählen",
-				"noCommunications": "Kann keine Daten von der Integration laden",
-				"noItems": "",
-				"actionFailed": "Aktion fehlgeschlagen",
-				"actionFailedMessage": "Diese Aktion konnte nicht abgeschlossen werden. Bitte versuche es erneut."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Steuerung"
-				},
-				"added": {
-					"columnTitle": "Hinzugefügt",
-					"detailsTitle": "Hinzugefügt am"
-				},
-				"category": {
-					"columnTitle": "Extras",
-					"detailsTitle": "Kategorien (Oder zusätzliche Informationen)"
-				},
-				"downSpeed": {
-					"columnTitle": "Download",
-					"detailsTitle": "Download Geschwindigkeit"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Aktueller Index im Client"
-				},
-				"id": {
-					"columnTitle": "ID",
-					"detailsTitle": "ID"
-				},
-				"integration": {
-					"columnTitle": "Integration"
-				},
-				"name": {
-					"columnTitle": "Job Name"
-				},
-				"progress": {
-					"columnTitle": "Fortschritt",
-					"detailsTitle": "Download Fortschritt"
-				},
-				"ratio": {
-					"columnTitle": "Verhältnis",
-					"detailsTitle": "Torrent Verhältnis (Empfangen/Gesendet)"
-				},
-				"received": {
-					"columnTitle": "Download gesamt",
-					"detailsTitle": "Insgesamt heruntergeladen"
-				},
-				"sent": {
-					"columnTitle": "Upload gesamt",
-					"detailsTitle": "Insgesamt hochgeladen"
-				},
-				"size": {
-					"columnTitle": "Dateigröße",
-					"detailsTitle": "Gesamtgröße der Auswahl/Dateien"
-				},
-				"state": {
-					"columnTitle": "Staat",
-					"detailsTitle": "Jobstatus"
-				},
-				"time": {
-					"columnTitle": "Endzeit",
-					"detailsTitle": "Zeit danach/zur Fertigstellung",
-					"eta": ""
-				},
-				"type": {
-					"columnTitle": "Typ",
-					"detailsTitle": "Download Client"
-				},
-				"upSpeed": {
-					"columnTitle": "Upload",
-					"detailsTitle": "Upload Geschwindigkeit"
-				}
-			},
-			"states": {
-				"downloading": "Wird heruntergeladen",
-				"queued": "In der Warteschlange",
-				"paused": "Pausiert",
-				"completed": "Abgeschlossen",
-				"failed": "Fehlgeschlagen",
-				"processing": "Wird verarbeitet",
-				"leeching": "Leeching",
-				"stalled": "Angehalten",
-				"unknown": "Unbekannt",
-				"seeding": "Seede"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Liste der Download Clients",
-					"pause": "Alle Clients/Elemente pausieren",
-					"resume": "Alle Clients/Elemente fortsetzen"
-				},
-				"client": {
-					"pause": "Client pausieren",
-					"resume": "Client fortsetzen"
-				},
-				"item": {
-					"pause": "Element pausieren",
-					"resume": "Element fortsetzen",
-					"delete": {
-						"title": "Element löschen",
-						"modalTitle": "Sind Sie sicher, dass Sie diesen Auftrag löschen möchten?",
-						"entry": "Eintrag löschen",
-						"entryAndFiles": "Eintrag und Datei(en) löschen"
-					}
-				}
-			},
-			"globalRatio": "Globales Verhältnis",
-			"contextMenu": {
-				"copyName": "",
-				"copyId": "",
-				"clearFilters": ""
-			},
-			"footer": {
-				"filter": ""
-			},
-			"stats": {
-				"show": "",
-				"hide": "",
-				"overallProgress": "",
-				"totalSize": "",
-				"clients": ""
-			},
-			"disconnected": ""
-		},
 		"mediaReleases": {
 			"name": "Medien Veröffentlichungen",
 			"description": "Zeige neu hinzugefügte Medien oder kommende Versionen von verschiedenen Integrationen",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length}Minuten"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Liste der Medienanfragen",
-			"description": "Sehen Sie eine Liste aller Medienanfragen von Ihrer Overseerr- oder Jellyseerr-Instanz",
-			"empty": {
-				"title": "Noch keine Medienanfragen",
-				"description": "Suche nach einem Film oder einer Show, um eine Anfrage zu starten."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Links in neuem Tab öffnen"
-				},
-				"statusFilter": {
-					"label": ""
-				},
-				"recentDays": {
-					"label": ""
-				}
-			},
-			"pending": {
-				"approve": "Anfrage annehmen",
-				"approving": "Anfrage wird bestätigt...",
-				"decline": "Antrag ablehnen"
-			},
-			"availability": {
-				"unknown": "Unbekannt",
-				"pending": "Ausstehend",
-				"processing": "In Bearbeitung",
-				"requested": "Angefordert",
-				"partiallyAvailable": "Teilweise",
-				"available": "Verfügbar",
-				"blacklisted": "Gesperrt",
-				"deleted": "Gelöscht"
-			},
-			"status": {
-				"pending": "Ausstehend",
-				"approved": "Bestätigt",
-				"declined": "Abgelehnt",
-				"failed": "Fehlgeschlagen",
-				"completed": "Abgeschlossen"
-			},
-			"unknown": "Unbekannt",
-			"toBeDetermined": "Noch Festzulegen"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Statistik der Medienanfragen",
-			"description": "Statistiken über Ihre Medienanfragen",
-			"empty": {
-				"title": "Noch keine Anfrage-Aktivität",
-				"description": "Statistiken werden nach der ersten Medienanfrage angezeigt."
-			},
-			"titles": {
-				"stats": {
-					"main": "Medien Statistiken",
-					"approved": "Bereits genehmigt",
-					"pending": "Ausstehende Freigaben",
-					"processing": "Wird verarbeitet",
-					"declined": "Bereits abgelehnt",
-					"available": "Bereits verfügbar",
-					"tv": "TV Anfragen",
-					"movie": "Film Anfragen"
-				},
-				"users": {
-					"main": "Top Nutzer",
-					"requests": "Anfragen"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Health Check"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "",
-			"description": "Zeigt fehlende und in der Warteschlange befindliche Filme, Episoden und Bücher von {radarr}, {sonarr} und {bindery}",
-			"option": {
-				"showMissing": {
-					"label": ""
-				},
-				"showQueued": {
-					"label": ""
-				},
-				"pageSize": {
-					"label": "Einträge pro Seite"
-				}
-			},
-			"tab": {
-				"missing": "",
-				"queued": ""
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "",
-				"book": "Buch"
-			},
-			"empty": {
-				"missing": "",
-				"queued": "",
-				"noTabsEnabled": ""
-			},
-			"timeLeft": ""
 		},
 		"rssFeed": {
 			"name": "RSS Feeds",
@@ -8093,11 +7728,6 @@
 				"label": "",
 				"placeholder": "Mit einer externen Suchmaschine suchen"
 			},
-			"media": {
-				"label": "Medien",
-				"placeholder": "Nach einem Film oder einer Serie suchen",
-				"fallback": "Medien nach \"{query} \" suchen"
-			},
 			"userGroup": {
 				"label": "Personen",
 				"placeholder": "Suche Benutzer und Gruppen"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Suche nach Filmen oder Serien zum Abfragen",
-				"requestMovie": "Einen Film anfordern",
-				"requestSeries": "Eine Serie anfordern",
-				"openIn": "In {kind} öffnen",
-				"group": {
-					"title": "Filme und Serien"
-				},
-				"action": {
-					"search": {
-						"label": "Suche nach Filmen oder Serien",
-						"description": "",
-						"disabled": {
-							"noIntegration": "",
-							"signInRequired": "Melden Sie sich an um Medien-Request-Integrationen zu suchen.",
-							"scoped": ""
-						}
-					}
-				},
-				"availability": {
-					"available": "Verfügbar",
-					"partiallyAvailable": "",
-					"processing": "",
-					"requested": "",
-					"pending": ""
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Die Suchmaschine wurde nicht gelöscht",
 							"message": "Die Suchmaschine konnte nicht gelöscht werden"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "\"{name} \" anfordern",
-						"table": {
-							"header": {
-								"season": "Staffel",
-								"episodes": "Episoden",
-								"status": "Status"
-							},
-							"status": {
-								"requested": "Angefragt"
-							}
-						},
-						"button": {
-							"send": "Anfrage senden"
 						}
 					}
 				}

@@ -13,11 +13,11 @@ describe("buildSortedIntegrations", () => {
   });
 
   it("limits the grid to the allowed integration kinds", () => {
-    const kinds = buildSortedIntegrations({ allowedKinds: ["jellyfin", "sonarr"] }).map(
+    const kinds = buildSortedIntegrations({ allowedKinds: ["jellyfin", "emby"] }).map(
       (integration) => integration.kind,
     );
 
-    expect(kinds).toEqual(expect.arrayContaining(["jellyfin", "sonarr"]));
+    expect(kinds).toEqual(expect.arrayContaining(["jellyfin", "emby"]));
     expect(kinds).toHaveLength(2);
   });
 });

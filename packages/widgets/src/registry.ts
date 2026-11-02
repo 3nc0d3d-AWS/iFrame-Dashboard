@@ -7,7 +7,6 @@ import type * as app from "./app";
 import type * as archiveTeamWarrior from "./archive-team-warrior";
 import type * as assistant from "./assistant";
 import type * as audioStats from "./audio-stats";
-import type * as bazarr from "./bazarr";
 import type * as beszelAlerts from "./beszel-alerts";
 import type * as beszelSystemGrid from "./beszel-system-grid";
 import type * as beszelSystemStats from "./beszel-system-stats";
@@ -22,17 +21,12 @@ import type * as discord from "./discord";
 import type * as dnsHoleControls from "./dns-hole/controls";
 import type * as dnsHoleSummary from "./dns-hole/summary";
 import type * as dockerContainers from "./docker";
-import type * as downloads from "./downloads";
 import type * as firewall from "./firewall";
 import type * as healthMonitoring from "./health-monitoring";
 import type * as iframe from "./iframe";
 import type * as immichAlbumCarousel from "./immich/album-carousel";
 import type * as immichServerStats from "./immich/server-stats";
-import type * as indexerManager from "./indexer-manager";
-import type * as mediaMissing from "./media-missing";
 import type * as mediaReleases from "./media-releases";
-import type * as mediaRequestsList from "./media-requests/list";
-import type * as mediaRequestsStats from "./media-requests/stats";
 import type * as mediaServer from "./media-server";
 import type * as mediaTranscoding from "./media-transcoding";
 import type * as minecraftServerStatus from "./minecraft/server-status";
@@ -57,7 +51,6 @@ import type * as systemDisks from "./system-disks";
 import type * as systemResources from "./system-resources";
 import type * as timetable from "./timetable";
 import type * as timer from "./timer";
-import type * as tracearr from "./tracearr";
 import type * as traefik from "./traefik";
 import type * as umami from "./umami";
 import type * as ups from "./ups";
@@ -91,17 +84,11 @@ export const widgetModuleLoaders = {
   stockPrice: () => import("./stocks"),
   mediaServer: () => import("./media-server"),
   calendar: () => import("./calendar"),
-  downloads: () => import("./downloads"),
-  "mediaRequests-requestList": () => import("./media-requests/list"),
-  "mediaRequests-requestStats": () => import("./media-requests/stats"),
-  mediaMissing: () => import("./media-missing"),
   networkControllerSummary: () => import("./network-controller/summary"),
   networkControllerStatus: () => import("./network-controller/network-status"),
   rssFeed: () => import("./rssFeed"),
   sports: () => import("./sports"),
   bookmarks: () => import("./bookmarks"),
-  bazarr: () => import("./bazarr"),
-  indexerManager: () => import("./indexer-manager"),
   healthMonitoring: () => import("./health-monitoring"),
   mediaTranscoding: () => import("./media-transcoding"),
   minecraftServerStatus: () => import("./minecraft/server-status"),
@@ -123,7 +110,6 @@ export const widgetModuleLoaders = {
   "thingport-featuredModel": () => import("./thingport/featured-model"),
   "thingport-activityHeatmap": () => import("./thingport/activity-heatmap"),
   patchmon: () => import("./patchmon"),
-  tracearr: () => import("./tracearr"),
   speedtestTracker: () => import("./speedtest-tracker"),
   uptimeKuma: () => import("./uptime-kuma"),
   audioStats: () => import("./audio-stats"),
@@ -162,17 +148,11 @@ export type WidgetImports = {
   stockPrice: typeof stockPrice;
   mediaServer: typeof mediaServer;
   calendar: typeof calendar;
-  downloads: typeof downloads;
-  "mediaRequests-requestList": typeof mediaRequestsList;
-  "mediaRequests-requestStats": typeof mediaRequestsStats;
-  mediaMissing: typeof mediaMissing;
   networkControllerSummary: typeof networkControllerSummary;
   networkControllerStatus: typeof networkControllerStatus;
   rssFeed: typeof rssFeed;
   sports: typeof sports;
   bookmarks: typeof bookmarks;
-  bazarr: typeof bazarr;
-  indexerManager: typeof indexerManager;
   healthMonitoring: typeof healthMonitoring;
   mediaTranscoding: typeof mediaTranscoding;
   minecraftServerStatus: typeof minecraftServerStatus;
@@ -194,7 +174,6 @@ export type WidgetImports = {
   "thingport-featuredModel": typeof thingportFeaturedModel;
   "thingport-activityHeatmap": typeof thingportActivityHeatmap;
   patchmon: typeof patchmon;
-  tracearr: typeof tracearr;
   speedtestTracker: typeof speedtestTracker;
   uptimeKuma: typeof uptimeKuma;
   audioStats: typeof audioStats;
@@ -240,17 +219,11 @@ export const widgetComponentLoaders = {
   stockPrice: () => import("./stocks/component"),
   mediaServer: () => import("./media-server/component"),
   calendar: () => import("./calendar/component"),
-  downloads: () => import("./downloads/component"),
-  "mediaRequests-requestList": () => import("./media-requests/list/component"),
-  "mediaRequests-requestStats": () => import("./media-requests/stats/component"),
-  mediaMissing: () => import("./media-missing/component"),
   networkControllerSummary: () => import("./network-controller/summary/component"),
   networkControllerStatus: () => import("./network-controller/network-status/component"),
   rssFeed: () => import("./rssFeed/component"),
   sports: () => import("./sports/component"),
   bookmarks: () => import("./bookmarks/component"),
-  bazarr: () => import("./bazarr/component"),
-  indexerManager: () => import("./indexer-manager/component"),
   healthMonitoring: () => import("./health-monitoring/component"),
   mediaTranscoding: () => import("./media-transcoding/component"),
   minecraftServerStatus: () => import("./minecraft/server-status/component"),
@@ -272,7 +245,6 @@ export const widgetComponentLoaders = {
   "thingport-featuredModel": () => import("./thingport/featured-model/component"),
   "thingport-activityHeatmap": () => import("./thingport/activity-heatmap/component"),
   patchmon: () => import("./patchmon/component"),
-  tracearr: () => import("./tracearr/component"),
   speedtestTracker: () => import("./speedtest-tracker/component"),
   uptimeKuma: () => import("./uptime-kuma/component"),
   audioStats: () => import("./audio-stats/component"),

@@ -3372,27 +3372,6 @@
 				"noForecast": "crwdns8487:0crwdne8487:0"
 			}
 		},
-		"indexerManager": {
-			"name": "crwdns1060:0crwdne1060:0",
-			"description": "crwdns1062:0crwdne1062:0",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "crwdns1064:0crwdne1064:0"
-				}
-			},
-			"title": "crwdns1066:0crwdne1066:0",
-			"testAll": "crwdns1068:0crwdne1068:0",
-			"status": {
-				"healthy": "crwdns8489:0crwdne8489:0",
-				"unhealthy": "crwdns8491:0crwdne8491:0",
-				"disabled": "crwdns8493:0crwdne8493:0",
-				"unknown": "crwdns8495:0crwdne8495:0"
-			},
-			"error": {
-				"internalServerError": "crwdns1070:0crwdne1070:0",
-				"testAll": "crwdns8497:0crwdne8497:0"
-			}
-		},
 		"healthMonitoring": {
 			"name": "crwdns1072:0crwdne1072:0",
 			"description": "crwdns1074:0crwdne1074:0",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "crwdns4509:0crwdne4509:0"
-			}
-		},
-		"tracearr": {
-			"description": "crwdns3930:0crwdne3930:0",
-			"option": {
-				"showStreams": {
-					"label": "crwdns3932:0crwdne3932:0"
-				},
-				"showStats": {
-					"label": "crwdns3934:0crwdne3934:0"
-				},
-				"showRecentActivity": {
-					"label": "crwdns3936:0crwdne3936:0"
-				},
-				"showViolations": {
-					"label": "crwdns3938:0crwdne3938:0"
-				}
-			},
-			"stats": {
-				"activeStreams": "crwdns3940:0crwdne3940:0",
-				"totalUsers": "crwdns3942:0crwdne3942:0",
-				"transcodes": "crwdns3944:0crwdne3944:0",
-				"bandwidth": "crwdns3946:0crwdne3946:0"
-			},
-			"streams": {
-				"empty": "crwdns3948:0crwdne3948:0",
-				"user": "crwdns3950:0crwdne3950:0",
-				"media": "crwdns3952:0crwdne3952:0",
-				"state": "crwdns3954:0crwdne3954:0",
-				"quality": "crwdns3956:0crwdne3956:0",
-				"device": "crwdns3958:0crwdne3958:0",
-				"progress": "crwdns3960:0crwdne3960:0",
-				"videoDecision": {
-					"directPlay": "crwdns3962:0crwdne3962:0",
-					"transcode": "crwdns3964:0crwdne3964:0",
-					"directStream": "crwdns3966:0crwdne3966:0"
-				}
-			},
-			"recentActivity": {
-				"title": "crwdns3968:0crwdne3968:0",
-				"empty": "crwdns3970:0crwdne3970:0",
-				"watched": "crwdns3972:0crwdne3972:0",
-				"partial": "crwdns3974:0crwdne3974:0"
-			},
-			"violations": {
-				"title": "crwdns3976:0crwdne3976:0",
-				"empty": "crwdns3978:0crwdne3978:0",
-				"rule": "crwdns3980:0crwdne3980:0",
-				"user": "crwdns3982:0crwdne3982:0"
-			},
-			"noSectionsEnabled": "crwdns3984:0crwdne3984:0",
-			"error": {
-				"noIntegration": "crwdns3986:0crwdne3986:0",
-				"internalServerError": "crwdns3988:0crwdne3988:0"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "crwdns6037:0crwdne6037:0"
 			}
 		},
-		"bazarr": {
-			"description": "crwdns5805:0crwdne5805:0",
-			"episodes": "crwdns5807:0crwdne5807:0",
-			"movies": "crwdns5809:0crwdne5809:0",
-			"providers": "crwdns5811:0crwdne5811:0",
-			"status": "crwdns5813:0crwdne5813:0",
-			"announcements": "crwdns8671:0crwdne8671:0",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "crwdns5815:0crwdne5815:0",
-					"description": "crwdns5817:0crwdne5817:0"
-				},
-				"showMissingMovies": {
-					"label": "crwdns5819:0crwdne5819:0",
-					"description": "crwdns5821:0crwdne5821:0"
-				},
-				"showProviderIssues": {
-					"label": "crwdns5823:0crwdne5823:0",
-					"description": "crwdns5825:0crwdne5825:0"
-				},
-				"showHealthIssues": {
-					"label": "crwdns5827:0crwdne5827:0",
-					"description": "crwdns5829:0crwdne5829:0"
-				}
-			},
-			"error": {
-				"internalServerError": "crwdns5831:0crwdne5831:0"
-			}
-		},
 		"immich-serverStats": {
 			"name": "crwdns3880:0crwdne3880:0",
 			"description": "crwdns3882:0crwdne3882:0",
@@ -4390,170 +4286,6 @@
 				"photo": "crwdns8687:0{number}crwdne8687:0"
 			}
 		},
-		"downloads": {
-			"name": "crwdns1170:0crwdne1170:0",
-			"description": "crwdns1172:0crwdne1172:0",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "crwdns1182:0crwdne1182:0"
-				},
-				"showCompletedTorrent": {
-					"label": "crwdns1184:0crwdne1184:0"
-				},
-				"showCompletedHttp": {
-					"label": "crwdns3154:0crwdne3154:0"
-				},
-				"includeArchivedHistory": {
-					"label": "crwdns10861:0crwdne10861:0",
-					"description": "crwdns10863:0crwdne10863:0"
-				},
-				"historyWindowDays": {
-					"label": "crwdns10865:0crwdne10865:0",
-					"description": "crwdns10867:0crwdne10867:0"
-				},
-				"activeTorrentThreshold": {
-					"label": "crwdns8689:0crwdne8689:0"
-				},
-				"categoryFilter": {
-					"label": "crwdns1188:0crwdne1188:0"
-				},
-				"filterIsWhitelist": {
-					"label": "crwdns1190:0crwdne1190:0"
-				},
-				"applyFilterToRatio": {
-					"label": "crwdns1192:0crwdne1192:0"
-				},
-				"limitPerIntegration": {
-					"label": "crwdns3442:0crwdne3442:0",
-					"description": "crwdns3444:0crwdne3444:0"
-				}
-			},
-			"errors": {
-				"noColumns": "crwdns1194:0crwdne1194:0",
-				"noCommunications": "crwdns1196:0crwdne1196:0",
-				"noItems": "crwdns6125:0crwdne6125:0",
-				"actionFailed": "crwdns6127:0crwdne6127:0",
-				"actionFailedMessage": "crwdns6129:0crwdne6129:0"
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "crwdns8691:0crwdne8691:0"
-				},
-				"added": {
-					"columnTitle": "crwdns1200:0crwdne1200:0",
-					"detailsTitle": "crwdns8693:0crwdne8693:0"
-				},
-				"category": {
-					"columnTitle": "crwdns8695:0crwdne8695:0",
-					"detailsTitle": "crwdns8697:0crwdne8697:0"
-				},
-				"downSpeed": {
-					"columnTitle": "crwdns1208:0crwdne1208:0",
-					"detailsTitle": "crwdns8699:0crwdne8699:0"
-				},
-				"index": {
-					"columnTitle": "crwdns1212:0crwdne1212:0",
-					"detailsTitle": "crwdns8701:0crwdne8701:0"
-				},
-				"id": {
-					"columnTitle": "crwdns8703:0crwdne8703:0",
-					"detailsTitle": "crwdns8705:0crwdne8705:0"
-				},
-				"integration": {
-					"columnTitle": "crwdns8707:0crwdne8707:0"
-				},
-				"name": {
-					"columnTitle": "crwdns8709:0crwdne8709:0"
-				},
-				"progress": {
-					"columnTitle": "crwdns1222:0crwdne1222:0",
-					"detailsTitle": "crwdns8711:0crwdne8711:0"
-				},
-				"ratio": {
-					"columnTitle": "crwdns1226:0crwdne1226:0",
-					"detailsTitle": "crwdns8713:0crwdne8713:0"
-				},
-				"received": {
-					"columnTitle": "crwdns8715:0crwdne8715:0",
-					"detailsTitle": "crwdns8717:0crwdne8717:0"
-				},
-				"sent": {
-					"columnTitle": "crwdns8719:0crwdne8719:0",
-					"detailsTitle": "crwdns8721:0crwdne8721:0"
-				},
-				"size": {
-					"columnTitle": "crwdns8723:0crwdne8723:0",
-					"detailsTitle": "crwdns8725:0crwdne8725:0"
-				},
-				"state": {
-					"columnTitle": "crwdns1242:0crwdne1242:0",
-					"detailsTitle": "crwdns8727:0crwdne8727:0"
-				},
-				"time": {
-					"columnTitle": "crwdns8729:0crwdne8729:0",
-					"detailsTitle": "crwdns8731:0crwdne8731:0",
-					"eta": "crwdns6133:0crwdne6133:0"
-				},
-				"type": {
-					"columnTitle": "crwdns1250:0crwdne1250:0",
-					"detailsTitle": "crwdns8733:0crwdne8733:0"
-				},
-				"upSpeed": {
-					"columnTitle": "crwdns1254:0crwdne1254:0",
-					"detailsTitle": "crwdns8735:0crwdne8735:0"
-				}
-			},
-			"states": {
-				"downloading": "crwdns1258:0crwdne1258:0",
-				"queued": "crwdns1260:0crwdne1260:0",
-				"paused": "crwdns1262:0crwdne1262:0",
-				"completed": "crwdns1264:0crwdne1264:0",
-				"failed": "crwdns1266:0crwdne1266:0",
-				"processing": "crwdns1268:0crwdne1268:0",
-				"leeching": "crwdns1270:0crwdne1270:0",
-				"stalled": "crwdns1272:0crwdne1272:0",
-				"unknown": "crwdns1274:0crwdne1274:0",
-				"seeding": "crwdns1276:0crwdne1276:0"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "crwdns1278:0crwdne1278:0",
-					"pause": "crwdns1280:0crwdne1280:0",
-					"resume": "crwdns1282:0crwdne1282:0"
-				},
-				"client": {
-					"pause": "crwdns1284:0crwdne1284:0",
-					"resume": "crwdns1286:0crwdne1286:0"
-				},
-				"item": {
-					"pause": "crwdns1288:0crwdne1288:0",
-					"resume": "crwdns1290:0crwdne1290:0",
-					"delete": {
-						"title": "crwdns1292:0crwdne1292:0",
-						"modalTitle": "crwdns1294:0crwdne1294:0",
-						"entry": "crwdns1296:0crwdne1296:0",
-						"entryAndFiles": "crwdns1298:0crwdne1298:0"
-					}
-				}
-			},
-			"globalRatio": "crwdns1300:0crwdne1300:0",
-			"contextMenu": {
-				"copyName": "crwdns6135:0crwdne6135:0",
-				"copyId": "crwdns6137:0crwdne6137:0",
-				"clearFilters": "crwdns6139:0crwdne6139:0"
-			},
-			"footer": {
-				"filter": "crwdns6141:0crwdne6141:0"
-			},
-			"stats": {
-				"show": "crwdns6143:0crwdne6143:0",
-				"hide": "crwdns6145:0crwdne6145:0",
-				"overallProgress": "crwdns6147:0crwdne6147:0",
-				"totalSize": "crwdns6149:0crwdne6149:0",
-				"clients": "crwdns6151:0count={count}crwdne6151:0"
-			},
-			"disconnected": "crwdns6153:0crwdne6153:0"
-		},
 		"mediaReleases": {
 			"name": "crwdns3532:0crwdne3532:0",
 			"description": "crwdns3534:0crwdne3534:0",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "crwdns3548:0{length}crwdne3548:0"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "crwdns1302:0crwdne1302:0",
-			"description": "crwdns8737:0crwdne8737:0",
-			"empty": {
-				"title": "crwdns8739:0crwdne8739:0",
-				"description": "crwdns8741:0crwdne8741:0"
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "crwdns1306:0crwdne1306:0"
-				},
-				"statusFilter": {
-					"label": "crwdns6081:0crwdne6081:0"
-				},
-				"recentDays": {
-					"label": "crwdns6083:0crwdne6083:0"
-				}
-			},
-			"pending": {
-				"approve": "crwdns1308:0crwdne1308:0",
-				"approving": "crwdns1310:0crwdne1310:0",
-				"decline": "crwdns1312:0crwdne1312:0"
-			},
-			"availability": {
-				"unknown": "crwdns1314:0crwdne1314:0",
-				"pending": "crwdns1316:0crwdne1316:0",
-				"processing": "crwdns1318:0crwdne1318:0",
-				"requested": "crwdns3806:0crwdne3806:0",
-				"partiallyAvailable": "crwdns1320:0crwdne1320:0",
-				"available": "crwdns1322:0crwdne1322:0",
-				"blacklisted": "crwdns3468:0crwdne3468:0",
-				"deleted": "crwdns3470:0crwdne3470:0"
-			},
-			"status": {
-				"pending": "crwdns2831:0crwdne2831:0",
-				"approved": "crwdns2833:0crwdne2833:0",
-				"declined": "crwdns2835:0crwdne2835:0",
-				"failed": "crwdns2837:0crwdne2837:0",
-				"completed": "crwdns3256:0crwdne3256:0"
-			},
-			"unknown": "crwdns8743:0crwdne8743:0",
-			"toBeDetermined": "crwdns1324:0crwdne1324:0"
-		},
-		"mediaRequests-requestStats": {
-			"name": "crwdns1326:0crwdne1326:0",
-			"description": "crwdns1328:0crwdne1328:0",
-			"empty": {
-				"title": "crwdns8745:0crwdne8745:0",
-				"description": "crwdns8747:0crwdne8747:0"
-			},
-			"titles": {
-				"stats": {
-					"main": "crwdns1330:0crwdne1330:0",
-					"approved": "crwdns1332:0crwdne1332:0",
-					"pending": "crwdns1334:0crwdne1334:0",
-					"processing": "crwdns1336:0crwdne1336:0",
-					"declined": "crwdns1338:0crwdne1338:0",
-					"available": "crwdns1340:0crwdne1340:0",
-					"tv": "crwdns1342:0crwdne1342:0",
-					"movie": "crwdns1344:0crwdne1344:0"
-				},
-				"users": {
-					"main": "crwdns1348:0crwdne1348:0",
-					"requests": "crwdns1350:0crwdne1350:0"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "crwdns8759:0crwdne8759:0"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "crwdns5833:0crwdne5833:0",
-			"description": "crwdns11173:0{radarr}crwdnd11173:0{sonarr}crwdnd11173:0{sportarr}crwdnd11173:0{bindery}crwdne11173:0",
-			"option": {
-				"showMissing": {
-					"label": "crwdns5837:0crwdne5837:0"
-				},
-				"showQueued": {
-					"label": "crwdns5839:0crwdne5839:0"
-				},
-				"pageSize": {
-					"label": "crwdns5841:0crwdne5841:0"
-				}
-			},
-			"tab": {
-				"missing": "crwdns5843:0crwdne5843:0",
-				"queued": "crwdns5845:0crwdne5845:0"
-			},
-			"type": {
-				"movie": "crwdns5847:0crwdne5847:0",
-				"episode": "crwdns5849:0crwdne5849:0",
-				"book": "crwdns8763:0crwdne8763:0"
-			},
-			"empty": {
-				"missing": "crwdns5851:0crwdne5851:0",
-				"queued": "crwdns5853:0crwdne5853:0",
-				"noTabsEnabled": "crwdns5855:0crwdne5855:0"
-			},
-			"timeLeft": "crwdns5857:0crwdne5857:0"
 		},
 		"rssFeed": {
 			"name": "crwdns1352:0crwdne1352:0",
@@ -8093,11 +7728,6 @@
 				"label": "crwdns10249:0crwdne10249:0",
 				"placeholder": "crwdns10251:0crwdne10251:0"
 			},
-			"media": {
-				"label": "crwdns10253:0crwdne10253:0",
-				"placeholder": "crwdns10255:0crwdne10255:0",
-				"fallback": "crwdns10257:0{query}crwdne10257:0"
-			},
 			"userGroup": {
 				"label": "crwdns10259:0crwdne10259:0",
 				"placeholder": "crwdns10261:0crwdne10261:0"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "crwdns4281:0crwdne4281:0",
-				"requestMovie": "crwdns2498:0crwdne2498:0",
-				"requestSeries": "crwdns2500:0crwdne2500:0",
-				"openIn": "crwdns2502:0{kind}crwdne2502:0",
-				"group": {
-					"title": "crwdns4283:0crwdne4283:0"
-				},
-				"action": {
-					"search": {
-						"label": "crwdns4285:0crwdne4285:0",
-						"description": "crwdns4287:0crwdne4287:0",
-						"disabled": {
-							"noIntegration": "crwdns4289:0crwdne4289:0",
-							"signInRequired": "crwdns10281:0crwdne10281:0",
-							"scoped": "crwdns4291:0crwdne4291:0"
-						}
-					}
-				},
-				"availability": {
-					"available": "crwdns4293:0crwdne4293:0",
-					"partiallyAvailable": "crwdns4295:0crwdne4295:0",
-					"processing": "crwdns4297:0crwdne4297:0",
-					"requested": "crwdns4299:0crwdne4299:0",
-					"pending": "crwdns4301:0crwdne4301:0"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "crwdns2246:0crwdne2246:0",
 							"message": "crwdns2248:0crwdne2248:0"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "crwdns2504:0{name}crwdne2504:0",
-						"table": {
-							"header": {
-								"season": "crwdns2506:0crwdne2506:0",
-								"episodes": "crwdns2508:0crwdne2508:0",
-								"status": "crwdns4303:0crwdne4303:0"
-							},
-							"status": {
-								"requested": "crwdns4305:0crwdne4305:0"
-							}
-						},
-						"button": {
-							"send": "crwdns2510:0crwdne2510:0"
 						}
 					}
 				}

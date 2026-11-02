@@ -39,8 +39,8 @@ describe("CatalogItem", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <CatalogItem label="Sonarr" status="Ready" selected onSelect={onSelect}>
-            Sonarr
+          <CatalogItem label="Jellyfin" status="Ready" selected onSelect={onSelect}>
+            Jellyfin
           </CatalogItem>
         </MantineProvider>,
       ),
@@ -48,7 +48,7 @@ describe("CatalogItem", () => {
 
     const button = host.querySelector("button");
     expect(button?.type).toBe("button");
-    expect(button?.getAttribute("aria-label")).toBe("Sonarr, Ready");
+    expect(button?.getAttribute("aria-label")).toBe("Jellyfin, Ready");
     expect(button?.getAttribute("aria-pressed")).toBe("true");
 
     await act(async () => button?.click());
@@ -90,8 +90,8 @@ describe("CatalogItem", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <CatalogItem label="Sonarr" onSelect={onSelect} onMoveFocus={onMoveFocus}>
-            Sonarr
+          <CatalogItem label="Jellyfin" onSelect={onSelect} onMoveFocus={onMoveFocus}>
+            Jellyfin
           </CatalogItem>
         </MantineProvider>,
       ),

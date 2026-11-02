@@ -13,9 +13,9 @@ describe("demo integration statistics", () => {
   test("returns showcase values only for seeded demo sources", () => {
     process.env.DEMO_MODE = "true";
 
-    expect(getDemoStatsValues({ kind: "sonarr", url: "https://demo.homarr.dev" })).toMatchObject({
-      shows: 74,
-      episodes: 3_986,
+    expect(getDemoStatsValues({ kind: "proxmox", url: "https://demo.homarr.dev" })).toMatchObject({
+      nodes: 3,
+      vms: 12,
     });
     expect(getDemoStatsValues({ kind: "mealie", url: "https://demo.homarr.dev" })).toEqual({
       recipes: 318,
@@ -27,7 +27,7 @@ describe("demo integration statistics", () => {
       spools: 24,
       remainingWeight: 8_120,
     });
-    expect(getDemoStatsValues({ kind: "sonarr", url: "https://sonarr.example.com" })).toBeUndefined();
+    expect(getDemoStatsValues({ kind: "proxmox", url: "https://proxmox.example.com" })).toBeUndefined();
     expect(getDemoStatsValues({ kind: "mock", url: "https://demo.homarr.dev" })).toBeUndefined();
   });
 
@@ -56,6 +56,6 @@ describe("demo integration statistics", () => {
   test("does not replace live statistics outside demo mode", () => {
     process.env.DEMO_MODE = "false";
 
-    expect(getDemoStatsValues({ kind: "sonarr", url: "https://demo.homarr.dev" })).toBeUndefined();
+    expect(getDemoStatsValues({ kind: "proxmox", url: "https://demo.homarr.dev" })).toBeUndefined();
   });
 });

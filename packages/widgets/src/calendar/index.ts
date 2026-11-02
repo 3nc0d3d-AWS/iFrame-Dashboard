@@ -2,7 +2,7 @@ import { IconCalendar } from "@tabler/icons-react";
 import { z } from "zod/v4";
 
 import { getWidgetIntegrationConfig } from "@homarr/definitions";
-import { radarrReleaseTypes } from "@homarr/integrations/types";
+import { mediaReleaseTypes } from "@homarr/integrations/types";
 
 import { createWidgetDefinition, matchesWidgetRuntimeQuery } from "../definition";
 import { optionsBuilder } from "../options";
@@ -28,7 +28,7 @@ export const { definition, componentLoader } = createWidgetDefinition("calendar"
       }),
       releaseType: factory.multiSelect({
         defaultValue: ["inCinemas", "digitalRelease"],
-        options: radarrReleaseTypes.map((value) => ({
+        options: mediaReleaseTypes.map((value) => ({
           value,
           label: (t) => t(`widget.calendar.option.releaseType.options.${value}`),
         })),

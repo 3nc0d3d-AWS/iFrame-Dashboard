@@ -35,15 +35,12 @@ import {
 import { createIntegrationAsync } from "@homarr/integrations/factory";
 import type { IntegrationInstanceOfKind } from "@homarr/integrations/factory";
 import { invalidateIntegrationCacheAsync } from "@homarr/redis";
-import { mediaRequestListRequestHandler } from "@homarr/request-handler/media-request-list";
-import { mediaRequestStatsRequestHandler } from "@homarr/request-handler/media-request-stats";
 import { byIdSchema } from "@homarr/validation/common";
 import {
   integrationCreateSchema,
   integrationSavePermissionsSchema,
   integrationUpdateSchema,
 } from "@homarr/validation/integration";
-import { mediaRequestOptionsSchema, mediaRequestRequestSchema } from "@homarr/validation/widgets/media-request";
 
 import { createOneIntegrationMiddleware } from "../../middlewares/integration";
 import { createTRPCRouter, permissionRequiredProcedure, protectedProcedure, publicProcedure } from "../../trpc";
@@ -54,12 +51,11 @@ import { integrationTestStoredConnectionProcedure } from "./integration-test-sto
 import { mapTestConnectionError } from "./map-test-connection-error";
 
 // Calling `searchAsync` on a union of integration classes types the result as only one member's, so the union is
-// spelled out per kind: Overseerr's results keep their media type, Thingport's keep their own shape.
+// spelled out per kind so each integration's results keep their own shape.
 type IntegrationSearchResult<TKind extends IntegrationKindByCategory<"search"> = IntegrationKindByCategory<"search">> =
   TKind extends unknown ? Awaited<ReturnType<IntegrationInstanceOfKind<TKind>["searchAsync"]>>[number] : never;
 
 const logger = createLogger({ module: "integrationRouter" });
-const mediaRequestSearchKinds = getIntegrationKindsByCategory("mediaSearch");
 
 export const integrationRouter = createTRPCRouter({
   request: integrationRequestProcedure,
@@ -69,7 +65,7 @@ export const integrationRouter = createTRPCRouter({
       mcp: {
         enabled: true,
         description:
-          "List integration kinds and required secret fields. Saved integrations can be used with integration_request and Custom Widget sources when permissions.hasFullAccess is true, except iCalendar feeds (iCal) and the TrueNAS WebSocket API, which are not generic HTTP APIs. qBittorrent generic HTTP requires an API key and qBittorrent 5.2.0 or newer. Reuse saved credentials instead of asking for secrets again.",
+          "List integration kinds and required secret fields. Saved integrations can be used with integration_request and Custom Widget sources when permissions.hasFullAccess is true, except iCalendar feeds (iCal) and the TrueNAS WebSocket API, which are not generic HTTP APIs. Reuse saved credentials instead of asking for secrets again.",
       },
     })
     .query(() => {
@@ -240,7 +236,7 @@ export const integrationRouter = createTRPCRouter({
         enabled: true,
         effect: "additive",
         description:
-          "Create a new integration (connection to an external service). REQUIRED fields: name, url (http/https), kind, secrets, attemptSearchEngineCreation. The 'secrets' field is REQUIRED and must be a non-empty array — call integration_getKinds first to see which secret kinds each integration type needs. Example for Radarr: secrets=[{kind:'apiKey', value:'your-radarr-api-key'}]. Example for Proxmox: secrets=[{kind:'tokenId', value:'...'}, {kind:'personalAccessToken', value:'...'}, {kind:'realm', value:'pam'}]. The connection is tested before saving — if secrets are wrong, an error is returned. Set attemptSearchEngineCreation to false unless explicitly requested. The 'app' field is optional — pass {id:'...'} to link to an existing app, or omit it. Returns integration details and appId, which is null when no app is linked or created.",
+          "Create a new integration (connection to an external service). REQUIRED fields: name, url (http/https), kind, secrets, attemptSearchEngineCreation. The 'secrets' field is REQUIRED and must be a non-empty array — call integration_getKinds first to see which secret kinds each integration type needs. Example for Jellyfin: secrets=[{kind:'apiKey', value:'your-jellyfin-api-key'}]. Example for Proxmox: secrets=[{kind:'tokenId', value:'...'}, {kind:'personalAccessToken', value:'...'}, {kind:'realm', value:'pam'}]. The connection is tested before saving — if secrets are wrong, an error is returned. Set attemptSearchEngineCreation to false unless explicitly requested. The 'app' field is optional — pass {id:'...'} to link to an existing app, or omit it. Returns integration details and appId, which is null when no app is linked or created.",
       },
     })
     .input(integrationCreateSchema)
@@ -621,7 +617,7 @@ export const integrationRouter = createTRPCRouter({
       mcp: {
         enabled: true,
         description:
-          "Search within a specific integration (e.g. Overseerr, Jellyseerr). REQUIRED: integrationId (from integration_all), query (search string)",
+          "Search within a specific integration. REQUIRED: integrationId (from integration_all), query (search string)",
       },
     })
     .concat(createOneIntegrationMiddleware("query", ...getIntegrationKindsByCategory("search")))
@@ -629,123 +625,6 @@ export const integrationRouter = createTRPCRouter({
     .query(async ({ ctx, input }): Promise<IntegrationSearchResult[]> => {
       const integrationInstance = await createIntegrationAsync(ctx.integration);
       return await integrationInstance.searchAsync(encodeURI(input.query));
-    }),
-  mediaRequestSearchTargets: protectedProcedure
-    .meta({
-      mcp: {
-        enabled: true,
-        description: "List integrations that support media request search (Overseerr, Jellyseerr, Seerr)",
-      },
-    })
-    .query(async ({ ctx }) => {
-      const integrationsWithAccess = await getAccessibleMediaRequestSearchIntegrationsAsync(ctx);
-
-      return integrationsWithAccess.map((integration) => {
-        const permissions = constructIntegrationPermissions(integration, ctx.session);
-
-        return {
-          id: integration.id,
-          name: integration.name,
-          kind: integration.kind,
-          url: integration.url,
-          permissions: {
-            hasInteractAccess: permissions.hasInteractAccess,
-          },
-        };
-      });
-    }),
-  searchMediaRequests: protectedProcedure
-    .meta({
-      mcp: {
-        enabled: true,
-        description:
-          "Search for movies and TV shows across Overseerr/Jellyseerr/Seerr. REQUIRED: query (search string). OPTIONAL: integrationIds (array of integration IDs — omit to search all accessible Overseerr/Jellyseerr/Seerr integrations). Returns results with integrationId, mediaId, and mediaType for use with getMediaRequestOptions and requestMedia",
-      },
-    })
-    .input(
-      z.object({
-        query: z.string(),
-        integrationIds: z.array(z.string()).optional(),
-      }),
-    )
-    .query(async ({ ctx, input }) => {
-      const query = input.query.trim();
-      if (query.length === 0) return [];
-
-      const integrationsWithAccess = await getAccessibleMediaRequestSearchIntegrationsAsync(ctx, input.integrationIds);
-
-      const results = await Promise.all(
-        integrationsWithAccess.map(async (integration) => {
-          const integrationInstance = await createIntegrationAsync({
-            id: integration.id,
-            name: integration.name,
-            url: integration.url,
-            kind: integration.kind as (typeof mediaRequestSearchKinds)[number],
-            externalUrl: integration.app?.href ?? null,
-            decryptedSecrets: integration.secrets.map((secret) => ({
-              ...secret,
-              value: decryptSecret(secret.value),
-            })),
-          });
-          const permissions = constructIntegrationPermissions(integration, ctx.session);
-
-          return await integrationInstance.searchAsync(encodeURI(query)).then((searchResults) =>
-            searchResults.map((result) => ({
-              ...result,
-              integration: {
-                id: integration.id,
-                name: integration.name,
-                kind: integration.kind,
-                url: integration.url,
-                permissions: {
-                  hasInteractAccess: permissions.hasInteractAccess,
-                },
-              },
-            })),
-          );
-        }),
-      );
-
-      return results.flat();
-    }),
-  getMediaRequestOptions: protectedProcedure
-    .meta({
-      mcp: {
-        enabled: true,
-        description:
-          "Get available options (seasons/episodes for TV) before requesting media. REQUIRED: integrationId (Overseerr/Jellyseerr ID), mediaId (number from searchMediaRequests), mediaType ('tv' or 'movie'). Required step for TV shows — for movies you can skip this and go straight to requestMedia",
-      },
-    })
-    .concat(createOneIntegrationMiddleware("query", "jellyseerr", "overseerr", "seerr"))
-    .input(mediaRequestOptionsSchema)
-    .query(async ({ ctx, input }) => {
-      const integration = await createIntegrationAsync(ctx.integration);
-      return await integration.getSeriesInformationAsync(input.mediaType, input.mediaId);
-    }),
-  requestMedia: protectedProcedure
-    .meta({
-      mcp: {
-        enabled: true,
-        effect: "additive",
-        description:
-          "Submit a media request to Overseerr/Jellyseerr/Seerr. REQUIRED: integrationId (Overseerr/Jellyseerr ID), mediaId (number), mediaType ('tv' or 'movie'). OPTIONAL: seasons (array of season numbers — for TV only, omit to request all). Workflow: searchMediaRequests → (getMediaRequestOptions for TV) → requestMedia",
-      },
-    })
-    .concat(createOneIntegrationMiddleware("interact", "jellyseerr", "overseerr", "seerr"))
-    .input(mediaRequestRequestSchema)
-    .mutation(async ({ ctx, input }) => {
-      const integration = await createIntegrationAsync(ctx.integration);
-      const result = await integration.requestMediaAsync(input.mediaType, input.mediaId, input.seasons);
-      try {
-        mediaRequestListRequestHandler.invalidateCache();
-        await mediaRequestStatsRequestHandler.invalidateCacheAsync([ctx.integration.id]);
-      } catch (error) {
-        logger.warn("Failed to invalidate media request caches after a successful request", {
-          integrationId: ctx.integration.id,
-          error: String(error),
-        });
-      }
-      return result;
     }),
 });
 
@@ -815,71 +694,6 @@ const getAccessibleIntegrationsAsync = async (ctx: { db: Database; session: Sess
         integrationA.name.localeCompare(integrationB.name) ||
         integrationA.id.localeCompare(integrationB.id),
     );
-};
-
-interface IntegrationRouterContext {
-  db: Database;
-  session: Parameters<typeof hasQueryAccessToIntegrationsAsync>[2];
-}
-
-const getAccessibleMediaRequestSearchIntegrationsAsync = async (
-  ctx: IntegrationRouterContext,
-  integrationIds?: string[],
-) => {
-  const groupsOfCurrentUser = await ctx.db.query.groupMembers.findMany({
-    where: eq(groupMembers.userId, ctx.session?.user.id ?? ""),
-  });
-
-  const integrationsFromDb = await ctx.db.query.integrations.findMany({
-    where:
-      integrationIds && integrationIds.length > 0
-        ? and(inArray(integrations.id, integrationIds), inArray(integrations.kind, mediaRequestSearchKinds))
-        : inArray(integrations.kind, mediaRequestSearchKinds),
-    orderBy: asc(integrations.name),
-    with: {
-      app: true,
-      secrets: true,
-      items: {
-        with: {
-          item: {
-            columns: { boardId: true },
-          },
-        },
-      },
-      userPermissions: {
-        where: eq(integrationUserPermissions.userId, ctx.session?.user.id ?? ""),
-      },
-      groupPermissions: {
-        where: inArray(
-          integrationGroupPermissions.groupId,
-          groupsOfCurrentUser.map((group) => group.groupId),
-        ),
-      },
-    },
-  });
-
-  if (integrationIds && integrationsFromDb.length !== integrationIds.length) {
-    throw new TRPCError({
-      code: "NOT_FOUND",
-      message: "One or more media request search integrations were not found",
-    });
-  }
-
-  const integrationsWithAccess = await Promise.all(
-    integrationsFromDb.map(async (integration) => ({
-      integration,
-      hasAccess: await hasQueryAccessToIntegrationsAsync(ctx.db, [integration], ctx.session),
-    })),
-  );
-
-  if (integrationIds && integrationsWithAccess.some(({ hasAccess }) => !hasAccess)) {
-    throw new TRPCError({
-      code: "FORBIDDEN",
-      message: "User does not have permission to query one or more media request search integrations",
-    });
-  }
-
-  return integrationsWithAccess.filter(({ hasAccess }) => hasAccess).map(({ integration }) => integration);
 };
 
 interface UpdateSecretInput {

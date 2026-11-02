@@ -53,13 +53,13 @@ describe("Docker reconciliation inbox", () => {
       getTemplateUrl(
         {
           container: {
-            name: "Sonarr",
+            name: "Jellyfin",
             ports: [
               { PrivatePort: 3000, PublicPort: 3000, Type: "tcp" },
               { PrivatePort: 8989, PublicPort: 9999, Type: "tcp" },
             ],
           },
-          match: { kind: "sonarr" },
+          match: { kind: "jellyfin" },
         },
         "home.lan",
         "hostPort",
@@ -69,8 +69,8 @@ describe("Docker reconciliation inbox", () => {
     expect(
       getTemplateUrl(
         {
-          container: { name: "Sonarr", ports: [{ PrivatePort: 8989, PublicPort: 9999, Type: "tcp" }] },
-          match: { kind: "sonarr" },
+          container: { name: "Jellyfin", ports: [{ PrivatePort: 8989, PublicPort: 9999, Type: "tcp" }] },
+          match: { kind: "jellyfin" },
         },
         "",
         "hostPort",

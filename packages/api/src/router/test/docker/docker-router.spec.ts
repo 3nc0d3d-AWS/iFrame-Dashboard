@@ -34,7 +34,7 @@ const findIntegrationsAsyncMock = vi.fn(
     {
       id: string;
       name: string;
-      kind: "sonarr";
+      kind: "jellyfin";
       url: string;
       appId: string | null;
       items?: { itemId: string }[];
@@ -284,8 +284,8 @@ test("keeps multiple recognized services of the same integration kind", async ()
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
       containers: [
-        createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr-home", publicPort: 8989 }),
-        createInventoryContainer({ endpointId: "remote", id: "two", name: "sonarr-remote", publicPort: 18989 }),
+        createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin-home", publicPort: 8989 }),
+        createInventoryContainer({ endpointId: "remote", id: "two", name: "jellyfin-remote", publicPort: 18989 }),
       ],
       endpoints: [
         { id: "home", name: "Home", status: "available" },
@@ -298,14 +298,14 @@ test("keeps multiple recognized services of the same integration kind", async ()
   const result = await createAdminCaller().reconcileServices();
 
   expect(result.candidates).toHaveLength(2);
-  expect(result.candidates.map(({ match }) => match?.kind)).toEqual(["sonarr", "sonarr"]);
+  expect(result.candidates.map(({ match }) => match?.kind)).toEqual(["jellyfin", "jellyfin"]);
   expect(result.candidates.map(({ candidateKey }) => candidateKey)).toEqual(["home:one", "remote:two"]);
 });
 
 test("preserves unavailable endpoints beside available service candidates", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [
         { id: "home", name: "Home", status: "available" },
         { id: "remote", name: "Remote", status: "unavailable" },
@@ -323,14 +323,14 @@ test("preserves unavailable endpoints beside available service candidates", asyn
 test("does not adopt an ambiguous existing integration", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
   });
   findIntegrationsAsyncMock.mockResolvedValueOnce([
-    { id: "first", name: "Sonarr one", kind: "sonarr", url: "http://home.example:8989", appId: null },
-    { id: "second", name: "Sonarr two", kind: "sonarr", url: "http://home.example:8989", appId: null },
+    { id: "first", name: "Jellyfin one", kind: "jellyfin", url: "http://home.example:8989", appId: null },
+    { id: "second", name: "Jellyfin two", kind: "jellyfin", url: "http://home.example:8989", appId: null },
   ]);
 
   const result = await createAdminCaller().reconcileServices();
@@ -344,7 +344,7 @@ test("does not adopt an ambiguous existing integration", async () => {
 test("prefers a unique exact integration match over duplicate name matches", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
@@ -353,7 +353,7 @@ test("prefers a unique exact integration match over duplicate name matches", asy
     {
       id: "exact",
       name: "Primary",
-      kind: "sonarr",
+      kind: "jellyfin",
       url: "http://home.example:8989",
       appId: null,
       items: [],
@@ -361,8 +361,8 @@ test("prefers a unique exact integration match over duplicate name matches", asy
     },
     {
       id: "name-one",
-      name: "sonarr",
-      kind: "sonarr",
+      name: "jellyfin",
+      kind: "jellyfin",
       url: "http://other.example:8989",
       appId: null,
       items: [],
@@ -370,8 +370,8 @@ test("prefers a unique exact integration match over duplicate name matches", asy
     },
     {
       id: "name-two",
-      name: "sonarr",
-      kind: "sonarr",
+      name: "jellyfin",
+      kind: "jellyfin",
       url: "http://third.example:8989",
       appId: null,
       items: [],
@@ -388,14 +388,14 @@ test("prefers a unique exact integration match over duplicate name matches", asy
 test("does not fall back to a unique name when exact integration matches are ambiguous", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
   });
   findIntegrationsAsyncMock.mockResolvedValueOnce([
-    { id: "named", name: "sonarr", kind: "sonarr", url: "http://home.example:8989", appId: null },
-    { id: "other", name: "Other", kind: "sonarr", url: "http://home.example:8989", appId: null },
+    { id: "named", name: "jellyfin", kind: "jellyfin", url: "http://home.example:8989", appId: null },
+    { id: "other", name: "Other", kind: "jellyfin", url: "http://home.example:8989", appId: null },
   ]);
 
   const result = await createAdminCaller().reconcileServices();
@@ -408,7 +408,7 @@ test("does not fall back to a unique name when exact integration matches are amb
 test("prefers an explicitly linked app over duplicate app matches", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
@@ -416,8 +416,8 @@ test("prefers an explicitly linked app over duplicate app matches", async () => 
   findIntegrationsAsyncMock.mockResolvedValueOnce([
     {
       id: "integration",
-      name: "Sonarr",
-      kind: "sonarr",
+      name: "Jellyfin",
+      kind: "jellyfin",
       url: "http://home.example:8989",
       appId: "linked",
       items: [],
@@ -425,8 +425,8 @@ test("prefers an explicitly linked app over duplicate app matches", async () => 
     },
   ]);
   findAppsAsyncMock.mockResolvedValueOnce([
-    { id: "linked", name: "Sonarr", href: "http://home.example:8989", iconUrl: "" },
-    { id: "duplicate", name: "Sonarr duplicate", href: "http://home.example:8989", iconUrl: "" },
+    { id: "linked", name: "Jellyfin", href: "http://home.example:8989", iconUrl: "" },
+    { id: "duplicate", name: "Jellyfin duplicate", href: "http://home.example:8989", iconUrl: "" },
   ]);
 
   const result = await createAdminCaller().reconcileServices();
@@ -439,7 +439,7 @@ test("prefers an explicitly linked app over duplicate app matches", async () => 
 test("marks a linked integration as moved when only its app URL still matches", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
@@ -447,8 +447,8 @@ test("marks a linked integration as moved when only its app URL still matches", 
   findIntegrationsAsyncMock.mockResolvedValueOnce([
     {
       id: "integration",
-      name: "Sonarr",
-      kind: "sonarr",
+      name: "Jellyfin",
+      kind: "jellyfin",
       url: "http://old.example:8989",
       appId: "linked",
       items: [],
@@ -456,7 +456,7 @@ test("marks a linked integration as moved when only its app URL still matches", 
     },
   ]);
   findAppsAsyncMock.mockResolvedValueOnce([
-    { id: "linked", name: "Sonarr", href: "http://home.example:8989", iconUrl: "" },
+    { id: "linked", name: "Jellyfin", href: "http://home.example:8989", iconUrl: "" },
   ]);
 
   const result = await createAdminCaller().reconcileServices();
@@ -473,15 +473,15 @@ test("marks a linked integration as moved when only its app URL still matches", 
 test("does not offer to create an app when existing app matches are ambiguous", async () => {
   const dockerData = {
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
   } satisfies Awaited<ReturnType<typeof getDockerDataAsyncMock>>;
   getDockerDataAsyncMock.mockResolvedValueOnce(dockerData).mockResolvedValueOnce(dockerData);
   const apps = [
-    { id: "first", name: "Sonarr one", href: "http://home.example:8989", iconUrl: "" },
-    { id: "second", name: "Sonarr two", href: "http://home.example:8989", iconUrl: "" },
+    { id: "first", name: "Jellyfin one", href: "http://home.example:8989", iconUrl: "" },
+    { id: "second", name: "Jellyfin two", href: "http://home.example:8989", iconUrl: "" },
   ] satisfies Awaited<ReturnType<typeof findAppsAsyncMock>>;
   findAppsAsyncMock.mockResolvedValueOnce(apps).mockResolvedValueOnce(apps);
 
@@ -508,7 +508,7 @@ test("invalidates the shared Docker inventory on explicit refresh", async () => 
 test("projects persisted service layers without inventing runtime health", async () => {
   getDockerDataAsyncMock.mockResolvedValueOnce({
     data: {
-      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "sonarr", publicPort: 8989 })],
+      containers: [createInventoryContainer({ endpointId: "home", id: "one", name: "jellyfin", publicPort: 8989 })],
       endpoints: [{ id: "home", name: "Home", status: "available" }],
     },
     timestamp: new Date(),
@@ -516,8 +516,8 @@ test("projects persisted service layers without inventing runtime health", async
   findIntegrationsAsyncMock.mockResolvedValueOnce([
     {
       id: "integration",
-      name: "Sonarr",
-      kind: "sonarr",
+      name: "Jellyfin",
+      kind: "jellyfin",
       url: "http://home.example:8989",
       appId: "app",
       items: [{ itemId: "widget" }],
@@ -525,7 +525,7 @@ test("projects persisted service layers without inventing runtime health", async
     },
   ]);
   findAppsAsyncMock.mockResolvedValueOnce([
-    { id: "app", name: "Sonarr", href: "http://home.example:8989", iconUrl: "" },
+    { id: "app", name: "Jellyfin", href: "http://home.example:8989", iconUrl: "" },
   ]);
 
   const result = await createAdminCaller().getServiceHealth();
@@ -561,7 +561,7 @@ const createInventoryContainer = ({
   name,
   host: `${endpointId}.example:2375`,
   state: "running" as const,
-  image: "lscr.io/linuxserver/sonarr:latest",
+  image: "lscr.io/linuxserver/jellyfin:latest",
   iconUrl: null,
   cpuUsage: 0,
   memoryUsage: 0,

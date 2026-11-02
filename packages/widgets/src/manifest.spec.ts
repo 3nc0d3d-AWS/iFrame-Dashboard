@@ -124,9 +124,6 @@ describe("widget manifest promise stability", () => {
       ["anchorNote", [["widget", "anchorNotes"]]],
       ["beszelAlerts", [["widget", "beszel", "getAlerts"]]],
       ["clock", [["widget", "weather", "atLocation"]]],
-      ["mediaMissing", [["widget", "mediaOrganizer", "getData"]]],
-      ["mediaRequests-requestList", [["widget", "mediaRequests", "getLatestRequests"]]],
-      ["mediaRequests-requestStats", [["widget", "mediaRequests", "getStats"]]],
       ["smartHome-entityState", [["widget", "smartHome"]]],
     ] as const);
 
@@ -165,13 +162,11 @@ describe("widget manifest promise stability", () => {
     const cachedWidgetKinds = [
       "dnsHoleControls",
       "dnsHoleSummary",
-      "downloads",
       "firewall",
       "healthMonitoring",
       "mediaServer",
       "systemDisks",
       "systemResources",
-      "tracearr",
     ] as const;
 
     for (const kind of cachedWidgetKinds) {

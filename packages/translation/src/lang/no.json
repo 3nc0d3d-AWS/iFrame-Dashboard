@@ -3372,27 +3372,6 @@
 				"noForecast": "Ingen værinformasjon tilgjengelig"
 			}
 		},
-		"indexerManager": {
-			"name": "Indekserings-behandler status",
-			"description": "Status for indekserere",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Åpne indekserer-side i ny fane"
-				}
-			},
-			"title": "Indekserings-behandler",
-			"testAll": "Test alle",
-			"status": {
-				"healthy": "Frisk",
-				"unhealthy": "Usunn",
-				"disabled": "Deaktivert",
-				"unknown": "Helse utilgjengelig"
-			},
-			"error": {
-				"internalServerError": "Kunne ikke hente indekser status",
-				"testAll": "Indekseringstesten feilet. Prøv på nytt."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Systemhelseovervåking",
 			"description": "Viser informasjon som viser helsen og statusen til systemet(e).",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Kunne ikke hente UPS-data"
-			}
-		},
-		"tracearr": {
-			"description": "Forbedret medieserverovervåking med detaljert strøm- og transkodingsdata",
-			"option": {
-				"showStreams": {
-					"label": "Vis aktive strømmer"
-				},
-				"showStats": {
-					"label": "Vis statistikksammendrag"
-				},
-				"showRecentActivity": {
-					"label": "Vis nylig aktivitet"
-				},
-				"showViolations": {
-					"label": "Vis brudd"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktive strømmninger",
-				"totalUsers": "Totalt antall brukere",
-				"transcodes": "Transkoder",
-				"bandwidth": "Båndbredde"
-			},
-			"streams": {
-				"empty": "Ingen aktive strømminger",
-				"user": "Bruker",
-				"media": "Media",
-				"state": "Tilstand",
-				"quality": "Kvalitet",
-				"device": "Enhet",
-				"progress": "Fremgang",
-				"videoDecision": {
-					"directPlay": "Direkte avspilling",
-					"transcode": "Transkode",
-					"directStream": "Direktestrøm"
-				}
-			},
-			"recentActivity": {
-				"title": "Nylig aktivitet",
-				"empty": "Ingen nylig aktivitet",
-				"watched": "Sett",
-				"partial": "Delvis"
-			},
-			"violations": {
-				"title": "Brudd",
-				"empty": "Ingen nylige brudd",
-				"rule": "Regel",
-				"user": "Bruker"
-			},
-			"noSectionsEnabled": "Ingen seksjoner aktivert",
-			"error": {
-				"noIntegration": "Ingen Tracearr-integrasjon konfigurert",
-				"internalServerError": "Kunne ikke hente Tracearr data"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Fikk ikke tak i PatchMon data"
 			}
 		},
-		"bazarr": {
-			"description": "Oversikt over manglende undertekster og helsestatus i Bazarr forekomsten",
-			"episodes": "Manglende episoder",
-			"movies": "Manglende filmer",
-			"providers": "Leverandørproblemer",
-			"status": "Helse problemer",
-			"announcements": "Kunngjøringer",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Vis manglende episoder",
-					"description": "Vis antall episoder med manglende undertekster"
-				},
-				"showMissingMovies": {
-					"label": "Vis manglende filmer",
-					"description": "Vis antall filmer med manglende undertekster"
-				},
-				"showProviderIssues": {
-					"label": "Vis leverandørproblemer",
-					"description": "Vis antall leverandører av undertekster med saker"
-				},
-				"showHealthIssues": {
-					"label": "Vis helseproblemer",
-					"description": "Vis antall Bazarr helseproblemer"
-				}
-			},
-			"error": {
-				"internalServerError": "Kan ikke hente Bazarr data"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich-serverstatistikk",
 			"description": "Informasjon om din Immich-instans",
@@ -4390,170 +4286,6 @@
 				"photo": "Bilde {number}"
 			}
 		},
-		"downloads": {
-			"name": "Nedlastings-klient",
-			"description": "Lar deg se og behandle nedlastinger fra både Torrent og Usenet klienter.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Vis usenet oppføringer markert som fullført"
-				},
-				"showCompletedTorrent": {
-					"label": "Vis torrentoppføringer markert som fullført"
-				},
-				"showCompletedHttp": {
-					"label": "Vis diverse oppføringer merket som fullført"
-				},
-				"includeArchivedHistory": {
-					"label": "Inkluder arkivert SABnzbd-historikk",
-					"description": "Vis jobber flyttet til arkiv."
-				},
-				"historyWindowDays": {
-					"label": "Arkivert historikkvindu (dager)",
-					"description": "Begrens ferdigstilte SABnzbd historie til dette er mange dager. Øk grensen for å vise flere resultater."
-				},
-				"activeTorrentThreshold": {
-					"label": "Skjul fullført torrent under denne terskelen"
-				},
-				"categoryFilter": {
-					"label": "Kategorier/merker for filtrering"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtrer som hvitliste"
-				},
-				"applyFilterToRatio": {
-					"label": "Bruk filter for å beregne ratio"
-				},
-				"limitPerIntegration": {
-					"label": "Begrens elementer per integrasjon",
-					"description": "Dette begrenser antall elementer vist per integrasjon, ikke globalt"
-				}
-			},
-			"errors": {
-				"noColumns": "Velg kolonner i elementer",
-				"noCommunications": "Kan ikke laste inn data fra integrasjon",
-				"noItems": "Ingen nedlastinger",
-				"actionFailed": "Handlingen mislyktes",
-				"actionFailedMessage": "Handlingen kunne ikke fullføres. Vennligst prøv igjen."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Kontroller"
-				},
-				"added": {
-					"columnTitle": "Lagt til",
-					"detailsTitle": "Dato lagt til"
-				},
-				"category": {
-					"columnTitle": "Ekstra",
-					"detailsTitle": "Kategorier (eller ekstra informasjon)"
-				},
-				"downSpeed": {
-					"columnTitle": "Ned",
-					"detailsTitle": "Nedlastings- hastighet"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Gjeldende indeks i klienten"
-				},
-				"id": {
-					"columnTitle": "Id",
-					"detailsTitle": "Item ID"
-				},
-				"integration": {
-					"columnTitle": "Integrasjon"
-				},
-				"name": {
-					"columnTitle": "Jobb navn"
-				},
-				"progress": {
-					"columnTitle": "Fremgang",
-					"detailsTitle": "Nedlastings fremdrift"
-				},
-				"ratio": {
-					"columnTitle": "Forhold",
-					"detailsTitle": "Torrent-ratio (mottatt/sendt)"
-				},
-				"received": {
-					"columnTitle": "Totalt ned",
-					"detailsTitle": "Totalt nedlastet"
-				},
-				"sent": {
-					"columnTitle": "Totalt opp",
-					"detailsTitle": "Totalt opplastet"
-				},
-				"size": {
-					"columnTitle": "Filstørrelse",
-					"detailsTitle": "Total størrelse for utvalg/filer"
-				},
-				"state": {
-					"columnTitle": "Status",
-					"detailsTitle": "Jobb status"
-				},
-				"time": {
-					"columnTitle": "Fullfør tid",
-					"detailsTitle": "Tid siden/til fullførelse",
-					"eta": ""
-				},
-				"type": {
-					"columnTitle": "Type",
-					"detailsTitle": "Nedlastings-klient type"
-				},
-				"upSpeed": {
-					"columnTitle": "Opp",
-					"detailsTitle": "Opplastnings hastighet"
-				}
-			},
-			"states": {
-				"downloading": "Laster ned",
-				"queued": "I kø",
-				"paused": "Pauset",
-				"completed": "Fullført",
-				"failed": "Feilet",
-				"processing": "Behandler",
-				"leeching": "Laster ned",
-				"stalled": "Stanset",
-				"unknown": "Ukjent",
-				"seeding": "Deler"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Nedlastings-klient liste",
-					"pause": "Pause alle klienter/elementer",
-					"resume": "Fortsett alle klienter/elementer"
-				},
-				"client": {
-					"pause": "Pause klient",
-					"resume": "Fortsett klient"
-				},
-				"item": {
-					"pause": "Pause element",
-					"resume": "Fortsett element",
-					"delete": {
-						"title": "Slett element",
-						"modalTitle": "Er du sikker på at du vil slette denne jobben?",
-						"entry": "Slett oppføring",
-						"entryAndFiles": "Slett oppføring og fil(er)"
-					}
-				}
-			},
-			"globalRatio": "Global ratio",
-			"contextMenu": {
-				"copyName": "Kopier navn",
-				"copyId": "Kopier ID",
-				"clearFilters": "Nullstill filtre"
-			},
-			"footer": {
-				"filter": "Filtrer nedlastinger"
-			},
-			"stats": {
-				"show": "Vis global statistikk",
-				"hide": "Skjul global statistikk",
-				"overallProgress": "Samlet fremdrift i kø",
-				"totalSize": "Total størrelse på kø",
-				"clients": "{count, plural, one {# client} other {# clients}}"
-			},
-			"disconnected": "(frakoblet)"
-		},
 		"mediaReleases": {
 			"name": "Medieutgivelser",
 			"description": "Vis nylig tillagte medier eller kommende utgivelser fra ulike integrasjoner",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length}min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Liste over mediaspillforespørsler",
-			"description": "Se en liste over alle medieforespørsler fra din Overseerr eller Jellyseerr instans",
-			"empty": {
-				"title": "Ingen medieforespørsler ennå",
-				"description": "Søk etter en film eller vis for å starte en forespørsel."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Åpne lenker i ny fane"
-				},
-				"statusFilter": {
-					"label": "Statuser for å vise"
-				},
-				"recentDays": {
-					"label": "Vis bare siste forespørsler"
-				}
-			},
-			"pending": {
-				"approve": "Godkjenn forespørsel",
-				"approving": "Godkjenner forespørsel...",
-				"decline": "Avslå forespørsel"
-			},
-			"availability": {
-				"unknown": "Ukjent",
-				"pending": "Pågår",
-				"processing": "Prosesserer",
-				"requested": "Forespurt",
-				"partiallyAvailable": "Delvis",
-				"available": "Tilgjengelig",
-				"blacklisted": "Svartelistet",
-				"deleted": "Slettet"
-			},
-			"status": {
-				"pending": "Venter",
-				"approved": "Godkjent",
-				"declined": "Avslått",
-				"failed": "Feilet",
-				"completed": "Fullført"
-			},
-			"unknown": "Ukjent",
-			"toBeDetermined": "Uavklart"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Statistikk for mediaforespørsler",
-			"description": "Statistikk om dine medieforespørsler",
-			"empty": {
-				"title": "Ingen forespørsel-aktivitet ennå",
-				"description": "Statistikk vil vises etter den første medieforespørselen."
-			},
-			"titles": {
-				"stats": {
-					"main": "Media statistikk",
-					"approved": "Allerede godkjent",
-					"pending": "Venter på godkjenning",
-					"processing": "Prosesseres",
-					"declined": "Allerede avslått",
-					"available": "Allerede tilgjengelig",
-					"tv": "TV forespørsler",
-					"movie": "Film forespørsler"
-				},
-				"users": {
-					"main": "Topp brukere",
-					"requests": "Forespørsler"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Helsesjekker"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Mangler & kommet i køen",
-			"description": "Viser manglende og kølagte filmer og episoder fra Radarr og Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Vis manglende elementer"
-				},
-				"showQueued": {
-					"label": "Vis elementer i kø"
-				},
-				"pageSize": {
-					"label": "Elementer per side"
-				}
-			},
-			"tab": {
-				"missing": "Mangler",
-				"queued": "Køet"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "",
-				"book": "Bok"
-			},
-			"empty": {
-				"missing": "Ingen manglende produkter",
-				"queued": "Ingen elementer i kø",
-				"noTabsEnabled": "Aktiver minst en fane i widgetinnstillingene"
-			},
-			"timeLeft": "Gjenstående tid"
 		},
 		"rssFeed": {
 			"name": "RSS feed",
@@ -8093,11 +7728,6 @@
 				"label": "Nett",
 				"placeholder": "Søk med en ekstern søkemotor"
 			},
-			"media": {
-				"label": "Media",
-				"placeholder": "Søk etter en film eller vis",
-				"fallback": "Søk i media \"{query}\""
-			},
 			"userGroup": {
 				"label": "Folk",
 				"placeholder": "Søk blant brukere og grupper"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Søk etter filmer eller viser visning til forespørsel",
-				"requestMovie": "Forespør en film",
-				"requestSeries": "Forespør en serie",
-				"openIn": "Åpne i {kind}",
-				"group": {
-					"title": "Filmer og serier"
-				},
-				"action": {
-					"search": {
-						"label": "Søk etter filmer eller serier",
-						"description": "Begynn å skrive for å søke etter dine medieforespørsler",
-						"disabled": {
-							"noIntegration": "Legge til en Overseerr, Jellyseerr, eller Seerr integrasjon for å tillate mediesøk.",
-							"signInRequired": "Logg inn for å søke etter integrasjoner.",
-							"scoped": "Denne widgeten har ingen tilgjengelig media forespørsel integrering."
-						}
-					}
-				},
-				"availability": {
-					"available": "Tilgjengelig",
-					"partiallyAvailable": "Delvis",
-					"processing": "Behandler",
-					"requested": "Forespurt",
-					"pending": "Forespurt"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Søkemotor ikke slettet",
 							"message": "Søkemotoren kunne ikke slettes"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Forespørsel \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Sesong",
-								"episodes": "Episoder",
-								"status": "Status"
-							},
-							"status": {
-								"requested": "Forespurt"
-							}
-						},
-						"button": {
-							"send": "Send forespørsel"
 						}
 					}
 				}

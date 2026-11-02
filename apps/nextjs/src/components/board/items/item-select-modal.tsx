@@ -156,17 +156,7 @@ const ItemSelectModalContent = ({
         // The stock iframe widget is hidden — iframes are added via "Add iFrame page".
         .filter((kind) => isWebWidgetKind(kind) && kind !== "iframe")
         .map((kind) => {
-          let description: string;
-          if (kind === "mediaMissing") {
-            description = t("widget.mediaMissing.description", {
-              radarr: getIntegrationName("radarr"),
-              sonarr: getIntegrationName("sonarr"),
-              sportarr: getIntegrationName("sportarr"),
-              bindery: getIntegrationName("bindery"),
-            });
-          } else {
-            description = t(`widget.${kind}.description`);
-          }
+          const description: string = t(`widget.${kind}.description`);
 
           return {
             kind,

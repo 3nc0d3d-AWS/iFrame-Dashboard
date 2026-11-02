@@ -42,9 +42,9 @@ describe("SelectableCard", () => {
         root.render(
           <MantineProvider>
             <SelectableCard
-              aria-label="Sonarr Card"
+              aria-label="Jellyfin Card"
               icon={<span data-testid="card-icon">Icon</span>}
-              title="Sonarr"
+              title="Jellyfin"
               topRight={<Badge data-testid="card-topright">Media</Badge>}
               description="Manage TV series downloads"
               footerLeft={<span data-testid="card-footer-left">Left Meta</span>}
@@ -58,9 +58,9 @@ describe("SelectableCard", () => {
       const button = host.querySelector("button");
       expect(button).not.toBeNull();
       expect(button?.type).toBe("button");
-      expect(button?.getAttribute("aria-label")).toBe("Sonarr Card");
+      expect(button?.getAttribute("aria-label")).toBe("Jellyfin Card");
       expect(host.querySelector("[data-testid='card-icon']")).not.toBeNull();
-      expect(host.textContent).toContain("Sonarr");
+      expect(host.textContent).toContain("Jellyfin");
       expect(host.querySelector("[data-testid='card-topright']")).not.toBeNull();
       expect(host.textContent).toContain("Manage TV series downloads");
       expect(host.querySelector("[data-testid='card-footer-left']")).not.toBeNull();

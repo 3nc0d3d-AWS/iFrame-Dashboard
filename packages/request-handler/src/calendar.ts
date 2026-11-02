@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 
 import type { IntegrationKindByCategory } from "@homarr/definitions";
 import { createIntegrationAsync } from "@homarr/integrations/factory";
-import type { CalendarEvent, RadarrReleaseType } from "@homarr/integrations/types";
+import type { CalendarEvent, MediaReleaseType } from "@homarr/integrations/types";
 
 import { createIntegrationRequestHandler } from "./lib/integration-request-handler";
 
@@ -17,7 +17,7 @@ export const getCalendarMonthRange = (year: number, month: number) => {
 export const calendarMonthRequestHandler = createIntegrationRequestHandler<
   CalendarEvent[],
   IntegrationKindByCategory<"calendar">,
-  { year: number; month: number; releaseType: RadarrReleaseType[]; showUnmonitored: boolean }
+  { year: number; month: number; releaseType: MediaReleaseType[]; showUnmonitored: boolean }
 >({
   cacheNamespace: "calendar:month",
   async requestAsync(integration, input) {

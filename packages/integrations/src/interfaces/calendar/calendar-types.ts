@@ -1,12 +1,12 @@
-export const radarrReleaseTypes = ["inCinemas", "digitalRelease", "physicalRelease"] as const;
-export type RadarrReleaseType = (typeof radarrReleaseTypes)[number];
+export const mediaReleaseTypes = ["inCinemas", "digitalRelease", "physicalRelease"] as const;
+export type MediaReleaseType = (typeof mediaReleaseTypes)[number];
 
-export interface RadarrMetadata {
-  type: "radarr";
-  releaseType: RadarrReleaseType;
+export interface MediaReleaseMetadata {
+  type: "mediaRelease";
+  releaseType: MediaReleaseType;
 }
 
-export type CalendarMetadata = RadarrMetadata;
+export type CalendarMetadata = MediaReleaseMetadata;
 
 export interface CalendarLink {
   name: string;

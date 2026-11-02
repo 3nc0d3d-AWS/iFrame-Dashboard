@@ -58,7 +58,7 @@ export const openApiDocument = (base: string) => {
   const integrationBody = document.paths?.["/api/integrations/request"]?.post?.requestBody;
   if (integrationBody && "content" in integrationBody) {
     const json = integrationBody.content["application/json"];
-    if (json) json.example = { integrationKind: "sonarr", method: "GET", path: "/api/v3/system/status" };
+    if (json) json.example = { integrationKind: "jellyfin", method: "GET", path: "/System/Info" };
   }
   // The adapter omits root refinements when generating request bodies.
   const preferenceBody = document.paths?.["/api/users/preferences"]?.patch?.requestBody;

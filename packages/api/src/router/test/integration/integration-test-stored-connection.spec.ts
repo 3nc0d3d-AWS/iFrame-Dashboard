@@ -18,7 +18,7 @@ beforeEach(() => {
 
 const setup = async (permissions: Session["user"]["permissions"] = ["integration-full-all"]) => {
   const db = createDb();
-  await db.insert(integrations).values({ id: "saved", name: "Sonarr", kind: "sonarr", url: "http://sonarr:8989" });
+  await db.insert(integrations).values({ id: "saved", name: "Jellyfin", kind: "jellyfin", url: "http://jellyfin:8096" });
   await db
     .insert(integrationSecrets)
     .values({ integrationId: "saved", kind: "apiKey", value: encryptSecret("private-key") });

@@ -3372,27 +3372,6 @@
 				"noForecast": "Prognozės duomenų nėra"
 			}
 		},
-		"indexerManager": {
-			"name": "Indeksavimo tvarkytuvo būsena",
-			"description": "Jūsų indeksatorių būsena",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Atidaryti indeksatoriaus svetainę naujame skirtuke"
-				}
-			},
-			"title": "Indeksavimo tvarkyklė",
-			"testAll": "Išbandyk viską",
-			"status": {
-				"healthy": "Veikia tinkamai",
-				"unhealthy": "Veikia netinkamai",
-				"disabled": "Išjungta",
-				"unknown": "Būsenos duomenys nepasiekiami"
-			},
-			"error": {
-				"internalServerError": "Nepavyko gauti indeksatorių būsenos",
-				"testAll": "Indeksatoriaus testas nepavyko. Bandykite dar kartą."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Sistemos būklės stebėjimas",
 			"description": "Rodo informaciją apie jūsų sistemos (-ų) sveikatą ir būseną.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Nepavyko gauti UPS duomenų"
-			}
-		},
-		"tracearr": {
-			"description": "Patobulintas medijos serverio stebėjimas su išsamiais srautinio perdavimo ir perkodavimo duomenimis",
-			"option": {
-				"showStreams": {
-					"label": "Rodyti aktyvius srautus"
-				},
-				"showStats": {
-					"label": "Rodyti statistikos suvestinę"
-				},
-				"showRecentActivity": {
-					"label": "Rodyti naujausią veiklą"
-				},
-				"showViolations": {
-					"label": "Rodyti pažeidimus"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktyvūs srautai",
-				"totalUsers": "Iš viso vartotojų",
-				"transcodes": "Perkodavimai",
-				"bandwidth": "Pralaidumas"
-			},
-			"streams": {
-				"empty": "Aktyvių srautų nėra",
-				"user": "Vartotojas",
-				"media": "Medija",
-				"state": "Būsena",
-				"quality": "Kokybė",
-				"device": "Įrenginys",
-				"progress": "Eiga",
-				"videoDecision": {
-					"directPlay": "Tiesioginis atkūrimas",
-					"transcode": "Perkoduoti",
-					"directStream": "Tiesioginis srautas"
-				}
-			},
-			"recentActivity": {
-				"title": "Naujausia veikla",
-				"empty": "Naujausios veiklos nėra",
-				"watched": "Peržiūrėta",
-				"partial": "Dalinė"
-			},
-			"violations": {
-				"title": "Pažeidimai",
-				"empty": "Naujų pažeidimų nėra",
-				"rule": "Taisyklė",
-				"user": "Vartotojas"
-			},
-			"noSectionsEnabled": "Nėra įjungtų sekcijų",
-			"error": {
-				"noIntegration": "Nesukonfigūruota „Tracearr“ integracija",
-				"internalServerError": "Nepavyko gauti „Tracearr“ duomenų"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Nepavyko gauti „PatchMon“ duomenų"
 			}
 		},
-		"bazarr": {
-			"description": "Trūkstamų subtitrų ir būklės iš „Bazarr“ egzemplioriaus apžvalga",
-			"episodes": "Trūkstami epizodai",
-			"movies": "Trūkstami filmai",
-			"providers": "Teikėjų problemos",
-			"status": "Būklės problemos",
-			"announcements": "Pranešimai",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Rodyti trūkstamus epizodus",
-					"description": "Rodyti epizodų, kuriems trūksta subtitrų, skaičių"
-				},
-				"showMissingMovies": {
-					"label": "Rodyti trūkstamus filmus",
-					"description": "Rodyti filmų, kuriems trūksta subtitrų, skaičių"
-				},
-				"showProviderIssues": {
-					"label": "Rodyti teikėjų problemas",
-					"description": "Rodyti subtitrų teikėjų, turinčių problemų, skaičių"
-				},
-				"showHealthIssues": {
-					"label": "Rodyti būklės problemas",
-					"description": "Rodyti „Bazarr“ būklės problemų skaičių"
-				}
-			},
-			"error": {
-				"internalServerError": "Nepavyko gauti „Bazarr“ duomenų"
-			}
-		},
 		"immich-serverStats": {
 			"name": "„Immich“ serverio statistika",
 			"description": "Informacija apie jūsų „Immich“ egzempliorių",
@@ -4390,170 +4286,6 @@
 				"photo": "Nuotrauka {number}"
 			}
 		},
-		"downloads": {
-			"name": "Atsisiuntimų klientas",
-			"description": "Leidžia peržiūrėti ir valdyti atsisiuntimus tiek iš Torrent, tiek Usenet klientų.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Rodyti usenet įrašus, pažymėtus kaip baigtus"
-				},
-				"showCompletedTorrent": {
-					"label": "Rodyti torrent įrašus, pažymėtus kaip baigtus"
-				},
-				"showCompletedHttp": {
-					"label": "Rodyti užbaigtais pažymėtus įvairius įrašus"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Slėpti baigtus torrent žemiau šios ribos"
-				},
-				"categoryFilter": {
-					"label": "Kategorijos/žymos filtruoti"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtras kaip baltasis sąrašas"
-				},
-				"applyFilterToRatio": {
-					"label": "Naudoti filtrą santykiui skaičiuoti"
-				},
-				"limitPerIntegration": {
-					"label": "Elementų skaičiaus apribojimas integracijai",
-					"description": "Tai apribos rodomų elementų skaičių kiekvienoje integracijoje, o ne visuotinai"
-				}
-			},
-			"errors": {
-				"noColumns": "Pasirinkite stulpelius elementuose",
-				"noCommunications": "Nepavyksta įkelti duomenų iš integracijos",
-				"noItems": "Atsisiuntimų nerasta",
-				"actionFailed": "Veiksmas nepavyko",
-				"actionFailedMessage": "Veiksmo nepavyko užbaigti. Bandykite dar kartą."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Valdymas"
-				},
-				"added": {
-					"columnTitle": "Pridėta",
-					"detailsTitle": "Pridėjimo data"
-				},
-				"category": {
-					"columnTitle": "Papildomai",
-					"detailsTitle": "Kategorijos (arba papildoma informacija)"
-				},
-				"downSpeed": {
-					"columnTitle": "Žemyn",
-					"detailsTitle": "Atsisiuntimo greitis"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Dabartinis indeksas kliente"
-				},
-				"id": {
-					"columnTitle": "Elemento ID",
-					"detailsTitle": "Elemento ID"
-				},
-				"integration": {
-					"columnTitle": "Integracija"
-				},
-				"name": {
-					"columnTitle": "Užduoties pavadinimas"
-				},
-				"progress": {
-					"columnTitle": "Progresas",
-					"detailsTitle": "Atsisiuntimo progresas"
-				},
-				"ratio": {
-					"columnTitle": "Santykis",
-					"detailsTitle": "Torrent santykis (gauta/išsiųsta)"
-				},
-				"received": {
-					"columnTitle": "Viso atsisiųsta",
-					"detailsTitle": "Viso atsisiųsta"
-				},
-				"sent": {
-					"columnTitle": "Viso įkelta",
-					"detailsTitle": "Viso įkelta"
-				},
-				"size": {
-					"columnTitle": "Failo dydis",
-					"detailsTitle": "Bendras pasirinkimo / failų dydis"
-				},
-				"state": {
-					"columnTitle": "Būsena",
-					"detailsTitle": "Užduoties būsena"
-				},
-				"time": {
-					"columnTitle": "Pabaigos laikas",
-					"detailsTitle": "Laikas iki / nuo užbaigimo",
-					"eta": "Numatomas laikas"
-				},
-				"type": {
-					"columnTitle": "Tipas",
-					"detailsTitle": "Atsisiuntimo kliento tipas"
-				},
-				"upSpeed": {
-					"columnTitle": "Aukštyn",
-					"detailsTitle": "Įkėlimo greitis"
-				}
-			},
-			"states": {
-				"downloading": "Atsisiunčiama",
-				"queued": "Eilėje",
-				"paused": "Pristabdyta",
-				"completed": "Baigta",
-				"failed": "Nepavyko",
-				"processing": "Apdorojama",
-				"leeching": "Siurbiama",
-				"stalled": "Sustabdyta",
-				"unknown": "Nežinoma",
-				"seeding": "Dalijamasi"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Atsisiuntimo klientų sąrašas",
-					"pause": "Pristabdyti visus klientus/elementus",
-					"resume": "Tęsti visus klientus/elementus"
-				},
-				"client": {
-					"pause": "Pristabdyti klientą",
-					"resume": "Tęsti klientą"
-				},
-				"item": {
-					"pause": "Pristabdyti elementą",
-					"resume": "Tęsti elementą",
-					"delete": {
-						"title": "Ištrinti elementą",
-						"modalTitle": "Ar tikrai norite ištrinti šią užduotį?",
-						"entry": "Ištrinti įrašą",
-						"entryAndFiles": "Ištrinti įrašą ir failą (-us)"
-					}
-				}
-			},
-			"globalRatio": "Bendras santykis",
-			"contextMenu": {
-				"copyName": "Kopijuoti pavadinimą",
-				"copyId": "Kopijuoti ID",
-				"clearFilters": "Išvalyti filtrus"
-			},
-			"footer": {
-				"filter": "Filtruoti atsisiuntimus"
-			},
-			"stats": {
-				"show": "Rodyti bendrą statistiką",
-				"hide": "Slėpti bendrą statistiką",
-				"overallProgress": "Bendra eilės eiga",
-				"totalSize": "Bendras eilės dydis",
-				"clients": "{count, plural, one {# klientas} few {# klientai} many {# klientų} other {# kliento}}"
-			},
-			"disconnected": "(atsijungta)"
-		},
 		"mediaReleases": {
 			"name": "Medijos leidimai",
 			"description": "Rodyti naujai pridėtą mediją arba būsimus leidimus iš skirtingų integracijų",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Medijos užklausų sąrašas",
-			"description": "Peržiūrėkite visų medijų užklausų iš \"Overseerr\" arba \"Jellyseerr\" sąrašą",
-			"empty": {
-				"title": "Medijos užklausų dar nėra",
-				"description": "Norėdami pradėti užklausą, ieškokite filmo arba serialo."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Atidaryti naujame skirtuke"
-				},
-				"statusFilter": {
-					"label": "Rodomos būsenos"
-				},
-				"recentDays": {
-					"label": "Rodyti tik naujausias užklausas"
-				}
-			},
-			"pending": {
-				"approve": "Patvirtinti užklausą",
-				"approving": "Tvirtinama užklausa...",
-				"decline": "Atmesti užklausą"
-			},
-			"availability": {
-				"unknown": "Nežinoma",
-				"pending": "Laukiama",
-				"processing": "Apdorojama",
-				"requested": "Pateikta",
-				"partiallyAvailable": "Dalis",
-				"available": "Galima",
-				"blacklisted": "Juodajame sąraše",
-				"deleted": "Ištrinta"
-			},
-			"status": {
-				"pending": "Laukiama",
-				"approved": "Patvirtinta",
-				"declined": "Atmesta",
-				"failed": "Nepavyko",
-				"completed": "Užbaigta"
-			},
-			"unknown": "Nežinoma",
-			"toBeDetermined": "TBD"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Medijos užklausų statistika",
-			"description": "Statistikos apie jūsų medijų užklausas",
-			"empty": {
-				"title": "Užklausų veiklos dar nėra",
-				"description": "Statistika bus rodoma po pirmosios medijos užklausos."
-			},
-			"titles": {
-				"stats": {
-					"main": "Medijų statistikos",
-					"approved": "Jau patvirtinta",
-					"pending": "Laukia patvirtinimo",
-					"processing": "Apdorojama",
-					"declined": "Jau atmesta",
-					"available": "Jau prieinama",
-					"tv": "TV užklausos",
-					"movie": "Filmų užklausos"
-				},
-				"users": {
-					"main": "Top vartotojai",
-					"requests": "Užklausos"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Būklės patikros"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Trūkstama ir eilėje esanti medija",
-			"description": "Rodo trūkstamus ir eilėje esančius filmus bei epizodus iš „Radarr“ ir „Sonarr“",
-			"option": {
-				"showMissing": {
-					"label": "Rodyti trūkstamus elementus"
-				},
-				"showQueued": {
-					"label": "Rodyti eilėje esančius elementus"
-				},
-				"pageSize": {
-					"label": "Elementų puslapyje"
-				}
-			},
-			"tab": {
-				"missing": "Trūkstama",
-				"queued": "Eilėje"
-			},
-			"type": {
-				"movie": "Filmas",
-				"episode": "Epizodas",
-				"book": "Knyga"
-			},
-			"empty": {
-				"missing": "Trūkstamų elementų nėra",
-				"queued": "Eilėje esančių elementų nėra",
-				"noTabsEnabled": "Valdiklio nuostatose įjunkite bent vieną kortelę"
-			},
-			"timeLeft": "Liko laiko"
 		},
 		"rssFeed": {
 			"name": "RSS srautai",
@@ -8093,11 +7728,6 @@
 				"label": "Žiniatinklis",
 				"placeholder": "Ieškoti naudojant išorinę paieškos sistemą"
 			},
-			"media": {
-				"label": "Medija",
-				"placeholder": "Ieškoti filmo arba laidos",
-				"fallback": "Ieškoti medijos pagal „{query}“"
-			},
 			"userGroup": {
 				"label": "Žmonės",
 				"placeholder": "Ieškoti naudotojų ir grupių"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Ieškokite filmų ar serialų, kad pateiktumėte užklausą",
-				"requestMovie": "Pateikti filmo užklausą",
-				"requestSeries": "",
-				"openIn": "Atidaryti per {kind}",
-				"group": {
-					"title": "Filmai ir serialai"
-				},
-				"action": {
-					"search": {
-						"label": "Ieškoti filmų ar serialų",
-						"description": "Pradėkite rašyti, norėdami ieškoti savo medijos užklausų integracijose",
-						"disabled": {
-							"noIntegration": "Pridėkite Overseerr, Jellyseerr arba Seerr integraciją, kad įgalintumėte medijos paiešką.",
-							"signInRequired": "Prisijunkite, kad galėtumėte ieškoti medijos užklausų integracijose.",
-							"scoped": "Šis valdiklis neturi pasiekiamos medijos užklausų integracijos."
-						}
-					}
-				},
-				"availability": {
-					"available": "Pasiekiama",
-					"partiallyAvailable": "Iš dalies",
-					"processing": "Apdorojama",
-					"requested": "Užklausta",
-					"pending": "Užklausta"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Paieškos sistema neištrinta",
 							"message": "Paieškos sistemos nepavyko ištrinti"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Užklausa „{name}“",
-						"table": {
-							"header": {
-								"season": "Sezonas",
-								"episodes": "Epizodai",
-								"status": "Būsena"
-							},
-							"status": {
-								"requested": "Užklausta"
-							}
-						},
-						"button": {
-							"send": "Siųsti užklausą"
 						}
 					}
 				}

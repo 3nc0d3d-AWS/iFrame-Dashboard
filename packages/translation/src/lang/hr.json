@@ -3372,27 +3372,6 @@
 				"noForecast": "Podaci prognoze nisu dostupni"
 			}
 		},
-		"indexerManager": {
-			"name": "Status upravitelja indeksera",
-			"description": "Status vaših indeksera",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Otvori stranicu indeksera u novoj kartici"
-				}
-			},
-			"title": "Upravitelj indeksera",
-			"testAll": "Testiraj sve",
-			"status": {
-				"healthy": "Zdravo",
-				"unhealthy": "Nezdravo",
-				"disabled": "Onemogućeno",
-				"unknown": "Stanje nije dostupno"
-			},
-			"error": {
-				"internalServerError": "Neuspješno dohvaćanje statusa indeksera",
-				"testAll": "Test indeksera nije uspio. Pokušaj ponovno."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Nadzor zdravlja sustava",
 			"description": "Prikazuje informacije o zdravlju i statusu vašeg(ih) sustava.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Neuspješno dohvaćanje UPS podataka"
-			}
-		},
-		"tracearr": {
-			"description": "Napredni nadzor medijskog poslužitelja s detaljnim podacima o streamovima i transkodiranju",
-			"option": {
-				"showStreams": {
-					"label": "Prikaži aktivne streamove"
-				},
-				"showStats": {
-					"label": "Prikaži sažetak statistike"
-				},
-				"showRecentActivity": {
-					"label": "Prikaži nedavnu aktivnost"
-				},
-				"showViolations": {
-					"label": "Prikaži kršenja"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktivni streamovi",
-				"totalUsers": "Ukupno korisnika",
-				"transcodes": "Transkodiranja",
-				"bandwidth": "Propusnost"
-			},
-			"streams": {
-				"empty": "Nema aktivnih streamova",
-				"user": "Korisnik",
-				"media": "Medij",
-				"state": "Stanje",
-				"quality": "Kvaliteta",
-				"device": "Uređaj",
-				"progress": "Napredak",
-				"videoDecision": {
-					"directPlay": "Izravna reprodukcija",
-					"transcode": "Transkodiranje",
-					"directStream": "Izravni stream"
-				}
-			},
-			"recentActivity": {
-				"title": "Nedavna aktivnost",
-				"empty": "Nema nedavne aktivnosti",
-				"watched": "Gledano",
-				"partial": "Djelomično"
-			},
-			"violations": {
-				"title": "Kršenja",
-				"empty": "Nema nedavnih kršenja",
-				"rule": "Pravilo",
-				"user": "Korisnik"
-			},
-			"noSectionsEnabled": "Nijedan odjeljak nije omogućen",
-			"error": {
-				"noIntegration": "Nije konfigurirana integracija s Tracearrjem",
-				"internalServerError": "Neuspješno dohvaćanje podataka iz Tracearrja"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Neuspješno dohvaćanje podataka iz PatchMona"
 			}
 		},
-		"bazarr": {
-			"description": "Pregled nedostajućih titlova i stanja ispravnosti vaše instance Bazarra",
-			"episodes": "Nedostajuće epizode",
-			"movies": "Nedostajući filmovi",
-			"providers": "Problemi s pružateljima",
-			"status": "Problemi sa stanjem ispravnosti",
-			"announcements": "Obavijesti",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Prikaži nedostajuće epizode",
-					"description": "Prikaži broj epizoda kojima nedostaju titlovi"
-				},
-				"showMissingMovies": {
-					"label": "Prikaži nedostajuće filmove",
-					"description": "Prikaži broj filmova kojima nedostaju titlovi"
-				},
-				"showProviderIssues": {
-					"label": "Prikaži probleme s pružateljima",
-					"description": "Prikaži broj pružatelja titlova s problemima"
-				},
-				"showHealthIssues": {
-					"label": "Prikaži probleme sa stanjem ispravnosti",
-					"description": "Prikaži broj problema sa stanjem ispravnosti Bazarra"
-				}
-			},
-			"error": {
-				"internalServerError": "Neuspješno dohvaćanje podataka iz Bazarra"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Statistika poslužitelja Immicha",
 			"description": "Informacije o vašoj instanci Immicha",
@@ -4390,170 +4286,6 @@
 				"photo": "Fotografija {number}"
 			}
 		},
-		"downloads": {
-			"name": "Klijent za preuzimanje",
-			"description": "Omogućuje vam pregled i upravljanje preuzimanjima s Torrent i Usenet klijenata.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Prikaži usenet stavke označene kao dovršene"
-				},
-				"showCompletedTorrent": {
-					"label": "Prikaži torrent stavke označene kao dovršene"
-				},
-				"showCompletedHttp": {
-					"label": "Prikaži razne dovršene stavke"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Sakrij dovršene torrente ispod ovog praga"
-				},
-				"categoryFilter": {
-					"label": "Kategorije/oznake za filtriranje"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtriraj kao bijela lista"
-				},
-				"applyFilterToRatio": {
-					"label": "Koristi filtar za izračun omjera"
-				},
-				"limitPerIntegration": {
-					"label": "Ograniči stavke po integraciji",
-					"description": "Time se ograničava broj prikazanih stavki po integraciji, a ne globalno"
-				}
-			},
-			"errors": {
-				"noColumns": "Odaberite stupce u stavkama",
-				"noCommunications": "Nije moguće učitati podatke iz integracije",
-				"noItems": "Nisu pronađena preuzimanja",
-				"actionFailed": "Radnja nije uspjela",
-				"actionFailedMessage": "Radnja se nije mogla dovršiti. Pokušajte ponovno."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Kontrole"
-				},
-				"added": {
-					"columnTitle": "Dodano",
-					"detailsTitle": "Datum dodavanja"
-				},
-				"category": {
-					"columnTitle": "Dodaci",
-					"detailsTitle": "Kategorije (ili dodatne informacije)"
-				},
-				"downSpeed": {
-					"columnTitle": "Isključeno",
-					"detailsTitle": "Brzina preuzimanja"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Trenutačni indeks unutar klijenta"
-				},
-				"id": {
-					"columnTitle": "ID stavke",
-					"detailsTitle": "ID stavke"
-				},
-				"integration": {
-					"columnTitle": "Integracija"
-				},
-				"name": {
-					"columnTitle": "Naziv posla"
-				},
-				"progress": {
-					"columnTitle": "Napredak",
-					"detailsTitle": "Napredak preuzimanja"
-				},
-				"ratio": {
-					"columnTitle": "Omjer",
-					"detailsTitle": "Omjer torrenata (primljeno/poslano)"
-				},
-				"received": {
-					"columnTitle": "Ukupno preuzeto",
-					"detailsTitle": "Ukupno preuzeto"
-				},
-				"sent": {
-					"columnTitle": "Ukupno poslano",
-					"detailsTitle": "Ukupno učitano"
-				},
-				"size": {
-					"columnTitle": "Veličina datoteke",
-					"detailsTitle": "Ukupna veličina odabira/datoteka"
-				},
-				"state": {
-					"columnTitle": "Stanje",
-					"detailsTitle": "Stanje posla"
-				},
-				"time": {
-					"columnTitle": "Vrijeme završetka",
-					"detailsTitle": "Vrijeme od/do dovršenja",
-					"eta": "Procijenjeno vrijeme završetka"
-				},
-				"type": {
-					"columnTitle": "Vrsta",
-					"detailsTitle": "Vrsta klijenta za preuzimanje"
-				},
-				"upSpeed": {
-					"columnTitle": "Uključeno",
-					"detailsTitle": "Brzina slanja"
-				}
-			},
-			"states": {
-				"downloading": "Preuzimanje",
-				"queued": "U redu čekanja",
-				"paused": "Pauzirano",
-				"completed": "Završeno",
-				"failed": "Neuspjelo",
-				"processing": "Obrada",
-				"leeching": "Skidanje",
-				"stalled": "Zastoj",
-				"unknown": "Nepoznato",
-				"seeding": "Dijeljenje"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Popis klijenata za preuzimanje",
-					"pause": "Pauziraj sve klijente/stavke",
-					"resume": "Nastavi sa svim klijentima/stavkama"
-				},
-				"client": {
-					"pause": "Pauziraj klijenta",
-					"resume": "Nastavi klijenta"
-				},
-				"item": {
-					"pause": "Pauziraj stavku",
-					"resume": "Nastavi stavku",
-					"delete": {
-						"title": "Obriši stavku",
-						"modalTitle": "Jeste li sigurni da želite obrisati ovaj posao?",
-						"entry": "Obriši unos",
-						"entryAndFiles": "Obriši unos i datoteku(e)"
-					}
-				}
-			},
-			"globalRatio": "Globalni omjer",
-			"contextMenu": {
-				"copyName": "Kopiraj naziv",
-				"copyId": "Kopiraj ID",
-				"clearFilters": "Očisti filtre"
-			},
-			"footer": {
-				"filter": "Filtriraj preuzimanja"
-			},
-			"stats": {
-				"show": "Prikaži globalnu statistiku",
-				"hide": "Sakrij globalnu statistiku",
-				"overallProgress": "Ukupan napredak reda čekanja",
-				"totalSize": "Ukupna veličina reda čekanja",
-				"clients": "{count, plural, one {# klijent} few {# klijenta} other {# klijenata}}"
-			},
-			"disconnected": "(odspojeno)"
-		},
 		"mediaReleases": {
 			"name": "Medijska izdanja",
 			"description": "Prikazuje novododane medije ili nadolazeća izdanja iz različitih integracija",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Popis zahtjeva za medije",
-			"description": "Pregledajte popis svih zahtjeva za medijima s vaše instance Overseerr ili Jellyseerr",
-			"empty": {
-				"title": "Još nema zahtjeva za medije",
-				"description": "Potražite film ili seriju da biste započeli zahtjev."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Otvori veze u novoj kartici"
-				},
-				"statusFilter": {
-					"label": "Statusi za prikaz"
-				},
-				"recentDays": {
-					"label": "Prikaži samo nedavne zahtjeve"
-				}
-			},
-			"pending": {
-				"approve": "Odobri zahtjev",
-				"approving": "Odobravanje zahtjeva...",
-				"decline": "Odbij zahtjev"
-			},
-			"availability": {
-				"unknown": "Nepoznato",
-				"pending": "Na čekanju",
-				"processing": "Obrada",
-				"requested": "Zatraženo",
-				"partiallyAvailable": "Djelomično dostupno",
-				"available": "Dostupno",
-				"blacklisted": "Na crnoj listi",
-				"deleted": "Izbrisano"
-			},
-			"status": {
-				"pending": "Na čekanju",
-				"approved": "Odobreno",
-				"declined": "Odbijeno",
-				"failed": "Neuspjelo",
-				"completed": "Dovršeno"
-			},
-			"unknown": "Nepoznato",
-			"toBeDetermined": "TBD"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Statistika zahtjeva za medije",
-			"description": "Statistika o vašim zahtjevima za medijima",
-			"empty": {
-				"title": "Još nema aktivnosti zahtjeva",
-				"description": "Statistika će se prikazati nakon prvog zahtjeva za medije."
-			},
-			"titles": {
-				"stats": {
-					"main": "Medijska statistika",
-					"approved": "Već odobreno",
-					"pending": "Odobrenjea na čekanju",
-					"processing": "U obradi",
-					"declined": "Već odbijeno",
-					"available": "Već dostupno",
-					"tv": "TV zahtjevi",
-					"movie": "Zahtjevi za Filmovima"
-				},
-				"users": {
-					"main": "Najbolji korisnici",
-					"requests": "Zahtjevi"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Provjere stanja"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Nedostajući i stavljeni mediji u red čekanja",
-			"description": "Prikazuje nedostajuće filmove i epizode te filmove i epizode u redu čekanja iz Radarra i Sonarra",
-			"option": {
-				"showMissing": {
-					"label": "Prikaži nedostajuće stavke"
-				},
-				"showQueued": {
-					"label": "Prikaži stavke u redu čekanja"
-				},
-				"pageSize": {
-					"label": "Stavke po stranici"
-				}
-			},
-			"tab": {
-				"missing": "Nedostaje",
-				"queued": "U redu čekanja"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Epizoda",
-				"book": "Knjiga"
-			},
-			"empty": {
-				"missing": "Nema nedostajućih stavki",
-				"queued": "Nema stavki u redu čekanja",
-				"noTabsEnabled": "Omogućite barem jednu karticu u postavkama widgeta"
-			},
-			"timeLeft": "Preostalo vrijeme"
 		},
 		"rssFeed": {
 			"name": "RSS kanali",
@@ -8093,11 +7728,6 @@
 				"label": "Internet",
 				"placeholder": "Pretražite pomoću vanjske tražilice"
 			},
-			"media": {
-				"label": "Mediji",
-				"placeholder": "Pretražite film ili emisiju",
-				"fallback": "Pretražite medije za „{query}”"
-			},
 			"userGroup": {
 				"label": "Osobe",
 				"placeholder": "Pretražite korisnike i grupe"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Pretražite filmove ili serije za zahtjev",
-				"requestMovie": "Zatraži film",
-				"requestSeries": "Zatraži seriju",
-				"openIn": "Otvori u {kind}",
-				"group": {
-					"title": "Filmovi i serije"
-				},
-				"action": {
-					"search": {
-						"label": "Pretražite filmove ili serije",
-						"description": "Počnite tipkati za pretraživanje integracija za zahtjeve za medije",
-						"disabled": {
-							"noIntegration": "Dodajte integraciju Overseerr, Jellyseerr ili Seerr za omogućavanje pretraživanja medija.",
-							"signInRequired": "Prijavite se za pretraživanje integracija za medijske zahtjeve.",
-							"scoped": "Ovaj widget nema dostupnu integraciju za zahtjeve za medije."
-						}
-					}
-				},
-				"availability": {
-					"available": "Dostupno",
-					"partiallyAvailable": "Djelomično",
-					"processing": "Obrada",
-					"requested": "Zatraženo",
-					"pending": "Zatraženo"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Tražilica nije izbrisana",
 							"message": "Tražilicu nije moguće izbrisati"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Zatraži \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Sezona",
-								"episodes": "Epizode",
-								"status": "Stanje"
-							},
-							"status": {
-								"requested": "Zatraženo"
-							}
-						},
-						"button": {
-							"send": "Pošalji zahtjev"
 						}
 					}
 				}

@@ -3372,27 +3372,6 @@
 				"noForecast": "Inga prognosdata tillgängliga"
 			}
 		},
-		"indexerManager": {
-			"name": "Status för hantering av index",
-			"description": "Status för dina indexerare",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Öppna indexerarens webbplats i en ny flik"
-				}
-			},
-			"title": "Hantering av index",
-			"testAll": "Testa alla",
-			"status": {
-				"healthy": "Hälsosam",
-				"unhealthy": "Ej hälsosam",
-				"disabled": "Inaktiverad",
-				"unknown": "Hälsa otillgänglig"
-			},
-			"error": {
-				"internalServerError": "Kunde inte hämta indexerarstatus",
-				"testAll": "Indexerartestet misslyckades. Försök igen."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Övervakning av systemhälsan",
 			"description": "Visar information som visar hälsa och status för ditt/dina system.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Kunde inte hämta UPS-data"
-			}
-		},
-		"tracearr": {
-			"description": "Förbättrad övervakning av medieservrar med detaljerad information om strömmar och omkodning",
-			"option": {
-				"showStreams": {
-					"label": "Visa aktiva strömmar"
-				},
-				"showStats": {
-					"label": "Visa statistiksammanfattning"
-				},
-				"showRecentActivity": {
-					"label": "Visa senaste aktivitet"
-				},
-				"showViolations": {
-					"label": "Visa överträdelser"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktiva strömmar",
-				"totalUsers": "Totalt antal användare",
-				"transcodes": "Omkodningar",
-				"bandwidth": "Bandbredd"
-			},
-			"streams": {
-				"empty": "Inga aktiva strömmar",
-				"user": "Användare",
-				"media": "Media",
-				"state": "Status",
-				"quality": "Kvalitet",
-				"device": "Enhet",
-				"progress": "Förlopp",
-				"videoDecision": {
-					"directPlay": "Direktuppspelning",
-					"transcode": "Omkodning",
-					"directStream": "Direktström"
-				}
-			},
-			"recentActivity": {
-				"title": "Senaste aktivitet",
-				"empty": "Ingen nyligen utförd aktivitet",
-				"watched": "Visad",
-				"partial": "Delvis"
-			},
-			"violations": {
-				"title": "Överträdelser",
-				"empty": "Inga nyliga överträdelser",
-				"rule": "Regel",
-				"user": "Användare"
-			},
-			"noSectionsEnabled": "Inga sektioner aktiverade",
-			"error": {
-				"noIntegration": "Ingen Tracearr-integration konfigurerad",
-				"internalServerError": "Kunde inte hämta Tracearr-data"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Det gick inte att hämta PatchMon-data"
 			}
 		},
-		"bazarr": {
-			"description": "Översikt över saknade undertexter och hälsostatus från din Bazarr-instans",
-			"episodes": "Saknade avsnitt",
-			"movies": "Saknade filmer",
-			"providers": "Leverantörsproblem",
-			"status": "Hälsoproblem",
-			"announcements": "Meddelanden",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Visa saknade avsnitt",
-					"description": "Visa antalet avsnitt som saknar undertexter"
-				},
-				"showMissingMovies": {
-					"label": "Visa saknade filmer",
-					"description": "Visa antalet filmer som saknar undertexter"
-				},
-				"showProviderIssues": {
-					"label": "Visa leverantörsproblem",
-					"description": "Visa antalet undertextleverantörer med problem"
-				},
-				"showHealthIssues": {
-					"label": "Visa hälsoproblem",
-					"description": "Visa antalet hälsoproblem i Bazarr"
-				}
-			},
-			"error": {
-				"internalServerError": "Det gick inte att hämta Bazarr-data"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich-serverstatistik",
 			"description": "Information om din Immich-instans",
@@ -4390,170 +4286,6 @@
 				"photo": "Foto {number}"
 			}
 		},
-		"downloads": {
-			"name": "Nedladdningsklient",
-			"description": "Gör det möjligt att visa och hantera dina nedladdningar från både torrent- och Usenet-klienter.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Visa Usenet-poster markerade som slutförda"
-				},
-				"showCompletedTorrent": {
-					"label": "Visa torrentposter markerade som slutförda"
-				},
-				"showCompletedHttp": {
-					"label": "Visa slutförda övriga poster"
-				},
-				"includeArchivedHistory": {
-					"label": "Inkludera arkiverad SABnzbd historik",
-					"description": "Visa jobb som flyttats till Arkiv."
-				},
-				"historyWindowDays": {
-					"label": "Arkiverade historikfönster (dagar)",
-					"description": "Begränsa SABnzbd historik till så här många dagar. Öka objektgränsen för att visa fler resultat."
-				},
-				"activeTorrentThreshold": {
-					"label": "Dölj slutförda torrentar under detta tröskelvärde (i kiB/s)"
-				},
-				"categoryFilter": {
-					"label": "Kategorier/etiketter att filtrera"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtrera som en vitlista"
-				},
-				"applyFilterToRatio": {
-					"label": "Använd filter för att beräkna ratio"
-				},
-				"limitPerIntegration": {
-					"label": "Begränsa poster per integration",
-					"description": "Detta begränsar antalet poster som visas per integration, inte globalt"
-				}
-			},
-			"errors": {
-				"noColumns": "Välj kolumner i objekt",
-				"noCommunications": "Kan inte läsa in data från integrationen",
-				"noItems": "Inga nedladdningar hittades",
-				"actionFailed": "Åtgärden misslyckades",
-				"actionFailedMessage": "Åtgärden kunde inte slutföras. Försök igen."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Kontroller"
-				},
-				"added": {
-					"columnTitle": "Tillagd",
-					"detailsTitle": "Datum har adderats"
-				},
-				"category": {
-					"columnTitle": "Extra",
-					"detailsTitle": "Kategorier (eller extra information)"
-				},
-				"downSpeed": {
-					"columnTitle": "Ner",
-					"detailsTitle": "Nedladdningshastighet "
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Aktuellt index i klienten"
-				},
-				"id": {
-					"columnTitle": "Objekt-ID",
-					"detailsTitle": "Objekt-ID"
-				},
-				"integration": {
-					"columnTitle": "Integration"
-				},
-				"name": {
-					"columnTitle": "Jobbnamn"
-				},
-				"progress": {
-					"columnTitle": "Förlopp",
-					"detailsTitle": "Nedladdningsförlopp"
-				},
-				"ratio": {
-					"columnTitle": "Förhållande",
-					"detailsTitle": "Torrentratio (mottaget/skickat)"
-				},
-				"received": {
-					"columnTitle": "Totalt ned",
-					"detailsTitle": "Totalt nedladdat"
-				},
-				"sent": {
-					"columnTitle": "Totalt upp",
-					"detailsTitle": "Totalt uppladdat"
-				},
-				"size": {
-					"columnTitle": "Filstorlek",
-					"detailsTitle": "Total storlek för valda filer"
-				},
-				"state": {
-					"columnTitle": "Läge",
-					"detailsTitle": "Jobbstatus"
-				},
-				"time": {
-					"columnTitle": "Sluttid",
-					"detailsTitle": "Tid sedan/till slutförande",
-					"eta": "Beräknad sluttid"
-				},
-				"type": {
-					"columnTitle": "Typ",
-					"detailsTitle": "Nedladdningsklientens typ"
-				},
-				"upSpeed": {
-					"columnTitle": "Upp",
-					"detailsTitle": "Uppladdningshastighet"
-				}
-			},
-			"states": {
-				"downloading": "Laddar ner",
-				"queued": "Placerad i kö",
-				"paused": "Pausad",
-				"completed": "Slutförd",
-				"failed": "Misslyckad",
-				"processing": "Bearbetar",
-				"leeching": "Laddar ned",
-				"stalled": "Står stilla",
-				"unknown": "Okänd",
-				"seeding": "Distribuerar"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Lista över nedladdningsklienter",
-					"pause": "Pausa alla klienter/objekt",
-					"resume": "Återuppta alla klienter/objekt"
-				},
-				"client": {
-					"pause": "Pausa klient",
-					"resume": "Återuppta klient"
-				},
-				"item": {
-					"pause": "Pausa objekt",
-					"resume": "Återuppta objekt",
-					"delete": {
-						"title": "Ta bort objekt",
-						"modalTitle": "Är du säker på att du vill ta bort det här jobbet?",
-						"entry": "Ta bort post",
-						"entryAndFiles": "Ta bort post och fil(er)"
-					}
-				}
-			},
-			"globalRatio": "Global ratio",
-			"contextMenu": {
-				"copyName": "Kopiera namn",
-				"copyId": "Kopiera ID",
-				"clearFilters": "Rensa filter"
-			},
-			"footer": {
-				"filter": "Filtrera nedladdningar"
-			},
-			"stats": {
-				"show": "Visa global statistik",
-				"hide": "Dölj global statistik",
-				"overallProgress": "Övergripande köförlopp",
-				"totalSize": "Total köstorlek",
-				"clients": "{count, plural, one {# klient} other {# klienter}}"
-			},
-			"disconnected": "(frånkopplad)"
-		},
 		"mediaReleases": {
 			"name": "Medieutgåvor",
 			"description": "Visa nyligen tillagda medier eller kommande utgåvor från olika integrationer",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Lista över medieförfrågningar",
-			"description": "Se en lista över alla medieförfrågningar från din installation av Overseerr- eller Jellyseerr",
-			"empty": {
-				"title": "Inga mediaförfrågningar ännu",
-				"description": "Sök efter en film eller show för att starta en begäran."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Öppna länkar i ny flik"
-				},
-				"statusFilter": {
-					"label": "Statusar att visa"
-				},
-				"recentDays": {
-					"label": "Visa endast senaste förfrågningar"
-				}
-			},
-			"pending": {
-				"approve": "Godkänn förfrågan",
-				"approving": "Godkänner förfrågan...",
-				"decline": "Avslå förfrågan"
-			},
-			"availability": {
-				"unknown": "Okänd",
-				"pending": "Väntande",
-				"processing": "Bearbetar",
-				"requested": "Begärd",
-				"partiallyAvailable": "Delmängd",
-				"available": "Tillgänglig",
-				"blacklisted": "Svartlistad",
-				"deleted": "Borttagen"
-			},
-			"status": {
-				"pending": "Väntande",
-				"approved": "Godkänd",
-				"declined": "Avslagen",
-				"failed": "Misslyckad",
-				"completed": "Slutförd"
-			},
-			"unknown": "Okänt",
-			"toBeDetermined": ""
-		},
-		"mediaRequests-requestStats": {
-			"name": "Statistik för medieförfrågningar",
-			"description": "Statistik över dina medieförfrågningar",
-			"empty": {
-				"title": "Ingen aktivitet på begäran ännu",
-				"description": "Statistik kommer att visas efter den första mediebegäran."
-			},
-			"titles": {
-				"stats": {
-					"main": "Mediestatistik",
-					"approved": "Redan godkänd",
-					"pending": "Väntar på godkännande",
-					"processing": "Bearbetas",
-					"declined": "Redan avslagen",
-					"available": "Redan tillgänglig",
-					"tv": "TV-förfrågningar",
-					"movie": "Filmförfrågningar"
-				},
-				"users": {
-					"main": "Mest aktiva användare",
-					"requests": "Förfrågningar"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Hälsokontroller"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Saknade och köade medier",
-			"description": "Visar saknade och köade filmer och avsnitt från Radarr och Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Visa saknade objekt"
-				},
-				"showQueued": {
-					"label": "Visa köade objekt"
-				},
-				"pageSize": {
-					"label": "Objekt per sida"
-				}
-			},
-			"tab": {
-				"missing": "Saknas",
-				"queued": "Köad"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Avsnitt",
-				"book": "Bok"
-			},
-			"empty": {
-				"missing": "Inga saknade objekt",
-				"queued": "Inga köade objekt",
-				"noTabsEnabled": "Aktivera minst en flik i widgetinställningarna"
-			},
-			"timeLeft": "Återstående tid"
 		},
 		"rssFeed": {
 			"name": "RSS-flöden",
@@ -8093,11 +7728,6 @@
 				"label": "Webb",
 				"placeholder": "Sök med en extern sökmotor"
 			},
-			"media": {
-				"label": "",
-				"placeholder": "Sök efter en film eller serie",
-				"fallback": "Sök media efter \"{query}\""
-			},
 			"userGroup": {
 				"label": "Personer",
 				"placeholder": "Sök användare och grupper"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Sök efter filmer eller serier att begära",
-				"requestMovie": "Begär film",
-				"requestSeries": "Begär serie",
-				"openIn": "Öppna i {kind}",
-				"group": {
-					"title": "Filmer och serier"
-				},
-				"action": {
-					"search": {
-						"label": "Sök efter filmer eller serier",
-						"description": "Börja skriva för att söka i dina mediaintegrationer",
-						"disabled": {
-							"noIntegration": "Lägg till en Overseerr-, Jellyseerr- eller Seerr-integration för att aktivera mediasökning.",
-							"signInRequired": "Logga in för att söka efter integreringar.",
-							"scoped": "Denna widget har ingen tillgänglig mediaintegration för begäran."
-						}
-					}
-				},
-				"availability": {
-					"available": "Tillgänglig",
-					"partiallyAvailable": "Delvis",
-					"processing": "Bearbetar",
-					"requested": "Begärd",
-					"pending": "Begärd"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Sökmotorn togs inte bort",
 							"message": "Sökmotorn kunde inte tas bort"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Begär \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Säsong",
-								"episodes": "Avsnitt",
-								"status": "Status"
-							},
-							"status": {
-								"requested": "Begärd"
-							}
-						},
-						"button": {
-							"send": "Skicka förfrågan"
 						}
 					}
 				}

@@ -8,7 +8,6 @@ import {
   contextSpecificFallbackSearchGroup,
   contextSpecificSearchGroups,
 } from "./context-specific-group";
-import { mediaFallbackGroup } from "../media/media-fallback-group";
 import { pagesSearchGroup } from "../page/pages-search-group";
 import { preferencesGroup } from "../preferences/groups";
 import { userGroupMode } from "../user-group";
@@ -32,7 +31,6 @@ export const homeMode = {
       ...directoryGroups,
       homeSearchEngineGroup,
       contextSpecificFallbackSearchGroup,
-      mediaFallbackGroup,
     ];
   },
 } satisfies SearchMode;

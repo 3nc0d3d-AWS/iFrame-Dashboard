@@ -2,7 +2,6 @@ import { Group, Kbd, ScrollArea, Text, UnstyledButton } from "@mantine/core";
 import {
   IconApps,
   IconCommand,
-  IconMovie,
   IconRobot,
   IconSearch,
   IconSettings,
@@ -36,7 +35,6 @@ const modeIcons: Record<SpotlightMode, typeof IconSearch> = {
   preferences: IconSettings,
   assistant: IconRobot,
   external: IconWorldSearch,
-  media: IconMovie,
   userGroup: IconUsers,
 };
 

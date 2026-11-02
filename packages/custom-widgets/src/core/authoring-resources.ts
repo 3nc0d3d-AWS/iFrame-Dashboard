@@ -151,7 +151,7 @@ Key \`default\` is the required source ID, not a source property. Fields: \`name
 }
 \`\`\`
 
-Saved sources use \`{"type":"integration","integrationKind":"sonarr","integrationId":"saved-id"}\`. Discover and bind a full-access entry before preview. Omit URL/auth; paths append to its URL, non-GET requests are actions, and exports omit \`integrationId\`.
+Saved sources use \`{"type":"integration","integrationKind":"jellyfin","integrationId":"saved-id"}\`. Discover and bind a full-access entry before preview. Omit URL/auth; paths append to its URL, non-GET requests are actions, and exports omit \`integrationId\`.
 
 Auth is \`none\`, \`bearer\`, \`basic\`, \`apiKeyHeader\`, \`apiKeyQuery\`, or \`headers\`. Requests default to source \`default\`, query/GET/load, inherited auth, and view permission. Use \`load\` for initial/current display and \`manual\` only for explicit interactions or invocation params. Actions are manual/modify; DELETE requires full permission and confirmation.
 

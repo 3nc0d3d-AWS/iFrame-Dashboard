@@ -32,12 +32,6 @@ const adapter = <TKind extends IntegrationKind, TData>(
 });
 
 export const existingStatsProviders: Partial<Record<IntegrationKind, ExistingStatsProvider>> = {
-  jackett: adapter(
-    "jackett",
-    [metric("configured", "Configured indexers")],
-    (client) => client.getStatsAsync(),
-    (data) => data,
-  ),
   paperlessNgx: adapter(
     "paperlessNgx",
     [
@@ -94,16 +88,6 @@ export const existingStatsProviders: Partial<Record<IntegrationKind, ExistingSta
     ],
     (client) => client.getServerStatsAsync(),
     (data) => ({ ...data }),
-  ),
-  bazarr: adapter(
-    "bazarr",
-    [
-      metric("episodes", "Missing episode subtitles"),
-      metric("movies", "Missing movie subtitles"),
-      metric("providers", "Providers"),
-    ],
-    (client) => client.getBadgesAsync(),
-    ({ episodes, movies, providers }) => ({ episodes, movies, providers }),
   ),
   wud: adapter(
     "wud",
@@ -189,59 +173,6 @@ for (const kind of ["dashDot", "glances", "openmediavault", "synology", "truenas
     }),
   );
 }
-for (const kind of ["jellyseerr", "seerr", "overseerr"] as const) {
-  existingStatsProviders[kind] = adapter(
-    kind,
-    [
-      metric("pending", "Pending requests"),
-      metric("approved", "Approved requests"),
-      metric("available", "Available requests"),
-      metric("processing", "Processing requests"),
-    ],
-    (client) => client.getStatsAsync(),
-    ({ pending, approved, available, processing }) => ({ pending, approved, available, processing }),
-  );
-}
-for (const kind of ["sonarr", "sportarr", "radarr"] as const) {
-  const libraryMetric = metric("movies", "Movies");
-  if (kind === "sonarr") {
-    libraryMetric.key = "shows";
-    libraryMetric.label = "Shows";
-  }
-  if (kind === "sportarr") {
-    libraryMetric.key = "shows";
-    libraryMetric.label = "Leagues";
-  }
-  const metrics = [
-    libraryMetric,
-    metric("monitored", "Monitored"),
-    metric("downloaded", "Downloaded movies"),
-    metric("storage", "Storage", "bytes"),
-    metric("missing", "Missing"),
-    metric("queued", "Queued"),
-  ];
-  if (kind === "sonarr") {
-    metrics[2] = metric("downloaded", "Downloaded episodes");
-    metrics.push(metric("episodes", "Episodes"));
-  }
-  if (kind === "sportarr") {
-    metrics[2] = metric("downloaded", "Downloaded events");
-    metrics.push(metric("episodes", "Events"));
-  }
-  existingStatsProviders[kind] = adapter(
-    kind,
-    metrics,
-    async (client) => {
-      const [library, missing, queued] = await Promise.all([
-        client.getLibraryStatsAsync(),
-        client.getMissingAsync(1),
-        client.getMediaQueueAsync(1),
-      ]);
-      return { ...library, missing: missing.totalCount, queued: queued.totalCount };
-    },
-    (data) => data,
-  );
-}
 for (const kind of ["plex", "jellyfin", "emby"] as const) {
   existingStatsProviders[kind] = adapter(
     kind,
@@ -258,29 +189,11 @@ for (const kind of ["ntfy", "gotify"] as const) {
     (data) => ({ messages: data.length }),
   );
 }
-for (const kind of ["sabNzbd", "nzbGet", "qBittorrent", "deluge", "transmission", "slskd", "aria2"] as const) {
-  existingStatsProviders[kind] = adapter(
-    kind,
-    [
-      metric("download", "Download", "bytesPerSecond"),
-      metric("upload", "Upload", "bytesPerSecond"),
-      metric("paused", "Paused", "text"),
-    ],
-    (client) => client.getClientJobsAndStatusAsync({ limit: 1 }),
-    ({ status }) => ({ download: status.rates.down, upload: status.rates.up ?? null, paused: status.paused }),
-  );
-}
 existingStatsProviders.nextcloud = adapter(
   "nextcloud",
   [metric("messages", "Retrieved notifications")],
   (client) => client.getNotificationsAsync(),
   (data) => ({ messages: data.length }),
-);
-existingStatsProviders.prowlarr = adapter(
-  "prowlarr",
-  [metric("indexers", "Indexers")],
-  (client) => client.getIndexersAsync(),
-  (data) => ({ indexers: data.length }),
 );
 existingStatsProviders.gluetun = adapter(
   "gluetun",
@@ -401,22 +314,6 @@ existingStatsProviders.llamacpp = adapter(
     requestsProcessing: data.metrics.requestsProcessing,
   }),
 );
-existingStatsProviders.tracearr = adapter(
-  "tracearr",
-  [
-    metric("activeStreams", "Active streams"),
-    metric("totalUsers", "Users"),
-    metric("totalSessions", "Sessions"),
-    metric("recentViolations", "Recent violations"),
-  ],
-  (client) => client.getStatsAsync(),
-  ({ activeStreams, totalUsers, totalSessions, recentViolations }) => ({
-    activeStreams,
-    totalUsers,
-    totalSessions,
-    recentViolations,
-  }),
-);
 existingStatsProviders.homeAssistant = adapter(
   "homeAssistant",
   [
@@ -434,25 +331,6 @@ existingStatsProviders.anchor = adapter(
   (client) => client.listNotesAsync(),
   (data) => ({ notes: data.length }),
 );
-for (const kind of ["lidarr", "readarr"] as const) {
-  const libraryMetric = metric("books", "Books");
-  if (kind === "lidarr") {
-    libraryMetric.key = "artists";
-    libraryMetric.label = "Artists";
-  }
-  existingStatsProviders[kind] = adapter(
-    kind,
-    [libraryMetric, metric("monitored", "Monitored"), metric("upcoming", "Events in the next 7 days")],
-    async (client) => {
-      const [library, events] = await Promise.all([
-        client.getLibraryStatsAsync(),
-        client.getCalendarEventsAsync(new Date(), new Date(Date.now() + 7 * 86_400_000)),
-      ]);
-      return { ...library, upcoming: events.length };
-    },
-    (data) => data,
-  );
-}
 existingStatsProviders.wazuh = adapter(
   "wazuh",
   [

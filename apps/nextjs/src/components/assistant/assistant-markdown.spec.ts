@@ -5,7 +5,7 @@ import { normalizeAssistantMarkdown } from "./assistant-markdown";
 describe("normalizeAssistantMarkdown", () => {
   test("formats the assistant capability introduction as readable sections", () => {
     const text =
-      "Hey! 👋 I'm your Homarr Assistant — ready to help you manage your dashboard. Here's what I can do: - **Boards & Apps** — create, edit, organize your dashboard boards and app shortcuts - **Integrations** — work with Sonarr, Radarr, Plex, Jellyfin, Home Assistant, Pi-hole, download clients, and more - **Media** — search and request movies/shows, check streams, browse calendars - **Docker** — view, start, stop, restart containers - **System** — monitor health, DNS stats, downloads, and smart home devices What are you looking to do?";
+      "Hey! 👋 I'm your Homarr Assistant — ready to help you manage your dashboard. Here's what I can do: - **Boards & Apps** — create, edit, organize your dashboard boards and app shortcuts - **Integrations** — work with Jellyfin, Emby, Plex, Jellyfin, Home Assistant, Pi-hole, download clients, and more - **Media** — search and request movies/shows, check streams, browse calendars - **Docker** — view, start, stop, restart containers - **System** — monitor health, DNS stats, downloads, and smart home devices What are you looking to do?";
 
     const normalized = normalizeAssistantMarkdown(text);
     expect(normalized).toContain("Here's what I can do:\n\n- **Boards & Apps**");
@@ -16,10 +16,10 @@ describe("normalizeAssistantMarkdown", () => {
 
   test("turns an inline bold-label sequence into a Markdown list", () => {
     const text =
-      "Here's what I can do: - **Boards & Apps** — create and organize boards - **Integrations** — work with Sonarr and Radarr - **Docker** — manage containers What would you like to do?";
+      "Here's what I can do: - **Boards & Apps** — create and organize boards - **Integrations** — work with Jellyfin and Emby - **Docker** — manage containers What would you like to do?";
 
     expect(normalizeAssistantMarkdown(text)).toBe(
-      "Here's what I can do:\n\n- **Boards & Apps** — create and organize boards\n- **Integrations** — work with Sonarr and Radarr\n- **Docker** — manage containers\n\nWhat would you like to do?",
+      "Here's what I can do:\n\n- **Boards & Apps** — create and organize boards\n- **Integrations** — work with Jellyfin and Emby\n- **Docker** — manage containers\n\nWhat would you like to do?",
     );
   });
 

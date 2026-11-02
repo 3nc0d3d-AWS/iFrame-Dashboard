@@ -3372,27 +3372,6 @@
 				"noForecast": "נתוני תחזית אינם זמינים"
 			}
 		},
-		"indexerManager": {
-			"name": "סטטוס מנהל אינדקס",
-			"description": "מצב האינדקסים שלך",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "פתח את אתר האינדקס בכרטיסייה חדשה"
-				}
-			},
-			"title": "מנהל אינדקס",
-			"testAll": "בדוק הכל",
-			"status": {
-				"healthy": "בָּרִיא",
-				"unhealthy": "לא בריא",
-				"disabled": "מושבת",
-				"unknown": "הבריאות אינה זמינה"
-			},
-			"error": {
-				"internalServerError": "נכשל באחזור סטטוס האינדקסים",
-				"testAll": "בדיקת האינדקסרים נכשלה. נסה שוב."
-			}
-		},
 		"healthMonitoring": {
 			"name": "ניטור בריאות המערכת",
 			"description": "מציג מידע המציג את התקינות והסטטוס של המערכות שלך.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": ""
-			}
-		},
-		"tracearr": {
-			"description": "ניטור שרת מדיה משופר עם נתוני זרם וקידוד מפורטים",
-			"option": {
-				"showStreams": {
-					"label": "הצג זרמים פעילים"
-				},
-				"showStats": {
-					"label": "הצג סיכום סטטיסטיקות"
-				},
-				"showRecentActivity": {
-					"label": "הצג פעילות אחרונה"
-				},
-				"showViolations": {
-					"label": "הצג הפרות"
-				}
-			},
-			"stats": {
-				"activeStreams": "זרמים פעילים",
-				"totalUsers": "סך המשתמשים",
-				"transcodes": "קידודים",
-				"bandwidth": "רוחב פס"
-			},
-			"streams": {
-				"empty": "אין זרמים פעילים",
-				"user": "משתמש",
-				"media": "מדיה",
-				"state": "מצב",
-				"quality": "איכות",
-				"device": "מכשיר",
-				"progress": "התקדמות",
-				"videoDecision": {
-					"directPlay": "הפעלה ישירה",
-					"transcode": "קידוד",
-					"directStream": "זרם ישיר"
-				}
-			},
-			"recentActivity": {
-				"title": "פעילות אחרונה",
-				"empty": "אין פעילות אחרונה",
-				"watched": "נצפה",
-				"partial": "חלקי"
-			},
-			"violations": {
-				"title": "הפרות",
-				"empty": "אין הפרות אחרונות",
-				"rule": "כלל",
-				"user": "משתמש"
-			},
-			"noSectionsEnabled": "לא הופעלו מקטעים",
-			"error": {
-				"noIntegration": "לא הוגדרה אינטגרציית Tracearr",
-				"internalServerError": "אחזור נתוני Tracearr נכשל"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": ""
 			}
 		},
-		"bazarr": {
-			"description": "",
-			"episodes": "",
-			"movies": "",
-			"providers": "",
-			"status": "",
-			"announcements": "הודעות",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "",
-					"description": ""
-				},
-				"showMissingMovies": {
-					"label": "",
-					"description": ""
-				},
-				"showProviderIssues": {
-					"label": "",
-					"description": ""
-				},
-				"showHealthIssues": {
-					"label": "",
-					"description": ""
-				}
-			},
-			"error": {
-				"internalServerError": ""
-			}
-		},
 		"immich-serverStats": {
 			"name": "סטטיסטיקות שרת Immich",
 			"description": "מידע על מופע ה-Immich שלך",
@@ -4390,170 +4286,6 @@
 				"photo": "תמונה {number}"
 			}
 		},
-		"downloads": {
-			"name": "הורדת לקוח",
-			"description": "מאפשר לך להציג ולנהל את ההורדות שלך הן מלקוחות Torrent והן מלקוחות Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "הצג ערכי usenet שסומנו כהשלמה"
-				},
-				"showCompletedTorrent": {
-					"label": "הצג ערכי טורנט שסומנו כהשלמה"
-				},
-				"showCompletedHttp": {
-					"label": "הצג ערכים שונים שסומנו כהשלמה"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "הסתר טורנט שהושלם מתחת לסף הזה"
-				},
-				"categoryFilter": {
-					"label": "קטגוריות/תוויות לסינון"
-				},
-				"filterIsWhitelist": {
-					"label": "סנן כרשימת היתרים"
-				},
-				"applyFilterToRatio": {
-					"label": "השתמש במסנן כדי לחשב יחס"
-				},
-				"limitPerIntegration": {
-					"label": "הגבלת פריטים לכל אינטגרציה",
-					"description": "פעולה זו תגביל את מספר הפריטים המוצגים בכל אינטגרציה, לא באופן גלובלי"
-				}
-			},
-			"errors": {
-				"noColumns": "בחר עמודות בפריטים",
-				"noCommunications": "לא ניתן לטעון נתונים מהאינטגרציה",
-				"noItems": "",
-				"actionFailed": "",
-				"actionFailedMessage": ""
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "פקדים"
-				},
-				"added": {
-					"columnTitle": "נוסף",
-					"detailsTitle": "נוסף בתאריך"
-				},
-				"category": {
-					"columnTitle": "תוספות",
-					"detailsTitle": "קטגוריות (או מידע נוסף)"
-				},
-				"downSpeed": {
-					"columnTitle": "הורדה",
-					"detailsTitle": "מהירות הורדה"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "מדד נוכחי בתוך הלקוח"
-				},
-				"id": {
-					"columnTitle": "מזהה",
-					"detailsTitle": "מזהה"
-				},
-				"integration": {
-					"columnTitle": "אינטגרציה"
-				},
-				"name": {
-					"columnTitle": "שם המשימה"
-				},
-				"progress": {
-					"columnTitle": "התקדמות",
-					"detailsTitle": "התקדמות ההורדה"
-				},
-				"ratio": {
-					"columnTitle": "יחס",
-					"detailsTitle": "יחס טורנט (התקבל/נשלח)"
-				},
-				"received": {
-					"columnTitle": "סך הכל הורדה",
-					"detailsTitle": "הורדה כוללת"
-				},
-				"sent": {
-					"columnTitle": "סך הכל העלאה",
-					"detailsTitle": "העלאה כוללת"
-				},
-				"size": {
-					"columnTitle": "גודל קובץ",
-					"detailsTitle": "גודל כולל של בחירה/קבצים"
-				},
-				"state": {
-					"columnTitle": "מצב",
-					"detailsTitle": "מצב המשימה"
-				},
-				"time": {
-					"columnTitle": "זמן סיום",
-					"detailsTitle": "זמן מאז/עד סיום",
-					"eta": ""
-				},
-				"type": {
-					"columnTitle": "סוּג",
-					"detailsTitle": "סוג לקוח הורדה"
-				},
-				"upSpeed": {
-					"columnTitle": "העלאה",
-					"detailsTitle": "קצב העלאה"
-				}
-			},
-			"states": {
-				"downloading": "מוריד",
-				"queued": "בתור",
-				"paused": "מושהה",
-				"completed": "הושלם",
-				"failed": "נכשל",
-				"processing": "מעבד",
-				"leeching": "בשיתוף",
-				"stalled": "נתקע",
-				"unknown": "לא ידוע",
-				"seeding": "זריעה"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "רשימת לקוחות הורדה",
-					"pause": "השהה את כל הלקוחות/פריטים",
-					"resume": "המשך כל הלקוחות/פריטים"
-				},
-				"client": {
-					"pause": "השהה לקוח",
-					"resume": "המשך לקוח"
-				},
-				"item": {
-					"pause": "השהה פריט",
-					"resume": "המשך פריט",
-					"delete": {
-						"title": "מחק פריט",
-						"modalTitle": "האם את/ה בטוח/ה שברצונך למחוק את העבודה הזו?",
-						"entry": "מחיקת רשומה",
-						"entryAndFiles": "מחיקת רשומה וקבצים"
-					}
-				}
-			},
-			"globalRatio": "יחס גלובלי",
-			"contextMenu": {
-				"copyName": "",
-				"copyId": "",
-				"clearFilters": ""
-			},
-			"footer": {
-				"filter": ""
-			},
-			"stats": {
-				"show": "",
-				"hide": "",
-				"overallProgress": "",
-				"totalSize": "",
-				"clients": ""
-			},
-			"disconnected": ""
-		},
 		"mediaReleases": {
 			"name": "מדיה משוחררת",
 			"description": "הצגת מדיה שנוספה לאחרונה או מהדורות עתידיות מאינטגרציות שונות",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "דקות {length}"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "רשימת בקשות מדיה",
-			"description": "ראה רשימה של כל בקשות המדיה ממופע Overseerr או Jellyseerr שלך",
-			"empty": {
-				"title": "אין עדיין בקשות מדיה",
-				"description": "חפש סרט או תוכנית כדי להתחיל בקשה."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "פתח לינק בלשונית חדשה"
-				},
-				"statusFilter": {
-					"label": ""
-				},
-				"recentDays": {
-					"label": ""
-				}
-			},
-			"pending": {
-				"approve": "אשר בקשה",
-				"approving": "מאשר את הבקשה...",
-				"decline": "דחה בקשה"
-			},
-			"availability": {
-				"unknown": "לא ידוע",
-				"pending": "בהמתנה",
-				"processing": "מעבד",
-				"requested": "נדרש",
-				"partiallyAvailable": "חלקי",
-				"available": "זמין",
-				"blacklisted": "ברשימה השחורה",
-				"deleted": "נמחק"
-			},
-			"status": {
-				"pending": "ממתין",
-				"approved": "אושר",
-				"declined": "נדחה",
-				"failed": "נכשל",
-				"completed": "הושלם"
-			},
-			"unknown": "לא ידוע",
-			"toBeDetermined": "ייקבע בהמשך"
-		},
-		"mediaRequests-requestStats": {
-			"name": "מצב בקשות מדיה",
-			"description": "סטטיסטיקה לגבי בקשות המדיה",
-			"empty": {
-				"title": "אין עדיין פעילות בקשות",
-				"description": "הסטטיסטיקות יופיעו לאחר בקשת המדיה הראשונה."
-			},
-			"titles": {
-				"stats": {
-					"main": "סטטיסטיקות מדיה",
-					"approved": "כבר אושר",
-					"pending": "ממתין לאישור",
-					"processing": "בעיבוד",
-					"declined": "נדחה כבר",
-					"available": "כבר זמין",
-					"tv": "בקשות סדרות",
-					"movie": "בקשות סרטים"
-				},
-				"users": {
-					"main": "משתמשים מובילים",
-					"requests": "בקשות"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "בדיקות בריאות"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "",
-			"description": "מציג סרטים, פרקים וספרים חסרים וממתינים מ־{radarr}, {sonarr} ו־{bindery}",
-			"option": {
-				"showMissing": {
-					"label": ""
-				},
-				"showQueued": {
-					"label": ""
-				},
-				"pageSize": {
-					"label": ""
-				}
-			},
-			"tab": {
-				"missing": "",
-				"queued": ""
-			},
-			"type": {
-				"movie": "",
-				"episode": "",
-				"book": "ספר"
-			},
-			"empty": {
-				"missing": "",
-				"queued": "",
-				"noTabsEnabled": ""
-			},
-			"timeLeft": ""
 		},
 		"rssFeed": {
 			"name": "הזנות RSS",
@@ -8093,11 +7728,6 @@
 				"label": "אינטרנט",
 				"placeholder": "חיפוש באמצעות מנוע חיפוש חיצוני"
 			},
-			"media": {
-				"label": "מדיה",
-				"placeholder": "חפש סרט או סדרה",
-				"fallback": "חפש במדיה את \"{query}\""
-			},
 			"userGroup": {
 				"label": "אנשים",
 				"placeholder": "חפש משתמשים וקבוצות"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "",
-				"requestMovie": "בקשת סרט",
-				"requestSeries": "בקשת סדרה",
-				"openIn": "פתיחה ב- {kind}",
-				"group": {
-					"title": ""
-				},
-				"action": {
-					"search": {
-						"label": "",
-						"description": "",
-						"disabled": {
-							"noIntegration": "",
-							"signInRequired": "היכנס כדי לחפש אינטגרציות של בקשות מדיה.",
-							"scoped": ""
-						}
-					}
-				},
-				"availability": {
-					"available": "",
-					"partiallyAvailable": "",
-					"processing": "",
-					"requested": "",
-					"pending": ""
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "מנוע החיפוש לא נמחק",
 							"message": "לא היה ניתן למחוק את מנוע החיפוש"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "בקשה {name}",
-						"table": {
-							"header": {
-								"season": "עונה",
-								"episodes": "פרקים",
-								"status": ""
-							},
-							"status": {
-								"requested": ""
-							}
-						},
-						"button": {
-							"send": "שליחת בקשה"
 						}
 					}
 				}

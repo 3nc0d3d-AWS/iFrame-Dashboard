@@ -135,7 +135,7 @@ describe("LinuxServer.io releases", () => {
   test("reports notFound for an image that is not in the registry", async () => {
     serveLinuxServer(imagesReply(tautulli));
 
-    const error = await expectFailure({ provider: "linuxServerIO", identifier: "linuxserver/radarr" });
+    const error = await expectFailure({ provider: "linuxServerIO", identifier: "linuxserver/emby" });
 
     expect(error.code).toBe("notFound");
   });

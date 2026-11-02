@@ -3372,27 +3372,6 @@
 				"noForecast": "Údaje predpovede nie sú k dispozícii"
 			}
 		},
-		"indexerManager": {
-			"name": "Stav správcu indexovača",
-			"description": "Stav vašich indexátorov",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Otvoriť stránku indexera na novej karte"
-				}
-			},
-			"title": "Správca indexovača",
-			"testAll": "Otestujte všetky",
-			"status": {
-				"healthy": "Zdravý",
-				"unhealthy": "Nezdravý",
-				"disabled": "Zakázané",
-				"unknown": "Stav nie je k dispozícii"
-			},
-			"error": {
-				"internalServerError": "Nepodarilo sa načítať stav indexerov",
-				"testAll": "Test indexovača zlyhal. Skúste to znova."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Monitorovanie stavu systému",
 			"description": "Zobrazuje informácie o stave a kondícii vášho systému.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Nepodarilo sa načítať údaje UPS"
-			}
-		},
-		"tracearr": {
-			"description": "",
-			"option": {
-				"showStreams": {
-					"label": ""
-				},
-				"showStats": {
-					"label": ""
-				},
-				"showRecentActivity": {
-					"label": ""
-				},
-				"showViolations": {
-					"label": ""
-				}
-			},
-			"stats": {
-				"activeStreams": "",
-				"totalUsers": "",
-				"transcodes": "",
-				"bandwidth": ""
-			},
-			"streams": {
-				"empty": "",
-				"user": "",
-				"media": "",
-				"state": "",
-				"quality": "",
-				"device": "",
-				"progress": "",
-				"videoDecision": {
-					"directPlay": "",
-					"transcode": "",
-					"directStream": ""
-				}
-			},
-			"recentActivity": {
-				"title": "",
-				"empty": "",
-				"watched": "",
-				"partial": ""
-			},
-			"violations": {
-				"title": "",
-				"empty": "",
-				"rule": "",
-				"user": ""
-			},
-			"noSectionsEnabled": "",
-			"error": {
-				"noIntegration": "",
-				"internalServerError": ""
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": ""
 			}
 		},
-		"bazarr": {
-			"description": "",
-			"episodes": "",
-			"movies": "",
-			"providers": "",
-			"status": "",
-			"announcements": "Oznámenia",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "",
-					"description": ""
-				},
-				"showMissingMovies": {
-					"label": "",
-					"description": ""
-				},
-				"showProviderIssues": {
-					"label": "",
-					"description": ""
-				},
-				"showHealthIssues": {
-					"label": "",
-					"description": ""
-				}
-			},
-			"error": {
-				"internalServerError": ""
-			}
-		},
 		"immich-serverStats": {
 			"name": "",
 			"description": "",
@@ -4390,170 +4286,6 @@
 				"photo": "Fotografia {number}"
 			}
 		},
-		"downloads": {
-			"name": "Download klient",
-			"description": "Umožňuje vám zobraziť a spravovať stiahnuté súbory z klientov Torrent aj Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Zobrazenie záznamov v sieti Usenet označených ako dokončené"
-				},
-				"showCompletedTorrent": {
-					"label": "Zobraziť položky torrentu označené ako dokončené"
-				},
-				"showCompletedHttp": {
-					"label": "Zobraziť rôzne položky označené ako dokončené"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Skryť dokončený torrent pod touto hranicou"
-				},
-				"categoryFilter": {
-					"label": "Kategórie/značky na filtrovanie"
-				},
-				"filterIsWhitelist": {
-					"label": "Filter ako biely zoznam"
-				},
-				"applyFilterToRatio": {
-					"label": "Na výpočet pomeru použite filter"
-				},
-				"limitPerIntegration": {
-					"label": "Obmedzte položky na integráciu",
-					"description": "Tým sa obmedzí počet položiek zobrazených na integráciu, nie globálne"
-				}
-			},
-			"errors": {
-				"noColumns": "Vyberte položku Stĺpce v položkách",
-				"noCommunications": "Nie je možné načítať údaje z integrácie",
-				"noItems": "",
-				"actionFailed": "",
-				"actionFailedMessage": ""
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Ovládacie prvky"
-				},
-				"added": {
-					"columnTitle": "Pridané",
-					"detailsTitle": "Dátum pridania"
-				},
-				"category": {
-					"columnTitle": "Doplnky",
-					"detailsTitle": "Kategórie (alebo ďalšie informácie)"
-				},
-				"downSpeed": {
-					"columnTitle": "Dole",
-					"detailsTitle": "Rýchlosť sťahovania"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Aktuálny index v rámci klienta"
-				},
-				"id": {
-					"columnTitle": "Id",
-					"detailsTitle": "Id"
-				},
-				"integration": {
-					"columnTitle": "Integrácia"
-				},
-				"name": {
-					"columnTitle": "Názov úlohy"
-				},
-				"progress": {
-					"columnTitle": "Stav",
-					"detailsTitle": "Priebeh sťahovania"
-				},
-				"ratio": {
-					"columnTitle": "Pomer",
-					"detailsTitle": "Pomer torrentu (prijaté/odoslané)"
-				},
-				"received": {
-					"columnTitle": "Celkom dole",
-					"detailsTitle": "Celkovo stiahnuté"
-				},
-				"sent": {
-					"columnTitle": "Celkom hore",
-					"detailsTitle": "Celkovo nahrané"
-				},
-				"size": {
-					"columnTitle": "Veľkosť súboru",
-					"detailsTitle": "Celková veľkosť výberu/súborov"
-				},
-				"state": {
-					"columnTitle": "Stav",
-					"detailsTitle": "Stav práce"
-				},
-				"time": {
-					"columnTitle": "Čas ukončenia",
-					"detailsTitle": "Čas od/do dokončenia",
-					"eta": ""
-				},
-				"type": {
-					"columnTitle": "Typ",
-					"detailsTitle": "Typ Download klienta"
-				},
-				"upSpeed": {
-					"columnTitle": "Hore",
-					"detailsTitle": "Rýchlosť uploadu "
-				}
-			},
-			"states": {
-				"downloading": "Sťahovanie",
-				"queued": "V poradí",
-				"paused": "Pozastavené",
-				"completed": "Dokončené",
-				"failed": "Neúspešné",
-				"processing": "Spracovanie",
-				"leeching": "Leech",
-				"stalled": "Zastavené",
-				"unknown": "Neznámy",
-				"seeding": "Distribúcia"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Zoznam Download klientov",
-					"pause": "Pozastaviť všetkých klientov/položky",
-					"resume": "Obnovte všetkých klientov/položky"
-				},
-				"client": {
-					"pause": "Pozastaviť klienta",
-					"resume": "Obnoviť klienta"
-				},
-				"item": {
-					"pause": "Pozastaviť položku",
-					"resume": "Obnoviť položku",
-					"delete": {
-						"title": "Odstrániť položku",
-						"modalTitle": "Naozaj chcete odstrániť túto úlohu?",
-						"entry": "Odstrániť záznam",
-						"entryAndFiles": "Odstrániť záznam a súbor(y)"
-					}
-				}
-			},
-			"globalRatio": "Globálny pomer",
-			"contextMenu": {
-				"copyName": "",
-				"copyId": "",
-				"clearFilters": ""
-			},
-			"footer": {
-				"filter": ""
-			},
-			"stats": {
-				"show": "",
-				"hide": "",
-				"overallProgress": "",
-				"totalSize": "",
-				"clients": ""
-			},
-			"disconnected": ""
-		},
 		"mediaReleases": {
 			"name": "",
 			"description": "",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": ""
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Zoznam mediálnych požiadaviek",
-			"description": "Zobrazenie zoznamu všetkých mediálnych požiadaviek z Overseerr alebo Jellyseerr",
-			"empty": {
-				"title": "Zatiaľ žiadne požiadavky na médiá",
-				"description": "Ak chcete začať požiadavku, vyhľadajte film alebo seriál."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Otvorenie odkazov v novej karte"
-				},
-				"statusFilter": {
-					"label": ""
-				},
-				"recentDays": {
-					"label": ""
-				}
-			},
-			"pending": {
-				"approve": "Schváliť žiadosť",
-				"approving": "Schválenie žiadosti...",
-				"decline": "Zamietnuť žiadost"
-			},
-			"availability": {
-				"unknown": "Neznámy",
-				"pending": "Čakajúce",
-				"processing": "Spracovanie",
-				"requested": "",
-				"partiallyAvailable": "Čiastočný",
-				"available": "K dispozícii",
-				"blacklisted": "",
-				"deleted": ""
-			},
-			"status": {
-				"pending": "Čakajúce",
-				"approved": "Schválené",
-				"declined": "Odmietnuté",
-				"failed": "Neúspešné",
-				"completed": "Dokončené"
-			},
-			"unknown": "Neznámy",
-			"toBeDetermined": "TBD"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Štatistiky mediálnych žiadostí",
-			"description": "Štatistiky o vašich požiadavkách na médiá",
-			"empty": {
-				"title": "Zatiaľ žiadna aktivita požiadaviek",
-				"description": "Štatistiky sa zobrazia po prvej požiadavke na médium."
-			},
-			"titles": {
-				"stats": {
-					"main": "Štatistiky médií",
-					"approved": "Už schválené",
-					"pending": "Čakajúce na schválenie",
-					"processing": "Spracováva sa",
-					"declined": "Už odmietnuté",
-					"available": "Už k dispozícii",
-					"tv": "TV požiadavky",
-					"movie": "Filmové požiadavky"
-				},
-				"users": {
-					"main": "Najlepší používatelia",
-					"requests": "Požiadavky"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Zdravotné kontroly"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "",
-			"description": "Zobrazuje chýbajúce a zaradené filmy, epizódy a knihy zo služieb {radarr}, {sonarr} a {bindery}",
-			"option": {
-				"showMissing": {
-					"label": ""
-				},
-				"showQueued": {
-					"label": ""
-				},
-				"pageSize": {
-					"label": ""
-				}
-			},
-			"tab": {
-				"missing": "",
-				"queued": ""
-			},
-			"type": {
-				"movie": "",
-				"episode": "",
-				"book": "Kniha"
-			},
-			"empty": {
-				"missing": "",
-				"queued": "",
-				"noTabsEnabled": ""
-			},
-			"timeLeft": ""
 		},
 		"rssFeed": {
 			"name": "RSS kanály",
@@ -8093,11 +7728,6 @@
 				"label": "Web",
 				"placeholder": "Vyhľadávať pomocou externého vyhľadávača"
 			},
-			"media": {
-				"label": "Médiá",
-				"placeholder": "Vyhľadať film alebo seriál",
-				"fallback": "Vyhľadať médiá pre „{query}“"
-			},
 			"userGroup": {
 				"label": "Ľudia",
 				"placeholder": "Vyhľadať používateľov a skupiny"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Vyhľadajte filmy alebo seriály na vyžiadanie",
-				"requestMovie": "Vyžiadať film",
-				"requestSeries": "Vyžiadať seriál",
-				"openIn": "Otvoriť v {kind}",
-				"group": {
-					"title": "Filmy a seriály"
-				},
-				"action": {
-					"search": {
-						"label": "Vyhľadajte filmy alebo seriály",
-						"description": "Začnite písať, aby ste vyhľadali svoje integrácie žiadostí o médiá",
-						"disabled": {
-							"noIntegration": "Pridajte integráciu Overseerr, Jellyseerr alebo Seerr, aby ste umožnili vyhľadávanie médií.",
-							"signInRequired": "Ak chcete vyhľadávať v médiách a požiadavkách na integrácie, prihláste sa.",
-							"scoped": "Táto miniaplikácia nemá prístupnú integráciu žiadostí o médiá."
-						}
-					}
-				},
-				"availability": {
-					"available": "K dispozícii",
-					"partiallyAvailable": "Čiastočne",
-					"processing": "Spracováva sa",
-					"requested": "Vyžiadané",
-					"pending": "Vyžiadané"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Vyhľadávač nebol odstránený",
 							"message": "Vyhľadávací nástroj sa nepodarilo odstrániť"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Vyžiadať \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Séria",
-								"episodes": "Epizódy",
-								"status": "Stav"
-							},
-							"status": {
-								"requested": "Vyžiadané"
-							}
-						},
-						"button": {
-							"send": "Poslať požiadavku"
 						}
 					}
 				}

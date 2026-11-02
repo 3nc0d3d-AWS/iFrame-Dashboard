@@ -251,9 +251,9 @@ describe("getContainersWithStatsAsync", () => {
       const dockerInstance = createDockerInstance("healthy", async () => [
         {
           Id: "container-1",
-          Image: "sonarr:latest",
+          Image: "jellyfin:latest",
           Labels: {},
-          Names: ["/sonarr"],
+          Names: ["/jellyfin"],
           State: "running",
           Ports: [],
         },

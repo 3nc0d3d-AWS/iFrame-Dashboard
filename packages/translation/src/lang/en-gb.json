@@ -3372,27 +3372,6 @@
 				"noForecast": "No forecast data available"
 			}
 		},
-		"indexerManager": {
-			"name": "Indexer manager status",
-			"description": "Status of your indexers",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Open indexer site in new tab"
-				}
-			},
-			"title": "Indexer manager",
-			"testAll": "Test all",
-			"status": {
-				"healthy": "Healthy",
-				"unhealthy": "Unhealthy",
-				"disabled": "Disabled",
-				"unknown": "Health unavailable"
-			},
-			"error": {
-				"internalServerError": "Failed to fetch indexers status",
-				"testAll": "The indexer test failed. Try again."
-			}
-		},
 		"healthMonitoring": {
 			"name": "System Health Monitoring",
 			"description": "Displays information showing the health and status of your system(s).",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Failed to fetch UPS data"
-			}
-		},
-		"tracearr": {
-			"description": "Enhanced media server monitoring with detailed stream and transcoding data",
-			"option": {
-				"showStreams": {
-					"label": "Show active streams"
-				},
-				"showStats": {
-					"label": "Show stats summary"
-				},
-				"showRecentActivity": {
-					"label": "Show recent activity"
-				},
-				"showViolations": {
-					"label": "Show violations"
-				}
-			},
-			"stats": {
-				"activeStreams": "Active Streams",
-				"totalUsers": "Total Users",
-				"transcodes": "Transcodes",
-				"bandwidth": "Bandwidth"
-			},
-			"streams": {
-				"empty": "No active streams",
-				"user": "User",
-				"media": "Media",
-				"state": "State",
-				"quality": "Quality",
-				"device": "Device",
-				"progress": "Progress",
-				"videoDecision": {
-					"directPlay": "Direct Play",
-					"transcode": "Transcode",
-					"directStream": "Direct Stream"
-				}
-			},
-			"recentActivity": {
-				"title": "Recent Activity",
-				"empty": "No recent activity",
-				"watched": "Watched",
-				"partial": "Partial"
-			},
-			"violations": {
-				"title": "Violations",
-				"empty": "No recent violations",
-				"rule": "Rule",
-				"user": "User"
-			},
-			"noSectionsEnabled": "No sections enabled",
-			"error": {
-				"noIntegration": "No Tracearr integration configured",
-				"internalServerError": "Failed to fetch Tracearr data"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Failed to fetch PatchMon data"
 			}
 		},
-		"bazarr": {
-			"description": "Overview of missing subtitles and health status from your Bazarr instance",
-			"episodes": "Missing Episodes",
-			"movies": "Missing Movies",
-			"providers": "Provider Issues",
-			"status": "Health Issues",
-			"announcements": "Announcements",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Show missing episodes",
-					"description": "Display the number of episodes with missing subtitles"
-				},
-				"showMissingMovies": {
-					"label": "Show missing movies",
-					"description": "Display the number of movies with missing subtitles"
-				},
-				"showProviderIssues": {
-					"label": "Show provider issues",
-					"description": "Display the number of subtitle providers with issues"
-				},
-				"showHealthIssues": {
-					"label": "Show health issues",
-					"description": "Display the number of Bazarr health issues"
-				}
-			},
-			"error": {
-				"internalServerError": "Failed to fetch Bazarr data"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich Server Stats",
 			"description": "Information about your Immich instance",
@@ -4390,170 +4286,6 @@
 				"photo": "Photo {number}"
 			}
 		},
-		"downloads": {
-			"name": "Download Client",
-			"description": "Allows you to view and manage your Downloads from both Torrent and Usenet clients.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Show usenet entries marked as completed"
-				},
-				"showCompletedTorrent": {
-					"label": "Show torrent entries marked as completed"
-				},
-				"showCompletedHttp": {
-					"label": "Show Miscellaneous entries marked as completed"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Hide completed torrent under this threshold"
-				},
-				"categoryFilter": {
-					"label": "Categories/labels to filter"
-				},
-				"filterIsWhitelist": {
-					"label": "Filter as a whitelist"
-				},
-				"applyFilterToRatio": {
-					"label": "Use filter to calculate Ratio"
-				},
-				"limitPerIntegration": {
-					"label": "Limit items per integration",
-					"description": "This will limit the number of items shown per integration, not globally"
-				}
-			},
-			"errors": {
-				"noColumns": "Select Columns in Items",
-				"noCommunications": "",
-				"noItems": "No downloads found",
-				"actionFailed": "Action failed",
-				"actionFailedMessage": "The action could not be completed. Please try again."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Actions"
-				},
-				"added": {
-					"columnTitle": "",
-					"detailsTitle": "Added"
-				},
-				"category": {
-					"columnTitle": "Category",
-					"detailsTitle": "Category"
-				},
-				"downSpeed": {
-					"columnTitle": "Down",
-					"detailsTitle": "Down"
-				},
-				"index": {
-					"columnTitle": "",
-					"detailsTitle": "Index"
-				},
-				"id": {
-					"columnTitle": "Item ID",
-					"detailsTitle": "Item ID"
-				},
-				"integration": {
-					"columnTitle": "Source"
-				},
-				"name": {
-					"columnTitle": "Job name"
-				},
-				"progress": {
-					"columnTitle": "Progress",
-					"detailsTitle": "Progress"
-				},
-				"ratio": {
-					"columnTitle": "",
-					"detailsTitle": "Ratio"
-				},
-				"received": {
-					"columnTitle": "Down",
-					"detailsTitle": "Downloaded"
-				},
-				"sent": {
-					"columnTitle": "Up",
-					"detailsTitle": "Uploaded"
-				},
-				"size": {
-					"columnTitle": "Size",
-					"detailsTitle": "Size"
-				},
-				"state": {
-					"columnTitle": "State",
-					"detailsTitle": "State"
-				},
-				"time": {
-					"columnTitle": "ETA",
-					"detailsTitle": "ETA",
-					"eta": "ETA"
-				},
-				"type": {
-					"columnTitle": "",
-					"detailsTitle": "Type"
-				},
-				"upSpeed": {
-					"columnTitle": "",
-					"detailsTitle": "Up"
-				}
-			},
-			"states": {
-				"downloading": "",
-				"queued": "",
-				"paused": "",
-				"completed": "",
-				"failed": "",
-				"processing": "",
-				"leeching": "",
-				"stalled": "",
-				"unknown": "",
-				"seeding": ""
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "",
-					"pause": "",
-					"resume": ""
-				},
-				"client": {
-					"pause": "",
-					"resume": ""
-				},
-				"item": {
-					"pause": "",
-					"resume": "",
-					"delete": {
-						"title": "",
-						"modalTitle": "",
-						"entry": "",
-						"entryAndFiles": ""
-					}
-				}
-			},
-			"globalRatio": "",
-			"contextMenu": {
-				"copyName": "Copy name",
-				"copyId": "Copy ID",
-				"clearFilters": "Clear filters"
-			},
-			"footer": {
-				"filter": "Filter downloads"
-			},
-			"stats": {
-				"show": "Show global stats",
-				"hide": "Hide global stats",
-				"overallProgress": "Overall queue progress",
-				"totalSize": "Total queue size",
-				"clients": "{count, plural, one {# client} other {# clients}}"
-			},
-			"disconnected": "(disconnected)"
-		},
 		"mediaReleases": {
 			"name": "",
 			"description": "",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": ""
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Media Requests List",
-			"description": "See a list of all media requests from your Seerr, Overseerr, or Jellyseerr instance",
-			"empty": {
-				"title": "No media requests yet",
-				"description": "Search for a film or show to start a request."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": ""
-				},
-				"statusFilter": {
-					"label": "Statuses to show"
-				},
-				"recentDays": {
-					"label": "Show only recent requests"
-				}
-			},
-			"pending": {
-				"approve": "",
-				"approving": "",
-				"decline": ""
-			},
-			"availability": {
-				"unknown": "",
-				"pending": "",
-				"processing": "",
-				"requested": "Requested",
-				"partiallyAvailable": "",
-				"available": "",
-				"blacklisted": "Blacklisted",
-				"deleted": ""
-			},
-			"status": {
-				"pending": "",
-				"approved": "Approved",
-				"declined": "",
-				"failed": "",
-				"completed": ""
-			},
-			"unknown": "Unknown",
-			"toBeDetermined": ""
-		},
-		"mediaRequests-requestStats": {
-			"name": "",
-			"description": "",
-			"empty": {
-				"title": "No request activity yet",
-				"description": "Stats will appear after the first media request."
-			},
-			"titles": {
-				"stats": {
-					"main": "Media Stats",
-					"approved": "",
-					"pending": "",
-					"processing": "",
-					"declined": "",
-					"available": "",
-					"tv": "",
-					"movie": ""
-				},
-				"users": {
-					"main": "",
-					"requests": ""
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Health checks"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Missing & Queued Media",
-			"description": "Shows missing and queued movies and episodes from Radarr and Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Show missing items"
-				},
-				"showQueued": {
-					"label": "Show queued items"
-				},
-				"pageSize": {
-					"label": "Items per page"
-				}
-			},
-			"tab": {
-				"missing": "Missing",
-				"queued": "Queued"
-			},
-			"type": {
-				"movie": "Movie",
-				"episode": "Episode",
-				"book": "Book"
-			},
-			"empty": {
-				"missing": "No missing items",
-				"queued": "No queued items",
-				"noTabsEnabled": "Enable at least one tab in the widget settings"
-			},
-			"timeLeft": "Time left"
 		},
 		"rssFeed": {
 			"name": "",
@@ -8093,11 +7728,6 @@
 				"label": "Web",
 				"placeholder": "Search with an external search engine"
 			},
-			"media": {
-				"label": "Media",
-				"placeholder": "Search for a film or show",
-				"fallback": "Search media for \"{query}\""
-			},
 			"userGroup": {
 				"label": "People",
 				"placeholder": "Search users and groups"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Search for movies or shows to request",
-				"requestMovie": "Request movie",
-				"requestSeries": "Request series",
-				"openIn": "Open in {kind}",
-				"group": {
-					"title": "Movies and shows"
-				},
-				"action": {
-					"search": {
-						"label": "Search for movies or shows",
-						"description": "Start typing to search your media request integrations",
-						"disabled": {
-							"noIntegration": "Add an Overseerr, Jellyseerr, or Seerr integration to enable media search.",
-							"signInRequired": "Sign in to search media request integrations.",
-							"scoped": "This widget does not have an accessible media request integration."
-						}
-					}
-				},
-				"availability": {
-					"available": "Available",
-					"partiallyAvailable": "Partial",
-					"processing": "Processing",
-					"requested": "Requested",
-					"pending": "Requested"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Search engine not deleted",
 							"message": "The search engine could not be deleted"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Request \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Season",
-								"episodes": "Episodes",
-								"status": "Status"
-							},
-							"status": {
-								"requested": "Requested"
-							}
-						},
-						"button": {
-							"send": "Send request"
 						}
 					}
 				}

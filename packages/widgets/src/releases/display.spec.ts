@@ -21,9 +21,9 @@ const daysAgo = (days: number) => hoursAgo(days * 24);
 const defaultWindows: ReleaseWindows = { newReleaseWithin: "1w", staleReleaseWithin: "6M" };
 
 const integration = (isUpToDate: boolean | undefined): ReleasesRepositoryIntegration => ({
-  id: `sonarr-${String(isUpToDate)}`,
-  kind: "sonarr",
-  name: "Sonarr",
+  id: `jellyfin-${String(isUpToDate)}`,
+  kind: "jellyfin",
+  name: "Jellyfin",
   version: "4.0.0",
   isUpToDate,
 });

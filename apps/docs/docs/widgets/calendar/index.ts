@@ -21,7 +21,7 @@ export const calendarWidget: WidgetDefinition = {
         defaultValue: "no",
       },
       {
-        name: "Radarr release type",
+        name: "Release type",
         description: "Select what type of release date to see.",
         values: "List of: 'In cinemas', 'Digital release', 'Physical release'",
         defaultValue: "'In cinemas' and 'Digital release'",

@@ -10,13 +10,13 @@ import {
 } from "./item-select-data";
 
 describe("getWidgetConnectionStatus", () => {
-  const availableKinds = new Set<IntegrationKind>(["sonarr", "plex"]);
+  const availableKinds = new Set<IntegrationKind>(["jellyfin", "plex"]);
 
   describe("ready status", () => {
     it("returns 'ready' when at least one supported integration is in availableKinds", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["sonarr", "radarr"],
+          supportedIntegrations: ["jellyfin", "emby"],
           availableKinds,
           connectionOptional: false,
         }),
@@ -26,7 +26,7 @@ describe("getWidgetConnectionStatus", () => {
     it("returns 'ready' when all supported integrations are in availableKinds", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["sonarr", "plex"],
+          supportedIntegrations: ["jellyfin", "plex"],
           availableKinds,
           connectionOptional: false,
         }),
@@ -36,7 +36,7 @@ describe("getWidgetConnectionStatus", () => {
     it("returns 'ready' even if connectionOptional is true as long as a matching integration exists", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["sonarr"],
+          supportedIntegrations: ["jellyfin"],
           availableKinds,
           connectionOptional: true,
         }),
@@ -48,7 +48,7 @@ describe("getWidgetConnectionStatus", () => {
     it("returns 'needsSetup' when supported integrations are non-empty, none are available, and connectionOptional is false", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["radarr", "sabNzbd"],
+          supportedIntegrations: ["emby", "navidrome"],
           availableKinds,
           connectionOptional: false,
         }),
@@ -58,7 +58,7 @@ describe("getWidgetConnectionStatus", () => {
     it("returns 'needsSetup' when availableKinds is empty and connection is required", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["sonarr"],
+          supportedIntegrations: ["jellyfin"],
           availableKinds: new Set<IntegrationKind>(),
           connectionOptional: false,
         }),
@@ -88,7 +88,7 @@ describe("getWidgetConnectionStatus", () => {
     it("returns 'noConnectionRequired' when connectionOptional is true and no supported integrations are available", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["radarr", "jellyfin"],
+          supportedIntegrations: ["emby", "jellyfin"],
           availableKinds,
           connectionOptional: true,
         }),
@@ -98,7 +98,7 @@ describe("getWidgetConnectionStatus", () => {
     it("returns 'noConnectionRequired' when connectionOptional is true and availableKinds is empty", () => {
       expect(
         getWidgetConnectionStatus({
-          supportedIntegrations: ["sonarr"],
+          supportedIntegrations: ["jellyfin"],
           availableKinds: new Set(),
           connectionOptional: true,
         }),
@@ -160,11 +160,11 @@ describe("selection concurrency locks", () => {
 
 describe("resolveMatchingIntegrationsAsync", () => {
   it("returns empty array immediately when widget does not support integrations without calling ensureDataAsync", async () => {
-    const ensureDataAsync = vi.fn(async () => [{ id: "1", kind: "sonarr" as IntegrationKind }]);
+    const ensureDataAsync = vi.fn(async () => [{ id: "1", kind: "jellyfin" as IntegrationKind }]);
 
     const result = await resolveMatchingIntegrationsAsync({
       hasIntegrationSupport: false,
-      supportedIntegrations: ["sonarr"],
+      supportedIntegrations: ["jellyfin"],
       currentData: undefined,
       ensureDataAsync,
     });
@@ -175,15 +175,15 @@ describe("resolveMatchingIntegrationsAsync", () => {
 
   it("uses currentData synchronously when available without calling ensureDataAsync", async () => {
     const currentData = [
-      { id: "1", kind: "sonarr" as IntegrationKind, permissions: { hasUseAccess: true } },
-      { id: "2", kind: "radarr" as IntegrationKind, permissions: { hasUseAccess: true } },
+      { id: "1", kind: "jellyfin" as IntegrationKind, permissions: { hasUseAccess: true } },
+      { id: "2", kind: "emby" as IntegrationKind, permissions: { hasUseAccess: true } },
       { id: "3", kind: "plex" as IntegrationKind, permissions: { hasUseAccess: true } },
     ];
     const ensureDataAsync = vi.fn();
 
     const result = await resolveMatchingIntegrationsAsync({
       hasIntegrationSupport: true,
-      supportedIntegrations: ["sonarr", "radarr"],
+      supportedIntegrations: ["jellyfin", "emby"],
       currentData,
       ensureDataAsync,
     });
@@ -194,15 +194,15 @@ describe("resolveMatchingIntegrationsAsync", () => {
 
   it("calls ensureDataAsync when currentData is undefined and filters by supported kinds", async () => {
     const fetchedData = [
-      { id: "1", kind: "sonarr" as IntegrationKind },
-      { id: "2", kind: "radarr" as IntegrationKind },
-      { id: "3", kind: "sabNzbd" as IntegrationKind },
+      { id: "1", kind: "jellyfin" as IntegrationKind },
+      { id: "2", kind: "emby" as IntegrationKind },
+      { id: "3", kind: "navidrome" as IntegrationKind },
     ];
     const ensureDataAsync = vi.fn(async () => fetchedData);
 
     const result = await resolveMatchingIntegrationsAsync({
       hasIntegrationSupport: true,
-      supportedIntegrations: ["radarr", "sabNzbd"],
+      supportedIntegrations: ["emby", "navidrome"],
       currentData: undefined,
       ensureDataAsync,
     });
@@ -213,14 +213,14 @@ describe("resolveMatchingIntegrationsAsync", () => {
 
   it("excludes integrations where permissions.hasUseAccess is explicitly false", async () => {
     const currentData = [
-      { id: "allowed-1", kind: "sonarr" as IntegrationKind, permissions: { hasUseAccess: true } },
-      { id: "blocked-1", kind: "sonarr" as IntegrationKind, permissions: { hasUseAccess: false } },
-      { id: "allowed-no-perms", kind: "sonarr" as IntegrationKind },
+      { id: "allowed-1", kind: "jellyfin" as IntegrationKind, permissions: { hasUseAccess: true } },
+      { id: "blocked-1", kind: "jellyfin" as IntegrationKind, permissions: { hasUseAccess: false } },
+      { id: "allowed-no-perms", kind: "jellyfin" as IntegrationKind },
     ];
 
     const result = await resolveMatchingIntegrationsAsync({
       hasIntegrationSupport: true,
-      supportedIntegrations: ["sonarr"],
+      supportedIntegrations: ["jellyfin"],
       currentData,
       ensureDataAsync: vi.fn(),
     });
@@ -237,7 +237,7 @@ describe("resolveMatchingIntegrationsAsync", () => {
 
     const result = await resolveMatchingIntegrationsAsync({
       hasIntegrationSupport: true,
-      supportedIntegrations: ["sonarr", "radarr"],
+      supportedIntegrations: ["jellyfin", "emby"],
       currentData: undefined,
       ensureDataAsync,
     });
@@ -254,7 +254,7 @@ describe("resolveMatchingIntegrationsAsync", () => {
     await expect(
       resolveMatchingIntegrationsAsync({
         hasIntegrationSupport: true,
-        supportedIntegrations: ["sonarr"],
+        supportedIntegrations: ["jellyfin"],
         currentData: undefined,
         ensureDataAsync,
       }),

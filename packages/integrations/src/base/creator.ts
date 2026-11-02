@@ -8,13 +8,6 @@ const logger = createLogger({ module: "integrationFactory" });
 
 // Keep each import path explicit so Node and Turbopack can discover every lazy integration chunk.
 const integrationCreators = {
-  autobrr: async (input: IntegrationInput) => {
-    const [{ StatsIntegration }, { autobrrStatsProvider }] = await Promise.all([
-      import("../stats/stats-integration"),
-      import("../stats/providers/autobrr"),
-    ]);
-    return new StatsIntegration(input, autobrrStatsProvider);
-  },
   jellystat: async (input: IntegrationInput) => {
     const [{ StatsIntegration }, { jellystatStatsProvider }] = await Promise.all([
       import("../stats/stats-integration"),
@@ -28,13 +21,6 @@ const integrationCreators = {
       import("../stats/providers/scrutiny"),
     ]);
     return new StatsIntegration(input, scrutinyStatsProvider);
-  },
-  tubearchivist: async (input: IntegrationInput) => {
-    const [{ StatsIntegration }, { tubearchivistStatsProvider }] = await Promise.all([
-      import("../stats/stats-integration"),
-      import("../stats/providers/tubearchivist"),
-    ]);
-    return new StatsIntegration(input, tubearchivistStatsProvider);
   },
   frigate: async (input: IntegrationInput) => {
     const [{ StatsIntegration }, { frigateStatsProvider }] = await Promise.all([
@@ -57,22 +43,12 @@ const integrationCreators = {
     ]);
     return new StatsIntegration(input, netalertxStatsProvider);
   },
-  jackett: async (input: IntegrationInput) =>
-    new (await import("../jackett/jackett-integration")).JackettIntegration(input),
   yourSpotify: async (input: IntegrationInput) => {
     const [{ StatsIntegration }, { yourSpotifyStatsProvider }] = await Promise.all([
       import("../stats/stats-integration"),
       import("../stats/providers/your-spotify"),
     ]);
     return new StatsIntegration(input, yourSpotifyStatsProvider);
-  },
-
-  romm: async (input: IntegrationInput) => {
-    const [{ StatsIntegration }, { rommStatsProvider }] = await Promise.all([
-      import("../stats/stats-integration"),
-      import("../stats/providers/romm"),
-    ]);
-    return new StatsIntegration(input, rommStatsProvider);
   },
 
   homebox: async (input: IntegrationInput) => {
@@ -91,14 +67,6 @@ const integrationCreators = {
     return new StatsIntegration(input, mealieStatsProvider);
   },
 
-  xteve: async (input: IntegrationInput) => {
-    const [{ StatsIntegration }, { xteveStatsProvider }] = await Promise.all([
-      import("../stats/stats-integration"),
-      import("../stats/providers/xteve"),
-    ]);
-    return new StatsIntegration(input, xteveStatsProvider);
-  },
-
   unmanic: async (input: IntegrationInput) => {
     const [{ StatsIntegration }, { unmanicStatsProvider }] = await Promise.all([
       import("../stats/stats-integration"),
@@ -113,14 +81,6 @@ const integrationCreators = {
       import("../stats/providers/syncthing-relay"),
     ]);
     return new StatsIntegration(input, syncthingRelayStatsProvider);
-  },
-
-  stash: async (input: IntegrationInput) => {
-    const [{ StatsIntegration }, { stashStatsProvider }] = await Promise.all([
-      import("../stats/stats-integration"),
-      import("../stats/providers/stash"),
-    ]);
-    return new StatsIntegration(input, stashStatsProvider);
   },
 
   prometheus: async (input: IntegrationInput) => {
@@ -187,14 +147,6 @@ const integrationCreators = {
     return new StatsIntegration(input, minifluxStatsProvider);
   },
 
-  maintainerr: async (input: IntegrationInput) => {
-    const [{ StatsIntegration }, { maintainerrStatsProvider }] = await Promise.all([
-      import("../stats/stats-integration"),
-      import("../stats/providers/maintainerr"),
-    ]);
-    return new StatsIntegration(input, maintainerrStatsProvider);
-  },
-
   linkwarden: async (input: IntegrationInput) => {
     const [{ StatsIntegration }, { linkwardenStatsProvider }] = await Promise.all([
       import("../stats/stats-integration"),
@@ -256,41 +208,8 @@ const integrationCreators = {
   jellyfin: async (input: IntegrationInput) =>
     new (await import("../jellyfin/jellyfin-integration")).JellyfinIntegration(input),
   plex: async (input: IntegrationInput) => new (await import("../plex/plex-integration")).PlexIntegration(input),
-  sonarr: async (input: IntegrationInput) =>
-    new (await import("../media-organizer/sonarr/sonarr-integration")).SonarrIntegration(input),
-  sportarr: async (input: IntegrationInput) =>
-    new (await import("../media-organizer/sportarr/sportarr-integration")).SportarrIntegration(input),
-  radarr: async (input: IntegrationInput) =>
-    new (await import("../media-organizer/radarr/radarr-integration")).RadarrIntegration(input),
-  sabNzbd: async (input: IntegrationInput) =>
-    new (await import("../download-client/sabnzbd/sabnzbd-integration")).SabnzbdIntegration(input),
-  nzbGet: async (input: IntegrationInput) =>
-    new (await import("../download-client/nzbget/nzbget-integration")).NzbGetIntegration(input),
-  qBittorrent: async (input: IntegrationInput) =>
-    new (await import("../download-client/qbittorrent/qbittorrent-integration")).QBitTorrentIntegration(input),
-  deluge: async (input: IntegrationInput) =>
-    new (await import("../download-client/deluge/deluge-integration")).DelugeIntegration(input),
-  transmission: async (input: IntegrationInput) =>
-    new (await import("../download-client/transmission/transmission-integration")).TransmissionIntegration(input),
-  slskd: async (input: IntegrationInput) =>
-    new (await import("../download-client/slskd/slskd-integration")).SlskdIntegration(input),
-  aria2: async (input: IntegrationInput) =>
-    new (await import("../download-client/aria2/aria2-integration")).Aria2Integration(input),
-  jellyseerr: async (input: IntegrationInput) =>
-    new (await import("../jellyseerr/jellyseerr-integration")).JellyseerrIntegration(input),
-  seerr: async (input: IntegrationInput) => new (await import("../seerr/seerr-integration")).SeerrIntegration(input),
-  overseerr: async (input: IntegrationInput) =>
-    new (await import("../overseerr/overseerr-integration")).OverseerrIntegration(input),
-  prowlarr: async (input: IntegrationInput) =>
-    new (await import("../prowlarr/prowlarr-integration")).ProwlarrIntegration(input),
   openmediavault: async (input: IntegrationInput) =>
     new (await import("../openmediavault/openmediavault-integration")).OpenMediaVaultIntegration(input),
-  lidarr: async (input: IntegrationInput) =>
-    new (await import("../media-organizer/lidarr/lidarr-integration")).LidarrIntegration(input),
-  readarr: async (input: IntegrationInput) =>
-    new (await import("../media-organizer/readarr/readarr-integration")).ReadarrIntegration(input),
-  bindery: async (input: IntegrationInput) =>
-    new (await import("../media-organizer/bindery/bindery-integration")).BinderyIntegration(input),
   dashDot: async (input: IntegrationInput) =>
     new (await import("../dashdot/dashdot-integration")).DashDotIntegration(input),
   tdarr: async (input: IntegrationInput) =>
@@ -317,8 +236,6 @@ const integrationCreators = {
     new (await import("../unraid/unraid-integration")).UnraidIntegration(input),
   coolify: async (input: IntegrationInput) =>
     new (await import("../coolify/coolify-integration")).CoolifyIntegration(input),
-  tracearr: async (input: IntegrationInput) =>
-    new (await import("../tracearr/tracearr-integration")).TracearrIntegration(input),
   glances: async (input: IntegrationInput) =>
     new (await import("../glances/glances-integration")).GlancesIntegration(input),
   immich: async (input: IntegrationInput) =>
@@ -347,8 +264,6 @@ const integrationCreators = {
     new (await import("../peanut/peanut-integration")).PeaNutIntegration(input),
   beszel: async (input: IntegrationInput) =>
     new (await import("../beszel/beszel-integration")).BeszelIntegration(input),
-  bazarr: async (input: IntegrationInput) =>
-    new (await import("../bazarr/bazarr-integration")).BazarrIntegration(input),
   traefik: async (input: IntegrationInput) =>
     new (await import("../traefik/traefik-integration")).TraefikIntegration(input),
   wud: async (input: IntegrationInput) => new (await import("../wud/wud-integration")).WudIntegration(input),

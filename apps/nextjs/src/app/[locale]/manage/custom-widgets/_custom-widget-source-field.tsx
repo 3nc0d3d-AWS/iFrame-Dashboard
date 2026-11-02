@@ -92,7 +92,7 @@ export function CustomWidgetSourceField({
           value={source.type ?? "http"}
           allowDeselect={false}
           onChange={(type) => {
-            if (type === "integration") onUpdate(index, { type, integrationKind: "sonarr" });
+            if (type === "integration") onUpdate(index, { type, integrationKind: "jellyfin" });
             else if (type === "http") onUpdate(index, { type, baseUrl: "https://example.com", auth: "none" });
           }}
         />

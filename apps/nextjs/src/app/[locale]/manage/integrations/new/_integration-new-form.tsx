@@ -186,8 +186,7 @@ export const NewIntegrationForm = ({
   };
 
   const integrationCategories = integrationDefs[kind].category.flat();
-  const supportsSearchEngine =
-    integrationCategories.includes("search") && !integrationCategories.includes("mediaSearch");
+  const supportsSearchEngine = integrationCategories.includes("search");
 
   return (
     <form onSubmit={form.onSubmit((value) => void handleSubmitAsync(value))}>

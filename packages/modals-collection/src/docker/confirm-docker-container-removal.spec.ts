@@ -8,7 +8,7 @@ describe("createDockerRemovalConfirmation", () => {
     const t = vi.fn((key: string, values?: Record<string, string>) => `${key}:${JSON.stringify(values)}`);
 
     const confirmation = createDockerRemovalConfirmation(
-      [{ name: "sonarr" }, { name: "radarr" }],
+      [{ name: "jellyfin" }, { name: "emby" }],
       t as never,
       "Remove",
       remove,
@@ -16,7 +16,7 @@ describe("createDockerRemovalConfirmation", () => {
 
     expect(remove).not.toHaveBeenCalled();
     expect(confirmation.title).toContain('"count":"2"');
-    expect(confirmation.children).toContain('"names":"sonarr, radarr"');
+    expect(confirmation.children).toContain('"names":"jellyfin, emby"');
     expect(confirmation.confirmProps.children).toBe("Remove");
 
     confirmation.onConfirm();

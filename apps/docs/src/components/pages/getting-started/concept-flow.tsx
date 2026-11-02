@@ -3,24 +3,24 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import { IconCalendar, IconDownload, IconPlugConnected } from "@tabler/icons-react";
 
-import { qBittorentIntegration } from "@site/docs/integrations/q-bittorent";
-import { sonarrIntegration } from "@site/docs/integrations/sonarr";
+import { jellyfinIntegration } from "@site/docs/integrations/jellyfin";
+import { plexIntegration } from "@site/docs/integrations/plex";
 import { FlowConnector } from "@site/src/components/ui/flow-connector";
 
 import styles from "./concept-flow.module.css";
 
 const services = [
   {
-    name: sonarrIntegration.name,
-    iconUrl: getIconUrl(sonarrIntegration.iconUrl),
-    endpoint: "sonarr:8989",
-    href: "/docs/integrations/sonarr",
+    name: jellyfinIntegration.name,
+    iconUrl: getIconUrl(jellyfinIntegration.iconUrl),
+    endpoint: "jellyfin:8096",
+    href: "/docs/integrations/jellyfin",
   },
   {
-    name: qBittorentIntegration.name,
-    iconUrl: getIconUrl(qBittorentIntegration.iconUrl),
-    endpoint: "qbittorrent:8080",
-    href: "/docs/integrations/q-bittorent",
+    name: plexIntegration.name,
+    iconUrl: getIconUrl(plexIntegration.iconUrl),
+    endpoint: "plex:32400",
+    href: "/docs/integrations/plex",
   },
 ];
 
@@ -31,16 +31,16 @@ const widgets = [
     href: "/docs/widgets/calendar",
   },
   {
-    name: "Downloads",
+    name: "Media Server",
     icon: IconDownload,
-    href: "/docs/widgets/downloads",
+    href: "/docs/widgets/media-server",
   },
 ];
 
 const calendarDays = Array.from({ length: 14 }, (_, index) => index + 1);
 const calendarEventDays = new Set([3, 8, 12]);
 
-function getIconUrl(iconUrl: typeof sonarrIntegration.iconUrl) {
+function getIconUrl(iconUrl: typeof jellyfinIntegration.iconUrl) {
   if (typeof iconUrl === "string") return iconUrl;
   return iconUrl.light;
 }

@@ -180,9 +180,9 @@ describe("patchmonRouter.getStats access control", () => {
     await db.insert(users).values({ id: sessionUserId });
     await db.insert(integrations).values({
       id: integrationId,
-      kind: "sonarr",
-      name: "Sonarr",
-      url: "https://sonarr.example.com",
+      kind: "traefik",
+      name: "Traefik",
+      url: "https://traefik.example.com",
     });
     await db.insert(integrationUserPermissions).values({
       integrationId,

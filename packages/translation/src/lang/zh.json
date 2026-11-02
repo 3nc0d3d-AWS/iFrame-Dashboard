@@ -3372,27 +3372,6 @@
 				"noForecast": "沒有可用的預報資料"
 			}
 		},
-		"indexerManager": {
-			"name": "索引器管理狀態",
-			"description": "索引器狀態",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "於新分頁中開啟索引器站點"
-				}
-			},
-			"title": "索引器管理器",
-			"testAll": "測試全部",
-			"status": {
-				"healthy": "健康",
-				"unhealthy": "不良",
-				"disabled": "已停用",
-				"unknown": "健康狀態無法使用"
-			},
-			"error": {
-				"internalServerError": "無法取得索引器狀態",
-				"testAll": "索引器測試失敗。請再試一次。"
-			}
-		},
 		"healthMonitoring": {
 			"name": "系統健康監測",
 			"description": "顯示系統運行狀態",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "無法取得 UPS 資料"
-			}
-		},
-		"tracearr": {
-			"description": "強化媒體伺服器監控，提供詳細的串流與轉碼資料",
-			"option": {
-				"showStreams": {
-					"label": "顯示作用中的串流"
-				},
-				"showStats": {
-					"label": "顯示統計摘要"
-				},
-				"showRecentActivity": {
-					"label": "顯示近期活動"
-				},
-				"showViolations": {
-					"label": "顯示違規記錄"
-				}
-			},
-			"stats": {
-				"activeStreams": "作用中的串流",
-				"totalUsers": "使用者總數",
-				"transcodes": "轉碼次數",
-				"bandwidth": "頻寬"
-			},
-			"streams": {
-				"empty": "沒有作用中的串流",
-				"user": "使用者",
-				"media": "媒體",
-				"state": "狀態",
-				"quality": "畫質",
-				"device": "裝置",
-				"progress": "進度",
-				"videoDecision": {
-					"directPlay": "直接播放",
-					"transcode": "轉碼",
-					"directStream": "直接串流"
-				}
-			},
-			"recentActivity": {
-				"title": "近期活動",
-				"empty": "沒有近期活動",
-				"watched": "已觀看",
-				"partial": "部分觀看"
-			},
-			"violations": {
-				"title": "違規記錄",
-				"empty": "沒有近期違規",
-				"rule": "規則",
-				"user": "使用者"
-			},
-			"noSectionsEnabled": "未啟用任何區段",
-			"error": {
-				"noIntegration": "未設定 Tracearr 整合",
-				"internalServerError": "取得 Tracearr 資料失敗"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "無法擷取 PatchMon 資料"
 			}
 		},
-		"bazarr": {
-			"description": "來自 Bazarr 實例的缺少字幕和健康狀態概覽",
-			"episodes": "缺少的集數",
-			"movies": "缺少的電影",
-			"providers": "提供者問題",
-			"status": "健康問題",
-			"announcements": "公告",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "顯示缺少的集數",
-					"description": "顯示缺少字幕的集數數量"
-				},
-				"showMissingMovies": {
-					"label": "顯示缺少的電影",
-					"description": "顯示缺少字幕的電影數量"
-				},
-				"showProviderIssues": {
-					"label": "顯示提供者問題",
-					"description": "顯示有問題的字幕提供者數量"
-				},
-				"showHealthIssues": {
-					"label": "顯示健康問題",
-					"description": "顯示 Bazarr 健康問題的數量"
-				}
-			},
-			"error": {
-				"internalServerError": "無法擷取 Bazarr 資料"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich 伺服器統計",
 			"description": "關於您的 Immich 執行個體的資訊",
@@ -4390,170 +4286,6 @@
 				"photo": "相片 {number}"
 			}
 		},
-		"downloads": {
-			"name": "下載器",
-			"description": "允許查看和管理來自 Torrent 和 Usenet 的下載器",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "顯示標記為已完成的 Usenet 項目"
-				},
-				"showCompletedTorrent": {
-					"label": "顯示標記為已完成的 Torrent 項目"
-				},
-				"showCompletedHttp": {
-					"label": "顯示標記為已完成的雜項條目"
-				},
-				"includeArchivedHistory": {
-					"label": "包含已歸檔的 SABnzbd 歷史記錄",
-					"description": "顯示已移至歸檔的工作。"
-				},
-				"historyWindowDays": {
-					"label": "歸檔歷史時間範圍（天）",
-					"description": "只顯示最近這麼多天內已完成的 SABnzbd 歷史記錄。提高項目上限可顯示更多結果。"
-				},
-				"activeTorrentThreshold": {
-					"label": "隱藏在此閥值下完成的 Torrent"
-				},
-				"categoryFilter": {
-					"label": "要過濾的分類/標籤"
-				},
-				"filterIsWhitelist": {
-					"label": "以白名單篩選"
-				},
-				"applyFilterToRatio": {
-					"label": "使用篩選器來計算速率"
-				},
-				"limitPerIntegration": {
-					"label": "限制每個整合的項目數",
-					"description": "這會限制每個整合顯示的項目數，而非全域數量"
-				}
-			},
-			"errors": {
-				"noColumns": "於項目中選擇列",
-				"noCommunications": "無法從集成中加載數據",
-				"noItems": "找不到下載項目",
-				"actionFailed": "操作失敗",
-				"actionFailedMessage": "無法完成此操作，請再試一次。"
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "控制"
-				},
-				"added": {
-					"columnTitle": "已新增",
-					"detailsTitle": "日期已新增"
-				},
-				"category": {
-					"columnTitle": "擴展的",
-					"detailsTitle": "分類 (額外訊息)"
-				},
-				"downSpeed": {
-					"columnTitle": "下載",
-					"detailsTitle": "下載速度"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "下載器中的當前索引"
-				},
-				"id": {
-					"columnTitle": "項目 ID",
-					"detailsTitle": "項目 ID"
-				},
-				"integration": {
-					"columnTitle": "集成"
-				},
-				"name": {
-					"columnTitle": "工作名稱"
-				},
-				"progress": {
-					"columnTitle": "進度",
-					"detailsTitle": "下載進度"
-				},
-				"ratio": {
-					"columnTitle": "分享率",
-					"detailsTitle": "Torrent 速率 (接收/發送)"
-				},
-				"received": {
-					"columnTitle": "總下載",
-					"detailsTitle": "總下載量"
-				},
-				"sent": {
-					"columnTitle": "總上傳",
-					"detailsTitle": "總上傳量"
-				},
-				"size": {
-					"columnTitle": "檔案大小",
-					"detailsTitle": "選擇/檔案的總大小"
-				},
-				"state": {
-					"columnTitle": "狀態",
-					"detailsTitle": "工作狀態"
-				},
-				"time": {
-					"columnTitle": "完成時間",
-					"detailsTitle": "剩餘完成時間",
-					"eta": "剩餘時間"
-				},
-				"type": {
-					"columnTitle": "類型",
-					"detailsTitle": "下載器類型"
-				},
-				"upSpeed": {
-					"columnTitle": "上傳",
-					"detailsTitle": "上傳速度"
-				}
-			},
-			"states": {
-				"downloading": "下載中",
-				"queued": "隊列中",
-				"paused": "已暫停",
-				"completed": "已完成",
-				"failed": "已失敗",
-				"processing": "進行中",
-				"leeching": "吸血中",
-				"stalled": "已暫停",
-				"unknown": "未知",
-				"seeding": "做種中"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "下載器列表",
-					"pause": "暫停全部下載器/項目",
-					"resume": "恢復全部下載器/項目"
-				},
-				"client": {
-					"pause": "暫停下載器",
-					"resume": "恢復下載器"
-				},
-				"item": {
-					"pause": "暫停項目",
-					"resume": "恢復項目",
-					"delete": {
-						"title": "移除項目",
-						"modalTitle": "確認要移除此工作嗎？",
-						"entry": "移除項目",
-						"entryAndFiles": "移除項目和檔案"
-					}
-				}
-			},
-			"globalRatio": "全局速率",
-			"contextMenu": {
-				"copyName": "複製名稱",
-				"copyId": "複製 ID",
-				"clearFilters": "清除篩選器"
-			},
-			"footer": {
-				"filter": "篩選下載項目"
-			},
-			"stats": {
-				"show": "顯示全域統計資料",
-				"hide": "隱藏全域統計資料",
-				"overallProgress": "整體佇列進度",
-				"totalSize": "佇列總大小",
-				"clients": "{count, plural, other {# 個用戶端}}"
-			},
-			"disconnected": "(斷線)"
-		},
 		"mediaReleases": {
 			"name": "媒體發行",
 			"description": "顯示來自不同整合的新增媒體或即將推出的發行內容",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} 分鐘"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "多媒體請求列表",
-			"description": "查看 Overrseerr 或 Jellyseerr 中所有多媒體請求列表",
-			"empty": {
-				"title": "尚無媒體請求",
-				"description": "搜尋電影或節目以開始請求。"
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "於新分頁中開啟鏈結"
-				},
-				"statusFilter": {
-					"label": "要顯示的狀態"
-				},
-				"recentDays": {
-					"label": "僅顯示最近的請求"
-				}
-			},
-			"pending": {
-				"approve": "批准請求",
-				"approving": "正在批准請求中 ...",
-				"decline": "拒絕請求"
-			},
-			"availability": {
-				"unknown": "未知",
-				"pending": "等待處理中",
-				"processing": "處理中",
-				"requested": "已要求",
-				"partiallyAvailable": "部分",
-				"available": "待定",
-				"blacklisted": "已列入黑名單",
-				"deleted": "已刪除"
-			},
-			"status": {
-				"pending": "待處理",
-				"approved": "已批准",
-				"declined": "已拒絕",
-				"failed": "失敗",
-				"completed": "已完成"
-			},
-			"unknown": "未知",
-			"toBeDetermined": "多媒體請求狀態"
-		},
-		"mediaRequests-requestStats": {
-			"name": "多媒體請求狀態",
-			"description": "多媒體請求統計",
-			"empty": {
-				"title": "尚無請求活動",
-				"description": "第一個媒體請求完成後會顯示統計資料。"
-			},
-			"titles": {
-				"stats": {
-					"main": "多媒體狀態",
-					"approved": "已批准",
-					"pending": "等待批准",
-					"processing": "處理中",
-					"declined": "已拒絕",
-					"available": "已可用",
-					"tv": "電視劇請求",
-					"movie": "電影請求"
-				},
-				"users": {
-					"main": "使用者排行",
-					"requests": "請求"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "健康檢查：{value}"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "缺少和佇列中的媒體",
-			"description": "顯示來自 Radarr 和 Sonarr 的缺少和佇列中的電影及影集",
-			"option": {
-				"showMissing": {
-					"label": "顯示缺少的項目"
-				},
-				"showQueued": {
-					"label": "顯示佇列中的項目"
-				},
-				"pageSize": {
-					"label": "每頁項目數"
-				}
-			},
-			"tab": {
-				"missing": "缺少",
-				"queued": "佇列中"
-			},
-			"type": {
-				"movie": "電影",
-				"episode": "集數",
-				"book": "書籍"
-			},
-			"empty": {
-				"missing": "沒有缺少的項目",
-				"queued": "沒有佇列中的項目",
-				"noTabsEnabled": "在小工具設定中至少啟用一個分頁"
-			},
-			"timeLeft": "剩餘時間"
 		},
 		"rssFeed": {
 			"name": "RSS 訂閱",
@@ -8093,11 +7728,6 @@
 				"label": "網路",
 				"placeholder": "使用外部搜尋引擎搜尋"
 			},
-			"media": {
-				"label": "多媒體",
-				"placeholder": "搜尋電影或節目",
-				"fallback": "搜尋媒體「{query}」"
-			},
 			"userGroup": {
 				"label": "人員",
 				"placeholder": "搜尋使用者與群組"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "搜尋電影或節目以提出請求",
-				"requestMovie": "請求電影",
-				"requestSeries": "請求系列",
-				"openIn": "開啟於 {kind}",
-				"group": {
-					"title": "電影和節目"
-				},
-				"action": {
-					"search": {
-						"label": "搜尋電影或節目",
-						"description": "開始輸入以搜尋你的媒體請求整合",
-						"disabled": {
-							"noIntegration": "新增 Overseerr、Jellyseerr 或 Seerr 整合以啟用媒體搜尋。",
-							"signInRequired": "登入以搜尋媒體請求整合。",
-							"scoped": "此小工具沒有可存取的媒體請求整合。"
-						}
-					}
-				},
-				"availability": {
-					"available": "可用",
-					"partiallyAvailable": "部分",
-					"processing": "處理中",
-					"requested": "已請求",
-					"pending": "已請求"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "搜尋引擎未移除",
 							"message": "搜尋引擎無法移除"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "請求 {name}",
-						"table": {
-							"header": {
-								"season": "季",
-								"episodes": "劇集",
-								"status": "狀態"
-							},
-							"status": {
-								"requested": "已請求"
-							}
-						},
-						"button": {
-							"send": "發送請求"
 						}
 					}
 				}

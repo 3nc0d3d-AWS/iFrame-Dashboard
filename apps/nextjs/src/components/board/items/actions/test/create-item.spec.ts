@@ -21,7 +21,7 @@ describe("item actions create-item", () => {
       .build();
     const baseLayout = board.layouts.find((layout) => layout.role === "base");
 
-    const result = createItemCallback({ kind: "downloads" })(board);
+    const result = createItemCallback({ kind: "wazuh" })(board);
 
     const createdItem = result.items.at(0);
     expect(createdItem?.layouts.find((layout) => layout.layoutId === "mobile")?.width).toBe(3);
@@ -162,7 +162,7 @@ describe("item actions create-item", () => {
     if (!layout) throw new Error("Expected a board layout");
     layout.id = "layout";
 
-    const result = createItemCallback({ id: "calendar", kind: "mediaMissing", targetSectionId: "media" })(board);
+    const result = createItemCallback({ id: "calendar", kind: "patchmon", targetSectionId: "media" })(board);
 
     expect(result.items.find((item) => item.id === "calendar")?.layouts).toEqual([
       expect.objectContaining({ layoutId: "layout", sectionId: "media", width: 2 }),
@@ -200,7 +200,7 @@ describe("item actions create-item", () => {
     if (!baseLayout) throw new Error("Expected a base layout");
     baseLayout.leftGutterColumnCount = 2;
 
-    const result = createItemCallback({ id: "missing", kind: "mediaMissing", targetSectionId: "left-rail" })(board);
+    const result = createItemCallback({ id: "missing", kind: "patchmon", targetSectionId: "left-rail" })(board);
 
     expect(result.items.find((item) => item.id === "missing")?.layouts).toEqual([
       expect.objectContaining({ layoutId: baseLayout.id, sectionId: "left-rail", width: 2 }),
@@ -254,7 +254,7 @@ describe("item actions create-item", () => {
         .build(),
     );
 
-    const result = createItemCallback({ id: "created", kind: "mediaMissing" })(board);
+    const result = createItemCallback({ id: "created", kind: "patchmon" })(board);
     const created = result.items.find((item) => item.id === "created");
 
     expect(created?.layouts).toEqual([

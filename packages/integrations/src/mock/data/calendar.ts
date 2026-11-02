@@ -69,7 +69,7 @@ const eventTemplates: EventTemplate[] = [
       src: "https://image.tmdb.org/t/p/w300/8b8R8l88Qje9dn9OE8PY05Nez7.jpg",
       aspectRatio: { width: 7, height: 12 },
     },
-    metadata: { type: "radarr", releaseType: "digitalRelease" },
+    metadata: { type: "mediaRelease", releaseType: "digitalRelease" },
     indicatorColor: "cyan",
     links: [
       {
@@ -105,7 +105,7 @@ const eventTemplates: EventTemplate[] = [
       src: "https://image.tmdb.org/t/p/w300/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg",
       aspectRatio: { width: 7, height: 12 },
     },
-    metadata: { type: "radarr", releaseType: "physicalRelease" },
+    metadata: { type: "mediaRelease", releaseType: "physicalRelease" },
     indicatorColor: "orange",
     links: [
       {
@@ -174,7 +174,7 @@ const eventTemplates: EventTemplate[] = [
       src: "https://image.tmdb.org/t/p/w300/63UMsIFOlCSz3uCPKtbgOdUr4pE.jpg",
       aspectRatio: { width: 7, height: 12 },
     },
-    metadata: { type: "radarr", releaseType: "digitalRelease" },
+    metadata: { type: "mediaRelease", releaseType: "digitalRelease" },
     indicatorColor: "grape",
     links: [],
   },

@@ -68,7 +68,7 @@ export const CalendarDisplay = ({
   const { ref: bodyRef, height: bodyHeight } = useElementSize();
   const filteredEvents = useMemo(
     () =>
-      events.filter((event) => event.metadata?.type !== "radarr" || releaseType.includes(event.metadata.releaseType)),
+      events.filter((event) => event.metadata?.type !== "mediaRelease" || releaseType.includes(event.metadata.releaseType)),
     [events, releaseType],
   );
   const eventsByDate = useMemo(() => groupEventsByDate(splitEvents(filteredEvents)), [filteredEvents]);

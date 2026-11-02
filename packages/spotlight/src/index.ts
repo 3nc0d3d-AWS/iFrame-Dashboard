@@ -1,6 +1,6 @@
 "use client";
 
-export { openSpotlight, openMediaRequestSearch, mediaRequestSearchEvent } from "./open";
+export { openSpotlight } from "./open";
 export {
   SpotlightProvider,
   useRegisterSpotlightContextResults,

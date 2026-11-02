@@ -113,10 +113,6 @@ export const browserToolContracts = {
     description: "Open Homarr's command and search menu.",
     parameters: z.object({}),
   },
-  open_media_request_search: {
-    description: "Open Homarr's media request search interface.",
-    parameters: z.object({}),
-  },
   refresh_current_view: {
     description:
       "Refetch the active Homarr page and its visible dashboard data. Use when the user asks to reload, or when the current view still needs to reflect an already completed change. Never use this before a mutation is approved and completed.",

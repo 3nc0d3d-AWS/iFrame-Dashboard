@@ -3372,27 +3372,6 @@
 				"noForecast": "Prognozes dati nav pieejami"
 			}
 		},
-		"indexerManager": {
-			"name": "Indeksētāja pārvaldnieka statuss",
-			"description": "Jūsu indeksētāju statuss",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Atvērt indeksētāja vietni jaunā cilnē"
-				}
-			},
-			"title": "Indexer pārvaldnieks",
-			"testAll": "Pārbaudīt visu",
-			"status": {
-				"healthy": "Veselīgs",
-				"unhealthy": "Neveselīgs",
-				"disabled": "Atspējots",
-				"unknown": "Veselības stāvoklis nav pieejams"
-			},
-			"error": {
-				"internalServerError": "Neizdevās iegūt indeksētāju statusu",
-				"testAll": "Indeksētāja pārbaude neizdevās. Mēģiniet vēlreiz."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Sistēmas Stāvokļa Uzraudzība",
 			"description": "Tiek parādīta informācija par sistēmas(-u) stāvokli un stāvokli.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Neizdevās iegūt UPS datus"
-			}
-		},
-		"tracearr": {
-			"description": "Uzlabota multivides servera pārraudzība ar detalizētiem straumēšanas un pārkodēšanas datiem",
-			"option": {
-				"showStreams": {
-					"label": "Rādīt aktīvās straumes"
-				},
-				"showStats": {
-					"label": "Rādīt statistikas kopsavilkumu"
-				},
-				"showRecentActivity": {
-					"label": "Rādīt nesenās darbības"
-				},
-				"showViolations": {
-					"label": "Rādīt pārkāpumus"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktīvās straumes",
-				"totalUsers": "Kopējais lietotāju skaits",
-				"transcodes": "Pārkodējumi",
-				"bandwidth": "Joslas platums"
-			},
-			"streams": {
-				"empty": "Nav aktīvu straumju",
-				"user": "Lietotājs",
-				"media": "Multivide",
-				"state": "Stāvoklis",
-				"quality": "Kvalitāte",
-				"device": "Ierīce",
-				"progress": "Norise",
-				"videoDecision": {
-					"directPlay": "Tiešā atskaņošana",
-					"transcode": "Pārkodēšana",
-					"directStream": "Tiešā straumēšana"
-				}
-			},
-			"recentActivity": {
-				"title": "Nesenās darbības",
-				"empty": "Nav nesenu darbību",
-				"watched": "Atskaņots",
-				"partial": "Daļējs"
-			},
-			"violations": {
-				"title": "Pārkāpumi",
-				"empty": "Nav nesenu pārkāpumu",
-				"rule": "Noteikums",
-				"user": "Lietotājs"
-			},
-			"noSectionsEnabled": "Nav iespējota neviena sadaļa",
-			"error": {
-				"noIntegration": "Tracearr integrācija nav konfigurēta",
-				"internalServerError": "Neizdevās iegūt Tracearr datus"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Neizdevās izgūt PatchMon datus"
 			}
 		},
-		"bazarr": {
-			"description": "Trūkstošo subtitru un Bazarr instances darbspējas statusa pārskats",
-			"episodes": "Trūkstošās sērijas",
-			"movies": "Trūkstošās filmas",
-			"providers": "Nodrošinātāju problēmas",
-			"status": "Darbspējas problēmas",
-			"announcements": "Paziņojumi",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Rādīt trūkstošās sērijas",
-					"description": "Rādīt to sēriju skaitu, kurām trūkst subtitru"
-				},
-				"showMissingMovies": {
-					"label": "Rādīt trūkstošās filmas",
-					"description": "Rādīt to filmu skaitu, kurām trūkst subtitru"
-				},
-				"showProviderIssues": {
-					"label": "Rādīt nodrošinātāju problēmas",
-					"description": "Rādīt to subtitru nodrošinātāju skaitu, kuriem ir problēmas"
-				},
-				"showHealthIssues": {
-					"label": "Rādīt darbspējas problēmas",
-					"description": "Rādīt Bazarr darbspējas problēmu skaitu"
-				}
-			},
-			"error": {
-				"internalServerError": "Neizdevās izgūt Bazarr datus"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich servera statistika",
 			"description": "Informācija par jūsu Immich instanci",
@@ -4390,170 +4286,6 @@
 				"photo": "Fotoattēls {number}"
 			}
 		},
-		"downloads": {
-			"name": "Lejupielādes klients",
-			"description": "Ļauj skatīt un pārvaldīt lejupielādes gan Torrent, gan Usenet klientos.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Rādīt kā pabeigtus atzīmētos Usenet ierakstus"
-				},
-				"showCompletedTorrent": {
-					"label": "Rādīt kā pabeigtus atzīmētos torrentu ierakstus"
-				},
-				"showCompletedHttp": {
-					"label": "Rādīt pabeigtus dažādus ierakstus"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Paslēpt pabeigtos torrentus zem šī sliekšņa (KiB/s)"
-				},
-				"categoryFilter": {
-					"label": "Filtrējamās kategorijas/iezīmes"
-				},
-				"filterIsWhitelist": {
-					"label": "Izmantot filtru kā balto sarakstu"
-				},
-				"applyFilterToRatio": {
-					"label": "Izmantot filtru attiecības aprēķināšanai"
-				},
-				"limitPerIntegration": {
-					"label": "Ierobežot vienumu skaitu katrai integrācijai",
-					"description": "Tas ierobežos katrai integrācijai rādīto vienumu skaitu, nevis kopējo skaitu"
-				}
-			},
-			"errors": {
-				"noColumns": "Atlasiet vienumu kolonnas",
-				"noCommunications": "Nevar ielādēt datus no integrācijas",
-				"noItems": "Nav atrasta neviena lejupielāde",
-				"actionFailed": "Darbība neizdevās",
-				"actionFailedMessage": "Darbību neizdevās pabeigt. Lūdzu, mēģiniet vēlreiz."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Vadīklas"
-				},
-				"added": {
-					"columnTitle": "",
-					"detailsTitle": "Pievienošanas datums"
-				},
-				"category": {
-					"columnTitle": "Papildu",
-					"detailsTitle": "Kategorijas (vai papildu informācija)"
-				},
-				"downSpeed": {
-					"columnTitle": "Lejupielāde",
-					"detailsTitle": "Lejupielādes Ātrums"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Pašreizējais klienta indekss"
-				},
-				"id": {
-					"columnTitle": "Vienuma ID",
-					"detailsTitle": "Vienuma ID"
-				},
-				"integration": {
-					"columnTitle": "Integrācija"
-				},
-				"name": {
-					"columnTitle": "Darba vārds"
-				},
-				"progress": {
-					"columnTitle": "Norise",
-					"detailsTitle": "Lejupielādes progress"
-				},
-				"ratio": {
-					"columnTitle": "Attiecība",
-					"detailsTitle": "Torrenta attiecība (saņemts/nosūtīts)"
-				},
-				"received": {
-					"columnTitle": "Kopā lejupielād.",
-					"detailsTitle": "Kopā lejupielādēts"
-				},
-				"sent": {
-					"columnTitle": "Augšupielādes ātrums",
-					"detailsTitle": "Kopā augšupielādēts"
-				},
-				"size": {
-					"columnTitle": "Faila lielums",
-					"detailsTitle": "Atlasīto vienumu/failu kopējais lielums"
-				},
-				"state": {
-					"columnTitle": "Stāvoklis",
-					"detailsTitle": "Darba stāvoklis"
-				},
-				"time": {
-					"columnTitle": "Pabeigšanas laiks",
-					"detailsTitle": "Laiks kopš pabeigšanas/līdz pabeigšanai",
-					"eta": "Paredzamais pabeigšanas laiks"
-				},
-				"type": {
-					"columnTitle": "Tips",
-					"detailsTitle": "Lejupielādes klienta tips"
-				},
-				"upSpeed": {
-					"columnTitle": "Augšupielāde",
-					"detailsTitle": "Augšupielādes ātrums"
-				}
-			},
-			"states": {
-				"downloading": "Lejupielādē",
-				"queued": "Rindā",
-				"paused": "Apstādināts",
-				"completed": "Pabeigts",
-				"failed": "Neizdevās",
-				"processing": "Apstrāde",
-				"leeching": "Lejupielāde",
-				"stalled": "Apturēts",
-				"unknown": "Nezināms",
-				"seeding": "Dalīšana"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Lejupielādes klientu saraksts",
-					"pause": "Apturēt visus klientus/vienumus",
-					"resume": "Atsākt visus klientus/vienumus"
-				},
-				"client": {
-					"pause": "Apturēt klientu",
-					"resume": "Atsākt klientu"
-				},
-				"item": {
-					"pause": "Apturēt vienumu",
-					"resume": "Atsākt vienumu",
-					"delete": {
-						"title": "Dzēst vienumu",
-						"modalTitle": "Vai tiešām vēlaties dzēst šo darbu?",
-						"entry": "Dzēst ierakstu",
-						"entryAndFiles": "Dzēst ierakstu un failu(-us)"
-					}
-				}
-			},
-			"globalRatio": "Globālā attiecība",
-			"contextMenu": {
-				"copyName": "Kopēt nosaukumu",
-				"copyId": "Kopēt ID",
-				"clearFilters": "Notīrīt filtrus"
-			},
-			"footer": {
-				"filter": "Filtrēt lejupielādes"
-			},
-			"stats": {
-				"show": "Rādīt globālo statistiku",
-				"hide": "Slēpt globālo statistiku",
-				"overallProgress": "Kopējais rindas progress",
-				"totalSize": "Kopējais rindas lielums",
-				"clients": "{count, plural, zero {# klientu} one {# klients} other {# klienti}}"
-			},
-			"disconnected": "(atvienots)"
-		},
 		"mediaReleases": {
 			"name": "Multivides laidieni",
 			"description": "Rādīt nesen pievienotu multividi vai gaidāmos laidienus no dažādām integrācijām",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Multivides pieprasījumu saraksts",
-			"description": "Skatiet sarakstu ar visiem multimediju pieprasījumiem no jūsu Overseerr vai Jellyseerr instances",
-			"empty": {
-				"title": "Vēl nav multivides pieprasījumu",
-				"description": "Lai sāktu pieprasījumu, meklējiet filmu vai pārraidi."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Atvērt saites jaunā cilnē"
-				},
-				"statusFilter": {
-					"label": "Rādāmie statusi"
-				},
-				"recentDays": {
-					"label": "Rādīt tikai nesenos pieprasījumus"
-				}
-			},
-			"pending": {
-				"approve": "Apstiprināt pieprasījumu",
-				"approving": "Pieprasījuma apstiprināšana...",
-				"decline": "Noraidīt pieprasījumu"
-			},
-			"availability": {
-				"unknown": "Nezināms",
-				"pending": "Gaida",
-				"processing": "Apstrāde",
-				"requested": "Pieprasīts",
-				"partiallyAvailable": "Daļējs",
-				"available": "Pieejams",
-				"blacklisted": "Melnajā sarakstā",
-				"deleted": "Dzēsts"
-			},
-			"status": {
-				"pending": "Gaida",
-				"approved": "Apstiprināts",
-				"declined": "Noraidīts",
-				"failed": "Neizdevās",
-				"completed": "Pabeigts"
-			},
-			"unknown": "Nezināms",
-			"toBeDetermined": "TBD"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Multivides pieprasījumu statistika",
-			"description": "Statistika par jūsu mediju pieprasījumiem",
-			"empty": {
-				"title": "Vēl nav pieprasījumu aktivitātes",
-				"description": "Statistika tiks parādīta pēc pirmā multivides pieprasījuma."
-			},
-			"titles": {
-				"stats": {
-					"main": "Mediju statistika",
-					"approved": "Jau apstiprināts",
-					"pending": "Nepabeigtie apstiprinājumi",
-					"processing": "Tiek apstrādāti",
-					"declined": "Jau noraidīti",
-					"available": "Jau pieejami",
-					"tv": "TV pieprasījumi",
-					"movie": "Filmu pieprasījumi"
-				},
-				"users": {
-					"main": "Top Lietotāji",
-					"requests": "Pieprasījumi"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Darbspēju pārbaudes"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Trūkstošie un rindā esošie multivides faili",
-			"description": "Rāda trūkstošās un rindā esošās filmas un sērijas no Radarr un Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Rādīt trūkstošos vienumus"
-				},
-				"showQueued": {
-					"label": "Rādīt rindā esošos vienumus"
-				},
-				"pageSize": {
-					"label": "Vienumu skaits lapā"
-				}
-			},
-			"tab": {
-				"missing": "Trūkstošie",
-				"queued": "Rindā"
-			},
-			"type": {
-				"movie": "Filma",
-				"episode": "Sērija",
-				"book": "Grāmata"
-			},
-			"empty": {
-				"missing": "Nav trūkstošu vienumu",
-				"queued": "Nav rindā esošu vienumu",
-				"noTabsEnabled": "Logrīka iestatījumos iespējojiet vismaz vienu cilni"
-			},
-			"timeLeft": "Atlikušais laiks"
 		},
 		"rssFeed": {
 			"name": "RSS plūsmas",
@@ -8093,11 +7728,6 @@
 				"label": "Tīmeklis",
 				"placeholder": "Meklēt ar ārēju meklētājprogrammu"
 			},
-			"media": {
-				"label": "Multivide",
-				"placeholder": "Meklēt filmu vai pārraidi",
-				"fallback": "Meklēt multividi pēc “{query}”"
-			},
 			"userGroup": {
 				"label": "Personas",
 				"placeholder": "Meklēt lietotājus un grupas"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Meklējiet filmas vai seriālus, ko pieprasīt",
-				"requestMovie": "Pieprasīt filmu",
-				"requestSeries": "Pieprasīt seriālu",
-				"openIn": "Atvērt: {kind}",
-				"group": {
-					"title": "Filmas un seriāli"
-				},
-				"action": {
-					"search": {
-						"label": "Meklēt filmas vai seriālus",
-						"description": "Sāciet rakstīt, lai meklētu savās multivides pieprasījumu integrācijās",
-						"disabled": {
-							"noIntegration": "Pievienojiet Overseerr, Jellyseerr vai Seerr integrāciju, lai iespējotu multivides meklēšanu.",
-							"signInRequired": "Lai meklētu multivides pieprasījumu integrācijas, piesakieties.",
-							"scoped": "Šim logrīkam nav pieejamas multivides pieprasījumu integrācijas."
-						}
-					}
-				},
-				"availability": {
-					"available": "Pieejams",
-					"partiallyAvailable": "Daļēji",
-					"processing": "Apstrādē",
-					"requested": "Pieprasīts",
-					"pending": "Pieprasīts"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Meklētājprogramma nav dzēsta",
 							"message": "Meklētājprogrammu neizdevās dzēst"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Pieprasīt “{name}”",
-						"table": {
-							"header": {
-								"season": "Sezona",
-								"episodes": "Sērijas",
-								"status": "Statuss"
-							},
-							"status": {
-								"requested": "Pieprasīts"
-							}
-						},
-						"button": {
-							"send": "Nosūtīt pieprasījumu"
 						}
 					}
 				}

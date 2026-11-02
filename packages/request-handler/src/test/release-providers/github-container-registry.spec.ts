@@ -24,27 +24,27 @@ describe("GitHub Container Registry releases", () => {
 
   describe("floating tags", () => {
     test("resolves latest through the OCI version label when a release-prefixed tag shares its digest (hotio)", async () => {
-      const current = image("sha256:radarr-6.4.4", {
+      const current = image("sha256:emby-6.4.4", {
         created: created(20),
         labels: { "org.opencontainers.image.version": "6.4.4.10685" },
       });
       const requests = serveOciRegistry({
-        repository: "hotio/radarr",
+        repository: "hotio/emby",
         tags: {
-          "release-6.4.3.10645": image("sha256:radarr-6.4.3", { created: created(10) }),
+          "release-6.4.3.10645": image("sha256:emby-6.4.3", { created: created(10) }),
           "release-6.4.4.10685": current,
-          "nightly-6.5.0.10700": image("sha256:radarr-nightly", { created: created(21) }),
+          "nightly-6.5.0.10700": image("sha256:emby-nightly", { created: created(21) }),
           latest: current,
         },
       });
 
-      const release = await expectRelease(lookupGhcr("ghcr.io/hotio/radarr:latest"));
+      const release = await expectRelease(lookupGhcr("ghcr.io/hotio/emby:latest"));
 
       expect(release).toMatchObject({
         latestRelease: "6.4.4.10685",
         resolvedFromTag: "latest",
         latestReleaseAt: new Date(created(20)),
-        releaseUrl: "https://github.com/hotio/radarr/pkgs/container/radarr",
+        releaseUrl: "https://github.com/hotio/emby/pkgs/container/emby",
       });
       expect(requests.some((request) => request.url.pathname.endsWith("/tags/list"))).toBe(false);
     });
@@ -127,14 +127,14 @@ describe("GitHub Container Registry releases", () => {
       expect(release).toMatchObject({ latestRelease: "3.0.0", resolvedFromTag: "latest" });
     });
 
-    test("keeps the floating tag name instead of a commit tag when no version shares its digest (Seerr)", async () => {
+    test("keeps the floating tag name instead of a commit tag when no version shares its digest (Jellyfin)", async () => {
       const current = image("sha256:develop", { created: created(9) });
       serveOciRegistry({
-        repository: "seerr-team/seerr",
+        repository: "jellyfin-team/jellyfin",
         tags: { "sha-62ed636": current, "41dc7908-baseline": image("sha256:baseline"), latest: current },
       });
 
-      const release = await expectRelease(lookupGhcr("seerr-team/seerr"));
+      const release = await expectRelease(lookupGhcr("jellyfin-team/jellyfin"));
 
       expect(release.latestRelease).toBe("latest");
       expect(release.resolvedFromTag).toBeUndefined();
@@ -262,7 +262,7 @@ describe("GitHub Container Registry releases", () => {
 
     test("falls back to the highest version-like tag when no plain version exists", async () => {
       serveOciRegistry({
-        repository: "linuxserver/sonarr",
+        repository: "linuxserver/jellyfin",
         tags: {
           "4.0.19.2950-ls5": image("sha256:old"),
           "4.0.20.3014-ls1": image("sha256:new"),
@@ -271,7 +271,7 @@ describe("GitHub Container Registry releases", () => {
         },
       });
 
-      const release = await expectRelease(lookupGhcr("linuxserver/sonarr"));
+      const release = await expectRelease(lookupGhcr("linuxserver/jellyfin"));
 
       expect(release.latestRelease).toBe("4.0.20.3014-ls1");
     });
@@ -323,7 +323,7 @@ describe("GitHub Container Registry releases", () => {
 
     test("compares every number in the tag so the newest LinuxServer build wins", async () => {
       serveOciRegistry({
-        repository: "linuxserver/sonarr",
+        repository: "linuxserver/jellyfin",
         tags: {
           "4.0.15.2941-ls289": image("sha256:289"),
           "4.0.15.2941-ls290": image("sha256:290"),
@@ -332,7 +332,7 @@ describe("GitHub Container Registry releases", () => {
       });
 
       const release = await expectRelease(
-        lookupGhcr("linuxserver/sonarr", { versionRegex: "^\\d+(\\.\\d+)+-ls\\d+$" }),
+        lookupGhcr("linuxserver/jellyfin", { versionRegex: "^\\d+(\\.\\d+)+-ls\\d+$" }),
       );
 
       expect(release.latestRelease).toBe("4.0.15.2941-ls290");
@@ -437,18 +437,18 @@ describe("GitHub Container Registry releases", () => {
     test("uses the source and description labels for the project", async () => {
       const current = image("sha256:current", {
         labels: {
-          "org.opencontainers.image.source": "https://github.com/Radarr/Radarr.git",
+          "org.opencontainers.image.source": "https://github.com/Emby/Emby.git",
           "org.opencontainers.image.description": "Movie organizer",
         },
       });
-      serveOciRegistry({ repository: "hotio/radarr", tags: { "1.0.0": current, latest: current } });
+      serveOciRegistry({ repository: "hotio/emby", tags: { "1.0.0": current, latest: current } });
 
-      const release = await expectRelease(lookupGhcr("hotio/radarr"));
+      const release = await expectRelease(lookupGhcr("hotio/emby"));
 
       expect(release).toMatchObject({
-        projectUrl: "https://github.com/Radarr/Radarr",
+        projectUrl: "https://github.com/Emby/Emby",
         projectDescription: "Movie organizer",
-        releaseUrl: "https://github.com/Radarr/Radarr/pkgs/container/radarr",
+        releaseUrl: "https://github.com/Emby/Emby/pkgs/container/emby",
       });
     });
 

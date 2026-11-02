@@ -84,9 +84,9 @@ describe("getCalendarAgendaEvents", () => {
 
   test("applies Radarr release filters without splitting multi-day events", () => {
     const cinema = createEvent(new Date(2025, 0, 5), new Date(2025, 0, 8));
-    cinema.metadata = { type: "radarr", releaseType: "inCinemas" };
+    cinema.metadata = { type: "mediaRelease", releaseType: "inCinemas" };
     const digital = createEvent(new Date(2025, 0, 7));
-    digital.metadata = { type: "radarr", releaseType: "digitalRelease" };
+    digital.metadata = { type: "mediaRelease", releaseType: "digitalRelease" };
 
     expect(getCalendarAgendaEvents([cinema, digital], new Date(2025, 0, 1), ["inCinemas"])).toEqual([cinema]);
   });

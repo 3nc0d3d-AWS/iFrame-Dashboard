@@ -8,8 +8,6 @@ import { definition as clockDefinition } from "./clock";
 import { definition as customApiDefinition } from "./custom-api";
 import { getWidgetQueryKeys, supportsAdvancedFocus } from "./definition";
 import { definition as dockerDefinition } from "./docker";
-import { definition as downloadsDefinition } from "./downloads";
-import { definition as indexerManagerDefinition } from "./indexer-manager";
 import { definition as notebookDefinition } from "./notebook";
 
 describe("getWidgetQueryKeys", () => {
@@ -39,7 +37,6 @@ describe("supportsAdvancedFocus", () => {
     beszelSystemStatsDefinition,
     beszelSystemTableDefinition,
     customApiDefinition,
-    indexerManagerDefinition,
     notebookDefinition,
   ])("keeps non-enhanced widgets compact", (widgetDefinition) => {
     expect(supportsAdvancedFocus(widgetDefinition)).toBe(false);
@@ -49,6 +46,5 @@ describe("supportsAdvancedFocus", () => {
     expect(supportsAdvancedFocus({})).toBe(false);
     expect(supportsAdvancedFocus(clockDefinition)).toBe(true);
     expect(supportsAdvancedFocus(dockerDefinition)).toBe(true);
-    expect(supportsAdvancedFocus(downloadsDefinition)).toBe(true);
   });
 });

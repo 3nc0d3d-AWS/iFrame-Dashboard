@@ -26,24 +26,6 @@ const running = new Map<string, Promise<void>>();
 const cacheOptions = { useBoundedCacheClient: true };
 
 const demoValues: Partial<Record<IntegrationKind, Record<string, StatsValue>>> = {
-  sonarr: {
-    shows: 74,
-    monitored: 68,
-    downloaded: 3_128,
-    storage: 1.82 * 1024 ** 4,
-    missing: 6,
-    queued: 3,
-    episodes: 3_986,
-  },
-  radarr: {
-    movies: 386,
-    monitored: 342,
-    downloaded: 371,
-    storage: 3.74 * 1024 ** 4,
-    missing: 15,
-    queued: 4,
-  },
-  qBittorrent: { download: 38 * 1024 ** 2, upload: 9.3 * 1024 ** 2, paused: false },
   proxmox: { nodes: 3, vms: 12, lxcs: 8 },
   piHole: {
     dnsQueriesToday: 119_872,

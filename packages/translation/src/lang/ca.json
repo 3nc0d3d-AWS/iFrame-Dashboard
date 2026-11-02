@@ -3372,27 +3372,6 @@
 				"noForecast": "No hi ha dades de previsió disponibles"
 			}
 		},
-		"indexerManager": {
-			"name": "Estat del gestor d'indexadors",
-			"description": "Estat dels vostres indexadors",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Obre el lloc de l'indexador en una pestanya nova"
-				}
-			},
-			"title": "Gestor d'indexadors",
-			"testAll": "Prova-ho tot",
-			"status": {
-				"healthy": "En bon estat",
-				"unhealthy": "En mal estat",
-				"disabled": "Desactivat",
-				"unknown": "Estat no disponible"
-			},
-			"error": {
-				"internalServerError": "No s'ha pogut obtenir l'estat dels indexadors",
-				"testAll": "La prova de l'indexador ha fallat. Torna-ho a provar."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Monitorització de la salut del sistema",
 			"description": "Mostra informació sobre la salut i l'estat dels vostres sistema(s).",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "No s'han pogut obtenir les dades de l'UPS"
-			}
-		},
-		"tracearr": {
-			"description": "Supervisió millorada del servidor multimèdia amb dades detallades de transmissió i transcodificació",
-			"option": {
-				"showStreams": {
-					"label": "Mostra les transmissions actives"
-				},
-				"showStats": {
-					"label": "Mostra el resum d'estadístiques"
-				},
-				"showRecentActivity": {
-					"label": "Mostra l'activitat recent"
-				},
-				"showViolations": {
-					"label": "Mostra les infraccions"
-				}
-			},
-			"stats": {
-				"activeStreams": "Transmissions actives",
-				"totalUsers": "Usuaris totals",
-				"transcodes": "Transcodificacions",
-				"bandwidth": "Amplada de banda"
-			},
-			"streams": {
-				"empty": "No hi ha transmissions actives",
-				"user": "Usuari",
-				"media": "Medi",
-				"state": "Estat",
-				"quality": "Qualitat",
-				"device": "Dispositiu",
-				"progress": "Progrés",
-				"videoDecision": {
-					"directPlay": "Reproducció directa",
-					"transcode": "Transcodificació",
-					"directStream": "Transmissió directa"
-				}
-			},
-			"recentActivity": {
-				"title": "Activitat recent",
-				"empty": "No hi ha activitat recent",
-				"watched": "Vist",
-				"partial": "Parcial"
-			},
-			"violations": {
-				"title": "Infraccions",
-				"empty": "No hi ha infraccions recents",
-				"rule": "Regla",
-				"user": "Usuari"
-			},
-			"noSectionsEnabled": "No hi ha cap secció activada",
-			"error": {
-				"noIntegration": "No hi ha cap integració de Tracearr configurada",
-				"internalServerError": "No s'han pogut obtenir les dades de Tracearr"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "No s'han pogut obtenir les dades de PatchMon"
 			}
 		},
-		"bazarr": {
-			"description": "Resum dels subtítols que falten i de l'estat de salut de la vostra instància de Bazarr",
-			"episodes": "Episodis que falten",
-			"movies": "Pel·lícules que falten",
-			"providers": "Problemes dels proveïdors",
-			"status": "Problemes de salut",
-			"announcements": "Anuncis",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Mostra els episodis que falten",
-					"description": "Mostra el nombre d'episodis als quals falten subtítols"
-				},
-				"showMissingMovies": {
-					"label": "Mostra les pel·lícules que falten",
-					"description": "Mostra el nombre de pel·lícules a les quals falten subtítols"
-				},
-				"showProviderIssues": {
-					"label": "Mostra els problemes dels proveïdors",
-					"description": "Mostra el nombre de proveïdors de subtítols amb problemes"
-				},
-				"showHealthIssues": {
-					"label": "Mostra els problemes de salut",
-					"description": "Mostra el nombre de problemes de salut de Bazarr"
-				}
-			},
-			"error": {
-				"internalServerError": "No s'han pogut obtenir les dades de Bazarr"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Estadístiques del servidor Immich",
 			"description": "Informació sobre la teva instància d'Immich",
@@ -4390,170 +4286,6 @@
 				"photo": "Foto {number}"
 			}
 		},
-		"downloads": {
-			"name": "Client de descàrregues",
-			"description": "Us permet veure i gestionar les vostres descàrregues tant des de clients Torrent com Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Mostra les entrades usenet marcades com a completades"
-				},
-				"showCompletedTorrent": {
-					"label": "Mostra les entrades torrent marcades com a completades"
-				},
-				"showCompletedHttp": {
-					"label": "Mostra les entrades diverses marcades com a completades"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Amaga els torrents completats sota aquest llindar"
-				},
-				"categoryFilter": {
-					"label": "Categories/etiquetes a filtrar"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtra com a llista blanca"
-				},
-				"applyFilterToRatio": {
-					"label": "Utilitza el filtre per calcular la ràtio"
-				},
-				"limitPerIntegration": {
-					"label": "Limita els elements per integració",
-					"description": "Això limitarà el nombre d'elements que es mostren per integració, no globalment"
-				}
-			},
-			"errors": {
-				"noColumns": "Seleccioneu columnes als elements",
-				"noCommunications": "No es poden carregar dades de la integració",
-				"noItems": "No s'han trobat baixades",
-				"actionFailed": "L'acció ha fallat",
-				"actionFailedMessage": "No s'ha pogut completar l'acció. Torneu-ho a provar."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Controls"
-				},
-				"added": {
-					"columnTitle": "Afegit",
-					"detailsTitle": "Data d'addició"
-				},
-				"category": {
-					"columnTitle": "Extres",
-					"detailsTitle": "Categories (o informació extra)"
-				},
-				"downSpeed": {
-					"columnTitle": "Baixada",
-					"detailsTitle": "Velocitat de descàrrega"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Índex actual dins del client"
-				},
-				"id": {
-					"columnTitle": "ID de l'element",
-					"detailsTitle": "ID de l'element"
-				},
-				"integration": {
-					"columnTitle": "Integració"
-				},
-				"name": {
-					"columnTitle": "Nom de la feina"
-				},
-				"progress": {
-					"columnTitle": "Progrés",
-					"detailsTitle": "Progrés de la descàrrega"
-				},
-				"ratio": {
-					"columnTitle": "Ràtio",
-					"detailsTitle": "Ràtio del torrent (rebut/enviat)"
-				},
-				"received": {
-					"columnTitle": "Total baixat",
-					"detailsTitle": "Total descarregat"
-				},
-				"sent": {
-					"columnTitle": "Total pujat",
-					"detailsTitle": "Total penjat"
-				},
-				"size": {
-					"columnTitle": "Mida del fitxer",
-					"detailsTitle": "Mida total de la selecció/fitxers"
-				},
-				"state": {
-					"columnTitle": "Estat",
-					"detailsTitle": "Estat de la feina"
-				},
-				"time": {
-					"columnTitle": "Hora de finalització",
-					"detailsTitle": "Temps fins/des de la finalització",
-					"eta": "Temps estimat"
-				},
-				"type": {
-					"columnTitle": "Tipus",
-					"detailsTitle": "Tipus de client de descàrregues"
-				},
-				"upSpeed": {
-					"columnTitle": "Pujada",
-					"detailsTitle": "Velocitat de pujada"
-				}
-			},
-			"states": {
-				"downloading": "Descarregant",
-				"queued": "En cua",
-				"paused": "En pausa",
-				"completed": "Completat",
-				"failed": "Fallat",
-				"processing": "Processant",
-				"leeching": "Leeching",
-				"stalled": "Estancat",
-				"unknown": "Desconegut",
-				"seeding": "Sembrant"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Llista de clients de descàrregues",
-					"pause": "Posa en pausa tots els clients/elements",
-					"resume": "Reprèn tots els clients/elements"
-				},
-				"client": {
-					"pause": "Posa en pausa el client",
-					"resume": "Reprèn el client"
-				},
-				"item": {
-					"pause": "Posa en pausa l'element",
-					"resume": "Reprèn l'element",
-					"delete": {
-						"title": "Elimina l'element",
-						"modalTitle": "Esteu segur que voleu eliminar aquesta feina?",
-						"entry": "Elimina l'entrada",
-						"entryAndFiles": "Elimina l'entrada i el(s) fitxer(s)"
-					}
-				}
-			},
-			"globalRatio": "Ràtio global",
-			"contextMenu": {
-				"copyName": "Copia el nom",
-				"copyId": "Copia l'ID",
-				"clearFilters": "Esborra els filtres"
-			},
-			"footer": {
-				"filter": "Filtra les baixades"
-			},
-			"stats": {
-				"show": "Mostra les estadístiques globals",
-				"hide": "Amaga les estadístiques globals",
-				"overallProgress": "Progrés general de la cua",
-				"totalSize": "Mida total de la cua",
-				"clients": "{count, plural, one {# client} other {# clients}}"
-			},
-			"disconnected": "(desconnectat)"
-		},
 		"mediaReleases": {
 			"name": "Llançaments multimèdia",
 			"description": "Mostra contingut multimèdia afegit recentment o pròxims llançaments de diferents integracions",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Llista de sol·licituds multimèdia",
-			"description": "Vegeu una llista de totes les sol·licituds multimèdia de la vostra instància Overseerr o Jellyseerr",
-			"empty": {
-				"title": "Encara no hi ha sol·licituds multimèdia",
-				"description": "Cerca una pel·lícula o una sèrie per iniciar una sol·licitud."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Obrir enllaços en una pestanya nova"
-				},
-				"statusFilter": {
-					"label": "Estats que es mostraran"
-				},
-				"recentDays": {
-					"label": "Mostra només les sol·licituds recents"
-				}
-			},
-			"pending": {
-				"approve": "Aprova la sol·licitud",
-				"approving": "Aprovant la sol·licitud...",
-				"decline": "Rebutja la sol·licitud"
-			},
-			"availability": {
-				"unknown": "Desconegut",
-				"pending": "Pendent",
-				"processing": "Processant",
-				"requested": "Sol·licitat",
-				"partiallyAvailable": "Parcial",
-				"available": "Disponible",
-				"blacklisted": "A la llista negra",
-				"deleted": "Eliminat"
-			},
-			"status": {
-				"pending": "Pendent",
-				"approved": "Aprovat",
-				"declined": "Rebutjat",
-				"failed": "Fallat",
-				"completed": "Completat"
-			},
-			"unknown": "Desconegut",
-			"toBeDetermined": "Per determinar"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Estadístiques de sol·licituds multimèdia",
-			"description": "Estadístiques sobre les vostres sol·licituds multimèdia",
-			"empty": {
-				"title": "Encara no hi ha activitat de sol·licituds",
-				"description": "Les estadístiques apareixeran després de la primera sol·licitud multimèdia."
-			},
-			"titles": {
-				"stats": {
-					"main": "Estadístiques multimèdia",
-					"approved": "Ja aprovades",
-					"pending": "Aprovacions pendents",
-					"processing": "S'estan processant",
-					"declined": "Ja rebutjades",
-					"available": "Ja disponibles",
-					"tv": "Sol·licituds de TV",
-					"movie": "Sol·licituds de pel·lícules"
-				},
-				"users": {
-					"main": "Usuaris principals",
-					"requests": "Sol·licituds"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Comprovacions de l'estat"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Contingut que falta i en cua",
-			"description": "Mostra les pel·lícules i els episodis que falten i en cua de Radarr i Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Mostra els elements que falten"
-				},
-				"showQueued": {
-					"label": "Mostra els elements en cua"
-				},
-				"pageSize": {
-					"label": "Elements per pàgina"
-				}
-			},
-			"tab": {
-				"missing": "Falten",
-				"queued": "En cua"
-			},
-			"type": {
-				"movie": "Pel·lícula",
-				"episode": "Episodi",
-				"book": "Llibre"
-			},
-			"empty": {
-				"missing": "No hi ha elements que faltin",
-				"queued": "No hi ha elements en cua",
-				"noTabsEnabled": "Activeu almenys una pestanya a la configuració del giny"
-			},
-			"timeLeft": "Temps restant"
 		},
 		"rssFeed": {
 			"name": "Fonts RSS",
@@ -8093,11 +7728,6 @@
 				"label": "Web",
 				"placeholder": "Cerca amb un motor de cerca extern"
 			},
-			"media": {
-				"label": "Mitjans",
-				"placeholder": "Cerca una pel·lícula o sèrie",
-				"fallback": "Cerca mitjans per «{query}»"
-			},
 			"userGroup": {
 				"label": "Persones",
 				"placeholder": "Cerca usuaris i grups"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Cerca pel·lícules o sèries per sol·licitar-les",
-				"requestMovie": "Sol·licitar pel·lícula",
-				"requestSeries": "Sol·licitar sèrie",
-				"openIn": "Obrir a {kind}",
-				"group": {
-					"title": "Pel·lícules i sèries"
-				},
-				"action": {
-					"search": {
-						"label": "Cerca pel·lícules o sèries",
-						"description": "Comença a escriure per cercar a les integracions de sol·licitud multimèdia",
-						"disabled": {
-							"noIntegration": "Afegeix una integració d'Overseerr, Jellyseerr o Seerr per activar la cerca multimèdia.",
-							"signInRequired": "Inicia sessió per cercar integracions de sol·licituds de mitjans.",
-							"scoped": "Aquest widget no té cap integració de sol·licitud multimèdia accessible."
-						}
-					}
-				},
-				"availability": {
-					"available": "Disponible",
-					"partiallyAvailable": "Parcial",
-					"processing": "En procés",
-					"requested": "Sol·licitat",
-					"pending": "Sol·licitat"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Motor de cerca no eliminat",
 							"message": "No s'ha pogut eliminar el motor de cerca"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Sol·licitar \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Temporada",
-								"episodes": "Episodis",
-								"status": "Estat"
-							},
-							"status": {
-								"requested": "Sol·licitat"
-							}
-						},
-						"button": {
-							"send": "Enviar sol·licitud"
 						}
 					}
 				}

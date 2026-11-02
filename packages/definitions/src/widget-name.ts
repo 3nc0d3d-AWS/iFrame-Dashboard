@@ -4,10 +4,8 @@ import type { WidgetKind } from "./widget";
 
 const widgetIntegrationKinds: Partial<Record<WidgetKind, IntegrationKind>> = {
   coolify: "coolify",
-  tracearr: "tracearr",
   paperlessNgx: "paperlessNgx",
   patchmon: "patchmon",
-  bazarr: "bazarr",
   uptimeKuma: "uptimeKuma",
   traefik: "traefik",
 };

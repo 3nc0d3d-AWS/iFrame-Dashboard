@@ -8,7 +8,7 @@ export const moveCalendarMonth = (month: Date, amount: number): Date =>
   dayjs(month).startOf("month").add(amount, "month").toDate();
 
 const matchesReleaseType = (event: CalendarEvent, releaseTypes: readonly string[]) =>
-  event.metadata?.type !== "radarr" || releaseTypes.includes(event.metadata.releaseType);
+  event.metadata?.type !== "mediaRelease" || releaseTypes.includes(event.metadata.releaseType);
 
 export const getCalendarAgendaEvents = <TEvent extends CalendarEvent>(
   events: TEvent[],

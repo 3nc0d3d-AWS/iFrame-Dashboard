@@ -107,7 +107,7 @@ describe("getToolResultPresentation", () => {
       getToolResultPresentation({
         containers: [
           { id: "one", name: "Plex", state: "running", image: "plex:latest", cpuUsage: 2.5 },
-          { id: "two", name: "Sonarr", state: "stopped", image: "sonarr:latest", memoryUsage: 128 },
+          { id: "two", name: "Jellyfin", state: "stopped", image: "jellyfin:latest", memoryUsage: 128 },
         ],
         timestamp: "2026-07-30T10:00:00.000Z",
       }),
@@ -122,8 +122,8 @@ describe("getToolResultPresentation", () => {
           fields: [{ label: "Cpu Usage", value: 2.5 }],
         },
         {
-          title: "Sonarr",
-          description: "sonarr:latest",
+          title: "Jellyfin",
+          description: "jellyfin:latest",
           badges: ["stopped"],
           fields: [{ label: "Memory Usage", value: 128 }],
         },
@@ -177,8 +177,8 @@ describe("getToolResultPresentation", () => {
       getToolResultPresentation({
         apps: [
           {
-            name: "Sonarr",
-            url: "https://user:password@sonarr.example/api/v3/series?apikey=secret#calendar",
+            name: "Jellyfin",
+            url: "https://user:password@jellyfin.example/api/v3/series?apikey=secret#calendar",
           },
         ],
       }),
@@ -187,8 +187,8 @@ describe("getToolResultPresentation", () => {
       totalCount: 1,
       items: [
         {
-          title: "Sonarr",
-          description: "https://sonarr.example/api/v3/series#calendar",
+          title: "Jellyfin",
+          description: "https://jellyfin.example/api/v3/series#calendar",
           badges: [],
           fields: [],
         },

@@ -22,12 +22,12 @@ import {
   IconWorld,
 } from "@tabler/icons-react";
 
-import { sonarrIntegration } from "@site/docs/integrations/sonarr";
+import { jellyfinIntegration } from "@site/docs/integrations/jellyfin";
 import { FlowConnector } from "@site/src/components/ui/flow-connector";
 
 import styles from "./technical-diagrams.module.css";
 
-const sonarrIconUrl = getIconUrl(sonarrIntegration.iconUrl);
+const jellyfinIconUrl = getIconUrl(jellyfinIntegration.iconUrl);
 
 export function AppFlowDiagram() {
   return (
@@ -57,21 +57,21 @@ export function AppFlowDiagram() {
 
 export function IntegrationRoutesDiagram() {
   return (
-    <figure className={styles.diagram} aria-label="Browser and server routes from Homarr to Sonarr">
+    <figure className={styles.diagram} aria-label="Browser and server routes from Homarr to Jellyfin">
       <div className={styles.routeBlock}>
         <RouteHeading icon={<IconBrowser size={16} />} title="Open the service" detail="Browser route" />
         <div className={styles.threeStepLane}>
           <DiagramNode icon={<IconLayoutBoard size={19} />} title="App tile" detail="Click from a board" />
           <FlowConnector label="opens" />
           <DiagramNode icon={<IconWorld size={19} />} title="App URL" detail="Browser-facing address">
-            <code>https://sonarr.example.com</code>
+            <code>https://jellyfin.example.com</code>
           </DiagramNode>
           <FlowConnector animationDelay={350} />
           <DiagramNode
-            icon={<img src={sonarrIconUrl} alt="" />}
-            title="Sonarr UI"
+            icon={<img src={jellyfinIconUrl} alt="" />}
+            title="Jellyfin UI"
             detail="The browser connects directly"
-            href="/docs/integrations/sonarr"
+            href="/docs/integrations/jellyfin"
           />
         </div>
       </div>
@@ -87,14 +87,14 @@ export function IntegrationRoutesDiagram() {
             detail="URL and encrypted credentials"
             href="/docs/management/integrations"
           >
-            <code>http://sonarr:8989</code>
+            <code>http://jellyfin:8096</code>
           </DiagramNode>
           <FlowConnector label="API" animationDelay={350} />
           <DiagramNode
-            icon={<img src={sonarrIconUrl} alt="" />}
-            title="Sonarr API"
+            icon={<img src={jellyfinIconUrl} alt="" />}
+            title="Jellyfin API"
             detail="The Homarr server connects"
-            href="/docs/integrations/sonarr"
+            href="/docs/integrations/jellyfin"
           />
         </div>
       </div>
@@ -417,7 +417,7 @@ function DiagramNote({ children }: { children: ReactNode }) {
   return <figcaption className={styles.diagramNote}>{children}</figcaption>;
 }
 
-function getIconUrl(iconUrl: typeof sonarrIntegration.iconUrl) {
+function getIconUrl(iconUrl: typeof jellyfinIntegration.iconUrl) {
   if (typeof iconUrl === "string") return iconUrl;
   return iconUrl.light;
 }

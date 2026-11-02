@@ -1,6 +1,5 @@
 import type { AnchorNote, AnchorNoteSummary } from "../anchor/anchor-types";
 import type { ArchiveTeamWarriorStatus } from "../archive-team-warrior/archive-team-warrior-types";
-import type { BazarrBadges } from "../bazarr/bazarr-types";
 import type { CoolifyInstanceInfo } from "../coolify/coolify-types";
 import type { ImmichAlbum, ImmichServerStats } from "../immich/immich-integration";
 import type { NavidromeDashboardData } from "../navidrome/navidrome-types";
@@ -15,7 +14,6 @@ import type {
   ThingportModel,
   ThingportModelList,
 } from "../thingport/thingport-types";
-import type { TracearrDashboardData } from "../tracearr/tracearr-types";
 import type { TraefikDashboardData } from "../traefik/traefik-types";
 import type { UmamiEventSeries, UmamiMetricItem, UmamiVisitorStats, UmamiWebsite } from "../umami/umami-types";
 import { createUptimeKumaMockStatusPage } from "../uptime-kuma/uptime-kuma-mock";
@@ -85,15 +83,6 @@ export const mockWidgetData = {
     updatedAt: demoTimestamp,
   } satisfies ArchiveTeamWarriorStatus,
   audioStats: { artistCount: 842, albumCount: 1_976, songCount: 24_681 } satisfies NavidromeDashboardData,
-  bazarr: {
-    episodes: 12,
-    movies: 4,
-    providers: 6,
-    status: 0,
-    sonarr_signalr: "connected",
-    radarr_signalr: "connected",
-    announcements: 1,
-  } satisfies BazarrBadges,
   coolify: {
     version: "4.0.0-beta.420",
     servers: [
@@ -260,32 +249,6 @@ export const mockWidgetData = {
       },
     ],
   } satisfies SpeedtestTrackerDashboardData,
-  tracearr: {
-    stats: { activeStreams: 2, totalUsers: 14, totalSessions: 1_248, recentViolations: 1, timestamp: demoTimestamp },
-    streams: {
-      data: [],
-      summary: {
-        total: 2,
-        transcodes: 1,
-        directStreams: 0,
-        directPlays: 1,
-        totalBitrate: "24.8 Mbps",
-        byServer: [
-          {
-            serverId: "demo",
-            serverName: "Homarr Media",
-            total: 2,
-            transcodes: 1,
-            directStreams: 0,
-            directPlays: 1,
-            totalBitrate: "24.8 Mbps",
-          },
-        ],
-      },
-    },
-    violations: { data: [], meta: { total: 1, page: 1, pageSize: 10 } },
-    recentActivity: { data: [], meta: { total: 1_248, page: 1, pageSize: 10 } },
-  } satisfies TracearrDashboardData,
   traefik: {
     version: "3.5.0",
     entryPoints: ["web", "websecure", "metrics"],

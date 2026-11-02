@@ -5,15 +5,15 @@ import { buildAppUrl, buildIntegrationUrl } from "../integration-url-template";
 
 describe("buildIntegrationUrl", () => {
   it("builds subdomain URL", () => {
-    expect(buildIntegrationUrl("sonarr", "homelab.local", "subdomain")).toBe("https://sonarr.homelab.local");
+    expect(buildIntegrationUrl("jellyfin", "homelab.local", "subdomain")).toBe("https://jellyfin.homelab.local");
   });
 
   it("builds hostPort URL with default port", () => {
-    expect(buildIntegrationUrl("sonarr", "192.168.1.1", "hostPort")).toBe("http://192.168.1.1:8989");
+    expect(buildIntegrationUrl("jellyfin", "192.168.1.1", "hostPort")).toBe("http://192.168.1.1:8096");
   });
 
   it("uses docker port over default port", () => {
-    expect(buildIntegrationUrl("sonarr", "192.168.1.1", "hostPort", 9999)).toBe("http://192.168.1.1:9999");
+    expect(buildIntegrationUrl("jellyfin", "192.168.1.1", "hostPort", 9999)).toBe("http://192.168.1.1:9999");
   });
 
   it("builds hostPort URL without port when none known", () => {
@@ -21,13 +21,13 @@ describe("buildIntegrationUrl", () => {
   });
 
   it("strips trailing slashes from host", () => {
-    expect(buildIntegrationUrl("sonarr", "homelab.local/", "subdomain")).toBe("https://sonarr.homelab.local");
-    expect(buildIntegrationUrl("sonarr", "homelab.local///", "subdomain")).toBe("https://sonarr.homelab.local");
+    expect(buildIntegrationUrl("jellyfin", "homelab.local/", "subdomain")).toBe("https://jellyfin.homelab.local");
+    expect(buildIntegrationUrl("jellyfin", "homelab.local///", "subdomain")).toBe("https://jellyfin.homelab.local");
   });
 
   it("accepts full URLs but ignores their path when suggesting service URLs", () => {
-    expect(buildIntegrationUrl("sonarr", "https://home.example.com/homarr", "hostPort")).toBe(
-      "http://home.example.com:8989",
+    expect(buildIntegrationUrl("jellyfin", "https://home.example.com/homarr", "hostPort")).toBe(
+      "http://home.example.com:8096",
     );
     expect(buildAppUrl("My Service", "http://home.example.com/path", "subdomain")).toBe(
       "https://my-service.home.example.com",
@@ -35,15 +35,15 @@ describe("buildIntegrationUrl", () => {
   });
 
   it("builds reverse-proxy path URLs and preserves the configured base path", () => {
-    expect(buildIntegrationUrl("sonarr", "https://home.example.com/services", "path")).toBe(
-      "https://home.example.com/services/sonarr",
+    expect(buildIntegrationUrl("jellyfin", "https://home.example.com/services", "path")).toBe(
+      "https://home.example.com/services/jellyfin",
     );
     expect(buildAppUrl("My Service", "home.lan/apps/", "path", 9999)).toBe("http://home.lan/apps/my-service");
   });
 
   it("replaces a supplied base port instead of producing a double port", () => {
-    expect(buildIntegrationUrl("sonarr", "https://home.example.com:8443/homarr", "hostPort")).toBe(
-      "http://home.example.com:8989",
+    expect(buildIntegrationUrl("jellyfin", "https://home.example.com:8443/homarr", "hostPort")).toBe(
+      "http://home.example.com:8096",
     );
     expect(buildAppUrl("My Service", "https://home.example.com:8443/homarr", "hostPort")).toBe(
       "http://home.example.com:8443",
@@ -57,14 +57,14 @@ describe("buildIntegrationUrl", () => {
   });
 
   it("formats IPv6 hosts safely in host-port mode", () => {
-    expect(buildIntegrationUrl("sonarr", "https://[2001:db8::1]:8443/homarr", "hostPort")).toBe(
-      "http://[2001:db8::1]:8989",
+    expect(buildIntegrationUrl("jellyfin", "https://[2001:db8::1]:8443/homarr", "hostPort")).toBe(
+      "http://[2001:db8::1]:8096",
     );
-    expect(buildIntegrationUrl("sonarr", "[2001:db8::1]", "subdomain")).toBe("");
+    expect(buildIntegrationUrl("jellyfin", "[2001:db8::1]", "subdomain")).toBe("");
   });
 
   it("returns empty string for empty host", () => {
-    expect(buildIntegrationUrl("sonarr", "", "subdomain")).toBe("");
+    expect(buildIntegrationUrl("jellyfin", "", "subdomain")).toBe("");
   });
 
   it("uses pi-hole slug for subdomain mode", () => {
@@ -72,8 +72,6 @@ describe("buildIntegrationUrl", () => {
   });
 
   it("reads default ports from integration definitions", () => {
-    expect(getIntegrationDefaultPort("radarr")).toBe(7878);
-    expect(getIntegrationDefaultPort("prowlarr")).toBe(9696);
     expect(getIntegrationDefaultPort("jellyfin")).toBe(8096);
     expect(getIntegrationDefaultPort("technitiumDns")).toBe(5380);
     expect(getIntegrationDefaultPort("dashDot")).toBe(3001);

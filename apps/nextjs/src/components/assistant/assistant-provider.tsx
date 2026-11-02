@@ -32,7 +32,7 @@ import { assistantHomarrProviderTokenHeader } from "@homarr/definitions";
 import { showErrorNotification, showWarningNotification } from "@homarr/notifications";
 import { closeSpotlight } from "@homarr/spotlight/store";
 import { useI18n } from "@homarr/translation/client";
-import { openMediaRequestSearch, openSpotlight, useRegisterSpotlightContextResults } from "@homarr/spotlight";
+import { openSpotlight, useRegisterSpotlightContextResults } from "@homarr/spotlight";
 import type { WidgetComponentProps } from "@homarr/widgets";
 import { createWorkshopClient } from "~/components/workshop/workshop-client";
 
@@ -640,7 +640,6 @@ const AssistantRuntime = ({ children }: PropsWithChildren) => {
         getOrigin: () => window.location.origin,
         navigate: (path) => router.push(path),
         openCommandMenu: openSpotlight,
-        openMediaRequestSearch,
         refreshCurrentView,
       }),
     [refreshCurrentView, router],
@@ -687,12 +686,6 @@ const AssistantRuntime = ({ children }: PropsWithChildren) => {
           ...browserToolContracts.open_command_menu,
           execute: browserToolExecutors.open_command_menu,
           renderText: { running: "Opening command menu…", complete: "Command menu opened" },
-        },
-        open_media_request_search: {
-          type: "frontend",
-          ...browserToolContracts.open_media_request_search,
-          execute: browserToolExecutors.open_media_request_search,
-          renderText: { running: "Opening media search…", complete: "Media search opened" },
         },
         refresh_current_view: {
           type: "frontend",

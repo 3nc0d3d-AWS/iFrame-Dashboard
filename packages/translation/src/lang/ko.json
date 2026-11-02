@@ -3372,27 +3372,6 @@
 				"noForecast": "사용 가능한 예보 데이터 없음"
 			}
 		},
-		"indexerManager": {
-			"name": "인덱서 관리자 상태",
-			"description": "인덱서 상태",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "새 탭에서 인덱서 사이트 열기"
-				}
-			},
-			"title": "인덱서 관리자",
-			"testAll": "모두 테스트",
-			"status": {
-				"healthy": "정상",
-				"unhealthy": "비정상",
-				"disabled": "장애인",
-				"unknown": "상태를 확인할 수 없음"
-			},
-			"error": {
-				"internalServerError": "인덱서 상태를 가져오지 못했습니다",
-				"testAll": "인덱서 테스트에 실패했습니다. 다시 시도하십시오."
-			}
-		},
 		"healthMonitoring": {
 			"name": "시스템 상태 모니터링",
 			"description": "시스템의 상태 정보를 표시합니다.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "UPS 데이터를 가져오지 못함"
-			}
-		},
-		"tracearr": {
-			"description": "상세 스트림 및 트랜스코딩 데이터로 강화된 미디어 서버 모니터링",
-			"option": {
-				"showStreams": {
-					"label": "활성 스트림 표시"
-				},
-				"showStats": {
-					"label": "통계 요약 표시"
-				},
-				"showRecentActivity": {
-					"label": "최근 활동 표시"
-				},
-				"showViolations": {
-					"label": "위반 사항 표시"
-				}
-			},
-			"stats": {
-				"activeStreams": "활성 스트림",
-				"totalUsers": "총 사용자",
-				"transcodes": "트랜스코드",
-				"bandwidth": "대역폭"
-			},
-			"streams": {
-				"empty": "활성 스트림이 없습니다",
-				"user": "사용자",
-				"media": "미디어",
-				"state": "상태",
-				"quality": "품질",
-				"device": "장치",
-				"progress": "진행률",
-				"videoDecision": {
-					"directPlay": "직접 재생",
-					"transcode": "트랜스코딩",
-					"directStream": "직접 스트림"
-				}
-			},
-			"recentActivity": {
-				"title": "최근 활동",
-				"empty": "최근 활동이 없습니다",
-				"watched": "시청함",
-				"partial": "부분"
-			},
-			"violations": {
-				"title": "위반 사항",
-				"empty": "최근 위반 사항이 없습니다",
-				"rule": "규칙",
-				"user": "사용자"
-			},
-			"noSectionsEnabled": "활성화된 섹션이 없습니다",
-			"error": {
-				"noIntegration": "구성된 Tracearr 통합이 없습니다",
-				"internalServerError": "Tracearr 데이터를 가져오지 못했습니다"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "PatchMon 데이터를 가져오지 못했습니다"
 			}
 		},
-		"bazarr": {
-			"description": "Bazarr 인스턴스의 누락된 자막 및 상태 개요",
-			"episodes": "누락된 에피소드",
-			"movies": "누락된 영화",
-			"providers": "제공자 문제",
-			"status": "상태 문제",
-			"announcements": "공지",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "누락된 에피소드 표시",
-					"description": "누락된 자막이 있는 에피소드 수 표시"
-				},
-				"showMissingMovies": {
-					"label": "누락된 영화 표시",
-					"description": "누락된 자막이 있는 영화 수 표시"
-				},
-				"showProviderIssues": {
-					"label": "제공자 문제 표시",
-					"description": "문제가 있는 자막 제공자 수 표시"
-				},
-				"showHealthIssues": {
-					"label": "상태 문제 표시",
-					"description": "Bazarr 상태 문제 수 표시"
-				}
-			},
-			"error": {
-				"internalServerError": "Bazarr 데이터를 가져오지 못했습니다"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich 서버 정보",
 			"description": "Immich 인스턴스에 대한 정보",
@@ -4390,170 +4286,6 @@
 				"photo": "사진 {number}"
 			}
 		},
-		"downloads": {
-			"name": "다운로드 클라이언트",
-			"description": "Torrent 및 Usenet 클라이언트 다운로드를 확인 및 관리할 수 있습니다.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "완료된 usenet 항목 표시"
-				},
-				"showCompletedTorrent": {
-					"label": "완료된 torrent 항목 표시"
-				},
-				"showCompletedHttp": {
-					"label": "완료된 기타 항목 표시"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "이 임계값 이하의 완료된 토렌트 숨기기"
-				},
-				"categoryFilter": {
-					"label": "필터링할 카테고리/라벨"
-				},
-				"filterIsWhitelist": {
-					"label": "화이트리스트로 필터링"
-				},
-				"applyFilterToRatio": {
-					"label": "필터를 사용해 비율 계산"
-				},
-				"limitPerIntegration": {
-					"label": "통합당 항목 수 제한",
-					"description": "통합당 표시되는 항목 수를 제한하여 전체 항목이 표시되지 않습니다"
-				}
-			},
-			"errors": {
-				"noColumns": "항목에서 열 선택",
-				"noCommunications": "통합에서 데이터를 불러올 수 없습니다",
-				"noItems": "다운로드 없음",
-				"actionFailed": "작업 실패",
-				"actionFailedMessage": "작업을 완료할 수 없습니다. 다시 시도해 주세요."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "제어"
-				},
-				"added": {
-					"columnTitle": "추가됨",
-					"detailsTitle": "추가된 날짜"
-				},
-				"category": {
-					"columnTitle": "기타",
-					"detailsTitle": "카테고리 (또는 기타 정보)"
-				},
-				"downSpeed": {
-					"columnTitle": "다운로드",
-					"detailsTitle": "다운로드 속도"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "클라이언트 내 현재 인덱스"
-				},
-				"id": {
-					"columnTitle": "아이디",
-					"detailsTitle": "항목 ID"
-				},
-				"integration": {
-					"columnTitle": "통합"
-				},
-				"name": {
-					"columnTitle": "작업 이름"
-				},
-				"progress": {
-					"columnTitle": "진행률",
-					"detailsTitle": "다운로드 진행률"
-				},
-				"ratio": {
-					"columnTitle": "비율",
-					"detailsTitle": "Torrent 비율 (수신/송신)"
-				},
-				"received": {
-					"columnTitle": "총 다운로드",
-					"detailsTitle": "전체 다운로드 용량"
-				},
-				"sent": {
-					"columnTitle": "총 업로드",
-					"detailsTitle": "전체 업로드 용량"
-				},
-				"size": {
-					"columnTitle": "파일 크기",
-					"detailsTitle": "선택/파일 총 크기"
-				},
-				"state": {
-					"columnTitle": "상태",
-					"detailsTitle": "직업 상태"
-				},
-				"time": {
-					"columnTitle": "완료 시간",
-					"detailsTitle": "완료/완료 후 경과 시간",
-					"eta": "남은 시간"
-				},
-				"type": {
-					"columnTitle": "유형",
-					"detailsTitle": "다운로드 클라이언트 유형"
-				},
-				"upSpeed": {
-					"columnTitle": "업로드",
-					"detailsTitle": "업로드 속도"
-				}
-			},
-			"states": {
-				"downloading": "다운로드 중",
-				"queued": "대기 중",
-				"paused": "일시 중지됨",
-				"completed": "완료됨",
-				"failed": "실패",
-				"processing": "처리 중",
-				"leeching": "미완료",
-				"stalled": "정지됨",
-				"unknown": "알 수 없음",
-				"seeding": "전송 중"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "다운로드 클라이언트 목록",
-					"pause": "모든 클라이언트/항목 정지",
-					"resume": "모든 클라이언트/항목 재시작"
-				},
-				"client": {
-					"pause": "클라이언트 정지",
-					"resume": "클라이언트 재시작"
-				},
-				"item": {
-					"pause": "항목 정지",
-					"resume": "항목 재시작",
-					"delete": {
-						"title": "항목 삭제",
-						"modalTitle": "이 작업을 삭제하시겠습니까?",
-						"entry": "엔트리 삭제",
-						"entryAndFiles": "엔트리 및 파일 삭제"
-					}
-				}
-			},
-			"globalRatio": "전체 비율",
-			"contextMenu": {
-				"copyName": "이름 복사",
-				"copyId": "ID 복사",
-				"clearFilters": "필터 지우기"
-			},
-			"footer": {
-				"filter": "다운로드 필터"
-			},
-			"stats": {
-				"show": "전체 통계 표시",
-				"hide": "전체 통계 숨기기",
-				"overallProgress": "전체 대기열 진행률",
-				"totalSize": "전체 대기열 크기",
-				"clients": "{count, plural, other {# 클라이언트}}"
-			},
-			"disconnected": "(연결 끊김)"
-		},
 		"mediaReleases": {
 			"name": "미디어 릴리스",
 			"description": "다른 통합에서 새로 추가된 미디어나 예정된 릴리스를 표시합니다",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length}분"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "미디어 요청 목록",
-			"description": "오버서 또는 젤리서 인스턴스의 모든 미디어 요청 목록 보기",
-			"empty": {
-				"title": "아직 미디어 요청 없음",
-				"description": "요청을 시작하려면 영화 또는 프로그램을 검색하십시오."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "새 탭에서 링크 열기"
-				},
-				"statusFilter": {
-					"label": "표시할 상태"
-				},
-				"recentDays": {
-					"label": "최근 요청만 표시"
-				}
-			},
-			"pending": {
-				"approve": "요청 승인",
-				"approving": "요청 승인 중...",
-				"decline": "요청 거절"
-			},
-			"availability": {
-				"unknown": "알 수 없음",
-				"pending": "대기 중",
-				"processing": "처리 중",
-				"requested": "요청됨",
-				"partiallyAvailable": "부분",
-				"available": "사용 가능",
-				"blacklisted": "블랙리스트",
-				"deleted": "삭제됨"
-			},
-			"status": {
-				"pending": "대기 중",
-				"approved": "승인됨",
-				"declined": "거절됨",
-				"failed": "실패",
-				"completed": "완료"
-			},
-			"unknown": "알 수 없음",
-			"toBeDetermined": "미정"
-		},
-		"mediaRequests-requestStats": {
-			"name": "미디어 요청 통계",
-			"description": "미디어 요청에 대한 통계",
-			"empty": {
-				"title": "아직 요청 활동 없음",
-				"description": "첫 미디어 요청 후 통계가 표시됩니다."
-			},
-			"titles": {
-				"stats": {
-					"main": "미디어 통계",
-					"approved": "이미 승인됨",
-					"pending": "승인 대기 중",
-					"processing": "처리 중",
-					"declined": "이미 거절됨",
-					"available": "이미 사용 가능",
-					"tv": "TV 요청",
-					"movie": "영화 요청"
-				},
-				"users": {
-					"main": "상위 사용자",
-					"requests": "요청"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "상태 확인"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "누락 및 대기 중인 미디어",
-			"description": "Radarr 및 Sonarr의 누락 및 대기 중인 영화와 에피소드 표시",
-			"option": {
-				"showMissing": {
-					"label": "누락된 항목 표시"
-				},
-				"showQueued": {
-					"label": "대기 중인 항목 표시"
-				},
-				"pageSize": {
-					"label": "페이지당 항목 수"
-				}
-			},
-			"tab": {
-				"missing": "누락",
-				"queued": "대기 중"
-			},
-			"type": {
-				"movie": "영화",
-				"episode": "에피소드",
-				"book": "도서"
-			},
-			"empty": {
-				"missing": "누락된 항목 없음",
-				"queued": "대기 중인 항목 없음",
-				"noTabsEnabled": "위젯 설정에서 최소한 하나의 탭을 활성화하세요"
-			},
-			"timeLeft": "남은 시간"
 		},
 		"rssFeed": {
 			"name": "RSS 피드",
@@ -8093,11 +7728,6 @@
 				"label": "웹",
 				"placeholder": "외부 검색 엔진으로 검색"
 			},
-			"media": {
-				"label": "미디어",
-				"placeholder": "영화 또는 프로그램 검색",
-				"fallback": "\"{query}\" 미디어 검색"
-			},
 			"userGroup": {
 				"label": "사용자",
 				"placeholder": "사용자 및 그룹 검색"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "영화 또는 TV 프로그램을 검색하여 요청",
-				"requestMovie": "영화 요청",
-				"requestSeries": "시리즈 요청",
-				"openIn": "{kind}에서 열기",
-				"group": {
-					"title": "영화 및 TV 프로그램"
-				},
-				"action": {
-					"search": {
-						"label": "영화 또는 TV 프로그램 검색",
-						"description": "미디어 요청 통합을 검색하려면 입력을 시작하세요",
-						"disabled": {
-							"noIntegration": "미디어 검색을 활성화하려면 Overseerr, Jellyseerr 또는 Seerr 통합을 추가하세요.",
-							"signInRequired": "미디어 요청 통합을 검색하려면 로그인하세요.",
-							"scoped": "이 위젯에는 접근 가능한 미디어 요청 통합이 없습니다."
-						}
-					}
-				},
-				"availability": {
-					"available": "사용 가능",
-					"partiallyAvailable": "일부",
-					"processing": "처리 중",
-					"requested": "요청됨",
-					"pending": "요청됨"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "검색 엔진 삭제되지 않음",
 							"message": "검색 엔진 삭제에 실패했습니다"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "\"{name}\" 요청",
-						"table": {
-							"header": {
-								"season": "시즌",
-								"episodes": "에피소드",
-								"status": "상태"
-							},
-							"status": {
-								"requested": "요청됨"
-							}
-						},
-						"button": {
-							"send": "요청 보내기"
 						}
 					}
 				}

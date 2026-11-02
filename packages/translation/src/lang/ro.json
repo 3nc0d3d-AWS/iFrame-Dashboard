@@ -3372,27 +3372,6 @@
 				"noForecast": "Nu sunt disponibile date prognozate"
 			}
 		},
-		"indexerManager": {
-			"name": "Starea managerului de clasificare",
-			"description": "Starea indexurilor tale",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Deschide site-ul de indexare într-o filă nouă"
-				}
-			},
-			"title": "Manager de clasificare",
-			"testAll": "Verifică toate",
-			"status": {
-				"healthy": "Sănătos",
-				"unhealthy": "Nesănătos",
-				"disabled": "Dezactivat",
-				"unknown": "Sănătate indisponibilă"
-			},
-			"error": {
-				"internalServerError": "Nu s-a reușit preluarea stării de indexare",
-				"testAll": "Testul de indexare a eșuat. Încercați din nou."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Monitorizarea sănătății sistemului",
 			"description": "Afișează informații care arată starea de sănătate și statistica sistemului (sistemelor) dumneavoastră.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Nu s-au putut prelua datele UPS"
-			}
-		},
-		"tracearr": {
-			"description": "Monitorizare îmbunătățită a serverului media cu flux detaliat și date de transcodare",
-			"option": {
-				"showStreams": {
-					"label": "Arată stream-uri active"
-				},
-				"showStats": {
-					"label": "Arată sumarul statisticilor"
-				},
-				"showRecentActivity": {
-					"label": "Arată activitatea recentă"
-				},
-				"showViolations": {
-					"label": "Arată încălcări"
-				}
-			},
-			"stats": {
-				"activeStreams": "Stream-uri active",
-				"totalUsers": "Total utilizatori",
-				"transcodes": "Transcoduri",
-				"bandwidth": "Lățimea benzii"
-			},
-			"streams": {
-				"empty": "Nici un flux activ",
-				"user": "Utilizator",
-				"media": "",
-				"state": "Județ",
-				"quality": "Calitate",
-				"device": "Dispozitiv",
-				"progress": "Progresul",
-				"videoDecision": {
-					"directPlay": "Redare directă",
-					"transcode": "Transcodare",
-					"directStream": "direct stream"
-				}
-			},
-			"recentActivity": {
-				"title": "Activitate recentă",
-				"empty": "Nicio activitate recentă",
-				"watched": "Vizionat",
-				"partial": "Parţial"
-			},
-			"violations": {
-				"title": "Incalcari",
-				"empty": "Nicio încălcare recentă",
-				"rule": "Regulă",
-				"user": "Utilizator"
-			},
-			"noSectionsEnabled": "Nicio secțiune activată",
-			"error": {
-				"noIntegration": "Nici o integrare Tracearr configurată",
-				"internalServerError": "Nu s-au putut obţine datele Tracearr"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Nu s-a reușit preluarea datelor PatchMon"
 			}
 		},
-		"bazarr": {
-			"description": "Prezentare generală a subtitrărilor lipsă şi starea de sănătate din instanţa Bazarr",
-			"episodes": "Episoade lipsă",
-			"movies": "Lipsesc filmele",
-			"providers": "Probleme furnizor",
-			"status": "Probleme de sănătate",
-			"announcements": "Anunţuri",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Arată episoadele lipsă",
-					"description": "Afișează numărul de episoade cu subtitrări lipsă"
-				},
-				"showMissingMovies": {
-					"label": "Arată filmele lipsă",
-					"description": "Afișează numărul de filme cu subtitrări lipsă"
-				},
-				"showProviderIssues": {
-					"label": "Arată problemele furnizorului",
-					"description": "Afișează numărul furnizorilor de subtitrări cu probleme"
-				},
-				"showHealthIssues": {
-					"label": "Arată problemele de sănătate",
-					"description": "Afișează numărul de probleme de sănătate cu Bazarr"
-				}
-			},
-			"error": {
-				"internalServerError": "Obținerea datelor Bazarr a eșuat"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich Statistici server",
 			"description": "Informații despre instanța Immich",
@@ -4390,170 +4286,6 @@
 				"photo": "{number} foto"
 			}
 		},
-		"downloads": {
-			"name": "Descarcă clientul",
-			"description": "Vă permite să vizualizați și să gestionați descărcările de la clienții care folosesc Torrent și Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Arată intrările de tip usenet marcate ca finalizate"
-				},
-				"showCompletedTorrent": {
-					"label": "Arată intrările torentului marcate ca finalizate"
-				},
-				"showCompletedHttp": {
-					"label": "Arată diverse intrări marcate ca completate"
-				},
-				"includeArchivedHistory": {
-					"label": "Include istoricul SABnzbd arhivat",
-					"description": "Arată joburile mutate în Arhivă."
-				},
-				"historyWindowDays": {
-					"label": "Fereastra de istorie arhivată (zile)",
-					"description": "Limita istoricului SABnzbd terminat la atâtea zile. Crește limita de articole pentru a arăta mai multe rezultate."
-				},
-				"activeTorrentThreshold": {
-					"label": "Ascunde torentul completat sub acest prag (în kiB/s)"
-				},
-				"categoryFilter": {
-					"label": "Categorii/etichete de filtrat"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtrare ca whitelist"
-				},
-				"applyFilterToRatio": {
-					"label": "Utilizați filtrul pentru a calcula raportul"
-				},
-				"limitPerIntegration": {
-					"label": "Limitează elementele pe integrare",
-					"description": "Acest lucru va limita numărul de elemente afișate per integrare, nu la nivel global"
-				}
-			},
-			"errors": {
-				"noColumns": "Selectați Coloane în Elemente",
-				"noCommunications": "Nu se pot încărca datele de la integrare",
-				"noItems": "Nicio descărcare găsită",
-				"actionFailed": "Acțiune eșuată",
-				"actionFailedMessage": "Acțiunea nu a putut fi finalizată. Vă rugăm să încercați din nou."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Controale"
-				},
-				"added": {
-					"columnTitle": "Adăugat",
-					"detailsTitle": "Data adăugării"
-				},
-				"category": {
-					"columnTitle": "Extras",
-					"detailsTitle": "Categorii (Informații suplimentare)"
-				},
-				"downSpeed": {
-					"columnTitle": "În jos",
-					"detailsTitle": "Viteza de descărcare"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Indicele curent din interiorul clientului"
-				},
-				"id": {
-					"columnTitle": "Id",
-					"detailsTitle": "Item ID"
-				},
-				"integration": {
-					"columnTitle": "Integrare"
-				},
-				"name": {
-					"columnTitle": "Numele postului"
-				},
-				"progress": {
-					"columnTitle": "Progres",
-					"detailsTitle": "Progres descărcare"
-				},
-				"ratio": {
-					"columnTitle": "Raport",
-					"detailsTitle": "Raport torrent (primit/trimis)"
-				},
-				"received": {
-					"columnTitle": "Total în scădere",
-					"detailsTitle": "Total descărcat"
-				},
-				"sent": {
-					"columnTitle": "Total în creștere",
-					"detailsTitle": "Total încărcat"
-				},
-				"size": {
-					"columnTitle": "Dimensiune fișier",
-					"detailsTitle": "Dimensiunea totală a selecţiei/fişierelor"
-				},
-				"state": {
-					"columnTitle": "Stare",
-					"detailsTitle": "Stare Job"
-				},
-				"time": {
-					"columnTitle": "Timp de finalizare",
-					"detailsTitle": "Timp de la /până la finalizare",
-					"eta": ""
-				},
-				"type": {
-					"columnTitle": "Tip",
-					"detailsTitle": "Descarcă tipul de client"
-				},
-				"upSpeed": {
-					"columnTitle": "În sus",
-					"detailsTitle": "Viteza de Încărcare"
-				}
-			},
-			"states": {
-				"downloading": "Descărcare",
-				"queued": "Pus în așteptare",
-				"paused": "În pauză",
-				"completed": "Finalizat",
-				"failed": "Eșuat",
-				"processing": "Prelucrare",
-				"leeching": "",
-				"stalled": "Blocat",
-				"unknown": "Necunoscut",
-				"seeding": ""
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Descarcă lista de clienți",
-					"pause": "Întrerupeți toți clienții/elemente",
-					"resume": "Reluați toți clienții/articole"
-				},
-				"client": {
-					"pause": "Pauză pasager",
-					"resume": "Reluați pasagerul"
-				},
-				"item": {
-					"pause": "Pauză Element",
-					"resume": "Reluare element",
-					"delete": {
-						"title": "Ștergere element",
-						"modalTitle": "Sunteţi sigur că doriţi să ştergeţi acest job?",
-						"entry": "Ștergeți intrarea",
-						"entryAndFiles": "Ştergeţi intrarea şi fişierul"
-					}
-				}
-			},
-			"globalRatio": "Raport Global",
-			"contextMenu": {
-				"copyName": "Copiază numele",
-				"copyId": "Copiază ID",
-				"clearFilters": "Ștergeți filtrele"
-			},
-			"footer": {
-				"filter": "Descărcări filtre"
-			},
-			"stats": {
-				"show": "Arată statistici globale",
-				"hide": "Ascunde statistici globale",
-				"overallProgress": "Progres global în coadă",
-				"totalSize": "Dimensiunea totală a cozii",
-				"clients": "{count, plural, one {# client} other {# clients}}"
-			},
-			"disconnected": "(deconectat)"
-		},
 		"mediaReleases": {
 			"name": "Comunicate media",
 			"description": "Afişează mediile nou adăugate sau versiunile viitoare din diferite integrări",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": ""
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Listă Cereri Media",
-			"description": "Vezi o listă cu toate cererile media de la instanțele Overseerr sau Jellyseerr",
-			"empty": {
-				"title": "Nicio cerere media încă",
-				"description": "Căutați un film sau o emisiune pentru a începe o cerere."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Deschide link-ul într-o pagină nouă"
-				},
-				"statusFilter": {
-					"label": "Statusuri de afișat"
-				},
-				"recentDays": {
-					"label": "Arată doar cererile recente"
-				}
-			},
-			"pending": {
-				"approve": "Aprobați cererea",
-				"approving": "Aprobare cerere...",
-				"decline": "Refuzați solicitarea"
-			},
-			"availability": {
-				"unknown": "Necunoscut",
-				"pending": "In asteptare",
-				"processing": "Prelucrare",
-				"requested": "Solicitat",
-				"partiallyAvailable": "Parțial",
-				"available": "Disponibil",
-				"blacklisted": "Lista neagra",
-				"deleted": "Șters"
-			},
-			"status": {
-				"pending": "In asteptare",
-				"approved": "Aprobat",
-				"declined": "Refuzat",
-				"failed": "Eșuat",
-				"completed": "Completat"
-			},
-			"unknown": "Necunoscut",
-			"toBeDetermined": ""
-		},
-		"mediaRequests-requestStats": {
-			"name": "Statistici Cereri Media",
-			"description": "Statistici despre solicitările dvs. media",
-			"empty": {
-				"title": "Nicio activitate de cerere încă",
-				"description": "Statisticile vor apărea după prima cerere media."
-			},
-			"titles": {
-				"stats": {
-					"main": "Situația media",
-					"approved": "Deja aprobat",
-					"pending": "În curs de aprobare",
-					"processing": "Se procesează",
-					"declined": "Deja refuzată",
-					"available": "Deja Disponibil",
-					"tv": "Cereri seriale TV",
-					"movie": "Cereri filme"
-				},
-				"users": {
-					"main": "Top utilizatori",
-					"requests": "Cereri"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Controalele de sănătate"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Media lipsă și în așteptare",
-			"description": "Afişează filme lipsă şi coadă şi episoade de la Radarr şi Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Arată elementele lipsă"
-				},
-				"showQueued": {
-					"label": "Afișare elemente în așteptare"
-				},
-				"pageSize": {
-					"label": "Elemente pe pagină"
-				}
-			},
-			"tab": {
-				"missing": "Lipsă",
-				"queued": "În aşteptare"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Episod",
-				"book": "Carte"
-			},
-			"empty": {
-				"missing": "Niciun element lipsă",
-				"queued": "Niciun element în așteptare",
-				"noTabsEnabled": "Activează cel puțin o filă în setările widget-ului"
-			},
-			"timeLeft": "Timp rămas"
 		},
 		"rssFeed": {
 			"name": "Fluxuri RSS",
@@ -8093,11 +7728,6 @@
 				"label": "",
 				"placeholder": "Căutare cu un motor de căutare extern"
 			},
-			"media": {
-				"label": "",
-				"placeholder": "Caută un film sau o emisiune",
-				"fallback": "Căutare media pentru \"{query}\""
-			},
 			"userGroup": {
 				"label": "Oameni",
 				"placeholder": "Căutare utilizatori și grupuri"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Căutați filme sau seriale pentru a le solicita",
-				"requestMovie": "Cere film",
-				"requestSeries": "Cerere de serie",
-				"openIn": "Deschide în {kind}",
-				"group": {
-					"title": "Filme și seriale"
-				},
-				"action": {
-					"search": {
-						"label": "Căutați filme sau seriale",
-						"description": "Începeți să tastați pentru a căuta în integrările de solicitare media",
-						"disabled": {
-							"noIntegration": "Adăugați o integrare Overseerr, Jellyseerr sau Seerr pentru a activa căutarea media.",
-							"signInRequired": "Conectați-vă pentru a căuta integrările solicitărilor media.",
-							"scoped": "Acest widget nu are o integrare de solicitare media accesibilă."
-						}
-					}
-				},
-				"availability": {
-					"available": "Disponibil",
-					"partiallyAvailable": "Parțial",
-					"processing": "În procesare",
-					"requested": "Solicitat",
-					"pending": "Solicitat"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Motorul de căutare nu a fost șters",
 							"message": "Motorul de căutare nu a putut fi șters"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Solicită \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Sezon",
-								"episodes": "Episoade",
-								"status": "Stare"
-							},
-							"status": {
-								"requested": "Solicitat"
-							}
-						},
-						"button": {
-							"send": "Trimite cerere"
 						}
 					}
 				}

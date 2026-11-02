@@ -3372,27 +3372,6 @@
 				"noForecast": "Tahmin verisi mevcut değil"
 			}
 		},
-		"indexerManager": {
-			"name": "İndeksleyici Yönetim Durumu",
-			"description": "İndeksleyicilerinizin durumu",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "İndeksleyici Sitesini Yeni Sekmede Aç"
-				}
-			},
-			"title": "İndeksleyici Yöneticisi",
-			"testAll": "Tümünü test et",
-			"status": {
-				"healthy": "Sağlıklı",
-				"unhealthy": "Sağlıksız",
-				"disabled": "Pasif",
-				"unknown": "Sağlık bilgisi kullanılamıyor"
-			},
-			"error": {
-				"internalServerError": "İndeksleyicilerin durumu alınamadı",
-				"testAll": "Dizinleyici testi başarısız oldu. Yeniden deneyin."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Sistem Sağlığı İzleme",
 			"description": "Sistem(ler)inizin sağlığını ve durumunu gösteren bilgileri görüntüler.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "UPS verileri alınamadı"
-			}
-		},
-		"tracearr": {
-			"description": "Ayrıntılı yayın ve kod dönüştürme verileriyle gelişmiş medya sunucusu izleme",
-			"option": {
-				"showStreams": {
-					"label": "Etkin yayınları göster"
-				},
-				"showStats": {
-					"label": "İstatistik özetini göster"
-				},
-				"showRecentActivity": {
-					"label": "Son etkinlikleri göster"
-				},
-				"showViolations": {
-					"label": "İhlalleri göster"
-				}
-			},
-			"stats": {
-				"activeStreams": "Etkin Yayınlar",
-				"totalUsers": "Toplam Kullanıcı",
-				"transcodes": "Kod Dönüştürmeler",
-				"bandwidth": "Bant Genişliği"
-			},
-			"streams": {
-				"empty": "Etkin yayın yok",
-				"user": "Kullanıcı",
-				"media": "Medya",
-				"state": "Durum",
-				"quality": "Kalite",
-				"device": "Cihaz",
-				"progress": "İlerleme",
-				"videoDecision": {
-					"directPlay": "Doğrudan Oynatma",
-					"transcode": "Kod Dönüştürme",
-					"directStream": "Doğrudan Yayın"
-				}
-			},
-			"recentActivity": {
-				"title": "Son Etkinlikler",
-				"empty": "Yakın zamanda etkinlik yok",
-				"watched": "İzlendi",
-				"partial": "Kısmi"
-			},
-			"violations": {
-				"title": "İhlaller",
-				"empty": "Yakın zamanda ihlal yok",
-				"rule": "Kural",
-				"user": "Kullanıcı"
-			},
-			"noSectionsEnabled": "Etkinleştirilmiş bölüm yok",
-			"error": {
-				"noIntegration": "Yapılandırılmış Tracearr entegrasyonu yok",
-				"internalServerError": "Tracearr verileri alınamadı"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "PatchMon verileri alınamadı"
 			}
 		},
-		"bazarr": {
-			"description": "Bazarr örneğinizdeki eksik altyazıların ve sağlık durumunun genel görünümü",
-			"episodes": "Eksik Bölümler",
-			"movies": "Eksik Filmler",
-			"providers": "Sağlayıcı Sorunları",
-			"status": "Sağlık Sorunları",
-			"announcements": "Duyurular",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Eksik bölümleri göster",
-					"description": "Altyazısı eksik bölüm sayısını gösterir"
-				},
-				"showMissingMovies": {
-					"label": "Eksik filmleri göster",
-					"description": "Altyazısı eksik film sayısını gösterir"
-				},
-				"showProviderIssues": {
-					"label": "Sağlayıcı sorunlarını göster",
-					"description": "Sorun yaşayan altyazı sağlayıcılarının sayısını gösterir"
-				},
-				"showHealthIssues": {
-					"label": "Sağlık sorunlarını göster",
-					"description": "Bazarr sağlık sorunlarının sayısını gösterir"
-				}
-			},
-			"error": {
-				"internalServerError": "Bazarr verileri alınamadı"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich Sunucu İstatistikleri",
 			"description": "Immich örneğiniz hakkında bilgiler",
@@ -4390,170 +4286,6 @@
 				"photo": "Fotoğraf {number}"
 			}
 		},
-		"downloads": {
-			"name": "İndirme İstemcisi",
-			"description": "Hem Torrent hem de Usenet istemcilerinden indirdiklerinizi görüntülemenizi ve yönetmenizi sağlar.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Tamamlanmış olarak işaretlenmiş usenet girdilerini göster"
-				},
-				"showCompletedTorrent": {
-					"label": "Tamamlanmış olarak işaretlenmiş torrent girdilerini göster"
-				},
-				"showCompletedHttp": {
-					"label": "Tamamlanmış olarak işaretlenmiş çeşitli girişleri göster"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Tamamlanan torrent'i bu eşik değerinin altına gizle"
-				},
-				"categoryFilter": {
-					"label": "Filtrelenecek kategoriler/etiketler"
-				},
-				"filterIsWhitelist": {
-					"label": "Beyaz liste olarak filtrele"
-				},
-				"applyFilterToRatio": {
-					"label": "Oranı hesaplamak için filtreyi kullanın"
-				},
-				"limitPerIntegration": {
-					"label": "Her entegrasyon için öğe sınırı",
-					"description": "Bu, gösterilecek öğe sayısını tüm entegrasyonlar için değil, her entegrasyon özelinde sınırlar"
-				}
-			},
-			"errors": {
-				"noColumns": "Öğelerdeki Sütunları Seç",
-				"noCommunications": "Entegrasyondan veri yüklenemiyor",
-				"noItems": "İndirme bulunamadı",
-				"actionFailed": "Eylem başarısız oldu",
-				"actionFailedMessage": "Eylem tamamlanamadı. Lütfen yeniden deneyin."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Kontroller"
-				},
-				"added": {
-					"columnTitle": "Eklenme",
-					"detailsTitle": "Eklenme Tarihi"
-				},
-				"category": {
-					"columnTitle": "Ekstralar",
-					"detailsTitle": "Kategoriler (Veya ek bilgiler)"
-				},
-				"downSpeed": {
-					"columnTitle": "İndirme",
-					"detailsTitle": "İndirme Hızı"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "İstemci içindeki mevcut endeks"
-				},
-				"id": {
-					"columnTitle": "İd",
-					"detailsTitle": "Öğe Kimliği"
-				},
-				"integration": {
-					"columnTitle": "Entegrasyon"
-				},
-				"name": {
-					"columnTitle": "İş adı"
-				},
-				"progress": {
-					"columnTitle": "İlerleme",
-					"detailsTitle": "İndirme İlerlemesi"
-				},
-				"ratio": {
-					"columnTitle": "Oran",
-					"detailsTitle": "Torrent oranı (alınan/gönderilen)"
-				},
-				"received": {
-					"columnTitle": "Toplam İndirme",
-					"detailsTitle": "Toplam indirilen"
-				},
-				"sent": {
-					"columnTitle": "Toplam gönderilen",
-					"detailsTitle": "Toplam Yüklenen"
-				},
-				"size": {
-					"columnTitle": "Dosya Boyutu",
-					"detailsTitle": "Seçilen dosyaların toplam boyutu"
-				},
-				"state": {
-					"columnTitle": "Durum",
-					"detailsTitle": "İş Durumu"
-				},
-				"time": {
-					"columnTitle": "Bitiş zamanı",
-					"detailsTitle": "Tamamlanmasından bu yana geçen süre",
-					"eta": "Tahmini Kalan Süre"
-				},
-				"type": {
-					"columnTitle": "Tür",
-					"detailsTitle": "İndirme İstemcisi türü"
-				},
-				"upSpeed": {
-					"columnTitle": "Yükleme",
-					"detailsTitle": "Gönderme Hızı"
-				}
-			},
-			"states": {
-				"downloading": "İndiriliyor",
-				"queued": "Sıraya alındı",
-				"paused": "Duraklatıldı",
-				"completed": "Tamamlanan",
-				"failed": "Başarısız",
-				"processing": "İşlemde",
-				"leeching": "Aranıyor",
-				"stalled": "Durduruldu",
-				"unknown": "Bilinmeyen",
-				"seeding": "Seed ediliyor"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "İndirme istemcileri listesi",
-					"pause": "Tüm istemcileri/öğeleri duraklat",
-					"resume": "Tüm istemcileri/öğeleri sürdür"
-				},
-				"client": {
-					"pause": "İstemciyi duraklat",
-					"resume": "İstemciyi sürdür"
-				},
-				"item": {
-					"pause": "Öğeyi Duraklat",
-					"resume": "Öğeyi Sürdür",
-					"delete": {
-						"title": "Öğeyi Sil",
-						"modalTitle": "Bu işi silmek istediğinizden emin misiniz?",
-						"entry": "Girdiyi sil",
-						"entryAndFiles": "Girdiyi ve dosyaları sil"
-					}
-				}
-			},
-			"globalRatio": "Genel Oran",
-			"contextMenu": {
-				"copyName": "Adı kopyala",
-				"copyId": "Kimliği kopyala",
-				"clearFilters": "Filtreleri temizle"
-			},
-			"footer": {
-				"filter": "İndirmeleri filtrele"
-			},
-			"stats": {
-				"show": "Genel istatistikleri göster",
-				"hide": "Genel istatistikleri gizle",
-				"overallProgress": "Genel kuyruk ilerlemesi",
-				"totalSize": "Toplam kuyruk boyutu",
-				"clients": "{count, plural, one {# istemci} other {# istemci}}"
-			},
-			"disconnected": "(bağlantı kesildi)"
-		},
 		"mediaReleases": {
 			"name": "Medya yayınları",
 			"description": "Farklı entegrasyonlardan yeni eklenen medyaları veya yakında çıkacak yayınları göster",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} dk"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Medya İstekleri Listesi",
-			"description": "Overseerr veya Jellyseerr uygulamanızdan gelen tüm medya taleplerinin bir listesini görün",
-			"empty": {
-				"title": "Henüz medya isteği yok",
-				"description": "İstek başlatmak için bir film veya dizi arayın."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Bağlantıları yeni sekmede aç"
-				},
-				"statusFilter": {
-					"label": "Gösterilecek durumlar"
-				},
-				"recentDays": {
-					"label": "Yalnızca son talepleri göster"
-				}
-			},
-			"pending": {
-				"approve": "Talebi Onayla",
-				"approving": "Talep Onaylanıyor...",
-				"decline": "Talebi reddet"
-			},
-			"availability": {
-				"unknown": "Bilinmeyen",
-				"pending": "Bekleyen",
-				"processing": "İşlemde",
-				"requested": "Talep Edildi",
-				"partiallyAvailable": "Kısmi",
-				"available": "Mevcut",
-				"blacklisted": "Engellenenler",
-				"deleted": "Silinen"
-			},
-			"status": {
-				"pending": "Bekleyen",
-				"approved": "Onaylandı",
-				"declined": "Reddedildi",
-				"failed": "Başarısız",
-				"completed": "Tamamlandı"
-			},
-			"unknown": "Bilinmeyen",
-			"toBeDetermined": "-Yapım Aşamasında-"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Medya Talep İstatistikleri",
-			"description": "Medya talepleriyle ilgili istatistikler",
-			"empty": {
-				"title": "Henüz istek etkinliği yok",
-				"description": "İstatistikler ilk medya isteğinden sonra görünür."
-			},
-			"titles": {
-				"stats": {
-					"main": "Medya İstatistikleri",
-					"approved": "Onaylanan",
-					"pending": "Onay bekleyen",
-					"processing": "İşlenen",
-					"declined": "Reddedilen",
-					"available": "Mevcut",
-					"tv": "Dizi talepleri",
-					"movie": "Film talepleri"
-				},
-				"users": {
-					"main": "En İyi Kullanıcılar",
-					"requests": "Talepler"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Sağlık kontrolleri"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Eksik ve Kuyruktaki Medya",
-			"description": "Radarr ve Sonarr'daki eksik ve kuyruğa alınmış film ve bölümleri gösterir",
-			"option": {
-				"showMissing": {
-					"label": "Eksik öğeleri göster"
-				},
-				"showQueued": {
-					"label": "Kuyruktaki öğeleri göster"
-				},
-				"pageSize": {
-					"label": "Sayfa başına öğe"
-				}
-			},
-			"tab": {
-				"missing": "Eksik",
-				"queued": "Kuyrukta"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Bölüm",
-				"book": "Kitap"
-			},
-			"empty": {
-				"missing": "Eksik öğe yok",
-				"queued": "Kuyrukta öğe yok",
-				"noTabsEnabled": "Widget ayarlarında en az bir sekmeyi etkinleştirin"
-			},
-			"timeLeft": "Kalan süre"
 		},
 		"rssFeed": {
 			"name": "RSS Beslemeleri",
@@ -8093,11 +7728,6 @@
 				"label": "İnternet",
 				"placeholder": "Harici bir arama motoruyla ara"
 			},
-			"media": {
-				"label": "Medya",
-				"placeholder": "Bir film veya dizi ara",
-				"fallback": "\"{query}\" için medyada ara"
-			},
 			"userGroup": {
 				"label": "Kişiler",
 				"placeholder": "Kullanıcılarda ve gruplarda ara"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Talep etmek için film veya dizi ara",
-				"requestMovie": "Filmi Talep Et",
-				"requestSeries": "Diziyi Talep Et",
-				"openIn": "{kind} üzerinde göster",
-				"group": {
-					"title": "Filmler ve diziler"
-				},
-				"action": {
-					"search": {
-						"label": "Film veya dizi ara",
-						"description": "Medya talep entegrasyonlarınızı aramak için yazmaya başlayın",
-						"disabled": {
-							"noIntegration": "Medya aramasını etkinleştirmek için bir Overseerr, Jellyseerr veya Seerr entegrasyonu ekleyin.",
-							"signInRequired": "Medya istek entegrasyonlarında arama yapmak için oturum açın.",
-							"scoped": "Bu widget'ın erişilebilir bir medya talep entegrasyonu yok."
-						}
-					}
-				},
-				"availability": {
-					"available": "Mevcut",
-					"partiallyAvailable": "Kısmen mevcut",
-					"processing": "İşleniyor",
-					"requested": "Talep edildi",
-					"pending": "Talep edildi"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Arama motoru silinmedi",
 							"message": "Arama motoru silinemedi"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Talep Et \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Sezon",
-								"episodes": "Bölüm",
-								"status": "Durum"
-							},
-							"status": {
-								"requested": "Talep edildi"
-							}
-						},
-						"button": {
-							"send": "Talep Gönder"
 						}
 					}
 				}

@@ -3,7 +3,6 @@ import { assistantMode } from "./assistant";
 import { commandMode } from "./command";
 import { externalMode } from "./external";
 import { homeMode } from "./home";
-import { mediaMode } from "./media";
 import { preferencesMode } from "./preferences";
 import { userGroupMode } from "./user-group";
 
@@ -14,6 +13,5 @@ export const searchModes = [
   preferencesMode,
   assistantMode,
   externalMode,
-  mediaMode,
   userGroupMode,
 ] as const;

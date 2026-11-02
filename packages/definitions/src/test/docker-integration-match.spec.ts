@@ -8,11 +8,11 @@ import {
 
 describe("extractContainerImageName", () => {
   it("extracts name from full image reference", () => {
-    expect(extractContainerImageName("linuxserver/sonarr:latest")).toBe("sonarr");
+    expect(extractContainerImageName("linuxserver/jellyfin:latest")).toBe("jellyfin");
   });
 
   it("extracts name from ghcr image", () => {
-    expect(extractContainerImageName("ghcr.io/org/radarr:v5")).toBe("radarr");
+    expect(extractContainerImageName("ghcr.io/org/emby:v5")).toBe("emby");
   });
 
   it("handles plain image name", () => {
@@ -26,11 +26,11 @@ describe("extractContainerImageName", () => {
 
 describe("matchIntegrationKind", () => {
   it("matches exact kind name", () => {
-    expect(matchIntegrationKind("sonarr")).toBe("sonarr");
+    expect(matchIntegrationKind("jellyfin")).toBe("jellyfin");
   });
 
   it("matches case-insensitively", () => {
-    expect(matchIntegrationKind("Sonarr")).toBe("sonarr");
+    expect(matchIntegrationKind("Jellyfin")).toBe("jellyfin");
   });
 
   it("matches icon slug for pi-hole", () => {
@@ -50,7 +50,7 @@ describe("matchIntegrationKind", () => {
   });
 
   it("matches substring in image name", () => {
-    expect(matchIntegrationKind("hotio-sonarr")).toBe("sonarr");
+    expect(matchIntegrationKind("hotio-jellyfin")).toBe("jellyfin");
   });
 
   it("returns null for unknown", () => {
@@ -66,19 +66,19 @@ describe("matchIntegrationKindFromContainer", () => {
   it("matches from image name first", () => {
     expect(
       matchIntegrationKindFromContainer({
-        image: "linuxserver/sonarr:latest",
-        name: "my-sonarr",
+        image: "linuxserver/jellyfin:latest",
+        name: "my-jellyfin",
       }),
-    ).toBe("sonarr");
+    ).toBe("jellyfin");
   });
 
   it("falls back to container name", () => {
     expect(
       matchIntegrationKindFromContainer({
         image: "custom/myapp:latest",
-        name: "radarr",
+        name: "emby",
       }),
-    ).toBe("radarr");
+    ).toBe("emby");
   });
 
   it("returns null when neither matches", () => {
@@ -117,12 +117,12 @@ describe("matchIntegrationKindFromContainer", () => {
     ).toBeNull();
   });
 
-  it("matches Sportarr from its official image name", () => {
+  it("matches Emby from its official image name", () => {
     expect(
       matchIntegrationKindFromContainer({
-        image: "sportarr/sportarr:latest",
-        name: "sportarr",
+        image: "linuxserver/emby:latest",
+        name: "emby",
       }),
-    ).toBe("sportarr");
+    ).toBe("emby");
   });
 });

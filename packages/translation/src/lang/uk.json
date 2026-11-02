@@ -3372,27 +3372,6 @@
 				"noForecast": "Немає даних про прогноз"
 			}
 		},
-		"indexerManager": {
-			"name": "Статус менеджера індексування",
-			"description": "Статус ваших індексаторів",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Відкрити сайт індексатора у новій вкладці"
-				}
-			},
-			"title": "Менеджер індексації",
-			"testAll": "Перевірте все",
-			"status": {
-				"healthy": "Здоровий",
-				"unhealthy": "Нездоровий",
-				"disabled": "Вимкнено",
-				"unknown": "Здоров'я недоступний"
-			},
-			"error": {
-				"internalServerError": "Не вдалося отримати статус індексування",
-				"testAll": "Тест індексування не вдався. Повторіть спробу."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Моніторинг системних ресурсів",
 			"description": "Відображає інформацію, що показує стан та стан вашої системи.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "Не вдалося отримати дані UPS"
-			}
-		},
-		"tracearr": {
-			"description": "Покращений моніторинг медіа-сервера з детальними даними потоку та перекодування",
-			"option": {
-				"showStreams": {
-					"label": "Показати активні потоки"
-				},
-				"showStats": {
-					"label": "Показати загальну статистику"
-				},
-				"showRecentActivity": {
-					"label": "Показати останні дії"
-				},
-				"showViolations": {
-					"label": "Показувати порушення"
-				}
-			},
-			"stats": {
-				"activeStreams": "Активні потоки",
-				"totalUsers": "Всього користувачів",
-				"transcodes": "Перекодування",
-				"bandwidth": "Пропускна здатність"
-			},
-			"streams": {
-				"empty": "Немає активних потоків",
-				"user": "Користувач",
-				"media": "Медіа",
-				"state": "Стан",
-				"quality": "Якість",
-				"device": "Пристрій",
-				"progress": "Прогрес",
-				"videoDecision": {
-					"directPlay": "Пряме відтворення",
-					"transcode": "Перекодувати",
-					"directStream": "Прямий потік"
-				}
-			},
-			"recentActivity": {
-				"title": "Нещодавня активність",
-				"empty": "Жодних активностей останнім часом",
-				"watched": "Переглядів",
-				"partial": "Частково"
-			},
-			"violations": {
-				"title": "Порушення",
-				"empty": "Немає останніх порушень",
-				"rule": "Правило",
-				"user": "Користувач"
-			},
-			"noSectionsEnabled": "Не ввімкнено розділів",
-			"error": {
-				"noIntegration": "Інтеграція Tracearr не налаштована",
-				"internalServerError": "Не вдалося отримати дані Tracearr"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "Не вдалося отримати дані PatchMon"
 			}
 		},
-		"bazarr": {
-			"description": "Огляд відсутніх субтитрів та стану справності вашого екземпляра Bazarr",
-			"episodes": "Відсутні епізоди",
-			"movies": "Відсутні фільми",
-			"providers": "Проблеми p постачальником",
-			"status": "Проблеми зі здоров'ям",
-			"announcements": "Оголошення",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Показати відсутні епізоди",
-					"description": "Відображати кількість епізодів без субтититрів"
-				},
-				"showMissingMovies": {
-					"label": "Показати відсутні фільми",
-					"description": "Відобразити кількість фільмів без субтитрів"
-				},
-				"showProviderIssues": {
-					"label": "Показати проблеми постачальника",
-					"description": "Відображати кількість постачальника субтитрів з проблемами"
-				},
-				"showHealthIssues": {
-					"label": "Показувати проблеми зі здоров’ям",
-					"description": "Відображати кількість проблем зі здоров’ям Bazarr"
-				}
-			},
-			"error": {
-				"internalServerError": "Не вдалося отримати дані Bazarr"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Статистика Immich на сервері",
 			"description": "Інформація про Ваш екземпляр Immich",
@@ -4390,170 +4286,6 @@
 				"photo": "Фото {number}"
 			}
 		},
-		"downloads": {
-			"name": "Завантаження",
-			"description": "Дозволяє переглядати та керувати завантаженнями від клієнтів Torrent та Usenet.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Відображати записи usenet відмічені як завершені"
-				},
-				"showCompletedTorrent": {
-					"label": "Відображати торрент записи позначені як завершені"
-				},
-				"showCompletedHttp": {
-					"label": "Відображати різні записи, як завершені"
-				},
-				"includeArchivedHistory": {
-					"label": "Включаючи архівовану історію SABnzbd",
-					"description": "Показати завдання переміщені до архіву."
-				},
-				"historyWindowDays": {
-					"label": "Вікно архівованої історії (днів)",
-					"description": "Ліміт завершений SABnzbd історія до цієї кількості днів. Збільште ліміт елементу, щоб показати більше результатів."
-				},
-				"activeTorrentThreshold": {
-					"label": "Приховувати завершені торенти нижче за цей поріг"
-				},
-				"categoryFilter": {
-					"label": "Категорії/мітки для фільтру"
-				},
-				"filterIsWhitelist": {
-					"label": "Додати до білого списку"
-				},
-				"applyFilterToRatio": {
-					"label": "Використати фільтр при розрахунку рейтингу"
-				},
-				"limitPerIntegration": {
-					"label": "Обмежити елементи за інтегрування",
-					"description": "Це обмежить кількість елементів, що відображаються для кожної інтеграції, а не глобально"
-				}
-			},
-			"errors": {
-				"noColumns": "Вибір стовпців в елементах",
-				"noCommunications": "Не вдалося завантажити дані з інтеграції",
-				"noItems": "Не знайдено жодних завантажень",
-				"actionFailed": "Дію не виконано",
-				"actionFailedMessage": "Не вдалося виконати дію. Спробуйте ще раз."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Управління"
-				},
-				"added": {
-					"columnTitle": "Додано",
-					"detailsTitle": "Дата додавання"
-				},
-				"category": {
-					"columnTitle": "Додатково",
-					"detailsTitle": "Категорії (Або додаткову інформацію)"
-				},
-				"downSpeed": {
-					"columnTitle": "Завантаження",
-					"detailsTitle": "Швидкість завантаження"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Поточний індекс всередині клієнта"
-				},
-				"id": {
-					"columnTitle": "Id",
-					"detailsTitle": "ID елемента"
-				},
-				"integration": {
-					"columnTitle": "Інтеграція"
-				},
-				"name": {
-					"columnTitle": "Назва"
-				},
-				"progress": {
-					"columnTitle": "Прогрес",
-					"detailsTitle": "Прогрес завантаження"
-				},
-				"ratio": {
-					"columnTitle": "Співвідношення",
-					"detailsTitle": "Коефіцієнт роздачі (отриманий/надісланий)"
-				},
-				"received": {
-					"columnTitle": "Всього завантажено",
-					"detailsTitle": "Всього завантажено"
-				},
-				"sent": {
-					"columnTitle": "Всього відвантажено",
-					"detailsTitle": "Всього вивантажено"
-				},
-				"size": {
-					"columnTitle": "Розмір файлу",
-					"detailsTitle": "Загальний розмір вибору/файлів"
-				},
-				"state": {
-					"columnTitle": "Стан",
-					"detailsTitle": "Стан"
-				},
-				"time": {
-					"columnTitle": "Час завершення",
-					"detailsTitle": "Час з/до завершення",
-					"eta": "Залишилося"
-				},
-				"type": {
-					"columnTitle": "Тип",
-					"detailsTitle": "Тип клієнта"
-				},
-				"upSpeed": {
-					"columnTitle": "Віддача",
-					"detailsTitle": "Швидкість вивантаження"
-				}
-			},
-			"states": {
-				"downloading": "Завантаження",
-				"queued": "У черзі",
-				"paused": "Призупинено",
-				"completed": "Завершено",
-				"failed": "Невдало",
-				"processing": "В обробці",
-				"leeching": "Завантажується",
-				"stalled": "Зупинено",
-				"unknown": "Невідомо",
-				"seeding": "Роздається"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Завантажити список клієнтів",
-					"pause": "Призупинити всі клієнти/елементи",
-					"resume": "Відновити всі клієнти/елементи"
-				},
-				"client": {
-					"pause": "Призупинити клієнт",
-					"resume": "Відновити клієнт"
-				},
-				"item": {
-					"pause": "Призупинити елемент",
-					"resume": "Продовжити роботу",
-					"delete": {
-						"title": "Видалити елемент",
-						"modalTitle": "Ви дійсно бажаєте видалити це?",
-						"entry": "Видалити запис",
-						"entryAndFiles": "Видалити запис і файл(и)"
-					}
-				}
-			},
-			"globalRatio": "Загальний рейтинг",
-			"contextMenu": {
-				"copyName": "Копіювати назву",
-				"copyId": "Копіювати ID",
-				"clearFilters": "Очистити фільтри"
-			},
-			"footer": {
-				"filter": "Фільтрувати завантаження"
-			},
-			"stats": {
-				"show": "Показати загальну статистику",
-				"hide": "Сховати загальну статистику",
-				"overallProgress": "Загальний прогрес черги",
-				"totalSize": "Загальний розмір черги",
-				"clients": "{count, plural, one {# клієнт} few {# клієнти} many {# клієнтів} other {# клієнтів}}"
-			},
-			"disconnected": "(відключено)"
-		},
 		"mediaReleases": {
 			"name": "Медіа випуски",
 			"description": "Відображає нещодавно додані медіа або майбутні релізи з різних інтеграцій",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length}хв"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Список медіазапитів",
-			"description": "Перегляньте список усіх медіазапитів від ваших Overseerr або Jellyseerr",
-			"empty": {
-				"title": "Поки немає мультимедійних запитів",
-				"description": "Пошук фільму або шоу, щоб розпочати запит."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Відкрийте посилання в новій вкладці"
-				},
-				"statusFilter": {
-					"label": "Статуси для відображення"
-				},
-				"recentDays": {
-					"label": "Показати лише останні запити"
-				}
-			},
-			"pending": {
-				"approve": "Схвалити запит",
-				"approving": "Схвалити запиту..",
-				"decline": "Відхилити запит"
-			},
-			"availability": {
-				"unknown": "Невідомо",
-				"pending": "В очікуванні",
-				"processing": "В обробці",
-				"requested": "Запитано",
-				"partiallyAvailable": "Частково доступно",
-				"available": "Доступно",
-				"blacklisted": "Чорний список",
-				"deleted": "Видалити"
-			},
-			"status": {
-				"pending": "Очікує підтвердження",
-				"approved": "Схвалено",
-				"declined": "Відхилено",
-				"failed": "Невдало",
-				"completed": "Завершено"
-			},
-			"unknown": "Невідомо",
-			"toBeDetermined": "Буде визначено"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Статистика медіазапитів",
-			"description": "Статистика ваших запитів у медіа",
-			"empty": {
-				"title": "Запиту поки немає",
-				"description": "Статистика з'явиться після першого запиту медіа."
-			},
-			"titles": {
-				"stats": {
-					"main": "Медіа статистика",
-					"approved": "Вже затверджено",
-					"pending": "Очікує схвалення",
-					"processing": "Обробляється",
-					"declined": "Вже відхилено",
-					"available": "Вже доступно",
-					"tv": "Запити на серіали",
-					"movie": "Запити на фільми"
-				},
-				"users": {
-					"main": "Найкращі користувачі",
-					"requests": "Запитів"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Перевірка працездатності"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Відсутня медіа в черзі",
-			"description": "Показує відсутні і в черзі фільми і епізоди з Radarr і Sonarr",
-			"option": {
-				"showMissing": {
-					"label": "Показати відсутні елементи"
-				},
-				"showQueued": {
-					"label": "Показати елементи в черзі"
-				},
-				"pageSize": {
-					"label": "Елементів на сторінці"
-				}
-			},
-			"tab": {
-				"missing": "Відсутні",
-				"queued": "У черзі"
-			},
-			"type": {
-				"movie": "Фільм",
-				"episode": "Епізод",
-				"book": "Книжка"
-			},
-			"empty": {
-				"missing": "Немає відсутніх елементів",
-				"queued": "Немає елементів у черзі",
-				"noTabsEnabled": "Увімкнути принаймні одну вкладку в налаштуваннях віджету"
-			},
-			"timeLeft": "Залишилося часу"
 		},
 		"rssFeed": {
 			"name": "RSS-канали",
@@ -8093,11 +7728,6 @@
 				"label": "Веб",
 				"placeholder": "Пошук за допомогою зовнішньої системи пошуку"
 			},
-			"media": {
-				"label": "Медіа",
-				"placeholder": "Шукати фільм або показати",
-				"fallback": "Шукати в медіа для \"{query}\""
-			},
 			"userGroup": {
 				"label": "Люди",
 				"placeholder": "Пошук користувачів і груп"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Шукайте фільми або шоу для запиту",
-				"requestMovie": "Запросити фільм",
-				"requestSeries": "Запросити серіал",
-				"openIn": "Відкрити в {kind}",
-				"group": {
-					"title": "Фільми і шоу"
-				},
-				"action": {
-					"search": {
-						"label": "Пошук фільмів або шоу",
-						"description": "Почніть вводити для пошуку інтеграції запитів",
-						"disabled": {
-							"noIntegration": "Додати інтеграцію Overseerr, Jellyseerr, або Seerr, щоб увімкнути пошук медіа.",
-							"signInRequired": "Увійдіть для пошуку інтеграцій з медіа-запитами.",
-							"scoped": "Цей віджет не має доступної інтеграції запитів до медіа."
-						}
-					}
-				},
-				"availability": {
-					"available": "Доступно",
-					"partiallyAvailable": "Частково",
-					"processing": "Обробка",
-					"requested": "Запитано",
-					"pending": "Запитано"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Пошукова система не видалена",
 							"message": "Не вдалося видалити пошукову систему"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Запит \"{name}\"",
-						"table": {
-							"header": {
-								"season": "Сезон",
-								"episodes": "Серії",
-								"status": "Статус"
-							},
-							"status": {
-								"requested": "Запитано"
-							}
-						},
-						"button": {
-							"send": "Надіслати запит"
 						}
 					}
 				}

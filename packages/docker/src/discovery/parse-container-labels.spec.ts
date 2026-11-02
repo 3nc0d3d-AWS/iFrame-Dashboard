@@ -9,32 +9,32 @@ describe("parseContainerLabels", () => {
     expect(
       parseContainerLabels(
         container({
-          "homarr.name": "Sonarr",
+          "homarr.name": "Jellyfin",
           "homarr.group": "Media",
-          "homarr.href": "http://sonarr:8989",
-          "homarr.icon": "sonarr.svg",
+          "homarr.href": "http://jellyfin:8096",
+          "homarr.icon": "jellyfin.svg",
           "homarr.description": "TV",
-          "homarr.ping": "http://sonarr:8989/ping",
-          "homarr.id": "sonarr-main",
+          "homarr.ping": "http://jellyfin:8096/ping",
+          "homarr.id": "jellyfin-main",
           "homarr.board": "dashboard",
-          "homarr.integration": "sonarr",
+          "homarr.integration": "jellyfin",
           "homarr.widget": "calendar",
         }),
         "socket",
       ),
     ).toEqual({
-      sourceId: "docker:socket:sonarr-main",
+      sourceId: "docker:socket:jellyfin-main",
       containerId: "container-1",
       host: "socket",
       group: "Media",
-      name: "Sonarr",
-      href: "http://sonarr:8989",
-      icon: "sonarr.svg",
+      name: "Jellyfin",
+      href: "http://jellyfin:8096",
+      icon: "jellyfin.svg",
       description: "TV",
-      pingUrl: "http://sonarr:8989/ping",
-      externalId: "sonarr-main",
+      pingUrl: "http://jellyfin:8096/ping",
+      externalId: "jellyfin-main",
       boardName: "dashboard",
-      integrationKind: "sonarr",
+      integrationKind: "jellyfin",
       widgetKind: "calendar",
     });
   });
@@ -91,9 +91,9 @@ describe("parseContainerLabels", () => {
     expect(
       parseContainerLabels(
         container({
-          "homarr.name": "Sonarr",
+          "homarr.name": "Jellyfin",
           "homepage.group": "Media",
-          "homepage.href": "http://sonarr:8989",
+          "homepage.href": "http://jellyfin:8096",
         }),
         "socket",
       ),
@@ -104,9 +104,9 @@ describe("parseContainerLabels", () => {
     expect(
       parseContainerLabels(
         container({
-          "homepage.name": "Sonarr",
+          "homepage.name": "Jellyfin",
           "homepage.group": "Media",
-          "homepage.href": "http://sonarr:8989",
+          "homepage.href": "http://jellyfin:8096",
         }),
         "socket",
         { readHomepageLabels: false },
@@ -119,32 +119,32 @@ describe("parseContainerLabels", () => {
       parseContainerLabels(
         container({
           "homarr.hide": "true",
-          "homarr.name": "Sonarr",
+          "homarr.name": "Jellyfin",
           "homarr.group": "Media",
-          "homarr.href": "http://sonarr:8989",
+          "homarr.href": "http://jellyfin:8096",
         }),
         "socket",
       ),
     ).toBeNull();
-    expect(parseContainerLabels(container({ "homarr.name": "Sonarr" }), "socket")).toBeNull();
+    expect(parseContainerLabels(container({ "homarr.name": "Jellyfin" }), "socket")).toBeNull();
   });
 
   it("trims values and ignores invalid integration and widget kinds", () => {
     expect(
       parseContainerLabels(
         container({
-          "homarr.name": " Sonarr ",
+          "homarr.name": " Jellyfin ",
           "homarr.group": " Media ",
-          "homarr.href": " http://sonarr:8989 ",
+          "homarr.href": " http://jellyfin:8096 ",
           "homarr.integration": "not-real",
           "homarr.widget": "not-real",
         }),
         "socket",
       ),
     ).toMatchObject({
-      name: "Sonarr",
+      name: "Jellyfin",
       group: "Media",
-      href: "http://sonarr:8989",
+      href: "http://jellyfin:8096",
       integrationKind: undefined,
       widgetKind: undefined,
     });

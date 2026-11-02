@@ -136,12 +136,12 @@ async function fixtureContext(
 ) {
   const db = createDb();
   await db.insert(users).values([{ id: "reader" }, { id: "other" }]);
-  await db.insert(integrations).values({ id: "sonarr", name: "Sonarr", kind: "sonarr", url: baseUrl });
-  await db.insert(integrationSecrets).values({ integrationId: "sonarr", kind: "apiKey", value: encryptSecret(secret) });
+  await db.insert(integrations).values({ id: "komga", name: "Komga", kind: "komga", url: baseUrl });
+  await db.insert(integrationSecrets).values({ integrationId: "komga", kind: "apiKey", value: encryptSecret(secret) });
   // Another user's full permission must never grant this caller access.
-  await db.insert(integrationUserPermissions).values({ integrationId: "sonarr", userId: "other", permission: "full" });
+  await db.insert(integrationUserPermissions).values({ integrationId: "komga", userId: "other", permission: "full" });
   if (permission)
-    await db.insert(integrationUserPermissions).values({ integrationId: "sonarr", userId: "reader", permission });
+    await db.insert(integrationUserPermissions).values({ integrationId: "komga", userId: "reader", permission });
   const session = {
     user: { id: "reader", permissions: [], colorScheme: "light" },
     expires: new Date().toISOString(),
@@ -154,7 +154,7 @@ async function fixture(permission?: IntegrationPermission, setup?: (db: ReturnTy
   return router.createCaller(await fixtureContext(permission, setup));
 }
 
-const get = { integrationId: "sonarr", method: "GET", path: "/api/v3/series" } as const;
+const get = { integrationId: "komga", method: "GET", path: "/api/v3/series" } as const;
 
 describe("integration_request validation", () => {
   test.each([
@@ -193,17 +193,14 @@ describe("integration_request validation", () => {
       url: baseUrl,
       decryptedSecrets: [{ kind: "apiKey" as const, value: secret }],
     };
-    await expect(getIntegrationHttpAuthenticationAsync({ ...input, kind: "sonarr" })).resolves.toMatchObject({
+    await expect(getIntegrationHttpAuthenticationAsync({ ...input, kind: "komga" })).resolves.toMatchObject({
       headers: { "X-API-Key": secret },
     });
     await expect(getIntegrationHttpAuthenticationAsync({ ...input, kind: "homeAssistant" })).resolves.toMatchObject({
       headers: { Authorization: `Bearer ${secret}` },
     });
-    await expect(getIntegrationHttpAuthenticationAsync({ ...input, kind: "qBittorrent" })).resolves.toMatchObject({
-      headers: { Authorization: `Bearer ${secret}` },
-    });
     await expect(
-      getIntegrationHttpAuthenticationAsync({ ...input, kind: "sonarr", decryptedSecrets: [] }),
+      getIntegrationHttpAuthenticationAsync({ ...input, kind: "komga", decryptedSecrets: [] }),
     ).rejects.toThrow();
   });
   test.each([42, true, false, null])("redacts echoed primitive credential %s", (value) => {
@@ -241,7 +238,7 @@ describe("integration_request with a mock integration server", () => {
     ["truenas", "TrueNAS uses a WebSocket API"],
   ] as const)("rejects %s before sending a generic HTTP request", async (kind, message) => {
     const caller = await fixture("full", async (db) => {
-      await db.update(integrations).set({ kind }).where(eq(integrations.id, "sonarr"));
+      await db.update(integrations).set({ kind }).where(eq(integrations.id, "komga"));
     });
     const previousCalls = calls.length;
     await expect(caller.request(get)).rejects.toMatchObject({
@@ -252,41 +249,20 @@ describe("integration_request with a mock integration server", () => {
   });
   test("reuses the Custom Widget authentication resolver for every HTTP-capable kind", async () => {
     const caller = await fixture("full", async (db) => {
-      await db.update(integrations).set({ kind: "mealie" }).where(eq(integrations.id, "sonarr"));
+      await db.update(integrations).set({ kind: "mealie" }).where(eq(integrations.id, "komga"));
     });
     await expect(caller.request({ ...get, path: "/api/households/statistics" })).resolves.toMatchObject({
       status: 200,
     });
     expect(calls.at(-1)?.auth).toBe(`Bearer ${secret}`);
   });
-  test("adds saved query credentials to a generic request", async () => {
-    const caller = await fixture("full", async (db) => {
-      await db.update(integrations).set({ kind: "jackett" }).where(eq(integrations.id, "sonarr"));
-    });
-    await caller.request({ ...get, path: "/api/v2/indexers?apikey=ignored" });
-    expect(calls.at(-1)?.path).toBe(`/api/v2/indexers?apikey=${secret}`);
-  });
-  test("prefixes saved JSON-RPC credentials before caller parameters", async () => {
-    const caller = await fixture("full", async (db) => {
-      await db.update(integrations).set({ kind: "aria2" }).where(eq(integrations.id, "sonarr"));
-    });
-    await caller.request({
-      ...get,
-      method: "POST",
-      path: "/jsonrpc",
-      body: { jsonrpc: "2.0", method: "aria2.getVersion", params: ["token:ignored"] },
-    });
-    expect(JSON.parse(calls.at(-1)?.body ?? "null")).toMatchObject({
-      params: [`token:${secret}`, "token:ignored"],
-    });
-  });
   test("does not redact ordinary response values that match constant adapter headers", async () => {
     const caller = await fixture("full", async (db) => {
-      await db.update(integrations).set({ kind: "nextcloud" }).where(eq(integrations.id, "sonarr"));
-      await db.delete(integrationSecrets).where(eq(integrationSecrets.integrationId, "sonarr"));
+      await db.update(integrations).set({ kind: "nextcloud" }).where(eq(integrations.id, "komga"));
+      await db.delete(integrationSecrets).where(eq(integrationSecrets.integrationId, "komga"));
       await db.insert(integrationSecrets).values([
-        { integrationId: "sonarr", kind: "username", value: encryptSecret("reader") },
-        { integrationId: "sonarr", kind: "password", value: encryptSecret(secret) },
+        { integrationId: "komga", kind: "username", value: encryptSecret("reader") },
+        { integrationId: "komga", kind: "password", value: encryptSecret(secret) },
       ]);
     });
     await expect(caller.request({ ...get, path: "/boolean" })).resolves.toMatchObject({
@@ -298,7 +274,7 @@ describe("integration_request with a mock integration server", () => {
     const rotated = "credential-for-the-new-origin";
     const caller = await fixture("full", async (db) => {
       const snapshot = await db.query.integrations.findFirst({
-        where: eq(integrations.id, "sonarr"),
+        where: eq(integrations.id, "komga"),
         with: {
           secrets: true,
           userPermissions: { where: eq(integrationUserPermissions.userId, "reader") },
@@ -306,7 +282,7 @@ describe("integration_request with a mock integration server", () => {
         },
       });
       // Simulate a URL/key rotation immediately after the first SELECT completed.
-      await db.update(integrations).set({ url: "https://new-origin.example" }).where(eq(integrations.id, "sonarr"));
+      await db.update(integrations).set({ url: "https://new-origin.example" }).where(eq(integrations.id, "komga"));
       await db.update(integrationSecrets).set({ value: encryptSecret(rotated) });
       vi.spyOn(db.query.integrations, "findFirst").mockResolvedValueOnce(snapshot);
     });
@@ -427,14 +403,14 @@ describe("integration_request with a mock integration server", () => {
 });
 
 describe("integration proxy public contract", () => {
-  test.each([{ integrationKind: "sonarr" as const }, { integrationName: "Sonarr" }])(
+  test.each([{ integrationKind: "komga" as const }, { integrationName: "Komga" }])(
     "selects the first authorized instance with %j",
     async (selector) => {
       const caller = await fixture(undefined, async (db) => {
         await db.insert(integrations).values([
-          { id: "b", name: "Sonarr", kind: "sonarr", url: baseUrl },
-          { id: "a-denied", name: "Sonarr", kind: "sonarr", url: baseUrl },
-          { id: "c", name: "Sonarr", kind: "sonarr", url: baseUrl },
+          { id: "b", name: "Komga", kind: "komga", url: baseUrl },
+          { id: "a-denied", name: "Komga", kind: "komga", url: baseUrl },
+          { id: "c", name: "Komga", kind: "komga", url: baseUrl },
         ]);
         for (const id of ["b", "c"]) {
           await db
@@ -446,7 +422,7 @@ describe("integration proxy public contract", () => {
         }
       });
       await expect(caller.request({ ...selector, path: "/api/v3/series" })).resolves.toMatchObject({
-        integration: { id: "b", name: "Sonarr", kind: "sonarr" },
+        integration: { id: "b", name: "Komga", kind: "komga" },
         ok: true,
       });
     },
@@ -454,13 +430,13 @@ describe("integration proxy public contract", () => {
 
   test.each<z.input<typeof integrationRequestSchema>>([
     { path: "/x" },
-    { integrationId: "sonarr", integrationName: "Sonarr", path: "/x" },
+    { integrationId: "komga", integrationName: "Komga", path: "/x" },
     { integrationName: "missing", path: "/x" },
-    { integrationId: "sonarr", method: "HEAD" as const, path: "/x", body: "invalid" },
-    { integrationId: "sonarr", method: "POST" as const, path: "/x", bodyEncoding: "raw" as const, body: {} },
-    { integrationId: "sonarr", path: "/x", headers: { Host: "another-host" } },
-    { integrationId: "sonarr", path: "/x", headers: { Authorization: "another-credential" } },
-    { integrationId: "sonarr", path: "/x", headers: { a: "x".repeat(8192), b: "y".repeat(8192) } },
+    { integrationId: "komga", method: "HEAD" as const, path: "/x", body: "invalid" },
+    { integrationId: "komga", method: "POST" as const, path: "/x", bodyEncoding: "raw" as const, body: {} },
+    { integrationId: "komga", path: "/x", headers: { Host: "another-host" } },
+    { integrationId: "komga", path: "/x", headers: { Authorization: "another-credential" } },
+    { integrationId: "komga", path: "/x", headers: { a: "x".repeat(8192), b: "y".repeat(8192) } },
   ])("rejects invalid or unauthorized input before transmission (%#)", async (input) => {
     const caller = await fixture("full");
     const count = calls.length;
@@ -470,10 +446,10 @@ describe("integration proxy public contract", () => {
 
   test("preserves reverse-proxy subpaths and rejects encoded path escapes before transmission", async () => {
     const caller = await fixture("full", async (db) => {
-      await db.update(integrations).set({ url: `${baseUrl}/sonarr` });
+      await db.update(integrations).set({ url: `${baseUrl}/komga` });
     });
     await caller.request(get);
-    expect(calls.at(-1)?.path).toBe("/sonarr/api/v3/series");
+    expect(calls.at(-1)?.path).toBe("/komga/api/v3/series");
     const count = calls.length;
     for (const path of ["../escape", "/%252e%252e/escape", "/%2f..%2fescape"])
       await expect(caller.request({ ...get, path })).rejects.toMatchObject({ code: "BAD_REQUEST" });
@@ -545,7 +521,7 @@ describe("integration proxy public contract", () => {
     });
     expect(response.status).toBe(200);
     const result = await response.json();
-    expect(result).toMatchObject({ ok: false, status: 400, integration: { id: "sonarr" } });
+    expect(result).toMatchObject({ ok: false, status: 400, integration: { id: "komga" } });
     expect(JSON.stringify(result)).not.toContain(secret);
     const tool = extractMcpToolsFromProcedures(router).tools.find((entry) => entry.name === "request");
     expect(tool).toBeDefined();

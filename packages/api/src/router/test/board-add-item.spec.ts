@@ -263,15 +263,15 @@ describe("board.addItem", () => {
     const integrationId = createId();
     await db.insert(integrations).values({
       id: integrationId,
-      name: "Sonarr",
-      kind: "sonarr",
-      url: "https://sonarr.example.com",
+      name: "Traefik",
+      kind: "traefik",
+      url: "https://traefik.example.com",
     });
     await db.insert(integrationUserPermissions).values({ integrationId, userId, permission: "use" });
 
     await expect(
       caller.addItem({ boardId, kind: "mediaServer", options: {}, integrationIds: [integrationId] }),
-    ).rejects.toThrow("mediaServer does not support integration kind: sonarr");
+    ).rejects.toThrow("mediaServer does not support integration kind: traefik");
 
     await expect(db.$count(items)).resolves.toBe(0);
   });

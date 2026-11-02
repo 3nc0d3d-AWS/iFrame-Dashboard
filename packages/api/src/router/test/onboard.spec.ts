@@ -161,19 +161,19 @@ describe("onboard.testIntegration", () => {
     try {
       await expect(
         createCaller(db, claimToken).testIntegration({
-          sourceId: "manual:sonarr",
-          name: "Sonarr",
-          url: "http://sonarr:8989",
-          kind: "sonarr",
+          sourceId: "manual:jellyfin",
+          name: "Jellyfin",
+          url: "http://jellyfin:8096",
+          kind: "jellyfin",
           secrets: [{ kind: "apiKey", value: "secret" }],
         }),
       ).resolves.toEqual({ success: true });
       expect(testConnection).toHaveBeenCalledWith(
         expect.objectContaining({
-          id: stableIntegrationIdForSource("manual:sonarr"),
-          name: "Sonarr",
-          url: "http://sonarr:8989",
-          kind: "sonarr",
+          id: stableIntegrationIdForSource("manual:jellyfin"),
+          name: "Jellyfin",
+          url: "http://jellyfin:8096",
+          kind: "jellyfin",
         }),
       );
       expect(await db.query.integrations.findMany()).toHaveLength(0);
@@ -259,48 +259,6 @@ describe("onboard.completeSetup", () => {
     expect(await db.query.items.findMany({ where: eq(items.kind, "clock") })).toHaveLength(0);
     expect(await db.query.boards.findFirst({ where: eq(boards.id, "target") })).toMatchObject({ name: "target" });
     expect(await db.query.onboarding.findFirst()).toMatchObject({ step: "finish", previousStep: "setup" });
-  });
-
-  it("uses canonical widget sizes for automatically generated integration widgets", async () => {
-    const db = createDb();
-    const claimToken = await seedOnboardingAsync(db);
-    await seedBoardAsync(db, { boardId: "target" });
-    await db.insert(integrations).values({
-      id: "sonarr",
-      name: "Sonarr",
-      url: "http://sonarr:8989",
-      kind: "sonarr",
-    });
-    const input = completionInput("target");
-    input.selectedIntegrationIds = ["sonarr"];
-
-    await createCaller(db, claimToken).completeSetup(input);
-
-    const mediaMissing = await db.query.items.findFirst({ where: eq(items.kind, "mediaMissing") });
-    expect(mediaMissing).toBeDefined();
-    expect(
-      await db.query.itemLayouts.findFirst({ where: eq(itemLayouts.itemId, mediaMissing?.id ?? "missing") }),
-    ).toMatchObject({ width: 2, height: 2 });
-  });
-
-  it("does not automatically place integration widgets whose default config is skipped", async () => {
-    const db = createDb();
-    const claimToken = await seedOnboardingAsync(db);
-    await seedBoardAsync(db, { boardId: "target" });
-    await db.insert(integrations).values({
-      id: "sonarr",
-      name: "Sonarr",
-      url: "http://sonarr:8989",
-      kind: "sonarr",
-    });
-    const input = completionInput("target");
-    input.selectedIntegrationIds = ["sonarr"];
-
-    await createCaller(db, claimToken).completeSetup(input);
-
-    // Releases supports Sonarr, but its default config is skipped, so only the other Sonarr widgets are placed.
-    expect(await db.query.items.findFirst({ where: eq(items.kind, "mediaMissing") })).toBeDefined();
-    expect(await db.query.items.findFirst({ where: eq(items.kind, "releases") })).toBeUndefined();
   });
 
   it("requires an exact board id when more than one board exists", async () => {
@@ -434,17 +392,17 @@ describe("onboard.completeSetup", () => {
       widgetKind: "clock" as const,
     };
     const integrationService = {
-      sourceId: "docker:good:sonarr",
-      containerId: "sonarr",
+      sourceId: "docker:good:jellyfin",
+      containerId: "jellyfin",
       host: "good",
       group: "Media",
-      name: "Sonarr",
-      href: "http://sonarr:8989",
-      externalId: "sonarr",
-      integrationKind: "sonarr" as const,
+      name: "Jellyfin",
+      href: "http://jellyfin:8096",
+      externalId: "jellyfin",
+      integrationKind: "jellyfin" as const,
       description: "TV automation",
-      pingUrl: "http://sonarr:8989/ping",
-      icon: "custom-sonarr.svg",
+      pingUrl: "http://jellyfin:8096/ping",
+      icon: "custom-jellyfin.svg",
     };
     listDiscoveredContainersAsync.mockResolvedValue({
       hosts: [
@@ -496,13 +454,13 @@ describe("onboard.completeSetup", () => {
     ];
     input.integrations = [
       {
-        sourceId: "docker:good:sonarr",
-        name: "Sonarr",
-        url: "http://sonarr:8989",
-        kind: "sonarr",
+        sourceId: "docker:good:jellyfin",
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
+        kind: "jellyfin",
         secrets: [{ kind: "apiKey", value: "secret" }],
-        pingUrl: "http://sonarr:8989/ping",
-        iconUrl: "https://icons.example/sonarr.svg",
+        pingUrl: "http://jellyfin:8096/ping",
+        iconUrl: "https://icons.example/jellyfin.svg",
         description: "TV automation",
       },
     ];
@@ -520,25 +478,25 @@ describe("onboard.completeSetup", () => {
         description: "Internal status page",
       });
       expect(
-        await db.query.apps.findFirst({ where: eq(apps.id, stableAppIdForSource("docker:good:sonarr")) }),
+        await db.query.apps.findFirst({ where: eq(apps.id, stableAppIdForSource("docker:good:jellyfin")) }),
       ).toMatchObject({
-        href: "http://sonarr:8989",
-        pingUrl: "http://sonarr:8989/ping",
-        iconUrl: "https://icons.example/sonarr.svg",
+        href: "http://jellyfin:8096",
+        pingUrl: "http://jellyfin:8096/ping",
+        iconUrl: "https://icons.example/jellyfin.svg",
         description: "TV automation",
       });
       expect(
         await db.query.integrations.findFirst({
-          where: eq(integrations.id, stableIntegrationIdForSource("docker:good:sonarr")),
+          where: eq(integrations.id, stableIntegrationIdForSource("docker:good:jellyfin")),
         }),
       ).toMatchObject({
-        appId: stableAppIdForSource("docker:good:sonarr"),
-        name: "Sonarr",
-        url: "http://sonarr:8989",
-        kind: "sonarr",
+        appId: stableAppIdForSource("docker:good:jellyfin"),
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
+        kind: "jellyfin",
       });
       const savedSecrets = await db.query.integrationSecrets.findMany({
-        where: eq(integrationSecrets.integrationId, stableIntegrationIdForSource("docker:good:sonarr")),
+        where: eq(integrationSecrets.integrationId, stableIntegrationIdForSource("docker:good:jellyfin")),
       });
       expect(savedSecrets).toEqual([expect.objectContaining({ kind: "apiKey" })]);
       expect(savedSecrets[0]?.value).not.toBe("secret");
@@ -555,10 +513,10 @@ describe("onboard.completeSetup", () => {
     const input = completionInput("target");
     input.integrations = [
       {
-        sourceId: "manual:sonarr",
-        name: "Sonarr",
-        url: "http://sonarr:8989",
-        kind: "sonarr",
+        sourceId: "manual:jellyfin",
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
+        kind: "jellyfin",
         secrets: [{ kind: "apiKey", value: "invalid" }],
       },
     ];
@@ -570,9 +528,9 @@ describe("onboard.completeSetup", () => {
       await expect(createCaller(db, claimToken).completeSetup(input)).resolves.toMatchObject({ boardId: "target" });
       expect(
         await db.query.integrations.findFirst({
-          where: eq(integrations.id, stableIntegrationIdForSource("manual:sonarr")),
+          where: eq(integrations.id, stableIntegrationIdForSource("manual:jellyfin")),
         }),
-      ).toMatchObject({ name: "Sonarr", kind: "sonarr" });
+      ).toMatchObject({ name: "Jellyfin", kind: "jellyfin" });
       expect(await db.query.onboarding.findFirst()).toMatchObject({ step: "finish" });
     } finally {
       testConnection.mockRestore();
@@ -583,14 +541,14 @@ describe("onboard.completeSetup", () => {
     const db = createDb();
     const claimToken = await seedOnboardingAsync(db);
     await seedBoardAsync(db, { boardId: "target", itemId: "generated-id" });
-    const sourceId = "manual:sonarr";
+    const sourceId = "manual:jellyfin";
     const input = completionInput("target", "Retried-board");
     input.integrations = [
       {
         sourceId,
-        name: "Sonarr",
-        url: "http://sonarr:8989",
-        kind: "sonarr",
+        name: "Jellyfin",
+        url: "http://jellyfin:8096",
+        kind: "jellyfin",
         secrets: [{ kind: "apiKey", value: "secret" }],
       },
     ];
@@ -633,21 +591,21 @@ describe("onboard.completeSetup", () => {
       withMobile: true,
     });
     const groupedSource = {
-      sourceId: "docker:good:sonarr",
-      containerId: "sonarr",
+      sourceId: "docker:good:jellyfin",
+      containerId: "jellyfin",
       host: "good",
       group: "Media",
-      name: "Sonarr",
-      href: "http://sonarr:8989",
-      externalId: "sonarr",
+      name: "Jellyfin",
+      href: "http://jellyfin:8096",
+      externalId: "jellyfin",
       widgetKind: "clock" as const,
     };
     const ignoredSource = {
       ...groupedSource,
-      sourceId: "docker:good:radarr",
-      containerId: "radarr",
-      externalId: "radarr",
-      name: "Radarr",
+      sourceId: "docker:good:emby",
+      containerId: "emby",
+      externalId: "emby",
+      name: "Emby",
       boardName: "other-board",
     };
     listDiscoveredContainersAsync.mockResolvedValue({
@@ -711,14 +669,14 @@ describe("onboard.completeSetup", () => {
     const claimToken = await seedOnboardingAsync(db);
     await seedBoardAsync(db, { boardId: "target", withMobile: true });
     const source = {
-      sourceId: "docker:good:sonarr",
-      containerId: "sonarr",
+      sourceId: "docker:good:jellyfin",
+      containerId: "jellyfin",
       host: "good",
       group: "Media",
-      name: "Sonarr",
-      href: "http://sonarr:8989",
-      externalId: "sonarr",
-      integrationKind: "sonarr" as const,
+      name: "Jellyfin",
+      href: "http://jellyfin:8096",
+      externalId: "jellyfin",
+      integrationKind: "jellyfin" as const,
       widgetKind: "calendar" as const,
     };
     listDiscoveredContainersAsync.mockResolvedValue({
@@ -779,14 +737,14 @@ describe("onboard.completeSetup", () => {
       height: 2,
     });
     const source = {
-      sourceId: "docker:good:sonarr",
-      containerId: "sonarr",
+      sourceId: "docker:good:jellyfin",
+      containerId: "jellyfin",
       host: "good",
       group: "Media",
-      name: "Sonarr",
-      href: "http://sonarr:8989",
-      externalId: "sonarr",
-      integrationKind: "sonarr" as const,
+      name: "Jellyfin",
+      href: "http://jellyfin:8096",
+      externalId: "jellyfin",
+      integrationKind: "jellyfin" as const,
       widgetKind: "calendar" as const,
     };
     listDiscoveredContainersAsync.mockResolvedValue({
@@ -831,12 +789,12 @@ describe("onboard.completeSetup", () => {
     };
     const incompatible = {
       ...appOnly,
-      sourceId: "docker:good:sonarr",
-      containerId: "sonarr",
-      externalId: "sonarr",
-      name: "Sonarr",
-      href: "http://sonarr:8989",
-      integrationKind: "sonarr" as const,
+      sourceId: "docker:good:jellyfin",
+      containerId: "jellyfin",
+      externalId: "jellyfin",
+      name: "Jellyfin",
+      href: "http://jellyfin:8096",
+      integrationKind: "jellyfin" as const,
     };
     const services = [appOnly, incompatible];
     listDiscoveredContainersAsync.mockResolvedValue({
@@ -874,7 +832,7 @@ describe("onboard.completeSetup", () => {
         expect.objectContaining({
           sourceId: incompatible.sourceId,
           code: "incompatible-integration",
-          integrationKind: "sonarr",
+          integrationKind: "jellyfin",
         }),
       ]),
     );
@@ -1099,10 +1057,10 @@ describe("onboard.completeSetup", () => {
     const other = { ...media, sourceId: "docker:good:other", containerId: "other", boardName: "Other board" };
     const ignoredIntegrationSource = {
       ...other,
-      sourceId: "docker:good:other-sonarr",
-      containerId: "other-sonarr",
-      externalId: "other-sonarr",
-      integrationKind: "sonarr" as const,
+      sourceId: "docker:good:other-jellyfin",
+      containerId: "other-jellyfin",
+      externalId: "other-jellyfin",
+      integrationKind: "jellyfin" as const,
     };
     listDiscoveredContainersAsync.mockResolvedValue({
       hosts: [{ host: "good", status: "success", containers: [], services: [media, other, ignoredIntegrationSource] }],

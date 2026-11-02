@@ -25,9 +25,9 @@ const createCallerAsync = async () => {
   await db.insert(users).values({ id: userId });
   await db.insert(integrations).values({
     id: integrationId,
-    kind: "radarr",
-    name: "Radarr",
-    url: "https://radarr.example.com",
+    kind: "ical",
+    name: "iCal",
+    url: "https://ical.example.com",
   });
   await db.insert(integrationUserPermissions).values({ integrationId, userId, permission: "use" });
   const session = {
@@ -47,17 +47,17 @@ const createEvent = (title: string, releaseType?: "digitalRelease" | "physicalRe
   location: null,
   indicatorColor: "blue",
   links: [],
-  ...(releaseType ? { metadata: { type: "radarr" as const, releaseType } } : {}),
+  ...(releaseType ? { metadata: { type: "mediaRelease" as const, releaseType } } : {}),
 });
 
 describe("calendarRouter.findAllEvents", () => {
-  test("uses human month numbers and filters Radarr release types", async () => {
+  test("uses human month numbers and filters Emby release types", async () => {
     const { caller, integrationId } = await createCallerAsync();
     getDataAsync.mockResolvedValueOnce({
       data: [
         createEvent("Digital", "digitalRelease"),
         createEvent("Physical", "physicalRelease"),
-        createEvent("Sonarr episode"),
+        createEvent("Jellyfin episode"),
       ],
       timestamp: new Date(),
     });
@@ -76,7 +76,7 @@ describe("calendarRouter.findAllEvents", () => {
       releaseType: ["digitalRelease"],
       showUnmonitored: true,
     });
-    expect(result[0]?.events.map((event) => event.title)).toEqual(["Digital", "Sonarr episode"]);
+    expect(result[0]?.events.map((event) => event.title)).toEqual(["Digital", "Jellyfin episode"]);
   });
 
   test("rejects zero-based and out-of-range months", async () => {

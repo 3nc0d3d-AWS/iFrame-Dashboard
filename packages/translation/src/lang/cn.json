@@ -3372,27 +3372,6 @@
 				"noForecast": "没有可用的预报数据"
 			}
 		},
-		"indexerManager": {
-			"name": "索引器管理状态",
-			"description": "索引器状态",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "在新标签中打开索引器站点"
-				}
-			},
-			"title": "索引器管理",
-			"testAll": "测试全部",
-			"status": {
-				"healthy": "健康",
-				"unhealthy": "不健康",
-				"disabled": "已禁用",
-				"unknown": "健康不可用"
-			},
-			"error": {
-				"internalServerError": "获取索引器状态失败",
-				"testAll": "索引器测试失败。请重试。"
-			}
-		},
 		"healthMonitoring": {
 			"name": "系统健康监测",
 			"description": "显示系统运行状况和状态的信息。",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "获取 UPS 数据失败"
-			}
-		},
-		"tracearr": {
-			"description": "增强型媒体服务器监控，提供详细的流与转码数据",
-			"option": {
-				"showStreams": {
-					"label": "显示活跃流"
-				},
-				"showStats": {
-					"label": "显示统计摘要"
-				},
-				"showRecentActivity": {
-					"label": "显示近期活动"
-				},
-				"showViolations": {
-					"label": "显示违规记录"
-				}
-			},
-			"stats": {
-				"activeStreams": "活跃流",
-				"totalUsers": "总用户数",
-				"transcodes": "转码数",
-				"bandwidth": "带宽"
-			},
-			"streams": {
-				"empty": "无活跃流",
-				"user": "用户",
-				"media": "媒体",
-				"state": "状态",
-				"quality": "画质",
-				"device": "设备",
-				"progress": "进度",
-				"videoDecision": {
-					"directPlay": "直接播放",
-					"transcode": "转码",
-					"directStream": "直接串流"
-				}
-			},
-			"recentActivity": {
-				"title": "近期活动",
-				"empty": "暂无近期活动",
-				"watched": "已观看",
-				"partial": "部分观看"
-			},
-			"violations": {
-				"title": "违规记录",
-				"empty": "暂无近期违规",
-				"rule": "规则",
-				"user": "用户"
-			},
-			"noSectionsEnabled": "未启用任何分区",
-			"error": {
-				"noIntegration": "未配置 Tracearr 集成",
-				"internalServerError": "获取 Tracearr 数据失败"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "获取 PatchMon 数据失败"
 			}
 		},
-		"bazarr": {
-			"description": "来自您 Bazarr 实例的缺失字幕和健康状态概览",
-			"episodes": "缺失剧集",
-			"movies": "缺失电影",
-			"providers": "提供商问题",
-			"status": "健康问题",
-			"announcements": "公告",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "显示缺失剧集",
-					"description": "显示缺失字幕的剧集数量"
-				},
-				"showMissingMovies": {
-					"label": "显示缺失电影",
-					"description": "显示缺失字幕的电影数量"
-				},
-				"showProviderIssues": {
-					"label": "显示提供商问题",
-					"description": "显示有问题的字幕提供商数量"
-				},
-				"showHealthIssues": {
-					"label": "显示健康问题",
-					"description": "显示 Bazarr 健康问题的数量"
-				}
-			},
-			"error": {
-				"internalServerError": "获取 Bazarr 数据失败"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immich 服务器统计",
 			"description": "有关您的 Immich 实例的信息",
@@ -4390,170 +4286,6 @@
 				"photo": "照片 {number}"
 			}
 		},
-		"downloads": {
-			"name": "下载客户端",
-			"description": "允许您查看和管理来自Torrent 和 Usenet 客户端的下载。",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "显示标记为已完成的 usenet 条目"
-				},
-				"showCompletedTorrent": {
-					"label": "显示标记为已完成的 Torrent 条目"
-				},
-				"showCompletedHttp": {
-					"label": "显示标记为已完成的杂项"
-				},
-				"includeArchivedHistory": {
-					"label": "包含已归档的 SABnzbd 历史记录",
-					"description": "显示已移至归档的任务。"
-				},
-				"historyWindowDays": {
-					"label": "归档历史时间范围（天）",
-					"description": "只显示最近这么多天内已完成的 SABnzbd 历史记录。提高条目上限可显示更多结果。"
-				},
-				"activeTorrentThreshold": {
-					"label": "隐藏在此阈值下已完成的 Torrent"
-				},
-				"categoryFilter": {
-					"label": "要过滤的分类/标签"
-				},
-				"filterIsWhitelist": {
-					"label": "以白名单过滤"
-				},
-				"applyFilterToRatio": {
-					"label": "使用过滤器来计算比率"
-				},
-				"limitPerIntegration": {
-					"label": "限制每个集成的项目",
-					"description": "这将限制每个集成显示的项目数量，而不是全局项目"
-				}
-			},
-			"errors": {
-				"noColumns": "在项目中选择列",
-				"noCommunications": "无法从集成中加载数据",
-				"noItems": "未找到下载",
-				"actionFailed": "操作失败",
-				"actionFailedMessage": "操作无法完成。请重试。"
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "操作"
-				},
-				"added": {
-					"columnTitle": "已添加",
-					"detailsTitle": "添加日期"
-				},
-				"category": {
-					"columnTitle": "分类",
-					"detailsTitle": "分类(额外信息)"
-				},
-				"downSpeed": {
-					"columnTitle": "下载",
-					"detailsTitle": "下载速度"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "客户端中的当前索引"
-				},
-				"id": {
-					"columnTitle": "ID",
-					"detailsTitle": "项目 ID"
-				},
-				"integration": {
-					"columnTitle": "集成"
-				},
-				"name": {
-					"columnTitle": "作业名称"
-				},
-				"progress": {
-					"columnTitle": "进度",
-					"detailsTitle": "下载进度"
-				},
-				"ratio": {
-					"columnTitle": "分享率",
-					"detailsTitle": "Torrent 比率(接收/发送)"
-				},
-				"received": {
-					"columnTitle": "总下载",
-					"detailsTitle": "总下载量"
-				},
-				"sent": {
-					"columnTitle": "总上传",
-					"detailsTitle": "总上传量"
-				},
-				"size": {
-					"columnTitle": "文件大小",
-					"detailsTitle": "文件大小"
-				},
-				"state": {
-					"columnTitle": "状态",
-					"detailsTitle": "作业状态"
-				},
-				"time": {
-					"columnTitle": "完成时间",
-					"detailsTitle": "完成时间",
-					"eta": "预计完成时间"
-				},
-				"type": {
-					"columnTitle": "类型",
-					"detailsTitle": "下载客户端类型"
-				},
-				"upSpeed": {
-					"columnTitle": "上传",
-					"detailsTitle": "上传速度"
-				}
-			},
-			"states": {
-				"downloading": "正在下载",
-				"queued": "排队中",
-				"paused": "已暂停",
-				"completed": "已完成",
-				"failed": "已失败",
-				"processing": "处理中",
-				"leeching": "吸血",
-				"stalled": "已停滞",
-				"unknown": "未知",
-				"seeding": "做种中"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "下载客户列表",
-					"pause": "暂停所有客户端/项目",
-					"resume": "恢复所有客户端/项目"
-				},
-				"client": {
-					"pause": "暂停客户端",
-					"resume": "恢复客户端"
-				},
-				"item": {
-					"pause": "暂停项目",
-					"resume": "恢复项目",
-					"delete": {
-						"title": "删除项目",
-						"modalTitle": "确定要删除此作业？",
-						"entry": "删除条目",
-						"entryAndFiles": "删除条目和文件(s)"
-					}
-				}
-			},
-			"globalRatio": "全局比率",
-			"contextMenu": {
-				"copyName": "复制名称",
-				"copyId": "复制 ID",
-				"clearFilters": "清除筛选"
-			},
-			"footer": {
-				"filter": "筛选下载"
-			},
-			"stats": {
-				"show": "显示全局统计",
-				"hide": "隐藏全局统计",
-				"overallProgress": "整体队列进度",
-				"totalSize": "队列总大小",
-				"clients": "{count, plural, one {# 个客户端} other {# 个客户端}}"
-			},
-			"disconnected": "(已断开)"
-		},
 		"mediaReleases": {
 			"name": "媒体发布",
 			"description": "显示来自不同集成的新添加媒体或即将发布的版本",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} 分钟"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "媒体请求列表",
-			"description": "查看来自您的 Seerr、Overseerr 或 Jellyseerr 实例的所有媒体请求列表。",
-			"empty": {
-				"title": "尚无媒体请求",
-				"description": "搜索电影或剧集以发起请求。"
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "在新标签页中打开链接"
-				},
-				"statusFilter": {
-					"label": "要显示的状态"
-				},
-				"recentDays": {
-					"label": "仅显示最近的请求"
-				}
-			},
-			"pending": {
-				"approve": "批准请求",
-				"approving": "正在批准请求...",
-				"decline": "拒绝请求"
-			},
-			"availability": {
-				"unknown": "未知",
-				"pending": "等待处理",
-				"processing": "处理中",
-				"requested": "已请求",
-				"partiallyAvailable": "部分",
-				"available": "可用",
-				"blacklisted": "已列入黑名单",
-				"deleted": "已删除"
-			},
-			"status": {
-				"pending": "待处理",
-				"approved": "已批准",
-				"declined": "已拒绝",
-				"failed": "失败",
-				"completed": "已完成"
-			},
-			"unknown": "未知",
-			"toBeDetermined": "待定"
-		},
-		"mediaRequests-requestStats": {
-			"name": "媒体请求统计",
-			"description": "您的媒体请求统计",
-			"empty": {
-				"title": "尚无请求活动",
-				"description": "统计信息将在第一个媒体请求后显示。"
-			},
-			"titles": {
-				"stats": {
-					"main": "媒体统计",
-					"approved": "已经批准",
-					"pending": "等待批准",
-					"processing": "处理中",
-					"declined": "已拒绝",
-					"available": "已可用",
-					"tv": "电视请求",
-					"movie": "电影请求"
-				},
-				"users": {
-					"main": "用户排行",
-					"requests": "请求"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "健康检查"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "缺失和排队媒体",
-			"description": "显示来自 {radarr}、{sonarr}、{sportarr} 和 {bindery} 的缺失和排队中的电影、剧集、赛事和书籍",
-			"option": {
-				"showMissing": {
-					"label": "显示缺失项目"
-				},
-				"showQueued": {
-					"label": "显示排队项目"
-				},
-				"pageSize": {
-					"label": "每页项目数"
-				}
-			},
-			"tab": {
-				"missing": "缺失",
-				"queued": "排队中"
-			},
-			"type": {
-				"movie": "电影",
-				"episode": "剧集",
-				"book": "书"
-			},
-			"empty": {
-				"missing": "无缺失项目",
-				"queued": "无排队项目",
-				"noTabsEnabled": "请在小组件设置中至少启用一个标签"
-			},
-			"timeLeft": "剩余时间"
 		},
 		"rssFeed": {
 			"name": "RSS 订阅",
@@ -8093,11 +7728,6 @@
 				"label": "",
 				"placeholder": "使用外部搜索引擎搜索"
 			},
-			"media": {
-				"label": "媒体",
-				"placeholder": "搜索电影或剧集",
-				"fallback": "搜索媒体：“{query}”"
-			},
 			"userGroup": {
 				"label": "人员",
 				"placeholder": "搜索用户和组"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "搜索要请求的电影或剧集",
-				"requestMovie": "请求电影",
-				"requestSeries": "请求电视节目",
-				"openIn": "在 {kind} 中打开",
-				"group": {
-					"title": "电影和剧集"
-				},
-				"action": {
-					"search": {
-						"label": "搜索电影或剧集",
-						"description": "开始输入以搜索您的媒体请求集成",
-						"disabled": {
-							"noIntegration": "添加 Overseerr、Jellyseerr 或 Seerr 集成以启用媒体搜索。",
-							"signInRequired": "登录以搜索媒体请求集成。",
-							"scoped": "此小组件没有可用的媒体请求集成。"
-						}
-					}
-				},
-				"availability": {
-					"available": "可用",
-					"partiallyAvailable": "部分可用",
-					"processing": "处理中",
-					"requested": "已请求",
-					"pending": "已请求"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "搜索引擎没有删除",
 							"message": "这个搜索引擎不能被删除"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "请求 “{name}”",
-						"table": {
-							"header": {
-								"season": "季",
-								"episodes": "集",
-								"status": "状态"
-							},
-							"status": {
-								"requested": "已请求"
-							}
-						},
-						"button": {
-							"send": "发送请求"
 						}
 					}
 				}

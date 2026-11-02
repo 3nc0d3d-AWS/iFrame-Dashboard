@@ -27,11 +27,11 @@ describe("listDiscoveredContainersAsync", () => {
   it("preserves successful hosts when another Docker host fails", async () => {
     listContainersA.mockResolvedValue([
       {
-        Id: "sonarr",
+        Id: "jellyfin",
         Labels: {
-          "homarr.name": "Sonarr",
+          "homarr.name": "Jellyfin",
           "homarr.group": "Media",
-          "homarr.href": "http://sonarr:8989",
+          "homarr.href": "http://jellyfin:8096",
         },
       },
     ]);
@@ -58,11 +58,11 @@ describe("listDiscoveredContainersAsync", () => {
       let blackholedSignal: AbortSignal | undefined;
       listContainersA.mockResolvedValue([
         {
-          Id: "sonarr",
+          Id: "jellyfin",
           Labels: {
-            "homarr.name": "Sonarr",
+            "homarr.name": "Jellyfin",
             "homarr.group": "Media",
-            "homarr.href": "http://sonarr:8989",
+            "homarr.href": "http://jellyfin:8096",
           },
         },
       ]);

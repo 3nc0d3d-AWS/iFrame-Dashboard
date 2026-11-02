@@ -5,23 +5,17 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ActionIcon, Center, Group, Kbd, Text } from "@mantine/core";
 import { Spotlight as MantineSpotlight } from "@mantine/spotlight";
 import { IconArrowDown, IconArrowLeft, IconArrowUp, IconCornerDownLeft, IconSearch, IconX } from "@tabler/icons-react";
-import { useSetAtom } from "jotai";
 
 import { translateIfNecessary } from "@homarr/translation";
 import { useI18n } from "@homarr/translation/client";
 
-import {
-  consumePendingMediaRequestSearch,
-  consumePendingSpotlightOpen,
-  mediaRequestSearchEvent,
-  spotlightOpenEvent,
-} from "../open";
-import type { OpenMediaRequestSearchOptions, SpotlightMode, SpotlightOpenIntent } from "../open";
+import { consumePendingSpotlightOpen, spotlightOpenEvent } from "../open";
+import type { SpotlightMode, SpotlightOpenIntent } from "../open";
 import type { inferSearchInteractionOptions } from "../lib/interaction";
 import type { SearchMode } from "../lib/mode";
 import { useSpotlightCatalogs } from "../lib/catalog";
 import { searchModes } from "../modes";
-import { mediaRequestSearchScopeAtom, selectAction, spotlightActions, spotlightStore } from "../spotlight-store";
+import { selectAction, spotlightActions, spotlightStore } from "../spotlight-store";
 import { SpotlightChildrenActions } from "./actions/children-actions";
 import { SpotlightActionGroups } from "./actions/groups/action-group";
 import { SpotlightModeRail } from "./mode-rail";
@@ -41,19 +35,14 @@ export const Spotlight = () => {
 
   const [mode, setMode] = useState<SpotlightMode>(defaultMode);
   const [query, setQuery] = useState("");
-  const setMediaRequestSearchScope = useSetAtom(mediaRequestSearchScopeAtom);
   const activeMode = useMemo(() => searchModes.find((searchMode) => searchMode.mode === mode), [mode]);
 
-  const applyOpenOptions = useCallback(
-    (options: SpotlightOpenIntent) => {
-      setMode(options.mode);
-      setQuery(options.query ?? "");
-      if (options.mode !== "media") setMediaRequestSearchScope({});
-      spotlightActions.open();
-      resetSelection();
-    },
-    [setMediaRequestSearchScope],
-  );
+  const applyOpenOptions = useCallback((options: SpotlightOpenIntent) => {
+    setMode(options.mode);
+    setQuery(options.query ?? "");
+    spotlightActions.open();
+    resetSelection();
+  }, []);
 
   useEffect(() => {
     const handleOpen = (event: Event) => {
@@ -67,24 +56,6 @@ export const Spotlight = () => {
     if (pendingOptions) applyOpenOptions(pendingOptions);
     return () => window.removeEventListener(spotlightOpenEvent, handleOpen);
   }, [applyOpenOptions]);
-
-  useEffect(() => {
-    const applyMediaRequestSearch = ({ integrationIds, query: mediaQuery }: OpenMediaRequestSearchOptions) => {
-      setMediaRequestSearchScope({ integrationIds });
-      applyOpenOptions({ mode: "media", query: mediaQuery });
-    };
-
-    const handleMediaRequestSearch = (event: Event) => {
-      const pendingOptions = consumePendingMediaRequestSearch();
-      const eventOptions = (event as CustomEvent<OpenMediaRequestSearchOptions>).detail;
-      applyMediaRequestSearch(eventOptions ?? pendingOptions ?? {});
-    };
-
-    window.addEventListener(mediaRequestSearchEvent, handleMediaRequestSearch);
-    const pendingOptions = consumePendingMediaRequestSearch();
-    if (pendingOptions) applyMediaRequestSearch(pendingOptions);
-    return () => window.removeEventListener(mediaRequestSearchEvent, handleMediaRequestSearch);
-  }, [applyOpenOptions, setMediaRequestSearchScope]);
 
   if (!activeMode) return null;
 

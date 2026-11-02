@@ -83,7 +83,7 @@ describe("IntegrationSelectGrid", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "sonarr", "radarr", "sabNzbd"]} />
+          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "emby", "navidrome", "audiobookshelf"]} />
         </MantineProvider>,
       ),
     );
@@ -91,9 +91,9 @@ describe("IntegrationSelectGrid", () => {
     const cards = host.querySelectorAll("button");
     expect(cards.length).toBe(4);
     expect(host.textContent).toContain("Jellyfin");
-    expect(host.textContent).toContain("Sonarr");
-    expect(host.textContent).toContain("Radarr");
-    expect(host.textContent).toContain("SABnzbd");
+    expect(host.textContent).toContain("Emby");
+    expect(host.textContent).toContain("Navidrome");
+    expect(host.textContent).toContain("Audiobookshelf");
   });
 
   it("renders tied widgets with icons and labels inside integration cards", async () => {
@@ -130,7 +130,7 @@ describe("IntegrationSelectGrid", () => {
     const integrationData = [
       { kind: "jellyfin" as IntegrationKind, name: "Home Jellyfin" },
       { kind: "jellyfin" as IntegrationKind, name: "Remote Jellyfin" },
-      { kind: "sonarr" as IntegrationKind, name: "Sonarr Instance" },
+      { kind: "emby" as IntegrationKind, name: "Emby Instance" },
     ];
 
     await act(async () =>
@@ -138,7 +138,7 @@ describe("IntegrationSelectGrid", () => {
         <MantineProvider>
           <IntegrationSelectGrid
             onSelect={onSelect}
-            allowedKinds={["jellyfin", "radarr"]}
+            allowedKinds={["jellyfin", "navidrome"]}
             integrationData={integrationData}
           />
         </MantineProvider>,
@@ -148,7 +148,7 @@ describe("IntegrationSelectGrid", () => {
     // Jellyfin has 2 connected
     expect(host.textContent).toContain("2 connected");
 
-    // Radarr has 0 connected, so it doesn't show "0 connected"
+    // Navidrome has 0 connected, so it doesn't show "0 connected"
     expect(host.textContent).not.toContain("0 connected");
   });
 
@@ -157,7 +157,7 @@ describe("IntegrationSelectGrid", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "sonarr", "radarr", "plex"]} />
+          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "emby", "navidrome", "plex"]} />
         </MantineProvider>,
       ),
     );
@@ -178,8 +178,8 @@ describe("IntegrationSelectGrid", () => {
     const cards = host.querySelectorAll("button");
     expect(cards.length).toBe(1);
     expect(host.textContent).toContain("Jellyfin");
-    expect(host.textContent).not.toContain("Sonarr");
-    expect(host.textContent).not.toContain("Radarr");
+    expect(host.textContent).not.toContain("Emby");
+    expect(host.textContent).not.toContain("Navidrome");
   });
 
   it("displays empty state when no integrations match search query", async () => {
@@ -187,7 +187,7 @@ describe("IntegrationSelectGrid", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "sonarr"]} />
+          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "emby"]} />
         </MantineProvider>,
       ),
     );
@@ -211,7 +211,7 @@ describe("IntegrationSelectGrid", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "sonarr"]} />
+          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["jellyfin", "emby"]} />
         </MantineProvider>,
       ),
     );
@@ -238,14 +238,14 @@ describe("IntegrationSelectGrid", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["sonarr"]} />
+          <IntegrationSelectGrid onSelect={onSelect} allowedKinds={["emby"]} />
         </MantineProvider>,
       ),
     );
 
     const cardButton = host.querySelector("button");
     await act(async () => cardButton?.click());
-    expect(onSelect).toHaveBeenCalledWith("sonarr");
+    expect(onSelect).toHaveBeenCalledWith("emby");
   });
 
   it("includes mock integration when enableMockIntegration is true", async () => {
@@ -253,13 +253,13 @@ describe("IntegrationSelectGrid", () => {
     await act(async () =>
       root.render(
         <MantineProvider>
-          <IntegrationSelectGrid onSelect={onSelect} enableMockIntegration allowedKinds={["mock", "sonarr"]} />
+          <IntegrationSelectGrid onSelect={onSelect} enableMockIntegration allowedKinds={["mock", "emby"]} />
         </MantineProvider>,
       ),
     );
 
     expect(host.textContent).toContain("Mock");
-    expect(host.textContent).toContain("Sonarr");
+    expect(host.textContent).toContain("Emby");
   });
 
   it("excludes mock integration when enableMockIntegration is false", async () => {

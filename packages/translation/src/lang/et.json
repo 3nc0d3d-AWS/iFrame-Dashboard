@@ -3372,27 +3372,6 @@
 				"noForecast": "Prognoosiandmed pole saadaval"
 			}
 		},
-		"indexerManager": {
-			"name": "Indekseerijate halduri olek",
-			"description": "Teie indekseerijate olek",
-			"option": {
-				"openIndexerSiteInNewTab": {
-					"label": "Ava indekseerija sait uuel vahelehel"
-				}
-			},
-			"title": "Indekseerijate haldur",
-			"testAll": "Testi kõiki",
-			"status": {
-				"healthy": "Terve",
-				"unhealthy": "Ebatervislik",
-				"disabled": "Keelatud",
-				"unknown": "Terviseseisund pole saadaval"
-			},
-			"error": {
-				"internalServerError": "Indekseerijate oleku hankimine ebaõnnestus",
-				"testAll": "Indekseerija test nurjus. Proovi uuesti."
-			}
-		},
 		"healthMonitoring": {
 			"name": "Süsteemi tervise jälgimine",
 			"description": "Näitab teavet, mis kajastab teie süsteemi(de) tervist ja olekut.",
@@ -3653,60 +3632,6 @@
 			},
 			"error": {
 				"internalServerError": "UPS-i andmete toomine nurjus"
-			}
-		},
-		"tracearr": {
-			"description": "Täiustatud meediaserveri jälgimine üksikasjalike voo- ja transkodeerimisandmetega",
-			"option": {
-				"showStreams": {
-					"label": "Näita aktiivseid vooge"
-				},
-				"showStats": {
-					"label": "Näita statistika kokkuvõtet"
-				},
-				"showRecentActivity": {
-					"label": "Näita hiljutist tegevust"
-				},
-				"showViolations": {
-					"label": "Näita rikkumisi"
-				}
-			},
-			"stats": {
-				"activeStreams": "Aktiivsed vood",
-				"totalUsers": "Kasutajaid kokku",
-				"transcodes": "Transkodeerimised",
-				"bandwidth": "Ribalaius"
-			},
-			"streams": {
-				"empty": "Aktiivseid vooge pole",
-				"user": "Kasutaja",
-				"media": "Meedia",
-				"state": "Olek",
-				"quality": "Kvaliteet",
-				"device": "Seade",
-				"progress": "Edenemine",
-				"videoDecision": {
-					"directPlay": "Otseesitus",
-					"transcode": "Transkodeerimine",
-					"directStream": "Otsevoog"
-				}
-			},
-			"recentActivity": {
-				"title": "Hiljutine tegevus",
-				"empty": "Hiljutist tegevust pole",
-				"watched": "Vaadatud",
-				"partial": "Osaline"
-			},
-			"violations": {
-				"title": "Rikkumised",
-				"empty": "Hiljutisi rikkumisi pole",
-				"rule": "Reegel",
-				"user": "Kasutaja"
-			},
-			"noSectionsEnabled": "Ükski jaotis pole lubatud",
-			"error": {
-				"noIntegration": "Tracearri integratsiooni pole seadistatud",
-				"internalServerError": "Tracearri andmete toomine ebaõnnestus"
 			}
 		},
 		"umami": {
@@ -4301,35 +4226,6 @@
 				"internalServerError": "PatchMoni andmete toomine nurjus"
 			}
 		},
-		"bazarr": {
-			"description": "Bazarr'i eksemplari puuduvate subtiitrite ja seisundi ülevaade",
-			"episodes": "Puuduvad osad",
-			"movies": "Puuduvad filmid",
-			"providers": "Teenusepakkujate probleemid",
-			"status": "Seisundiprobleemid",
-			"announcements": "Teadaanded",
-			"option": {
-				"showMissingEpisodes": {
-					"label": "Kuva puuduvad osad",
-					"description": "Kuva subtiitriteta osade arv"
-				},
-				"showMissingMovies": {
-					"label": "Kuva puuduvad filmid",
-					"description": "Kuva subtiitriteta filmide arv"
-				},
-				"showProviderIssues": {
-					"label": "Kuva teenusepakkujate probleemid",
-					"description": "Kuva probleemidega subtiitriteenusepakkujate arv"
-				},
-				"showHealthIssues": {
-					"label": "Kuva seisundiprobleemid",
-					"description": "Kuva Bazarr'i seisundiprobleemide arv"
-				}
-			},
-			"error": {
-				"internalServerError": "Bazarr'i andmete toomine nurjus"
-			}
-		},
 		"immich-serverStats": {
 			"name": "Immichi serveri statistika",
 			"description": "Teave sinu Immichi eksemplari kohta",
@@ -4390,170 +4286,6 @@
 				"photo": "Foto {number}"
 			}
 		},
-		"downloads": {
-			"name": "Allalaadimishaldur",
-			"description": "Võimaldab vaadata ja hallata allalaadimisi nii Torrenti kui Usenet'i klientidest.",
-			"option": {
-				"showCompletedUsenet": {
-					"label": "Näita Usenet'i kirjeid, mis on märgitud lõpetatuks"
-				},
-				"showCompletedTorrent": {
-					"label": "Näita torrentikirjeid, mis on märgitud lõpetatuks"
-				},
-				"showCompletedHttp": {
-					"label": "Kuva lõpetatuks märgitud mitmesugused kirjed"
-				},
-				"includeArchivedHistory": {
-					"label": "",
-					"description": ""
-				},
-				"historyWindowDays": {
-					"label": "",
-					"description": ""
-				},
-				"activeTorrentThreshold": {
-					"label": "Peida lõpetatud torrent alla selle läve"
-				},
-				"categoryFilter": {
-					"label": "Filtreeritavad kategooriad/sildid"
-				},
-				"filterIsWhitelist": {
-					"label": "Filtreeri lubatute loendina"
-				},
-				"applyFilterToRatio": {
-					"label": "Kasuta filtrit suhte arvutamiseks"
-				},
-				"limitPerIntegration": {
-					"label": "Piira üksusi integratsiooni kohta",
-					"description": "See piirab iga integratsiooni kohta kuvatavate üksuste arvu, mitte koguarvu"
-				}
-			},
-			"errors": {
-				"noColumns": "Vali üksuste veerud",
-				"noCommunications": "Andmeid ei saa integratsioonist laadida",
-				"noItems": "Allalaadimisi ei leitud",
-				"actionFailed": "Toiming nurjus",
-				"actionFailedMessage": "Toimingut ei saanud lõpule viia. Proovi uuesti."
-			},
-			"items": {
-				"actions": {
-					"columnTitle": "Juhtelemendid"
-				},
-				"added": {
-					"columnTitle": "Lisatud",
-					"detailsTitle": "Lisamise kuupäev"
-				},
-				"category": {
-					"columnTitle": "Lisad",
-					"detailsTitle": "Kategooriad (või lisateave)"
-				},
-				"downSpeed": {
-					"columnTitle": "Alla",
-					"detailsTitle": "Allalaadimiskiirus"
-				},
-				"index": {
-					"columnTitle": "#",
-					"detailsTitle": "Praegune indeks kliendi sees"
-				},
-				"id": {
-					"columnTitle": "Üksuse ID",
-					"detailsTitle": "Üksuse ID"
-				},
-				"integration": {
-					"columnTitle": "Integratsioon"
-				},
-				"name": {
-					"columnTitle": "Töö nimetus"
-				},
-				"progress": {
-					"columnTitle": "Edenemine",
-					"detailsTitle": "Allalaadimise edenemine"
-				},
-				"ratio": {
-					"columnTitle": "Suhe",
-					"detailsTitle": "Torrenti suhe (vastuvõetud/saadetud)"
-				},
-				"received": {
-					"columnTitle": "Kokku alla",
-					"detailsTitle": "Kokku alla laetud"
-				},
-				"sent": {
-					"columnTitle": "Kokku üles",
-					"detailsTitle": "Kokku üles laetud"
-				},
-				"size": {
-					"columnTitle": "Faili suurus",
-					"detailsTitle": "Valiku/failide kogusuurus"
-				},
-				"state": {
-					"columnTitle": "Olek",
-					"detailsTitle": "Töö olek"
-				},
-				"time": {
-					"columnTitle": "Lõpuaeg",
-					"detailsTitle": "Aeg lõpetamisest/kuni lõpetamiseni",
-					"eta": "Eeldatav aeg"
-				},
-				"type": {
-					"columnTitle": "Tüüp",
-					"detailsTitle": "Allalaadimishalduri tüüp"
-				},
-				"upSpeed": {
-					"columnTitle": "Üles",
-					"detailsTitle": "Üleslaadimiskiirus"
-				}
-			},
-			"states": {
-				"downloading": "Allalaadimine",
-				"queued": "Järjekorras",
-				"paused": "Peatatud",
-				"completed": "Lõpetatud",
-				"failed": "Ebaõnnestunud",
-				"processing": "Töötlemine",
-				"leeching": "Leech'imine",
-				"stalled": "Seiskunud",
-				"unknown": "Tundmatu",
-				"seeding": "Seeditamine"
-			},
-			"actions": {
-				"clients": {
-					"modalTitle": "Allalaadimishaldurite nimekiri",
-					"pause": "Peata kõik kliendid/üksused",
-					"resume": "Jätka kõiki kliente/üksuseid"
-				},
-				"client": {
-					"pause": "Peata klient",
-					"resume": "Jätka klienti"
-				},
-				"item": {
-					"pause": "Peata üksus",
-					"resume": "Jätka üksust",
-					"delete": {
-						"title": "Kustuta üksus",
-						"modalTitle": "Kas olete kindel, et soovite selle töö kustutada?",
-						"entry": "Kustuta kirje",
-						"entryAndFiles": "Kustuta kirje ja fail(id)"
-					}
-				}
-			},
-			"globalRatio": "Globaalne suhe",
-			"contextMenu": {
-				"copyName": "Kopeeri nimi",
-				"copyId": "Kopeeri ID",
-				"clearFilters": "Tühjenda filtrid"
-			},
-			"footer": {
-				"filter": "Filtreeri allalaadimisi"
-			},
-			"stats": {
-				"show": "Kuva üldstatistikat",
-				"hide": "Peida üldstatistika",
-				"overallProgress": "Järjekorra üldine edenemine",
-				"totalSize": "Järjekorra kogumaht",
-				"clients": "{count, plural, one {# klient} other {# klienti}}"
-			},
-			"disconnected": "(ühenduseta)"
-		},
 		"mediaReleases": {
 			"name": "Meedia väljalasked",
 			"description": "Kuva eri integratsioonidest äsja lisatud meediaüksusi või peagi ilmuvaid väljalaskeid",
@@ -4581,73 +4313,6 @@
 			},
 			"length": {
 				"duration": "{length} min"
-			}
-		},
-		"mediaRequests-requestList": {
-			"name": "Meediapäringute nimekiri",
-			"description": "Vaata kõiki meediapäringuid oma Overseerr või Jellyseerr eksemplarist",
-			"empty": {
-				"title": "Meediumipäringuid pole veel",
-				"description": "Päringu alustamiseks otsi filmi või saadet."
-			},
-			"option": {
-				"linksTargetNewTab": {
-					"label": "Ava lingid uuel vahelehel"
-				},
-				"statusFilter": {
-					"label": "Kuvatavad olekud"
-				},
-				"recentDays": {
-					"label": "Kuva ainult hiljutised päringud"
-				}
-			},
-			"pending": {
-				"approve": "Kinnita päring",
-				"approving": "Päringu kinnitamine...",
-				"decline": "Keeldu päringust"
-			},
-			"availability": {
-				"unknown": "Tundmatu",
-				"pending": "Ootel",
-				"processing": "Töötlemine",
-				"requested": "Taotletud",
-				"partiallyAvailable": "Osaline",
-				"available": "Saadaval",
-				"blacklisted": "Mustas nimekirjas",
-				"deleted": "Kustutatud"
-			},
-			"status": {
-				"pending": "Ootel",
-				"approved": "Kinnitatud",
-				"declined": "Tagasi lükatud",
-				"failed": "Nurjus",
-				"completed": "Lõpetatud"
-			},
-			"unknown": "Teadmata",
-			"toBeDetermined": "Tuleb määrata"
-		},
-		"mediaRequests-requestStats": {
-			"name": "Meediapäringute statistika",
-			"description": "Statistika teie meediapäringute kohta",
-			"empty": {
-				"title": "Päringutegevust pole veel",
-				"description": "Statistika kuvatakse pärast esimest meediumipäringut."
-			},
-			"titles": {
-				"stats": {
-					"main": "Meedia statistika",
-					"approved": "Juba kinnitatud",
-					"pending": "Kinnitamist ootavad",
-					"processing": "Töötlemisel",
-					"declined": "Juba tagasi lükatud",
-					"available": "Juba saadaval",
-					"tv": "TV päringud",
-					"movie": "Filmipäringud"
-				},
-				"users": {
-					"main": "Parimad kasutajad",
-					"requests": "Päringud"
-				}
 			}
 		},
 		"mediaTranscoding": {
@@ -4702,36 +4367,6 @@
 					"healthChecks": "Tervisekontrollid"
 				}
 			}
-		},
-		"mediaMissing": {
-			"name": "Puuduv ja järjekorras olev meedia",
-			"description": "Kuvab Radarrist ja Sonarrist puuduvad ning järjekorras olevad filmid ja osad",
-			"option": {
-				"showMissing": {
-					"label": "Kuva puuduvad üksused"
-				},
-				"showQueued": {
-					"label": "Kuva järjekorras olevad üksused"
-				},
-				"pageSize": {
-					"label": "Üksusi lehel"
-				}
-			},
-			"tab": {
-				"missing": "Puuduvad",
-				"queued": "Järjekorras"
-			},
-			"type": {
-				"movie": "Film",
-				"episode": "Osa",
-				"book": "Raamat"
-			},
-			"empty": {
-				"missing": "Puuduvaid üksusi pole",
-				"queued": "Järjekorras olevaid üksusi pole",
-				"noTabsEnabled": "Luba vidina seadetes vähemalt üks vahekaart"
-			},
-			"timeLeft": "Aega jäänud"
 		},
 		"rssFeed": {
 			"name": "RSS-voogud",
@@ -8093,11 +7728,6 @@
 				"label": "Veeb",
 				"placeholder": "Otsi välise otsingumootori abil"
 			},
-			"media": {
-				"label": "Meedia",
-				"placeholder": "Otsi filmi või saadet",
-				"fallback": "Otsi meediast „{query}“"
-			},
 			"userGroup": {
 				"label": "Inimesed",
 				"placeholder": "Otsi kasutajaid ja rühmi"
@@ -8322,33 +7952,6 @@
 							}
 						}
 					}
-				}
-			},
-			"media": {
-				"help": "Otsi taotlemiseks filme või sarju",
-				"requestMovie": "Filmi taotlemine",
-				"requestSeries": "Sarja taotlemine",
-				"openIn": "Ava rakenduses {kind}",
-				"group": {
-					"title": "Filmid ja sarjad"
-				},
-				"action": {
-					"search": {
-						"label": "Otsi filme või sarju",
-						"description": "Alusta otsingut oma meediumitaotluste integratsioonides",
-						"disabled": {
-							"noIntegration": "Meediumiotsingu lubamiseks lisa Overseerri, Jellyseerri või Seerri integratsioon.",
-							"signInRequired": "Meediapäringu integratsioonide otsimiseks logige sisse.",
-							"scoped": "Sellel vidinal pole juurdepääsetavat meediumitaotluste integratsiooni."
-						}
-					}
-				},
-				"availability": {
-					"available": "Saadaval",
-					"partiallyAvailable": "Osaliselt saadaval",
-					"processing": "Töötlemine",
-					"requested": "Taotletud",
-					"pending": "Taotletud"
 				}
 			},
 			"external": {
@@ -8600,26 +8203,6 @@
 						"error": {
 							"title": "Otsingumootorit ei kustutatud",
 							"message": "Otsingumootorit ei saanud kustutada"
-						}
-					}
-				}
-			},
-			"media": {
-				"request": {
-					"modal": {
-						"title": "Taotle „{name}“",
-						"table": {
-							"header": {
-								"season": "Hooaeg",
-								"episodes": "Osad",
-								"status": "Olek"
-							},
-							"status": {
-								"requested": "Taotletud"
-							}
-						},
-						"button": {
-							"send": "Saada taotlus"
 						}
 					}
 				}
